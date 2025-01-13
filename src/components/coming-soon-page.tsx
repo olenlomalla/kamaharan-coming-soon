@@ -2,6 +2,7 @@ import React from "react";
 import { Mail } from "lucide-react";
 import { DynamicBackgroundGrid } from "./dynamic-background-grid";
 import { backgroundImages } from "./config";
+import { Logo } from "./Logo";
 import "./coming-soon.css";
 
 export const ComingSoonPage = () => {
@@ -41,13 +42,17 @@ export const ComingSoonPage = () => {
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-[600px] mx-auto text-center space-y-8">
-          <div className="text-3xl font-bold font-syne logo">
-            Kamaharan
+          <div className="flex justify-center">
+            <Logo />
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-syne main-heading">
             Discover London's Finest Local Businesses
           </h1>
+          
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+            Your gateway to authentic local experiences. We're building a community that connects shoppers with London's most unique and trusted local businesses.
+          </p>
           
           <p className="text-xl timer-label">
             Launch Date: February 15, 2025

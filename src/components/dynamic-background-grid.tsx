@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface BackgroundColumnProps {
   image: string;
@@ -8,10 +8,34 @@ interface BackgroundColumnProps {
 export const DynamicBackgroundGrid: React.FC<{
   columns: BackgroundColumnProps[];
 }> = ({ columns }) => {
+  const columnRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    columnRefs.current.forEach((column, index) => {
+      if (column) {
+        const delay = index * 200; // Stagger the animations
+        const direction = index % 2 === 0 ? '20px' : '-20px';
+        
+        column.style.opacity = '0';
+        column.style.transform = `translateY(${direction})`;
+        
+        setTimeout(() => {
+          column.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+          column.style.opacity = '1';
+          column.style.transform = 'translateY(0)';
+        }, delay);
+      }
+    });
+  }, []);
+
   return (
     <div className="absolute inset-0 grid grid-cols-5 h-full">
       {columns.map((column, index) => (
-        <div key={index} className="relative h-full overflow-hidden group">
+        <div 
+          key={index} 
+          ref={el => columnRefs.current[index] = el}
+          className="relative h-full overflow-hidden group"
+        >
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: `url(${column.image})` }}

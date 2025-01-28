@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ComingSoonPage } from './pages/coming-soon-page';
-import { DashboardPage } from './pages/dashboard/DashboardPage';
-import { OnboardingPage } from './pages/onboarding/OnboardingPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ComingSoonPage from "./pages/coming-soon-page";
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import OnboardingPage from "./pages/onboarding/OnboardingPage";
 
 const App = () => {
   return (

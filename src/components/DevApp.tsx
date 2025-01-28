@@ -1,6 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Logo } from '../components/ui/Logo'
+import { Link } from "react-router-dom";
+import { Logo } from "../components/ui/Logo";
 
 export const DevApp = () => {
   return (
@@ -16,7 +15,7 @@ export const DevApp = () => {
           </Link>
         </div>
       </header>
-      
+
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <h1 className="text-2xl font-bold text-gray-title font-heading animate-fadeIn">
           Development Environment
@@ -26,5 +25,5 @@ export const DevApp = () => {
         </p>
       </main>
     </div>
-  )
-}
+  );
+};

@@ -1,17 +1,17 @@
 // src/components/ErrorBoundary.tsx
-import React from 'react'
+import React from "react";
 
-class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
 > {
   constructor(props: { children: React.ReactNode }) {
-    super(props)
-    this.state = { hasError: false }
+    super(props);
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(_: Error) {
-    return { hasError: true }
+    return { hasError: true };
   }
 
   render() {
@@ -20,7 +20,7 @@ class ErrorBoundary extends React.Component<
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center">
             <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
-            <button 
+            <button
               onClick={() => this.setState({ hasError: false })}
               className="bg-blue-500 text-white px-4 py-2 rounded"
             >
@@ -28,9 +28,9 @@ class ErrorBoundary extends React.Component<
             </button>
           </div>
         </div>
-      )
+      );
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }

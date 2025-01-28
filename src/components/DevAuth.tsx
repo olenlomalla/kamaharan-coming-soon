@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { authenticate } from '../middleware/auth';
-import { useNavigate } from 'react-router-dom';
-import { Logo } from './Logo';
+import React, { useState } from "react";
+import { authenticate } from "../middleware/auth";
+import { useNavigate } from "react-router-dom";
+import { Logo } from "./ui/Logo";
 
 export const DevAuth = () => {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (authenticate(password)) {
-      navigate('/dev');
+      navigate("/dev");
     } else {
-      setError('Invalid password');
+      setError("Invalid password");
     }
   };
 
@@ -21,12 +21,17 @@ export const DevAuth = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
         <div className="flex justify-center mb-8">
-          <Logo variant="colored" />
+          <Logo variant="mark" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Development Access</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Development Access
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input

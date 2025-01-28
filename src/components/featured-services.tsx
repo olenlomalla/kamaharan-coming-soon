@@ -1,5 +1,4 @@
-import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart } from "lucide-react";
 
 interface Service {
   id: string;
@@ -12,29 +11,29 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: '1',
-    name: 'Green Plate',
-    price: '£4.40',
-    discount: '45% off',
+    id: "1",
+    name: "Green Plate",
+    price: "£4.40",
+    discount: "45% off",
     rating: 4.8,
-    reviews: 234
+    reviews: 234,
   },
   {
-    id: '2',
-    name: 'Key Haven',
-    price: '£2.80',
-    discount: '50% off',
+    id: "2",
+    name: "Key Haven",
+    price: "£2.80",
+    discount: "50% off",
     rating: 4.6,
-    reviews: 189
+    reviews: 189,
   },
   {
-    id: '3',
-    name: 'The Royal Wellness Spa',
-    price: '£2.20',
-    discount: '40% off',
+    id: "3",
+    name: "The Royal Wellness Spa",
+    price: "£2.20",
+    discount: "40% off",
     rating: 4.2,
-    reviews: 126
-  }
+    reviews: 126,
+  },
 ];
 
 export const FeaturedServices = () => {
@@ -47,23 +46,46 @@ export const FeaturedServices = () => {
         <div className="flex gap-2">
           <button className="p-2 rounded-full border border-gray-200 hover:bg-gray-50">
             <span className="sr-only">Previous</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button className="p-2 rounded-full border border-gray-200 hover:bg-gray-50">
             <span className="sr-only">Next</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
         {services.map((service) => (
           <div key={service.id} className="flex flex-col">
-            <div className="relative group rounded-lg overflow-hidden bg-gray-200" style={{ height: '200px' }}>
+            <div
+              className="relative group rounded-lg overflow-hidden bg-gray-200"
+              style={{ height: "200px" }}
+            >
               {/* Placeholder for service image */}
               <div className="w-full h-full flex items-center justify-center text-gray-400">
                 IMG
@@ -78,8 +100,12 @@ export const FeaturedServices = () => {
             <div className="mt-3">
               <h3 className="font-medium text-gray-900">{service.name}</h3>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-sm font-medium text-gray-900">{service.price}</span>
-                <span className="text-sm text-green-600">{service.discount}</span>
+                <span className="text-sm font-medium text-gray-900">
+                  {service.price}
+                </span>
+                <span className="text-sm text-green-600">
+                  {service.discount}
+                </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
                 <div className="flex items-center">
@@ -87,7 +113,9 @@ export const FeaturedServices = () => {
                     <svg
                       key={i}
                       className={`w-4 h-4 ${
-                        i < Math.floor(service.rating) ? 'text-yellow-400' : 'text-gray-300'
+                        i < Math.floor(service.rating)
+                          ? "text-yellow-400"
+                          : "text-gray-300"
                       }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"

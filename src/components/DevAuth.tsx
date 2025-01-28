@@ -21,7 +21,7 @@ export const DevAuth = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
         <div className="flex justify-center mb-8">
-          <Logo variant="colored" />
+          <Logo variant="mark" />
         </div>
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Development Access

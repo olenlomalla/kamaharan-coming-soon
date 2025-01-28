@@ -5,31 +5,20 @@ import WelcomeStep from "./steps/WelcomeStep";
 import SuccessStep from "./steps/SuccessStep";
 import LocationStep from "./steps/LocationStep";
 import NotificationsStep from "./steps/NotificationsStep";
-
-// Types
-interface UserData {
-  userType?: "business" | "customer";
-  categories?: string[];
-  location?: {
-    city: string;
-    coordinates?: {
-      lat: number;
-      lng: number;
-    };
-  };
-  notifications?: {
-    email: boolean;
-    sms: boolean;
-    pushNotifications: boolean;
-  };
-}
+import { UserData } from "@/types/onboarding";
+import { OnboardingStepProps } from "@/types/onboarding";
 
 const OnboardingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [userData, setUserData] = useState<UserData>({});
 
-  const steps = [WelcomeStep, LocationStep, NotificationsStep, SuccessStep];
+  const steps: React.FC<OnboardingStepProps>[] = [
+    WelcomeStep,
+    LocationStep,
+    NotificationsStep,
+    SuccessStep,
+  ];
 
   const updateUserData = (newData: Partial<UserData>) => {
     setUserData((prevData) => ({ ...prevData, ...newData }));
@@ -54,10 +43,18 @@ const OnboardingPage: React.FC = () => {
 
   return (
     <CurrentStepComponent
+      title="Step Title"
+      description="Step Description"
+      image="/default.svg"
+      mobileImage="/default-mobile.svg"
+      onNext={nextStep}
+      onBack={prevStep}
+      isFirstStep={currentStep === 0}
+      isLastStep={currentStep === steps.length - 1}
+      currentStep={currentStep + 1}
+      totalSteps={steps.length}
       userData={userData}
       updateUserData={updateUserData}
-      onNext={nextStep}
-      onPrevious={prevStep}
     />
   );
 };

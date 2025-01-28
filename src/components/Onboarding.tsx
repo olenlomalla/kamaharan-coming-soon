@@ -1,15 +1,20 @@
 import { useState } from "react";
 import WelcomeStep from "@/pages/onboarding/steps/WelcomeStep";
-// import CategoryStep from "@/pages/onboarding/steps/CategoryStep";
 import LocationStep from "@/pages/onboarding/steps/LocationStep";
 import NotificationsStep from "@/pages/onboarding/steps/NotificationsStep";
-
-interface OnboardingProps {
-  onComplete: () => void;
-}
+import {
+  OnboardingProps,
+  OnboardingStepProps,
+  UserData,
+} from "@/types/onboarding";
 
 export function Onboarding({ onComplete }: OnboardingProps) {
   const [currentStep, setCurrentStep] = useState(0);
+  const [userData, setUserData] = useState<UserData>({});
+
+  const updateUserData = (newData: Partial<UserData>) => {
+    setUserData((prevData) => ({ ...prevData, ...newData }));
+  };
 
   const steps = [
     {
@@ -57,7 +62,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     }
   };
 
-  const CurrentStep = steps[currentStep].component;
+  const CurrentStep = steps[currentStep]
+    .component as React.FC<OnboardingStepProps>;
 
   return (
     <div className="fixed inset-0 bg-white z-50">
@@ -81,6 +87,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           isLastStep={currentStep === steps.length - 1}
           currentStep={currentStep + 1}
           totalSteps={steps.length}
+          userData={userData}
+          updateUserData={updateUserData}
         />
       </div>
     </div>

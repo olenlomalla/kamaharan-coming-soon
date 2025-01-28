@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // Step Components
-import WelcomeStep from './steps/WelcomeStep';
-import SuccessStep from './steps/SuccessStep';
-import LocationStep from './steps/LocationStep';
-import NotificationsStep from './steps/NotificationsStep';
+import WelcomeStep from "./steps/WelcomeStep";
+import SuccessStep from "./steps/SuccessStep";
+import LocationStep from "./steps/LocationStep";
+import NotificationsStep from "./steps/NotificationsStep";
 
 // Types
 interface UserData {
-  userType?: 'business' | 'customer';
+  userType?: "business" | "customer";
   categories?: string[];
   location?: {
     city: string;
@@ -29,12 +29,7 @@ const OnboardingPage: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [userData, setUserData] = useState<UserData>({});
 
-  const steps = [
-    WelcomeStep,
-    LocationStep,
-    NotificationsStep,
-    SuccessStep,
-  ];
+  const steps = [WelcomeStep, LocationStep, NotificationsStep, SuccessStep];
 
   const updateUserData = (newData: Partial<UserData>) => {
     setUserData((prevData) => ({ ...prevData, ...newData }));
@@ -45,7 +40,7 @@ const OnboardingPage: React.FC = () => {
       setCurrentStep((prevStep) => prevStep + 1);
     } else {
       // Final step - complete onboarding
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
   };
 

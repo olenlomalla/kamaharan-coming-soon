@@ -1,9 +1,9 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { OnboardingSlide } from '../OnboardingSlide';
+import { describe, it, expect, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import OnboardingSlide from "@/components/onboarding-slide";
 
-describe('OnboardingSlide', () => {
-  it('renders with correct props', () => {
+describe("OnboardingSlide", () => {
+  it("renders with correct props", () => {
     render(
       <OnboardingSlide
         title="Find your new favourite spots"
@@ -13,12 +13,20 @@ describe('OnboardingSlide', () => {
       />
     );
 
-    expect(screen.getByText('Find your new favourite spots')).toBeInTheDocument();
-    expect(screen.getByText("From top-rated restaurants to trusted handymen, we've got London covered")).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /next|get started/i })).toBeInTheDocument();
+    expect(
+      screen.getByText("Find your new favourite spots")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "From top-rated restaurants to trusted handymen, we've got London covered"
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /next|get started/i })
+    ).toBeInTheDocument();
   });
 
-  it('renders correct number of progress dots', () => {
+  it("renders correct number of progress dots", () => {
     render(
       <OnboardingSlide
         title="Test Title"
@@ -28,13 +36,15 @@ describe('OnboardingSlide', () => {
       />
     );
 
-    const dots = screen.getAllByRole('generic').filter(element => 
-      element.className.includes('flex shrink-0 h-2 rounded')
-    );
+    const dots = screen
+      .getAllByRole("generic")
+      .filter((element) =>
+        element.className.includes("flex shrink-0 h-2 rounded")
+      );
     expect(dots).toHaveLength(4);
   });
 
-  it('calls onNext when next button is clicked', () => {
+  it("calls onNext when next button is clicked", () => {
     const onNext = vi.fn();
     render(
       <OnboardingSlide
@@ -46,11 +56,11 @@ describe('OnboardingSlide', () => {
       />
     );
 
-    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+    fireEvent.click(screen.getByRole("button", { name: /next/i }));
     expect(onNext).toHaveBeenCalled();
   });
 
-  it('calls onSkip when skip button is clicked', () => {
+  it("calls onSkip when skip button is clicked", () => {
     const onSkip = vi.fn();
     render(
       <OnboardingSlide
@@ -62,7 +72,7 @@ describe('OnboardingSlide', () => {
       />
     );
 
-    fireEvent.click(screen.getByRole('button', { name: /skip/i }));
+    fireEvent.click(screen.getByRole("button", { name: /skip/i }));
     expect(onSkip).toHaveBeenCalled();
   });
 
@@ -76,6 +86,8 @@ describe('OnboardingSlide', () => {
       />
     );
 
-    expect(screen.getByRole('button', { name: /get started/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /get started/i })
+    ).toBeInTheDocument();
   });
 });

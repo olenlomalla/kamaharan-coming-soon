@@ -1,5 +1,4 @@
-import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart } from "lucide-react";
 
 interface ServiceCategory {
   id: string;
@@ -9,35 +8,35 @@ interface ServiceCategory {
 
 const categories: ServiceCategory[] = [
   {
-    id: '1',
-    name: 'Eating Out',
-    link: '/eating-out'
+    id: "1",
+    name: "Eating Out",
+    link: "/eating-out",
   },
   {
-    id: '2',
-    name: 'Home Services',
-    link: '/home-services'
+    id: "2",
+    name: "Home Services",
+    link: "/home-services",
   },
   {
-    id: '3',
-    name: 'Car Services',
-    link: '/car-services'
+    id: "3",
+    name: "Car Services",
+    link: "/car-services",
   },
   {
-    id: '4',
-    name: 'Deals',
-    link: '/deals'
+    id: "4",
+    name: "Deals",
+    link: "/deals",
   },
   {
-    id: '5',
-    name: 'Explore',
-    link: '/explore'
+    id: "5",
+    name: "Explore",
+    link: "/explore",
   },
   {
-    id: '6',
-    name: 'Find a Business',
-    link: '/find-business'
-  }
+    id: "6",
+    name: "Find a Business",
+    link: "/find-business",
+  },
 ];
 
 export const ServiceCategorySlider = () => {
@@ -48,10 +47,7 @@ export const ServiceCategorySlider = () => {
       </h2>
       <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory hide-scrollbar">
         {categories.map((category) => (
-          <div
-            key={category.id}
-            className="flex-none w-24 snap-start"
-          >
+          <div key={category.id} className="flex-none w-24 snap-start">
             <div className="relative group">
               <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200">
                 {/* Placeholder for category image */}

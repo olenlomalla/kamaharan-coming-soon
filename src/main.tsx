@@ -1,24 +1,24 @@
 // src/main.tsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ComingSoonPage from './pages/coming-soon-page'
-import OnboardingPage from './pages/onboarding/OnboardingPage'
-import DashboardPage from './pages/dashboard/DashboardPage'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ComingSoonPage from "./pages/ComingSoonPage";
+import OnboardingPage from "./pages/onboarding/OnboardingPage";
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import "./index.css";
 
 // Add error boundary component
 const ErrorBoundary = ({ children }: { children: React.ReactNode }) => {
-  const [hasError, setHasError] = React.useState(false)
+  const [hasError, setHasError] = React.useState(false);
 
   React.useEffect(() => {
     const handleError = (error: ErrorEvent) => {
-      console.error('Error caught by boundary:', error)
-      setHasError(true)
-    }
-    window.addEventListener('error', handleError)
-    return () => window.removeEventListener('error', handleError)
-  }, [])
+      console.error("Error caught by boundary:", error);
+      setHasError(true);
+    };
+    window.addEventListener("error", handleError);
+    return () => window.removeEventListener("error", handleError);
+  }, []);
 
   if (hasError) {
     return (
@@ -33,39 +33,55 @@ const ErrorBoundary = ({ children }: { children: React.ReactNode }) => {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
-  return children
-}
+  return children;
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <ComingSoonPage />,
-    errorElement: <ErrorBoundary><ComingSoonPage /></ErrorBoundary>
+    errorElement: (
+      <ErrorBoundary>
+        <ComingSoonPage />
+      </ErrorBoundary>
+    ),
   },
   {
     path: "/onboarding",
     element: <OnboardingPage />,
-    errorElement: <ErrorBoundary><OnboardingPage /></ErrorBoundary>
+    errorElement: (
+      <ErrorBoundary>
+        <OnboardingPage />
+      </ErrorBoundary>
+    ),
   },
   {
     path: "/dashboard",
     element: <DashboardPage />,
-    errorElement: <ErrorBoundary><DashboardPage /></ErrorBoundary>
+    errorElement: (
+      <ErrorBoundary>
+        <DashboardPage />
+      </ErrorBoundary>
+    ),
   },
   {
     path: "*",
     element: <ComingSoonPage />,
-    errorElement: <ErrorBoundary><ComingSoonPage /></ErrorBoundary>
-  }
-])
+    errorElement: (
+      <ErrorBoundary>
+        <ComingSoonPage />
+      </ErrorBoundary>
+    ),
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ErrorBoundary>
       <RouterProvider router={router} />
     </ErrorBoundary>
   </React.StrictMode>
-)
+);

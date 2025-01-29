@@ -1,6 +1,6 @@
 // src/routes.tsx
-import { lazy, Suspense } from 'react';
-import { Navigate } from 'react-router-dom';
+import { lazy, Suspense } from "react";
+import { Navigate } from "react-router-dom";
 
 // Loading component
 const LoadingScreen = () => (
@@ -10,14 +10,14 @@ const LoadingScreen = () => (
 );
 
 // Lazy load components
-const ComingSoonPage = lazy(() => import('./pages/coming-soon-page'));
-const DashboardPage = lazy(() => import('./pages/dashboard/DashboardPage'));
-const OnboardingPage = lazy(() => import('./pages/onboarding/OnboardingPage'));
+const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
+const DashboardPage = lazy(() => import("./pages/dashboard/DashboardPage"));
+const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
 
 // Route configuration
 export const routes = [
   {
-    path: '/',
+    path: "/",
     element: (
       <Suspense fallback={<LoadingScreen />}>
         <DashboardPage />
@@ -25,7 +25,7 @@ export const routes = [
     ),
   },
   {
-    path: '/coming-soon',
+    path: "/coming-soon",
     element: (
       <Suspense fallback={<LoadingScreen />}>
         <ComingSoonPage />
@@ -33,7 +33,7 @@ export const routes = [
     ),
   },
   {
-    path: '/onboarding',
+    path: "/onboarding",
     element: (
       <Suspense fallback={<LoadingScreen />}>
         <OnboardingPage />
@@ -41,7 +41,7 @@ export const routes = [
     ),
   },
   {
-    path: '*',
+    path: "*",
     element: <Navigate to="/" replace />,
   },
 ];

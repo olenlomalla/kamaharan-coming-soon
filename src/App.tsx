@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ComingSoonPage from "./pages/coming-soon-page";
+import ComingSoonPage from "./pages/ComingSoonPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import OnboardingPage from "./pages/onboarding/OnboardingPage";
 

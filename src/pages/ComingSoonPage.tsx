@@ -1,7 +1,7 @@
 import React from "react";
 import GradientBackground from "@/components/coming-soon-page/background/GradientBackground";
 import UserLogin from "@/components/login/UserLogin";
-import ComingSoonPageLayout from "@/layouts/coming-soon-page/ComingSoonPageLayout";
+import ComingSoonPageLayout from "@/layouts/ComingSoonPage/ComingSoonPageLayout";
 // import LoadingSpinner from "@/components/LoadingSpinner";
 import BottomIcons from "@/components/common/BottomIcons";
 

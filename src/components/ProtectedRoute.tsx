@@ -1,5 +1,5 @@
 // components/ProtectedRoute.tsx
-import ComingSoonPage from "@/pages/coming-soon-page";
+import ComingSoonPage from "@/pages/ComingSoonPage";
 import DashboardPage from "@/pages/dashboard/DashboardPage";
 import OnboardingPage from "@/pages/onboarding/OnboardingPage";
 import { createBrowserRouter, Navigate } from "react-router-dom";

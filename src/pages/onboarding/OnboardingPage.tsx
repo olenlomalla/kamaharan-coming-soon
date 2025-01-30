@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// Step Components
-import WelcomeStep from "./steps/WelcomeStep";
-import SuccessStep from "./steps/SuccessStep";
-import LocationStep from "./steps/LocationStep";
-import NotificationsStep from "./steps/NotificationsStep";
 import { UserData } from "@/types/onboarding";
-import { OnboardingStepProps } from "@/types/onboarding";
+import { stepConfigs } from "@/constants/onboarding";
 
 const OnboardingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [userData, setUserData] = useState<UserData>({});
 
-  const steps: React.FC<OnboardingStepProps>[] = [
-    WelcomeStep,
-    LocationStep,
-    NotificationsStep,
-    SuccessStep,
-  ];
+  const steps = stepConfigs.map((config) => config.component);
 
   const updateUserData = (newData: Partial<UserData>) => {
     setUserData((prevData) => ({ ...prevData, ...newData }));
@@ -40,13 +30,14 @@ const OnboardingPage: React.FC = () => {
   };
 
   const CurrentStepComponent = steps[currentStep];
+  const currentStepConfig = stepConfigs[currentStep];
 
   return (
     <CurrentStepComponent
-      title="Step Title"
-      description="Step Description"
-      image="/default.svg"
-      mobileImage="/default-mobile.svg"
+      title={currentStepConfig.title}
+      description={currentStepConfig.description}
+      backgroundImage={currentStepConfig.backgroundImage}
+      roundedShapeColor={currentStepConfig.roundedShapeColor}
       onNext={nextStep}
       onBack={prevStep}
       isFirstStep={currentStep === 0}

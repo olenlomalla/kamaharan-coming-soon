@@ -1,8 +1,8 @@
 export interface OnboardingStepProps {
   title: string;
   description: string;
-  image: string;
-  mobileImage: string;
+  backgroundImage: string;
+  roundedShapeColor: string;
   onNext: () => void;
   onBack: () => void;
   isFirstStep: boolean;
@@ -32,4 +32,29 @@ export interface UserData {
 
 export interface OnboardingProps {
   onComplete: () => void;
+}
+
+export interface OnboardingStep {
+  title: string;
+  description: string;
+  backgroundImage: string;
+  onNext: () => void;
+  onBack: () => void;
+  currentStep: number;
+  totalSteps: number;
+  roundedShapeColor: string;
+}
+
+export interface OnboardingHeaderProps {
+  onNext: () => void;
+}
+
+export interface StepButtonProps {
+  onNext: () => void;
+  text: string;
+}
+
+export interface StepIndicatorProps {
+  currentStep: number;
+  totalSteps: number;
 }

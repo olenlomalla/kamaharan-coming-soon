@@ -1,18 +1,18 @@
 const ComingSoonPageLayout = () => {
   return (
-    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
-      <div className="w-full max-w-[600px] mx-auto text-center space-y-8">
-        <h1 className="text-4xl leading-10 max-w-[13ch] mx-auto font-bold font-syne text-[#D8E9FA] animate-fadeIn">
+    <div className="relative z-10 flex flex-col justify-center items-center px-4 min-h-screen">
+      <div className="space-y-8 mx-auto w-full max-w-[600px] text-center">
+        <h1 className="mx-auto max-w-[13ch] font-bold font-syne text-[#D8E9FA] text-[60px] text-center leading-[60px] animate-fadeIn">
           Exciting Surprises Ahead! Stay Tuned!
         </h1>
 
-        <div className="max-w-md mx-auto animate-fadeIn">
+        <div className="mx-auto max-w-md animate-fadeIn">
           <div className="flex flex-col gap-9">
-            <button className="h-12 px-8 rounded-lg font-medium bg-[#B8A888] text-[#1A2B3C] transition-colors w-full">
+            <button className="bg-[#B8A888] px-8 py-3 rounded-lg w-full font-medium font-syne text-[#1A2B3C] text-[16px] text-center leading-[24px] transition-colors">
               Join Waitlist
             </button>
 
-            <p className="text-sm text-[#B8A888]">
+            <p className="text-[#B8A888] text-sm">
               Join us in connecting London's communities with local businesses
             </p>
           </div>

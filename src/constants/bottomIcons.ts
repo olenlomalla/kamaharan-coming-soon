@@ -1,7 +1,7 @@
 export const icons = [
   {
     id: 0,
-    src: "/icons/info.svg",
+    src: "/coming-soon-alert-btn.svg",
     alt: "info",
   },
   {

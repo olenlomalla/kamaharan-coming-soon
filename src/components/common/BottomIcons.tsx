@@ -14,10 +14,10 @@ const BottomIcons = () => {
     <>
       {showInfoOverlay && (
         <div
-          className="fixed inset-0 bg-black z-10 flex items-center justify-center"
+          className="z-10 fixed inset-0 flex justify-center items-center bg-black"
           onClick={() => setShowInfoOverlay(false)}
         >
-          <div className="text-[#D1D5DB] text-center max-w-2xl px-6">
+          <div className="px-6 max-w-2xl text-[#D1D5DB] text-center animate-fadeIn duration-1000">
             <p className="text-2xl">
               Your gateway to authentic local experiences. We're building a
               community that connects shoppers with London's most unique and
@@ -27,10 +27,10 @@ const BottomIcons = () => {
         </div>
       )}
 
-      <div className="absolute bottom-0 z-10 left-0 right-0 py-6 px-4 flex justify-between items-center">
+      <div className="right-0 bottom-0 left-0 z-10 absolute flex justify-between items-center p-8 pt-0">
         {icons.map((icon) => (
           <button key={icon.id} onClick={() => handleIconClick(icon.id)}>
-            <img width={54} height={54} src={icon.src} alt={icon.alt} />
+            <img width={40} height={40} src={icon.src} alt={icon.alt} />
           </button>
         ))}
       </div>

@@ -2,13 +2,13 @@ import { OnboardingHeaderProps } from "@/types/onboarding";
 
 const OnboardingHeader = ({ onNext }: OnboardingHeaderProps) => {
   return (
-    <div className="pt-4 min-h-[5vh]">
-      <div className="flex w-full justify-between items-center px-4">
+    <div className="relative z-20 bg-transparent w-full">
+      <div className="top-0 right-0 left-0 z-20 absolute flex justify-between items-center bg-transparent px-4 w-full">
         <div className="flex-1" />
         <img src="/images/logo/logo.png" alt="logo" width={215} height={46} />
-        <div className="flex-1 flex justify-end">
+        <div className="flex flex-1 justify-end">
           <button
-            className="flex text-sm items-center justify-center border-2 border-[#385C80] rounded-full w-[80px] h-[24px]"
+            className="flex justify-center items-center border-[#385C80] border-2 bg-transparent hover:bg-[#385C80] rounded-full w-[80px] h-[24px] text-sm hover:text-white transition-all"
             onClick={onNext}
           >
             Skip

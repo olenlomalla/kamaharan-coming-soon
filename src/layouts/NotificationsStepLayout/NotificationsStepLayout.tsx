@@ -2,7 +2,7 @@ import StepButton from "@/components/common/onboarding/StepButton";
 import StepIndicator from "@/components/common/onboarding/StepIndicator";
 import { OnboardingStep } from "@/types/onboarding";
 
-const WelcomeStepLayout = ({
+const NotificationsStepLayout = ({
   title,
   description,
   onNext,
@@ -11,7 +11,7 @@ const WelcomeStepLayout = ({
   roundedShapeColor,
 }: OnboardingStep) => {
   return (
-    <div className="relative z-10 flex flex-col justify-end items-center px-4 sm:px-6 lg:px-8 min-h-[100vh] max-h-[100vh]">
+    <div className="relative z-10 flex flex-col justify-end items-center px-4 sm:px-6 lg:px-8 min-h-[100vh]">
       <div
         className="right-0 bottom-0 left-0 -z-10 absolute h-[40vh]"
         style={{
@@ -25,12 +25,12 @@ const WelcomeStepLayout = ({
         <h1 className="font-bold font-syne text-[#385C80] text-4xl">{title}</h1>
         <p className="mx-auto max-w-[30ch] text-black text-lg">{description}</p>
         <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
-        <div className="flex flex-col items-center gap-4 pb-[10px]">
-          <StepButton onNext={onNext} text="Enable Location" />
+        <div className="flex flex-col items-center gap-4 pb-[20px]">
+          <StepButton onNext={onNext} text="Let's Get Started" />
         </div>
       </div>
     </div>
   );
 };
 
-export default WelcomeStepLayout;
+export default NotificationsStepLayout;

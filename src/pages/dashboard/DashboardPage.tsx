@@ -1,7 +1,7 @@
 const DashboardPage = () => {
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <h1 className="font-bold text-2xl">Dashboard</h1>
     </div>
   );
 };

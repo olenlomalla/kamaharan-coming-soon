@@ -1,74 +1,50 @@
-// pages/onboarding/steps/NotificationsStep.tsx
-import React, { useState } from "react";
-import { CheckCircle, X } from "lucide-react";
+import React from "react";
+import { useEffect, useState } from "react";
 import { OnboardingStepProps } from "@/types/onboarding";
+import NotificationsStepLayout from "@/layouts/NotificationsStepLayout/NotificationsStepLayout";
+import OnboardingHeader from "@/components/common/header/OnboardingHeader";
+import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
 
-const NotificationsStep: React.FC<OnboardingStepProps> = ({
+const WelcomeStep: React.FC<OnboardingStepProps> = ({
   title,
   description,
-  updateUserData,
   onNext,
   onBack,
+  currentStep,
+  totalSteps,
+  backgroundImage,
+  roundedShapeColor,
 }) => {
-  const [enableNotifications, setEnableNotifications] = useState(false);
+  const [permission, setPermission] = useState(Notification.permission);
 
-  const handleNotificationsToggle = () => {
-    setEnableNotifications(!enableNotifications);
-  };
-
-  const handleContinue = () => {
-    updateUserData({
-      notifications: {
-        email: enableNotifications,
-        sms: enableNotifications,
-        pushNotifications: enableNotifications,
-      },
-    });
-    onNext();
-  };
+  useEffect(() => {
+    if (permission === "default") {
+      Notification.requestPermission().then((perm) => {
+        setPermission(perm);
+      });
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 text-center">
-        <div className="text-4xl font-bold font-syne">{title}</div>
-        <p className="text-lg text-gray-700">{description}</p>
-        <div className="flex items-center justify-center space-x-4">
-          <button
-            className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors ${
-              enableNotifications
-                ? "bg-primary-default text-white hover:bg-primary-dark"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
-            onClick={handleNotificationsToggle}
-          >
-            {enableNotifications ? (
-              <>
-                <CheckCircle className="mr-2 w-5 h-5" />
-                Enable
-              </>
-            ) : (
-              <>
-                <X className="mr-2 w-5 h-5" />
-                Disable
-              </>
-            )}
-          </button>
-          <button
-            className="bg-primary-default text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
-            onClick={handleContinue}
-          >
-            Continue
-          </button>
-        </div>
-        <button
-          className="text-gray-700 hover:text-gray-900 transition-colors"
-          onClick={onBack}
-        >
-          Skip for now
-        </button>
-      </div>
-    </div>
+    <section className="relative min-h-screen">
+      <OnboardingBgImage
+        backgroundImage={backgroundImage}
+        backgroundColor="#FFE4BC"
+        imageHeight={500}
+      />
+      <OnboardingHeader onNext={onNext} />
+      <NotificationsStepLayout
+        onBack={onBack}
+        title={title}
+        description={description}
+        onNext={onNext}
+        currentStep={currentStep}
+        totalSteps={totalSteps}
+        backgroundImage={backgroundImage}
+        roundedShapeColor={roundedShapeColor}
+      />
+    </section>
   );
 };
 
-export default NotificationsStep;
+export default WelcomeStep;

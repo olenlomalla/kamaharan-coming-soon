@@ -1,54 +1,53 @@
-// pages/onboarding/steps/LocationStep.tsx
-import React, { useState } from "react";
+import { useEffect } from "react";
 import { OnboardingStepProps } from "@/types/onboarding";
+import LocationStepLayout from "@/layouts/LocationStepLayout/LocationStepLayout";
+import OnboardingHeader from "@/components/common/header/OnboardingHeader";
+import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
 
-const LocationStep: React.FC<OnboardingStepProps> = ({
+const WelcomeStep: React.FC<OnboardingStepProps> = ({
   title,
   description,
-  updateUserData,
   onNext,
   onBack,
+  currentStep,
+  totalSteps,
+  backgroundImage,
+  roundedShapeColor,
 }) => {
-  const [location, setLocation] = useState("");
-
-  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation(e.target.value);
-  };
-
-  const handleContinue = () => {
-    updateUserData({ location: { city: location } });
-    onNext();
-  };
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("Latitude: ", position.coords.latitude);
+          console.log("Longitude: ", position.coords.longitude);
+        },
+        (err) => {
+          console.error("Error: ", err);
+        }
+      );
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 text-center">
-        <div className="text-4xl font-bold font-syne">{title}</div>
-        <p className="text-lg text-gray-700">{description}</p>
-        <div className="flex flex-col gap-4">
-          <input
-            type="text"
-            value={location}
-            onChange={handleLocationChange}
-            placeholder="Enter your location"
-            className="px-4 py-3 bg-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-          <button
-            className="bg-primary-default text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
-            onClick={handleContinue}
-          >
-            Continue
-          </button>
-          <button
-            className="text-gray-700 hover:text-gray-900 transition-colors"
-            onClick={onBack}
-          >
-            Skip for now
-          </button>
-        </div>
-      </div>
-    </div>
+    <section className="relative min-h-screen">
+      <OnboardingBgImage
+        backgroundImage={backgroundImage}
+        backgroundColor="#FBC1BA"
+        imageHeight={500}
+      />
+      <OnboardingHeader onNext={onNext} />
+      <LocationStepLayout
+        title={title}
+        description={description}
+        onNext={onNext}
+        onBack={onBack}
+        currentStep={currentStep}
+        totalSteps={totalSteps}
+        backgroundImage={backgroundImage}
+        roundedShapeColor={roundedShapeColor}
+      />
+    </section>
   );
 };
 
-export default LocationStep;
+export default WelcomeStep;

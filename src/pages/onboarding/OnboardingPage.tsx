@@ -37,6 +37,7 @@ const OnboardingPage: React.FC = () => {
       title={currentStepConfig.title}
       description={currentStepConfig.description}
       backgroundImage={currentStepConfig.backgroundImage}
+      mobileBackgroundImage={currentStepConfig.mobileBackgroundImage}
       roundedShapeColor={currentStepConfig.roundedShapeColor}
       onNext={nextStep}
       onBack={prevStep}

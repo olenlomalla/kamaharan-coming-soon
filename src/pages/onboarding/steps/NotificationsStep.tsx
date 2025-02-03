@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { OnboardingStepProps } from "@/types/onboarding";
-import NotificationsStepLayout from "@/layouts/NotificationsStepLayout/NotificationsStepLayout";
 import OnboardingHeader from "@/components/common/header/OnboardingHeader";
 import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
+import CommonStepLayout from "@/layouts/CommonStepLayout/CommonStepLayout";
 
 const WelcomeStep: React.FC<OnboardingStepProps> = ({
   title,
@@ -13,6 +13,7 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   currentStep,
   totalSteps,
   backgroundImage,
+  mobileBackgroundImage,
   roundedShapeColor,
 }) => {
   const [permission, setPermission] = useState(Notification.permission);
@@ -29,18 +30,20 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
     <section className="relative min-h-screen">
       <OnboardingBgImage
         backgroundImage={backgroundImage}
+        mobileBackgroundImage={mobileBackgroundImage}
         backgroundColor="#FFE4BC"
       />
       <OnboardingHeader onNext={onNext} />
-      <NotificationsStepLayout
-        onBack={onBack}
+      <CommonStepLayout
         title={title}
         description={description}
         onNext={onNext}
+        onBack={onBack}
         currentStep={currentStep}
         totalSteps={totalSteps}
         backgroundImage={backgroundImage}
         roundedShapeColor={roundedShapeColor}
+        buttonText="Enable Notifications"
       />
     </section>
   );

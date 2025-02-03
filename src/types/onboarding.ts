@@ -2,6 +2,7 @@ export interface OnboardingStepProps {
   title: string;
   description: string;
   backgroundImage: string;
+  mobileBackgroundImage: string;
   roundedShapeColor: string;
   onNext: () => void;
   onBack: () => void;

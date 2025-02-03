@@ -12,6 +12,7 @@ const UserLogin = () => {
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === "admin123") {
+      console.log("Please enter");
       localStorage.setItem("authenticated", "true");
       setShowPasswordDialog(false);
       navigate("/onboarding");
@@ -22,7 +23,7 @@ const UserLogin = () => {
 
   return (
     <>
-      <div className="absolute top-4 right-4 z-20">
+      <div className="top-4 right-4 z-20 absolute">
         <button
           onClick={() => {
             setShowPasswordDialog(true);
@@ -32,13 +33,13 @@ const UserLogin = () => {
           className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors"
           aria-label="Open login dialog"
         >
-          <User className="text-white w-6 h-6" />
+          <User className="w-6 h-6 text-white" />
         </button>
       </div>
 
       {showPasswordDialog && (
         <div
-          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm"
+          className="z-50 fixed inset-0 flex justify-center items-center bg-black/50 backdrop-blur-sm"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setShowPasswordDialog(false);
@@ -47,9 +48,9 @@ const UserLogin = () => {
         >
           <form
             onSubmit={handlePasswordSubmit}
-            className="bg-white/10 p-8 rounded-xl w-full max-w-md mx-4 border border-white/20"
+            className="border-white/20 bg-white/10 mx-4 p-8 border rounded-xl w-full max-w-md"
           >
-            <h2 className="text-2xl font-bold mb-4 text-center">
+            <h2 className="mb-4 font-bold text-2xl text-center">
               Enter Password
             </h2>
             <input
@@ -60,24 +61,24 @@ const UserLogin = () => {
                 setError("");
               }}
               placeholder="Enter password"
-              className="w-full h-12 px-4 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-white mb-4"
+              className="border-white/20 focus:border-white bg-white/10 mb-4 px-4 border rounded-lg w-full h-12 focus:outline-none"
               required
               autoFocus
             />
             {error && (
-              <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+              <p className="mb-4 text-center text-red-500 text-sm">{error}</p>
             )}
             <div className="flex space-x-4">
               <button
                 type="button"
                 onClick={() => setShowPasswordDialog(false)}
-                className="flex-1 h-12 rounded-lg font-medium bg-white/10 hover:bg-white/20 transition-colors"
+                className="flex-1 bg-white/10 hover:bg-white/20 rounded-lg h-12 font-medium transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="flex-1 h-12 rounded-lg font-medium bg-primary-default text-white hover:bg-primary-dark transition-colors"
+                className="flex-1 bg-primary-default hover:bg-primary-dark rounded-lg h-12 font-medium text-white transition-colors"
               >
                 Submit
               </button>

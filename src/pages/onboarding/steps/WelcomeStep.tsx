@@ -19,7 +19,6 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
       <OnboardingBgImage
         backgroundImage={backgroundImage}
         backgroundColor="#B7D6F5"
-        imageHeight={500}
       />
       <OnboardingHeader onNext={onNext} />
       <WelcomeStepLayout

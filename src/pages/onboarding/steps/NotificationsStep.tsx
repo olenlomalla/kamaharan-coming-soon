@@ -30,7 +30,6 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
       <OnboardingBgImage
         backgroundImage={backgroundImage}
         backgroundColor="#FFE4BC"
-        imageHeight={500}
       />
       <OnboardingHeader onNext={onNext} />
       <NotificationsStepLayout

@@ -1,35 +1,20 @@
 const OnboardingBgImage = ({
   backgroundImage,
   backgroundColor,
-  imageHeight,
 }: {
   backgroundImage: string;
   backgroundColor: string;
-  imageHeight: number;
 }) => {
   return (
-    <div>
+    <div className="bg-image-onboarding-container">
       <div
-        style={{
-          position: "absolute",
-          zIndex: "-1",
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          width: "1440px",
-          height: `${imageHeight}px`,
-        }}
+        className="-z-10 absolute inset-0 bg-cover bg-no-repeat bg-center w-full h-[500px]"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
 
       <div
-        className="absolute"
-        style={{
-          width: "100%",
-          height: "100%",
-          zIndex: "-2",
-          backgroundColor: backgroundColor,
-        }}
+        className="-z-20 absolute inset-0 w-full h-full"
+        style={{ backgroundColor: backgroundColor }}
       ></div>
     </div>
   );

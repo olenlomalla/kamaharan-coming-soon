@@ -32,12 +32,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     .component as React.FC<OnboardingStepProps>;
 
   return (
-    <div className="fixed inset-0 bg-white z-50">
-      <div className="h-full flex flex-col">
+    <div className="z-50 fixed inset-0 bg-white">
+      <div className="flex flex-col h-full">
         {/* Progress bar */}
-        <div className="h-1 bg-gray-100">
+        <div className="bg-gray-100 h-1">
           <div
-            className="h-full bg-primary-default transition-all duration-300"
+            className="bg-primary-default h-full transition-all duration-300"
             style={{
               width: `${((currentStep + 1) / stepConfigs.length) * 100}%`,
             }}
@@ -55,6 +55,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           totalSteps={stepConfigs.length}
           userData={userData}
           updateUserData={updateUserData}
+          mobileBackgroundImage={stepConfigs[currentStep].mobileBackgroundImage}
           backgroundImage={stepConfigs[currentStep].backgroundImage}
           roundedShapeColor={stepConfigs[currentStep].roundedShapeColor}
         />

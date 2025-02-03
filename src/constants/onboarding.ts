@@ -11,7 +11,8 @@ export const stepConfigs = [
     description:
       "From top-rated restaurants to trusted handymen, we’ve got London covered",
     backgroundImage: "/images/onboarding/backgrounds/welcome.svg",
-    mobileBackgroundImage: "/onboarding-blue-mobile.svg",
+    mobileBackgroundImage:
+      "/images/onboarding/backgrounds/mobile/welcome-mobile.svg",
     roundedShapeColor: "#B7D6F5",
   },
   {
@@ -27,7 +28,8 @@ export const stepConfigs = [
     title: "Enable Notifications",
     description: "Stay updated with important alerts and information",
     backgroundImage: "/images/onboarding/backgrounds/notifications.svg",
-    mobileBackgroundImage: "/onboarding-yellow-mobile.svg",
+    mobileBackgroundImage:
+      "/images/onboarding/backgrounds/mobile/notifications-mobile.svg",
     roundedShapeColor: "#FFE4BC",
   },
   {

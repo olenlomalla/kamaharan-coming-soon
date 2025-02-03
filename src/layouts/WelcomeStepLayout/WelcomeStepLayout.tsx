@@ -26,7 +26,7 @@ const WelcomeStepLayout = ({
         <p className="mx-auto max-w-[30ch] text-black text-lg">{description}</p>
         <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
         <div className="flex flex-col items-center gap-4 pb-[10px]">
-          <StepButton onNext={onNext} text="Enable Location" />
+          <StepButton onNext={onNext} text="Start Exploring" />
         </div>
       </div>
     </div>

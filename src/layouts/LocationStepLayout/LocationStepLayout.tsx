@@ -25,7 +25,7 @@ const LocationStepLayout = ({
         <h1 className="font-bold font-syne text-[#385C80] text-4xl">{title}</h1>
         <p className="mx-auto max-w-[30ch] text-black text-lg">{description}</p>
         <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
-        <div className="flex flex-col items-center gap-4 pb-[20px]">
+        <div className="flex flex-col items-center gap-4 pb-[10px]">
           <StepButton onNext={onNext} text="Let's Get Started" />
         </div>
       </div>

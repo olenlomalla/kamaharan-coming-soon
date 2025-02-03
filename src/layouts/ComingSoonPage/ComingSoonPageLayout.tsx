@@ -7,12 +7,12 @@ const ComingSoonPageLayout = () => {
         </h1>
 
         <div className="mx-auto max-w-md animate-fadeIn">
-          <div className="flex flex-col gap-9">
+          <div className="flex flex-col gap-2">
             <button className="bg-[#B8A888] px-8 py-3 rounded-lg w-full font-medium font-syne text-[#1A2B3C] text-[16px] text-center leading-[24px] transition-colors">
               Join Waitlist
             </button>
 
-            <p className="text-[#B8A888] text-sm">
+            <p className="pb-2 text-[#B8A888] text-sm">
               Join us in connecting London's communities with local businesses
             </p>
           </div>

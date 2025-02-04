@@ -1,5 +1,3 @@
-import React from "react";
-
 const FooterDisclaimer = () => {
   return (
     <p className="mb-[48px] text-[#424144]">

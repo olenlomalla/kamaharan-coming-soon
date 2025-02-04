@@ -20,7 +20,8 @@ export const stepConfigs = [
     title: "Set Your Location",
     description: "Help us customize your experience by sharing your location",
     backgroundImage: "/images/onboarding/backgrounds/location.svg",
-    mobileBackgroundImage: "/onboarding-pink-mobile.svg",
+    mobileBackgroundImage:
+      "/images/onboarding/backgrounds/mobile/location-mobile.svg",
     roundedShapeColor: "#FBC1BA",
   },
   {
@@ -37,7 +38,8 @@ export const stepConfigs = [
     title: "All Set!",
     description: "You're ready to start using our app",
     backgroundImage: "/images/onboarding/backgrounds/success.svg",
-    mobileBackgroundImage: "/onboarding-green-mobile.svg",
+    mobileBackgroundImage:
+      "/images/onboarding/backgrounds/mobile/success-mobile.svg",
     roundedShapeColor: "#B2E7B1",
   },
 ];

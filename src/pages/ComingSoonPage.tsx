@@ -9,7 +9,7 @@ const ComingSoonPage: React.FC = () => {
   // const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden font-syne">
+    <div className="relative bg-black min-h-[100svh] font-syne text-white overflow-hidden">
       {/* {isLoading && <LoadingSpinner />} */}
       <GradientBackground />
       <UserLogin />

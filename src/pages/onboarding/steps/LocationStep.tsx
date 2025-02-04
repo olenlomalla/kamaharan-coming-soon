@@ -30,7 +30,7 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   }, []);
 
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-[100svh]">
       <OnboardingBgImage
         backgroundImage={backgroundImage}
         mobileBackgroundImage={mobileBackgroundImage}

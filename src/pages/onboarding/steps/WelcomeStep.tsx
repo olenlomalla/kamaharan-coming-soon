@@ -16,7 +16,7 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   roundedShapeColor,
 }) => {
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen max-h-screen">
       <OnboardingBgImage
         backgroundImage={backgroundImage}
         mobileBackgroundImage={mobileBackgroundImage}

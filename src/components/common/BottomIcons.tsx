@@ -1,7 +1,11 @@
 import { icons } from "@/constants/bottomIcons";
 import { useState } from "react";
 
-const BottomIcons = () => {
+interface BottomIconsProps {
+  isModalOpen: boolean;
+}
+
+const BottomIcons: React.FC<BottomIconsProps> = ({ isModalOpen }) => {
   const [showInfoOverlay, setShowInfoOverlay] = useState(false);
 
   const handleIconClick = (iconId: number) => {
@@ -27,7 +31,9 @@ const BottomIcons = () => {
         </div>
       )}
 
-      <div className="right-0 bottom-0 left-0 z-10 absolute flex justify-between items-center p-8 pt-[10px]">
+      <div
+        className={`right-0 bottom-0 left-0 z-10 absolute flex justify-between items-center p-8 pt-[10px] ${isModalOpen ? "hidden" : ""}`}
+      >
         {icons.map((icon) => (
           <button key={icon.id} onClick={() => handleIconClick(icon.id)}>
             <img width={40} height={40} src={icon.src} alt={icon.alt} />

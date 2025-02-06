@@ -8,18 +8,18 @@ const backgroundImages = [
 
 const GradientBackground = () => {
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full max-sm:h-1/2">
       <div className="grid grid-cols-5 h-full">
         {backgroundImages.map((column, index) => (
-          <div key={index} className="relative h-full overflow-hidden group">
+          <div key={index} className="group relative h-full overflow-hidden">
             <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              className="group-hover:scale-105 absolute inset-0 bg-cover bg-center transition-transform duration-700"
               style={{ backgroundImage: `url(${column.image})` }}
               role="img"
               aria-label={column.alt}
             />
             {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-90" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70" />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-40" />
           </div>

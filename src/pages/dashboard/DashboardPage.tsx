@@ -1,11 +1,15 @@
+import React from "react";
 import DashboardFooter from "@/components/common/footer/DashboardFooter";
 import DashboardHeader from "@/components/common/header/DashboardHeader/DashboardHeader";
+import ImageSlider from "./ImageSlider";
 
-const DashboardPage = () => {
+const DashboardPage: React.FC = () => {
   return (
-    <div className="w-[1440px]">
+    <div>
       <DashboardHeader />
-      <h1 className="font-bold text-2xl">Dashboard</h1>
+
+      <ImageSlider />
+
       <DashboardFooter />
     </div>
   );

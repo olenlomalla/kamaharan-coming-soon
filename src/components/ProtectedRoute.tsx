@@ -1,6 +1,6 @@
 // components/ProtectedRoute.tsx
 import ComingSoonPage from "@/pages/ComingSoonPage";
-import DashboardPage from "@/pages/dashboard/DashboardPage";
+import HomePage from "@/pages/home/HomePage";
 import OnboardingPage from "@/pages/onboarding/OnboardingPage";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
@@ -38,10 +38,10 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/dashboard",
+    path: "/home",
     element: (
       <ProtectedRoute>
-        <DashboardPage />
+        <HomePage />
       </ProtectedRoute>
     ),
   },

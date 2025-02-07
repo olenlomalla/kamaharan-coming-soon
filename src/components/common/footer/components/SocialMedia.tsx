@@ -9,7 +9,7 @@ export const SocialMedia = () => {
       </h3>
       <div className="flex justify-between items-center gap-[48px] ml-[48px]">
         {socialMediaIcons.map((icon) => (
-          <Link to={"/"}>
+          <Link to={"/"} key={icon.id}>
             <img
               src={icon.imageUrl}
               alt={icon.imageLabel}

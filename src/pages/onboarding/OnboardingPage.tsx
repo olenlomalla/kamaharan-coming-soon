@@ -19,7 +19,7 @@ const OnboardingPage: React.FC = () => {
       setCurrentStep((prevStep) => prevStep + 1);
     } else {
       // Final step - complete onboarding
-      navigate("/dashboard");
+      navigate("/home");
     }
   };
 

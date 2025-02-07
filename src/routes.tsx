@@ -1,20 +1,16 @@
-// src/routes.tsx
 import { lazy, Suspense } from "react";
 import { Navigate } from "react-router-dom";
 
-// Loading component
 const LoadingScreen = () => (
-  <div className="min-h-screen flex items-center justify-center bg-black">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+  <div className="flex justify-center items-center bg-black min-h-screen">
+    <div className="border-white border-b-2 rounded-full w-12 h-12 animate-spin"></div>
   </div>
 );
 
-// Lazy load components
 const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
-const DashboardPage = lazy(() => import("./pages/dashboard/DashboardPage"));
+const DashboardPage = lazy(() => import("./pages/home/HomePage"));
 const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
 
-// Route configuration
 export const routes = [
   {
     path: "/",

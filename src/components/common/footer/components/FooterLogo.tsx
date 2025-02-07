@@ -4,7 +4,7 @@ import { footerLogo } from "../data";
 
 const FooterLogo = () => {
   return (
-    <Link to="/">
+    <Link to="/home">
       <img
         src={footerLogo.imageUrl}
         alt={footerLogo.imageLabel}

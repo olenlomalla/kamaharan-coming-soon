@@ -7,7 +7,7 @@ const ActionButtons = () => {
 
       {dashboardActionButtons.map((icon, index) => {
         return (
-          <Link to={"/"}>
+          <Link to={"/"} key={icon.imageId}>
             <img
               src={icon.imageUrl}
               alt={icon.imageLabel}

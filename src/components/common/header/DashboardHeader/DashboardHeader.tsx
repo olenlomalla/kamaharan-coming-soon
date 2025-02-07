@@ -9,7 +9,7 @@ import HeaderButton from "./ui/HeaderButton";
 
 const DashboardHeader = () => {
   return (
-    <header className="flex justify-center items-center px-[32px] py-[16px] w-[100%] h-[89px]">
+    <header className="flex justify-center items-center px-[32px] pt-[16px] w-[100%] h-[89px]">
       <HeaderLeft>
         <HeaderLogo />
         <HeaderNavigation />

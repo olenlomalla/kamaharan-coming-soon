@@ -4,7 +4,7 @@ import { headerLogo } from "../data";
 
 export const HeaderLogo = () => {
   return (
-    <Link to="/">
+    <Link to="/home">
       <img
         src={headerLogo.imageUrl}
         className="w-[40px] h-[40px]"

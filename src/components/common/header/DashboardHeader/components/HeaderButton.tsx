@@ -1,25 +1,20 @@
 import { FC, ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface IHeaderButton {
   children: ReactNode;
   iconUrl: string;
-  link: string;
+  to: string;
 }
 
-const HeaderButton: FC<IHeaderButton> = ({ children, iconUrl, link }) => {
-  const navigation = useNavigate();
-  const handleChangePage = () => {
-    navigation(link);
-  };
+const HeaderButton: FC<IHeaderButton> = ({ children, iconUrl, to }) => {
   return (
-    <button
-      className="ml-[24px] first:first-of-type:ml-[0]"
-      onClick={handleChangePage}
-    >
-      <img src={iconUrl} alt={children as string} className="m-auto" />
-      <p className="text-[#424144] text-[11px]"> {children}</p>
-    </button>
+    <Link to={to}>
+      <button className="first:first-of-type:ml-[0]">
+        <img src={iconUrl} alt={children as string} className="m-auto" />
+        <p className="text-[#424144] text-[11px]"> {children}</p>
+      </button>
+    </Link>
   );
 };
 

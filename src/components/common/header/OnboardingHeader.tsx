@@ -8,7 +8,7 @@ const OnboardingHeader = ({ onNext }: OnboardingHeaderProps) => {
         <img src="/images/logo/logo.png" alt="logo" width={215} height={46} />
         <div className="flex flex-1 justify-end">
           <button
-            className="sm:block flex justify-center items-center border-[#385C80] border-2 hidden bg-transparent hover:bg-[#385C80] rounded-full w-[80px] h-[24px] text-sm hover:text-white transition-all"
+            className="sm:block flex justify-center items-center border-[#385C80] border-2 bg-transparent hover:bg-[#385C80] rounded-full w-[80px] h-[24px] text-sm hover:text-white transition-all"
             onClick={onNext}
           >
             Skip

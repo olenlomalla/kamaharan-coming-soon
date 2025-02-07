@@ -3,13 +3,13 @@ import GradientBackground from "@/components/coming-soon-page/background/Gradien
 import UserLogin from "@/components/login/UserLogin";
 import ComingSoonPageLayout from "@/layouts/ComingSoonPage/ComingSoonPageLayout";
 import BottomIcons from "@/components/common/BottomIcons";
-import ComingSoonModal from "@/components/modal/ComingSoonModal";
+import ComingSoonModal from "@/components/modal/ComingSoonModal/ComingSoonModal";
 
 const ComingSoonPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // стан для модалки
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalClose = () => {
-    setIsModalOpen(false); // закриття модалки
+    setIsModalOpen(false);
   };
 
   return (
@@ -17,10 +17,7 @@ const ComingSoonPage: React.FC = () => {
       <GradientBackground />
       <UserLogin />
       <ComingSoonPageLayout setModalOpen={setIsModalOpen} />{" "}
-      {/* Передаємо пропс setModalOpen */}
-      {/* Відображення модалки, якщо вона відкрита */}
       {isModalOpen && <ComingSoonModal onClose={handleModalClose} />}
-      {/* Іконки з передачею стану модалки */}
       <BottomIcons isModalOpen={isModalOpen} />
     </div>
   );

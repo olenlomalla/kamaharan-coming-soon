@@ -2,6 +2,7 @@ interface DashboardHeaderIcons {
   imageUrl: string;
   imageLabel: string;
   imageId: number;
+  url: string;
 }
 
 interface DashboardFormIcons {
@@ -40,21 +41,25 @@ export const dashboardHeaderIcons: DashboardHeaderIcons[] = [
   {
     imageUrl: "/icons/dashboard/header/navigation/explore.svg",
     imageLabel: "Explore",
+    url: "/explore",
     imageId: 1,
   },
   {
     imageUrl: "/icons/dashboard/header/navigation/deals.svg",
     imageLabel: "Deals",
+    url: "/deals",
     imageId: 2,
   },
   {
     imageUrl: "/icons/dashboard/header/navigation/services.svg",
     imageLabel: "Services",
+    url: "/services",
     imageId: 3,
   },
   {
     imageUrl: "/icons/dashboard/header/navigation/blog.svg",
     imageLabel: "Blog",
+    url: "/blog",
     imageId: 4,
   },
 ];

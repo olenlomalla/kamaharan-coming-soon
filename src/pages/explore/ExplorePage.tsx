@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { createRef, useMemo, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,10 +8,10 @@ import { sliderConfigs } from "./sliderConfig";
 import SliderActionButtons from "./SliderActionButtons";
 
 const ExplorePage = () => {
-  const sliderRow1 = useRef<Slider | null>(null);
-  const sliderRow2 = useRef<Slider | null>(null);
-  const sliderRow3 = useRef<Slider | null>(null);
-  const sliderRefs = [sliderRow1, sliderRow2, sliderRow3];
+  const sliderRefs = useMemo(
+    () => sliderConfigs.map(() => createRef<Slider>()),
+    []
+  );
 
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
 

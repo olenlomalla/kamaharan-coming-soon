@@ -7,7 +7,7 @@ interface IHeaderButton {
   to: string;
 }
 
-const HeaderButton: FC<IHeaderButton> = ({ children, iconUrl, to }) => {
+const HeaderLink: FC<IHeaderButton> = ({ children, iconUrl, to }) => {
   return (
     <Link to={to}>
       <button className="first:first-of-type:ml-[0]">
@@ -18,4 +18,4 @@ const HeaderButton: FC<IHeaderButton> = ({ children, iconUrl, to }) => {
   );
 };
 
-export default HeaderButton;
+export default HeaderLink;

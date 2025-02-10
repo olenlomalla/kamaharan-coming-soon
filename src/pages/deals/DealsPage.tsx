@@ -1,9 +1,16 @@
+import CustomSlider from "@/components/common/CustomSlider/CustomSlider";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
+import { images } from "./imagesDataSet";
 
 const DealsPage = () => {
   return (
     <PagesContentLayout>
-      <h1>Deals Page</h1>
+      <CustomSlider
+        images={images}
+        title={"Deals"}
+        showActionButtons
+        showSliderDescription
+      />
     </PagesContentLayout>
   );
 };

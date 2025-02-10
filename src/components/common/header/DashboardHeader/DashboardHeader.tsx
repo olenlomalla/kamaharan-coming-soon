@@ -1,11 +1,11 @@
-import ActionButtons from "./components/ActionButtons";
-import HeaderButtons from "./components/HeaderButtons";
+import ActionButtons from "./components/HeaderActionButtons";
 import HeaderFormSearch from "./components/HeaderFormSearch";
 import { HeaderLogo } from "./components/HeaderLogo";
 import HeaderLeft from "./components/HeaderLeft";
 import HeaderNavigation from "./components/HeaderNavigation";
 import UserAccount from "./components/UserAccount";
-import HeaderButton from "./ui/HeaderButton";
+import ActionButtonUI from "@/components/ui/ActionButton";
+import HeaderButtonContainer from "./components/HeaderButtonContainer";
 
 const DashboardHeader = () => {
   return (
@@ -14,10 +14,10 @@ const DashboardHeader = () => {
         <HeaderLogo />
         <HeaderNavigation />
         <HeaderFormSearch />
-        <HeaderButtons>
-          <HeaderButton>K. for business</HeaderButton>
-          <HeaderButton>Start a Project</HeaderButton>
-        </HeaderButtons>
+        <HeaderButtonContainer>
+          <ActionButtonUI>K. for business</ActionButtonUI>
+          <ActionButtonUI>Start a Project</ActionButtonUI>
+        </HeaderButtonContainer>
         <ActionButtons />
       </HeaderLeft>
       <UserAccount />

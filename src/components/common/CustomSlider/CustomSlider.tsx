@@ -3,13 +3,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { FC, useState } from "react";
 import "./index.css";
+import ContainerActionButtons from "@/components/ui/ContainerActionButtons";
+import { buttonTitles } from "@/pages/deals/titlesDataSet";
+import SliderDescription from "@/pages/deals/SliderDescription";
 
 interface ICustomSlider {
   images: string[];
   title: string;
+  showActionButtons?: boolean;
+  showSliderDescription?: boolean;
 }
 
-const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
+const CustomSlider: FC<ICustomSlider> = ({
+  images,
+  title,
+  showActionButtons = false,
+  showSliderDescription = false,
+}) => {
   const slider = React.useRef<Slider | null>(null);
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
 
@@ -32,6 +42,9 @@ const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
           {title}
         </h1>
         <div className="flex justify-between items-center gap-[10px]">
+          {showActionButtons && (
+            <ContainerActionButtons arrayOfTitles={buttonTitles} />
+          )}
           <button
             type="button"
             className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
@@ -65,19 +78,20 @@ const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
             <img src={image} alt={`Slide ${index + 1}`} />
             <button
               type="button"
-              className={`top-2 right-2 absolute flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
-                likedSlides.includes(index) ? "bg-white" : "bg-[#385C80]"
+              className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
+                likedSlides.includes(index)
+                  ? "bg-white opacity-100"
+                  : "bg-[#385C80] opacity-50"
               }`}
               onClick={() => handleLikeClick(index)}
             >
               <img
                 src="/icons/slider-like.svg"
                 alt="Add to saved"
-                className={`${
-                  likedSlides.includes(index) ? "filter invert" : ""
-                }`}
+                className={likedSlides.includes(index) ? "filter invert" : ""}
               />
             </button>
+            {showSliderDescription && <SliderDescription />}
           </div>
         ))}
       </Slider>

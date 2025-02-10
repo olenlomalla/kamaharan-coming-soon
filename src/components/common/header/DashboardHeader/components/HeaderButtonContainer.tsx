@@ -4,7 +4,7 @@ interface IHeaderButtons {
   children: ReactNode;
 }
 
-const HeaderButtons: FC<IHeaderButtons> = ({ children }) => {
+const HeaderButtonContainer: FC<IHeaderButtons> = ({ children }) => {
   return (
     <div className="flex justify-center items-center gap-[24px]">
       {children}
@@ -12,4 +12,4 @@ const HeaderButtons: FC<IHeaderButtons> = ({ children }) => {
   );
 };
 
-export default HeaderButtons;
+export default HeaderButtonContainer;

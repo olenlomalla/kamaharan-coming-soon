@@ -1,4 +1,4 @@
-import CustomSlider from "./CustomSlider/CustomSlider";
+import CustomSlider from "../../components/common/CustomSlider/CustomSlider";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 import ImageSlider from "./ImageSlider";
 

@@ -3,23 +3,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { FC, useState } from "react";
 import "./index.css";
-import ContainerActionButtons from "@/components/ui/ContainerActionButtons";
-import { buttonTitles } from "@/pages/deals/titlesDataSet";
-import SliderDescription from "@/pages/deals/SliderDescription";
 
 interface ICustomSlider {
   images: string[];
   title: string;
-  showActionButtons?: boolean;
-  showSliderDescription?: boolean;
 }
 
-const CustomSlider: FC<ICustomSlider> = ({
-  images,
-  title,
-  showActionButtons = false,
-  showSliderDescription = false,
-}) => {
+const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
   const slider = React.useRef<Slider | null>(null);
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
 
@@ -42,9 +32,6 @@ const CustomSlider: FC<ICustomSlider> = ({
           {title}
         </h1>
         <div className="flex justify-between items-center gap-[10px]">
-          {showActionButtons && (
-            <ContainerActionButtons arrayOfTitles={buttonTitles} />
-          )}
           <button
             type="button"
             className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
@@ -91,7 +78,6 @@ const CustomSlider: FC<ICustomSlider> = ({
                 className={likedSlides.includes(index) ? "filter invert" : ""}
               />
             </button>
-            {showSliderDescription && <SliderDescription />}
           </div>
         ))}
       </Slider>

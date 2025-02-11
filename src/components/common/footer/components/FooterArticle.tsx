@@ -4,7 +4,7 @@ import FooterTitle from "./FooterTitle";
 
 interface IFooterArticle {
   title: string;
-  items: string[];
+  items: { name: string; url: string }[];
 }
 
 const FooterArticle: FC<IFooterArticle> = ({ title, items }) => {

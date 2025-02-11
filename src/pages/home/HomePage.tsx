@@ -1,6 +1,6 @@
 import CustomSlider from "../../components/common/CustomSlider/CustomSlider";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import ImageSlider from "./ImageSlider";
+import ImageSlider from "./components/ImageSlider";
 
 const HomePage = () => {
   const images = [

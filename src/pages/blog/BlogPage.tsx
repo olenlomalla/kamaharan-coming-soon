@@ -1,9 +1,10 @@
+import Title from "@/components/ui/Title";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 
 const BlogPage = () => {
   return (
     <PagesContentLayout>
-      <h1>Blog Page</h1>
+      <Title>Blog page</Title>
     </PagesContentLayout>
   );
 };

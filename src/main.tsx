@@ -10,6 +10,7 @@ import ServicesPage from "./pages/services/ServicesPage";
 import BlogPage from "./pages/blog/BlogPage";
 import ErrorPage from "./pages/ErrorPage";
 import "./index.css";
+import FindBusiness from "./pages/find-business/FindBusiness";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/blog",
     element: <BlogPage />,
+  },
+  {
+    path: "/find-business",
+    element: <FindBusiness />,
   },
   {
     path: "*",

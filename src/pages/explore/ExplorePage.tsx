@@ -3,9 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import SliderRow from "./SliderRow";
+import SliderRow from "./components/SliderRow";
 import { sliderConfigs } from "./sliderConfig";
-import SliderActionButtons from "./SliderActionButtons";
+import SliderActionButtons from "./components/SliderActionButtons";
+import Title from "@/components/ui/Title";
 
 const ExplorePage = () => {
   const sliderRefs = useMemo(
@@ -35,9 +36,7 @@ const ExplorePage = () => {
     <PagesContentLayout>
       <div className="mx-[32px] my-[48px]">
         <div className="flex justify-between items-center mb-[16px]">
-          <h1 className="decoration-skip-ink font-bold font-syne text-2xl text-left leading-8 tracking-wide">
-            Explore
-          </h1>
+          <Title>Explore</Title>
           <SliderActionButtons nextSlide={nextSlide} prevSlide={prevSlide} />
         </div>
         {sliderConfigs.map((config, index) => (

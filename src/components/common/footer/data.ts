@@ -5,7 +5,7 @@ interface IFooterLogo {
 
 interface IFooterItems {
   label: string;
-  items: string[];
+  items: { name: string; url: string }[];
   id: number;
 }
 
@@ -29,51 +29,55 @@ export const footerLogo: IFooterLogo = {
 export const footerItems: IFooterItems[] = [
   {
     label: "Services",
-    items: ["Get a listing", "Get a listing", "Help and Contact"],
+    items: [
+      { name: "Get a listing", url: "/" },
+      { name: "Get a listing", url: "/" },
+      { name: "Help and Contact", url: "/" },
+    ],
     id: 1,
   },
   {
     label: "Discover",
     items: [
-      "Eating Out",
-      "Home Services",
-      "Car Services",
-      "Deals",
-      "Explore",
-      "Find a Business",
+      { name: "Eating Out", url: "/" },
+      { name: "Home Services", url: "/" },
+      { name: "Car Services", url: "/" },
+      { name: "Deals", url: "/" },
+      { name: "Explore", url: "/" },
+      { name: "Find a Business", url: "/find-business" },
     ],
     id: 2,
   },
   {
     label: "K Blog",
     items: [
-      "Blog Home",
-      "Trades",
-      "Hot Deals",
-      "Explore London",
-      "Most popular in Winter",
-      "Promote a Business",
+      { name: "Blog Home", url: "/" },
+      { name: "Trades", url: "/" },
+      { name: "Hot Deals", url: "/" },
+      { name: "Explore London", url: "/" },
+      { name: "Most popular in Winter", url: "/" },
+      { name: "Promote a Business", url: "/find-business" },
     ],
     id: 3,
   },
   {
     label: "Company",
     items: [
-      "Digital Marketing Solutions",
-      "Find Your Solution",
-      "Contact",
-      "About",
+      { name: "Digital Marketing Solutions", url: "/" },
+      { name: "Find Your Solution", url: "/" },
+      { name: "Contact", url: "/" },
+      { name: "About", url: "/" },
     ],
     id: 4,
   },
   {
     label: "Info",
     items: [
-      "Privacy Policy",
-      "Cookie Policy",
-      "Conditions of use",
-      "Reviews policy",
-      "Modern Slavery Act Statement",
+      { name: "Privacy Policy", url: "/" },
+      { name: "Cookie Policy", url: "/" },
+      { name: "Conditions of use", url: "/" },
+      { name: "Reviews policy", url: "/" },
+      { name: "Modern Slavery Act Statement", url: "/" },
     ],
     id: 5,
   },

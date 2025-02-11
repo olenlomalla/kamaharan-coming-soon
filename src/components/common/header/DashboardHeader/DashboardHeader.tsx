@@ -7,9 +7,20 @@ import UserAccount from "./components/UserAccount";
 import ActionButtonUI from "@/components/ui/ActionButton";
 import HeaderButtonContainer from "./components/HeaderButtonContainer";
 
-const DashboardHeader = () => {
+interface IDashboardHeaderProps {
+  bgColor?: string;
+}
+
+const DashboardHeader: React.FC<IDashboardHeaderProps> = ({
+  bgColor = "#FFFFFF",
+}) => {
   return (
-    <header className="flex justify-center items-center px-[32px] pt-[16px] w-[100%] h-[89px]">
+    <header
+      className="flex justify-center items-center px-[32px] pt-[16px] w-[100%] h-[89px]"
+      style={{
+        backgroundColor: bgColor,
+      }}
+    >
       <HeaderLeft>
         <HeaderLogo />
         <HeaderNavigation />

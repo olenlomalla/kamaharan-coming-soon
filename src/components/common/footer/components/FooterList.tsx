@@ -2,14 +2,14 @@ import { FC } from "react";
 import FooterItem from "./FooterItem";
 
 interface IFooterListProps {
-  items: string[];
+  items: { name: string; url: string }[];
 }
 
 const FooterList: FC<IFooterListProps> = ({ items }) => {
   return (
     <ul>
       {items.map((item, index) => (
-        <FooterItem key={index}>{item}</FooterItem>
+        <FooterItem name={item.name} url={item.url} key={index}></FooterItem>
       ))}
     </ul>
   );

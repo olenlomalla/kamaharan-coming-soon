@@ -1,15 +1,19 @@
-import CustomSlider from "@/components/common/CustomSlider/CustomSlider";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
+import CustomSliderModified from "@/components/common/CustomSliderModified/CustomSliderModified";
 import { images } from "./imagesDataSet";
+import { buttonTitles } from "./titlesDataSet";
+import { textElements } from "./textElements";
 
 const DealsPage = () => {
   return (
     <PagesContentLayout>
-      <CustomSlider
+      <CustomSliderModified
         images={images}
-        title={"Deals"}
-        showActionButtons
-        showSliderDescription
+        title="Deals"
+        showActionButtons={true}
+        showSliderDescription={true}
+        buttonTitlesArray={buttonTitles}
+        descriptionArray={textElements}
       />
     </PagesContentLayout>
   );

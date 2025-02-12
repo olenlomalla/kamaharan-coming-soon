@@ -5,6 +5,7 @@ import {
   dataSetImage_2,
   discoverServicesImages,
 } from "../../mocks/pages/services/dataSetImages";
+import { textElements } from "../../mocks/pages/services/descriptionSlides";
 import DiscoverServices from "./components/DiscoverServices";
 
 const ServicesPage = () => {
@@ -18,11 +19,13 @@ const ServicesPage = () => {
         images={dataSetImage_1}
         title="Featured Services & Products"
         showSliderDescription
+        descriptionArray={textElements}
       />
       <CustomSliderModified
         images={dataSetImage_2}
-        title="Popular Items "
+        title="Popular Items"
         showSliderDescription
+        descriptionArray={textElements}
       />
     </PagesContentLayout>
   );

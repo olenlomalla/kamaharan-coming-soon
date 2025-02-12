@@ -7,7 +7,7 @@ interface ComingSoonPageLayoutProps {
 const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({
   setModalOpen,
 }) => {
-  // Function to handle HubSpot CRM integration
+  // Function to handle HubSpot CRM integration.
   const handleJoinWaitlist = () => {
     // Placeholder for HubSpot API or form submission
     // For example, using HubSpot's form submission API (simplified)

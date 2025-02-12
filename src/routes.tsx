@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 const LoadingScreen = () => (
   <div className="flex justify-center items-center bg-black min-h-screen">
@@ -8,23 +8,29 @@ const LoadingScreen = () => (
 );
 
 const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
-const DashboardPage = lazy(() => import("./pages/home/HomePage"));
+const HomePage = lazy(() => import("./pages/home/HomePage"));
 const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
+const ExplorePage = lazy(() => import("./pages/explore/ExplorePage"));
+const DealsPage = lazy(() => import("./pages/deals/DealsPage"));
+const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
+const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
+const FindBusiness = lazy(() => import("./pages/find-business/FindBusiness"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
-export const routes = [
+export const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Suspense fallback={<LoadingScreen />}>
-        <DashboardPage />
+        <ComingSoonPage />
       </Suspense>
     ),
   },
   {
-    path: "/coming-soon",
+    path: "/home",
     element: (
       <Suspense fallback={<LoadingScreen />}>
-        <ComingSoonPage />
+        <HomePage />
       </Suspense>
     ),
   },
@@ -37,7 +43,51 @@ export const routes = [
     ),
   },
   {
-    path: "*",
-    element: <Navigate to="/" replace />,
+    path: "/explore",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <ExplorePage />
+      </Suspense>
+    ),
   },
-];
+  {
+    path: "/deals",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <DealsPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/services",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <ServicesPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/blog",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <BlogPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/find-business",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <FindBusiness />
+      </Suspense>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
+]);

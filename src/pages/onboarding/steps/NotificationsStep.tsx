@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { OnboardingStepProps } from "@/types/onboarding";
 import OnboardingHeader from "@/components/common/header/OnboardingHeader";
 import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
@@ -16,15 +15,17 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   mobileBackgroundImage,
   roundedShapeColor,
 }) => {
-  const [permission, setPermission] = useState(Notification.permission);
+  const [permission, setPermission] = useState(
+    typeof Notification !== "undefined" ? Notification.permission : "denied"
+  );
 
   useEffect(() => {
-    if (permission === "default") {
+    if (typeof Notification !== "undefined" && permission === "default") {
       Notification.requestPermission().then((perm) => {
         setPermission(perm);
       });
     }
-  }, []);
+  }, [permission]);
 
   return (
     <section className="relative min-h-[100svh]">

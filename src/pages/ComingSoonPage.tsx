@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import GradientBackground from "@/components/coming-soon-page/background/GradientBackground";
 import UserLogin from "@/components/login/UserLogin";
-import ComingSoonPageLayout from "@/layouts/ComingSoonPage/ComingSoonPageLayout";
-import BottomIcons from "@/components/common/BottomIcons";
+// import BottomIcons from "@/components/common/BottomIcons";
 import ComingSoonModal from "@/components/modal/ComingSoonModal/ComingSoonModal";
+import ComingSoonPageLayout from "@/layouts/ComingSoonPage/ComingSoonPageLayout";
 
 const ComingSoonPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +13,12 @@ const ComingSoonPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-black max-h-[100svh] overflow-hidden font-syne text-white">
+    <div className="relative bg-black max-h-[100svh] overflow-hidden font-syne text-white animate-slideIn">
       <GradientBackground />
       <UserLogin />
       <ComingSoonPageLayout setModalOpen={setIsModalOpen} />
       {isModalOpen && <ComingSoonModal onClose={handleModalClose} />}
-      <BottomIcons isModalOpen={isModalOpen} />
+      {/* <BottomIcons isModalOpen={isModalOpen} /> */}
     </div>
   );
 };

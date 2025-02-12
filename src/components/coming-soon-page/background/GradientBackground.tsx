@@ -1,8 +1,8 @@
 const backgroundImages = [
-  { image: "/images/image1.jpg", alt: "Business category 1" },
+  { image: "/images/image6.jpeg", alt: "Business category 1" },
   { image: "/images/image2.jpg", alt: "Business category 2" },
-  { image: "/images/image3.jpg", alt: "Business category 3" },
-  { image: "/images/image4.jpg", alt: "Business category 4" },
+  { image: "/images/image7.jpeg", alt: "Business category 3" },
+  { image: "/images/image8.jpg", alt: "Business category 4" },
   { image: "/images/image5.jpg", alt: "Business category 5" },
 ];
 
@@ -13,7 +13,7 @@ const GradientBackground = () => {
         {backgroundImages.map((column, index) => (
           <div key={index} className="group relative h-full overflow-hidden">
             <div
-              className="group-hover:scale-105 absolute inset-0 bg-cover bg-center transition-transform duration-700"
+              className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
               style={{ backgroundImage: `url(${column.image})` }}
               role="img"
               aria-label={column.alt}

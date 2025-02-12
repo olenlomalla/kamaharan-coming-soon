@@ -1,42 +1,75 @@
 import React from "react";
 
 interface ComingSoonPageLayoutProps {
-  setModalOpen: (isOpen: boolean) => void; // пропс для відкриття модалки
+  setModalOpen: (isOpen: boolean) => void;
 }
 
 const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({
   setModalOpen,
 }) => {
+  // Function to handle HubSpot CRM integration
+  const handleJoinWaitlist = () => {
+    // Placeholder for HubSpot API or form submission
+    // For example, using HubSpot's form submission API (simplified)
+
+    const formData = {
+      email: "user@example.com", // Replace with form input value or dynamic data
+      firstName: "John", // Replace with dynamic first name
+      lastName: "Doe", // Replace with dynamic last name
+    };
+
+    fetch(
+      "https://api.hsforms.com/submissions/v3/integration/submit/YOUR_PORTAL_ID/YOUR_FORM_GUID",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fields: [
+            { name: "email", value: formData.email },
+            { name: "firstname", value: formData.firstName },
+            { name: "lastname", value: formData.lastName },
+          ],
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setModalOpen(true); // Trigger modal after successful form submission
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
-    <div className="relative z-10 flex flex-col justify-center items-center mt-[110px] max-sm:pb-[180px] max-md:pb-[70px] min-h-screen">
-      <div className="space-y-8 mx-auto w-full max-w-[900px] text-center">
-        <h1 className="flex flex-col items-center mx-auto font-bold font-syne text-[#D8E9FA] text-[60px] text-center max-[375px]:text-[48px] max-[425px]:text-[54px] leading-[60px] animate-fadeIn">
-          <span className="sm:inline hidden">This Changes Everything...</span>
-          <span className="block sm:hidden text-center leading-[50px]">
-            This
-            <br />
-            Changes
-            <br />
-            Everything
-            <br />
-            ...
-          </span>
+    <div className="z-10 relative flex flex-col justify-end items-center pb-10 min-h-screen">
+      {/* Контейнер для заголовка та тексту "Coming Soon" */}
+      <div className="space-y-4 w-full max-w-[900px] text-center animate-fadeIn">
+        <button
+          onClick={handleJoinWaitlist}
+          className="bg-[#B8A888] sm:mb-[20px] px-8 py-3 rounded-lg w-[448px] font-heading font-medium text-[#1A2B3C] text-[16px] text-center leading-[24px] transition-colors"
+        >
+          Join Waitlist
+        </button>
+
+        <h1 className="mx-auto font-queens text-[#D8E9FA] text-[40px] max-[375px]:text-[32px] max-[425px]:text-[36px] leading-[48px]">
+          This Changes Everything...
         </h1>
+        <p className="font-heading text-[#B8A888] text-xl">Coming Soon</p>
+      </div>
 
-        <div className="mx-auto px-4 sm:px-6 max-w-md animate-fadeIn">
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={() => setModalOpen(true)} // відкриття модалки при натисканні кнопки
-              className="bg-[#B8A888] sm:mb-[20px] px-8 py-3 rounded-lg w-full font-medium font-syne text-[#1A2B3C] text-[16px] text-center leading-[24px] transition-colors"
-            >
-              Join Waitlist
-            </button>
-
-            <p className="pb-2 text-[#B8A888] text-sm">
-              Join us in connecting London's communities with local businesses
-            </p>
-          </div>
-        </div>
+      {/* Kamaharan логотип та назва у правому нижньому куті */}
+      <div className="right-4 bottom-4 absolute flex items-center space-x-2 animate-fadeIn">
+        {/* Замініть src на шлях до логотипу Kamaharan */}
+        <img
+          src="/icons/logo.svg"
+          alt="Kamaharan Logo"
+          className="w-8 h-8 object-contain"
+        />
+        <span className="font-heading text-white text-sm">Kamaharan</span>
       </div>
     </div>
   );

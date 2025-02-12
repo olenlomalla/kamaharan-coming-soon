@@ -4,7 +4,7 @@ import {
   dataSetImage_1,
   dataSetImage_2,
   discoverServicesImages,
-} from "./dataSetImages";
+} from "../../mocks/pages/services/dataSetImages";
 import DiscoverServices from "./components/DiscoverServices";
 
 const ServicesPage = () => {

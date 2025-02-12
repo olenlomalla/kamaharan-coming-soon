@@ -1,8 +1,8 @@
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 import CustomSliderModified from "@/components/common/CustomSliderModified/CustomSliderModified";
-import { images } from "./imagesDataSet";
-import { buttonTitles } from "./titlesDataSet";
-import { textElements } from "./textElements";
+import { images } from "../../mocks/pages/deals/imagesDataSet";
+import { buttonTitles } from "../../mocks/pages/deals/titlesDataSet";
+import { textElements } from "../../mocks/pages/deals/textElements";
 
 const DealsPage = () => {
   return (

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import { dashboardActionButtons, dropdownButton } from "../data";
+import {
+  dashboardActionButtons,
+  dropdownButton,
+} from "../../../../../mocks/common/DashboardHeader/data";
 const ActionButtons = () => {
   return (
     <div className="flex justify-between items-center gap-[24px]">
@@ -36,7 +39,7 @@ const ActionButtons = () => {
         <img
           src={dropdownButton.imageUrl}
           alt={dropdownButton.imageLabel}
-          className="top-[50%] right-[8px] absolute w-[16px] h-[16px] transform -translate-y-[50%]"
+          className="top-[50%] right-[8px] absolute w-[16px] h-[16px] -translate-y-[50%] transform"
         />
       </div>
     </div>

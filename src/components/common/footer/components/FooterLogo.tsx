@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { footerLogo } from "../data";
+import { footerLogo } from "../../../../mocks/common/DashboardFooter/data";
 
 const FooterLogo = () => {
   return (

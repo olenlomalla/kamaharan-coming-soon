@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { socialMediaIcons } from "../data";
+import { socialMediaIcons } from "../../../../mocks/common/DashboardFooter/data";
 
 export const SocialMedia = () => {
   return (

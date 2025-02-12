@@ -1,4 +1,4 @@
-import { inputSearchIcon } from "../data";
+import { inputSearchIcon } from "../../../../../mocks/common/DashboardHeader/data";
 const HeaderFormSearch = () => {
   return (
     <form
@@ -8,7 +8,7 @@ const HeaderFormSearch = () => {
       <input
         type="text"
         placeholder="Look up whatever you want!"
-        className="bg-transparent w-[100%] text-[#5B5A5E] text-[11px] outline-none"
+        className="bg-transparent outline-none w-[100%] text-[#5B5A5E] text-[11px]"
       />
       <button type="submit">
         {inputSearchIcon.map((icon) => {

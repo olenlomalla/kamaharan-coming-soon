@@ -3,9 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import SliderRow from "./components/SliderRow";
-import { sliderConfigs } from "./sliderConfig";
-import SliderActionButtons from "./components/SliderActionButtons";
+import SliderRow from "../../components/common/CustomSlider/components/SliderRow";
+import { sliderConfigs } from "../../mocks/pages/explore/sliderConfig";
+import SliderActionButtons from "../../components/common/CustomSlider/components/SliderActionButtons";
 import Title from "@/components/ui/Title";
 
 const ExplorePage = () => {

@@ -1,6 +1,5 @@
-// SliderDescription.tsx
+import { TextElement } from "@/types/customSliderModified";
 import { FC } from "react";
-import { TextElement } from "../textElements";
 
 interface SliderDescriptionProps {
   description: TextElement;

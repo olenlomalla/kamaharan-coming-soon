@@ -3,7 +3,7 @@ import FooterDisclaimer from "./components/FooterDisclaimer";
 import FooterDownload from "./components/FooterDownload";
 import FooterLogo from "./components/FooterLogo";
 import { SocialMedia } from "./components/SocialMedia";
-import { footerItems } from "./data";
+import { footerItems } from "../../../mocks/common/DashboardFooter/data";
 
 const DashboardFooter = () => {
   return (

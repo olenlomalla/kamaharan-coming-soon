@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { downloadApp } from "../data";
+import { downloadApp } from "../../../../mocks/common/DashboardFooter/data";
 
 const FooterDownload = () => {
   return (

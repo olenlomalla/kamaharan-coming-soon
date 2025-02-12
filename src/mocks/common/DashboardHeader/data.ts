@@ -1,36 +1,11 @@
-interface DashboardHeaderIcons {
-  imageUrl: string;
-  imageLabel: string;
-  imageId: number;
-  url: string;
-}
-
-interface DashboardFormIcons {
-  imageUrl: string;
-  imageLabel: string;
-  imageId: number;
-}
-
-interface DashboardActionButtons {
-  imageUrl: string;
-  imageLabel: string;
-  imageId: number;
-}
-
-interface DashboardDropdownIcon {
-  imageUrl: string;
-  imageLabel: string;
-}
-
-interface DashboardUserIcon {
-  imageUrl: string;
-  imageLabel: string;
-}
-
-interface DashboardHeaderLogo {
-  imageUrl: string;
-  imageLabel: string;
-}
+import {
+  DashboardActionButtons,
+  DashboardDropdownIcon,
+  DashboardFormIcons,
+  DashboardHeaderIcons,
+  DashboardHeaderLogo,
+  DashboardUserIcon,
+} from "@/types/dashboardHeader";
 
 export const headerLogo: DashboardHeaderLogo = {
   imageUrl: "/icons/logo.svg",

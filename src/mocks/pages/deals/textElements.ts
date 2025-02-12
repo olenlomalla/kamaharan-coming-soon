@@ -1,11 +1,4 @@
-// textElements.ts
-export interface TextElement {
-  id: number;
-  head: string;
-  price: string;
-  rate: string;
-  reviews: string;
-}
+import { TextElement } from "@/types/customSliderModified";
 
 export const textElements: TextElement[] = [
   {

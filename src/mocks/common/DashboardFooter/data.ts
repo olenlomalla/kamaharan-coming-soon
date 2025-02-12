@@ -1,25 +1,9 @@
-interface IFooterLogo {
-  imageUrl: string;
-  imageLabel: string;
-}
-
-interface IFooterItems {
-  label: string;
-  items: { name: string; url: string }[];
-  id: number;
-}
-
-interface IFooterSocialMediaIcons {
-  imageUrl: string;
-  imageLabel: string;
-  id: number;
-}
-
-interface IDownloadApp {
-  imageUrl: string;
-  imageLabel: string;
-  id: number;
-}
+import {
+  IDownloadApp,
+  IFooterItems,
+  IFooterLogo,
+  IFooterSocialMediaIcons,
+} from "@/types/dashboardFooter";
 
 export const footerLogo: IFooterLogo = {
   imageUrl: "/images/logo/logo.png",

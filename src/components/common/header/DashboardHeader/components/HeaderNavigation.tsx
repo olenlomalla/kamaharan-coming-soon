@@ -1,4 +1,4 @@
-import { dashboardHeaderIcons } from "../data";
+import { dashboardHeaderIcons } from "../../../../../mocks/common/DashboardHeader/data";
 import HeaderLink from "./HeaderLink";
 
 const HeaderNavigation = () => {

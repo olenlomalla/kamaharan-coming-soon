@@ -2,11 +2,11 @@ import { FC, useState, useRef } from "react";
 import Slider from "react-slick";
 import ContainerActionButtons from "@/components/ui/ContainerActionButtons";
 import Title from "@/components/ui/Title";
-import { TextElement } from "@/pages/deals/textElements";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
-import SliderDescription from "@/pages/deals/components/SliderDescription";
+import SliderDescription from "@/components/common/CustomSliderModified/components/SliderDescription";
+import { TextElement } from "@/types/customSliderModified";
 
 interface ICustomSliderModified {
   images: string[];

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { headerLogo } from "../data";
+import { headerLogo } from "../../../../../mocks/common/DashboardHeader/data";
 
 export const HeaderLogo = () => {
   return (

@@ -13,10 +13,10 @@ const ComingSoonPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-black max-h-[100svh] font-syne text-white overflow-hidden">
+    <div className="relative bg-black max-h-[100svh] overflow-hidden font-syne text-white">
       <GradientBackground />
       <UserLogin />
-      <ComingSoonPageLayout setModalOpen={setIsModalOpen} />{" "}
+      <ComingSoonPageLayout setModalOpen={setIsModalOpen} />
       {isModalOpen && <ComingSoonModal onClose={handleModalClose} />}
       <BottomIcons isModalOpen={isModalOpen} />
     </div>

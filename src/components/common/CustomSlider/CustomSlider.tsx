@@ -3,13 +3,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { FC, useState } from "react";
 import "./index.css";
+import TitleDescription from "./components/TitleDescription";
 
 interface ICustomSlider {
   images: string[];
   title: string;
+  titleArray: { title: string }[];
+  showTitleArray?: boolean;
 }
 
-const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
+const CustomSlider: FC<ICustomSlider> = ({
+  images,
+  title,
+  showTitleArray,
+  titleArray,
+}) => {
   const slider = React.useRef<Slider | null>(null);
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
 
@@ -28,7 +36,7 @@ const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
   return (
     <div className="mx-[32px] mb-[48px]">
       <div className="flex justify-between items-center mb-[32px]">
-        <h1 className="decoration-skip-ink font-bold font-syne text-2xl text-left leading-8 tracking-wide">
+        <h1 className="font-syne font-bold text-2xl text-left decoration-skip-ink leading-8 tracking-wide">
           {title}
         </h1>
         <div className="flex justify-between items-center gap-[10px]">
@@ -60,26 +68,32 @@ const CustomSlider: FC<ICustomSlider> = ({ images, title }) => {
       </div>
 
       <Slider ref={slider} {...settings}>
-        {images.map((image, index) => (
-          <div className="relative" key={index}>
-            <img src={image} alt={`Slide ${index + 1}`} />
-            <button
-              type="button"
-              className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
-                likedSlides.includes(index)
-                  ? "bg-white opacity-100"
-                  : "bg-[#385C80] opacity-50"
-              }`}
-              onClick={() => handleLikeClick(index)}
-            >
-              <img
-                src="/icons/slider-like.svg"
-                alt="Add to saved"
-                className={likedSlides.includes(index) ? "filter invert" : ""}
-              />
-            </button>
-          </div>
-        ))}
+        {images.map((image, index) => {
+          const description = titleArray[index % titleArray.length];
+          return (
+            <div className="relative" key={index}>
+              <img src={image} alt={`Slide ${index + 1}`} />
+              <button
+                type="button"
+                className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
+                  likedSlides.includes(index)
+                    ? "bg-white opacity-100"
+                    : "bg-[#385C80] opacity-50"
+                }`}
+                onClick={() => handleLikeClick(index)}
+              >
+                <img
+                  src="/icons/slider-like.svg"
+                  alt="Add to saved"
+                  className={likedSlides.includes(index) ? "filter invert" : ""}
+                />
+              </button>
+              {showTitleArray && description && (
+                <TitleDescription description={description} />
+              )}
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

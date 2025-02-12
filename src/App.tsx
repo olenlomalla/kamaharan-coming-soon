@@ -5,6 +5,7 @@ import OnboardingPage from "./pages/onboarding/OnboardingPage";
 import ExplorePage from "./pages/explore/ExplorePage";
 import ServicesPage from "./pages/services/ServicesPage";
 import DealsPage from "./pages/deals/DealsPage";
+import FindBusiness from "./pages/find-business/FindBusiness";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/deals" element={<DealsPage />} />
+        <Route path="/find-business" element={<FindBusiness />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </BrowserRouter>

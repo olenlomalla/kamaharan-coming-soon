@@ -50,12 +50,12 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({
       <div className="space-y-4 w-full max-w-[900px] text-center animate-fadeIn">
         <button
           onClick={handleJoinWaitlist}
-          className="bg-[#B8A888] sm:mb-[20px] px-8 py-3 rounded-lg w-[448px] font-heading font-medium text-[#1A2B3C] text-[16px] text-center leading-[24px] transition-colors"
+          className="bg-[#B8A888] sm:mb-[20px] px-8 py-3 rounded-lg w-[448px] font-heading font-medium text-[#1A2B3C] text-[18px] text-center leading-[24px] transition-colors"
         >
           Join Waitlist
         </button>
 
-        <h1 className="mx-auto font-queens text-[#D8E9FA] text-[40px] max-[375px]:text-[32px] max-[425px]:text-[36px] leading-[48px]">
+        <h1 className="mx-auto font-queens text-[#D8E9FA] text-[44px] max-[375px]:text-[32px] max-[425px]:text-[36px] leading-[48px]">
           This Changes Everything...
         </h1>
         <p className="font-heading text-[#B8A888] text-xl">Coming Soon</p>
@@ -65,11 +65,10 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({
       <div className="right-4 bottom-4 absolute flex items-center space-x-2 animate-fadeIn">
         {/* Замініть src на шлях до логотипу Kamaharan */}
         <img
-          src="/icons/logo.svg"
+          src="/icons/logo-white.svg"
           alt="Kamaharan Logo"
-          className="w-8 h-8 object-contain"
+          className="object-contain"
         />
-        <span className="font-heading text-white text-sm">Kamaharan</span>
       </div>
     </div>
   );

@@ -5,9 +5,9 @@ export default {
     extend: {
       fontFamily: {
         syne: ["Syne", "sans-serif"],
-        heading: ['IvyPresto Display', 'sans-serif'],
-        body: ['Obviously', 'sans-serif'],
-        queens: ['<Closest Font to Queens Bold>', 'sans-serif'],
+        heading: ["IvyPresto Display", "serif"],
+        body: ["Obviously", "sans-serif"],
+        queens: ["Playfair Display", "serif"],
       },
       colors: {
         primary: {
@@ -42,15 +42,10 @@ export default {
             transform: "translateY(0)",
           },
         },
-        slideIn: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
       },
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
         modalIn: "modalIn 0.5s ease-out",
-        slideIn: 'slideIn 1s ease-out forwards',
       },
     },
   },

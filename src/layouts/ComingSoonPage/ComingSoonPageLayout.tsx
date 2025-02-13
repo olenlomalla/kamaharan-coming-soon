@@ -63,9 +63,7 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = (
         <p className="font-body text-[#B8A888] text-xl">Coming Soon</p>
       </div>
 
-      {/* Kamaharan логотип та назва у правому нижньому куті */}
-      <div className="right-4 bottom-4 absolute flex items-center space-x-2 animate-fadeIn">
-        {/* Замініть src на шлях до логотипу Kamaharan */}
+      <div className="right-10 bottom-4 absolute flex items-center space-x-2 animate-fadeIn">
         <img
           src="/icons/logo-white.svg"
           alt="Kamaharan Logo"

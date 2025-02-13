@@ -7,7 +7,7 @@ export default {
         syne: ["Syne", "sans-serif"],
         heading: ["IvyPresto Display", "serif"],
         body: ["Obviously", "sans-serif"],
-        queens: ["Playfair Display", "serif"],
+        queens: ["Queens Bold", "serif"],
       },
       colors: {
         primary: {

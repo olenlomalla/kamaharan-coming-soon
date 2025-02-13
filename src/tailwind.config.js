@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         'syne': ['Syne', 'sans-serif'],
+        heading: ["IvyPresto Display", "serif"],
+        body: ["Obviously", "sans-serif"],
+        queens: ["Queens Bold", "serif"],
       },
       keyframes: {
         fadeIn: {

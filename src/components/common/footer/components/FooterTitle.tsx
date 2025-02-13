@@ -6,7 +6,7 @@ interface IFooterTitleProps {
 
 const FooterTitle: FC<IFooterTitleProps> = ({ children }) => {
   return (
-    <h3 className="mb-[24px] font-bold text-[#385C80] text-[18px]">
+    <h3 className="mb-[24px] font-heading font-bold text-[#385C80] text-[18px]">
       {children}
     </h3>
   );

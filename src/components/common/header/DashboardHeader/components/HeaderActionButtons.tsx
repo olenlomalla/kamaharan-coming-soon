@@ -10,13 +10,18 @@ const ActionButtons = () => {
 
       {dashboardActionButtons.map((icon, index) => {
         return (
-          <Link to={"/"} key={icon.imageId}>
+          <Link
+            to={"/"}
+            key={icon.imageId}
+            className="flex flex-col justify-center items-center h-[40px]"
+          >
             <img
               src={icon.imageUrl}
               alt={icon.imageLabel}
               key={icon.imageId}
-              className={`w-[40px] h-[40px] ${index > 1 ? "ml-[24px]" : ""}`}
+              className={` ${index > 1 ? "ml-[24px]" : ""} w-[24px] h-[40px]`}
             />
+            <p className="font-body text-[#424144] text-[11px]">{icon.label}</p>
           </Link>
         );
       })}

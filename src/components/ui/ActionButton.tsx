@@ -15,7 +15,7 @@ const ActionButtonUI: React.FC<ActionButtonUIProps> = ({
   return (
     <Link to={path}>
       <button
-        className="sm:block flex justify-center items-center bg-transparent hover:bg-[#385C80] border-[#385C80] border-2 rounded-full w-auto h-[24px] hover:text-white text-sm transition-all"
+        className="sm:block flex justify-center items-center bg-transparent hover:bg-[#385C80] border-[#385C80] border-2 rounded-full w-auto h-[24px] text-[12px] text-body hover:text-white transition-all"
         style={{
           paddingInline: paddingX,
         }}

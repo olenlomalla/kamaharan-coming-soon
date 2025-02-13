@@ -51,11 +51,13 @@ export const dashboardActionButtons: DashboardActionButtons[] = [
   {
     imageUrl: "/icons/dashboard/header/actionButtons/help.svg",
     imageLabel: "Help Icon",
+    label: "Help",
     imageId: 1,
   },
   {
     imageUrl: "/icons/dashboard/header/actionButtons/saved.svg",
     imageLabel: "Saved Icon",
+    label: "Saved",
     imageId: 2,
   },
 ];
@@ -68,4 +70,5 @@ export const dropdownButton: DashboardDropdownIcon = {
 export const userButton: DashboardUserIcon = {
   imageUrl: "/icons/dashboard/header/user.svg",
   imageLabel: "User Button",
+  label: "You",
 };

@@ -9,7 +9,7 @@ const ContainerActionButtons: React.FC<ContainerActionButtonsProps> = ({
   arrayOfTitles,
 }) => {
   return (
-    <div className="flex justify-center items-center gap-[10px]">
+    <div className="flex justify-center items-center gap-[10px] text-body">
       {arrayOfTitles.map((title, index) => (
         <ActionButtonUI key={index}>{title}</ActionButtonUI>
       ))}

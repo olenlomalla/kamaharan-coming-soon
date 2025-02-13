@@ -15,6 +15,7 @@ export interface DashboardActionButtons {
   imageUrl: string;
   imageLabel: string;
   imageId: number;
+  label: string;
 }
 
 export interface DashboardDropdownIcon {
@@ -25,6 +26,7 @@ export interface DashboardDropdownIcon {
 export interface DashboardUserIcon {
   imageUrl: string;
   imageLabel: string;
+  label: string;
 }
 
 export interface DashboardHeaderLogo {

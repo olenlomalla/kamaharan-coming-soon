@@ -38,7 +38,7 @@ const ImageSlider: FC = () => {
 
   return (
     <div className="mb-12">
-      <h2 className="mt-12 mb-8 ml-8 font-bold font-syne text-2xl leading-9 tracking-wide">
+      <h2 className="mt-12 mb-8 ml-8 font-heading font-bold text-2xl leading-9 tracking-wide">
         Discover services for every occasion
       </h2>
       <div className="relative px-[20px] w-full overflow-visible">
@@ -85,10 +85,10 @@ const ImageSlider: FC = () => {
                   currentIndex === index ? "filter blur-0" : "filter blur-[2px]"
                 }`}
               >
-                <h3 className="font-bold font-syne text-[#363537] text-sm leading-[16.8px] tracking-wide">
+                <h3 className="font-heading font-bold text-[#363537] text-sm leading-[16.8px] tracking-wide">
                   {image.text}
                 </h3>
-                <p className="font-medium font-syne text-[#363537] text-[11px] leading-[13.2px] tracking-[0.25px]">
+                <p className="font-body font-medium text-[#363537] text-[11px] leading-[13.2px] tracking-[0.25px]">
                   {image.description}
                 </p>
               </div>

@@ -36,7 +36,7 @@ const CustomSlider: FC<ICustomSlider> = ({
   return (
     <div className="mx-[32px] mb-[48px]">
       <div className="flex justify-between items-center mb-[32px]">
-        <h1 className="font-syne font-bold text-2xl text-left decoration-skip-ink leading-8 tracking-wide">
+        <h1 className="font-heading font-bold text-2xl text-left decoration-skip-ink leading-8 tracking-wide">
           {title}
         </h1>
         <div className="flex justify-between items-center gap-[10px]">

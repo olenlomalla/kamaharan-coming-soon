@@ -44,7 +44,7 @@ const CustomSliderModified: FC<ICustomSliderModified> = ({
     <div className="mx-[32px] my-[48px]">
       <div className="flex justify-between items-center mb-[32px]">
         <Title>{title}</Title>
-        <div className="flex justify-between items-center gap-[10px]">
+        <div className="flex justify-between items-center gap-[10px] font-body">
           {showActionButtons && (
             <ContainerActionButtons arrayOfTitles={buttonTitlesArray} />
           )}

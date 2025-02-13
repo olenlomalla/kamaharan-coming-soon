@@ -6,6 +6,8 @@ import ExplorePage from "./pages/explore/ExplorePage";
 import ServicesPage from "./pages/services/ServicesPage";
 import DealsPage from "./pages/deals/DealsPage";
 import FindBusiness from "./pages/find-business/FindBusiness";
+import StartProject from "./pages/start-a-project/StartProject";
+import KForBusiness from "./pages/KForBusiness/KForBusiness";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/deals" element={<DealsPage />} />
         <Route path="/find-business" element={<FindBusiness />} />
+        <Route path="/start-a-project" element={<StartProject />} />
+        <Route path="/kamaharan-for-business" element={<KForBusiness />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </BrowserRouter>

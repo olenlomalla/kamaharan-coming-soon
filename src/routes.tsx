@@ -15,6 +15,10 @@ const DealsPage = lazy(() => import("./pages/deals/DealsPage"));
 const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
 const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
 const FindBusiness = lazy(() => import("./pages/find-business/FindBusiness"));
+const StartAProject = lazy(
+  () => import("./pages/start-a-project/StartProject")
+);
+const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 export const router = createBrowserRouter([
@@ -79,6 +83,22 @@ export const router = createBrowserRouter([
     element: (
       <Suspense fallback={<LoadingScreen />}>
         <FindBusiness />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/start-a-project",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <StartAProject />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/kamaharan-for-business",
+    element: (
+      <Suspense fallback={<LoadingScreen />}>
+        <KForBusiness />
       </Suspense>
     ),
   },

@@ -4,8 +4,12 @@ import { HeaderLogo } from "./components/HeaderLogo";
 import HeaderLeft from "./components/HeaderLeft";
 import HeaderNavigation from "./components/HeaderNavigation";
 import UserAccount from "./components/UserAccount";
-import ActionButtonUI from "@/components/ui/ActionButton";
 import HeaderButtonContainer from "./components/HeaderButtonContainer";
+
+const buttonsData = [
+  { text: "K. for business", path: "/kamaharan-for-business" },
+  { text: "Start a Project", path: "/start-a-project" },
+];
 
 interface IDashboardHeaderProps {
   bgColor?: string;
@@ -25,10 +29,7 @@ const DashboardHeader: React.FC<IDashboardHeaderProps> = ({
         <HeaderLogo />
         <HeaderNavigation />
         <HeaderFormSearch />
-        <HeaderButtonContainer>
-          <ActionButtonUI>K. for business</ActionButtonUI>
-          <ActionButtonUI>Start a Project</ActionButtonUI>
-        </HeaderButtonContainer>
+        <HeaderButtonContainer buttons={buttonsData} />
         <ActionButtons />
       </HeaderLeft>
       <UserAccount />

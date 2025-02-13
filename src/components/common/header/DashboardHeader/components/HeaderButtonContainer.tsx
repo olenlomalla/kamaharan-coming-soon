@@ -1,13 +1,18 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
+import HeaderButton from "./HeaderButton"; // Імпортуємо HeaderButton
 
-interface IHeaderButtons {
-  children: ReactNode;
+interface IHeaderButtonContainer {
+  buttons: { text: string; path: string }[]; // Тип для масиву кнопок
 }
 
-const HeaderButtonContainer: FC<IHeaderButtons> = ({ children }) => {
+const HeaderButtonContainer: FC<IHeaderButtonContainer> = ({ buttons }) => {
   return (
     <div className="flex justify-center items-center gap-[24px]">
-      {children}
+      {buttons.map((button, index) => (
+        <HeaderButton key={index} path={button.path}>
+          {button.text}
+        </HeaderButton>
+      ))}
     </div>
   );
 };

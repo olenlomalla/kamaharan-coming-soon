@@ -8,7 +8,7 @@ const HeaderFormSearch = () => {
       <input
         type="text"
         placeholder="Look up whatever you want!"
-        className="bg-transparent outline-none w-[100%] text-[#5B5A5E] text-[11px]"
+        className="bg-transparent outline-none w-[100%] font-body text-[#5B5A5E] text-[11px]"
       />
       <button type="submit">
         {inputSearchIcon.map((icon) => {

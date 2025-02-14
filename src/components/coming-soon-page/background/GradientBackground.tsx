@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const backgroundImages = [
-  { image: "/images/image6.jpeg", alt: "Business category 1" },
-  { image: "/images/image2.jpg", alt: "Business category 2" },
-  { image: "/images/image7.jpeg", alt: "Business category 3" },
-  { image: "/images/image8.jpg", alt: "Business category 4" },
-  { image: "/images/image5.jpg", alt: "Business category 5" },
+  { image: "/images/bg-coming-soon/image6.jpeg", alt: "Business category 1" },
+  { image: "/images/bg-coming-soon/image2.jpg", alt: "Business category 2" },
+  { image: "/images/bg-coming-soon/image7.jpeg", alt: "Business category 3" },
+  { image: "/images/bg-coming-soon/image8.jpg", alt: "Business category 4" },
+  { image: "/images/bg-coming-soon/image5.jpg", alt: "Business category 5" },
 ];
 
 const GradientBackground = () => {

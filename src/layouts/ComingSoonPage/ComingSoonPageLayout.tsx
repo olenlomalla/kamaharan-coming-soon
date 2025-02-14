@@ -47,7 +47,7 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = (
   // };
 
   return (
-    <div className="z-10 relative flex flex-col justify-end items-center pb-20 min-h-screen">
+    <div className="z-10 relative flex flex-col justify-end items-center pb-20 min-h-[100svh]">
       {/* Контейнер для заголовка та тексту "Coming Soon" */}
       <div className="space-y-4 w-full max-w-[900px] text-center animate-fadeIn">
         {/* <button

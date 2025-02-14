@@ -57,7 +57,7 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = (
           Join Waitlist
         </button> */}
 
-        <h1 className="mx-auto font-queens text-[#D8E9FA] text-[44px] max-[375px]:text-[32px] max-[425px]:text-[36px] leading-[48px]">
+        <h1 className="mx-auto font-heading text-[#D8E9FA] text-[44px] max-[375px]:text-[32px] max-[425px]:text-[36px] leading-[48px]">
           This Changes Everything...
         </h1>
         <p className="font-body text-[#B8A888] text-xl">Coming Soon</p>

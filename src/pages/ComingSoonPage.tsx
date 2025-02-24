@@ -11,7 +11,6 @@ const ComingSoonPage: React.FC = () => {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-
   return (
     <div className="relative bg-black max-h-[100svh] overflow-hidden text-white">
       <GradientBackground />

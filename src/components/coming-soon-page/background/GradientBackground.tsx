@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 
 const backgroundImages = [
@@ -8,32 +9,40 @@ const backgroundImages = [
   { image: "/images/bg-coming-soon/image5.jpg", alt: "Business category 5" },
 ];
 
-const GradientBackground = () => {
+const GradientBackground: React.FC = () => {
   return (
-    <div className="absolute inset-0 w-full h-full max-sm:h-1/2">
-      <div className="grid grid-cols-5 h-full">
-        {backgroundImages.map((column, index) => (
-          <motion.div
-            key={index}
-            className="group relative h-full overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.3 }}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-              style={{ backgroundImage: `url(${column.image})` }}
-              role="img"
-              aria-label={column.alt}
-            />
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-90" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-40" />
-          </motion.div>
-        ))}
+    <>
+      {/* Background Images */}
+      <div className="absolute inset-0 w-full h-full max-sm:h-1/2">
+        <div className="grid grid-cols-5 h-full">
+          {backgroundImages.map((column, index) => (
+            <motion.div
+              key={index}
+              className="group relative h-full overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+                style={{ backgroundImage: `url(${column.image})` }}
+                role="img"
+                aria-label={column.alt}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* New Gradient Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,1) 100%)'
+        }}
+        aria-hidden="true"
+      />
+    </>
   );
 };
 

@@ -18,3 +18,27 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-default to-primary-darkmode;
   }
 }
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0 0 1px rgba(180,255,180,.9),
+                 0 0 2px rgba(140,255,140,.8),
+                 0 0 4px rgba(0,255,68,.7),
+                 0 0 8px rgba(0,255,68,.5),
+                 0 0 12px rgba(0,255,68,.4);
+    opacity: .95;
+  }
+  100% {
+    text-shadow: 0 0 1px rgba(180,255,180,.9),
+                 0 0 2px rgba(150,255,150,.8),
+                 0 0 5px rgba(0,255,68,.8),
+                 0 0 9px rgba(0,255,68,.6),
+                 0 0 14px rgba(0,255,68,.5);
+    opacity: .95;
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

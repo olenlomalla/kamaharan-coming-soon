@@ -9,6 +9,16 @@ const TerminalContainer = styled.div`
   margin: 0;
   padding: 0;
   z-index: 20;
+
+  @media (max-width: 768px) {
+    bottom: 160px;
+    left: 20px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 180px;
+    left: 15px;
+  }
 `;
 
 const Term = styled.div`
@@ -28,6 +38,16 @@ const Term = styled.div`
   font-weight: bold;
   line-height: 2.1;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 1.6;
+  }
 `;
 
 const Cursor = styled.span`
@@ -49,6 +69,19 @@ const CTAContainer = styled.div`
   transition: all 0.5s ease;
   margin-left: 40px;
   
+  @media (max-width: 768px) {
+    right: 20px;
+    bottom: 60px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    right: 15px;
+    bottom: 40px;
+  }
+  
   &.visible {
     opacity: 1;
     transform: translateY(0);
@@ -69,6 +102,16 @@ const CTAButton = styled.button`
   border-radius: 4px;
   box-shadow: 0 4px 0 #cc3d3d;
   transition: all 0.15s ease;
+  
+  @media (max-width: 768px) {
+    padding: 15px 35px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 25px;
+    font-size: 12px;
+  }
   
   &:hover {
     transform: translateY(2px);

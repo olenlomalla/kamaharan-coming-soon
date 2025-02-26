@@ -24,7 +24,7 @@ const TerminalContainer = styled.div`
 const Term = styled.div`
   font-family: 'Courier New', Courier, monospace;
   font-size: 42px;
-  white-space: pre;
+  white-space: pre-wrap;
   color: rgba(220,255,220,.95);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -38,6 +38,7 @@ const Term = styled.div`
   font-weight: bold;
   line-height: 2.1;
   text-align: left;
+  max-width: 90vw;
 
   @media (max-width: 768px) {
     font-size: 32px;
@@ -47,6 +48,7 @@ const Term = styled.div`
   @media (max-width: 480px) {
     font-size: 24px;
     line-height: 1.6;
+    letter-spacing: 1px;
   }
 `;
 

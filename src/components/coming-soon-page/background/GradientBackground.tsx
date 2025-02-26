@@ -13,8 +13,8 @@ const GradientBackground: React.FC = () => {
   return (
     <>
       {/* Background Images */}
-      <div className="absolute inset-0 w-full h-full max-sm:h-1/2">
-        <div className="grid grid-cols-5 h-full">
+      <div className="absolute inset-0 w-full h-full">
+        <div className="grid grid-cols-5 h-full sm:grid-cols-3 max-sm:grid-cols-2">
           {backgroundImages.map((column, index) => (
             <motion.div
               key={index}
@@ -39,6 +39,15 @@ const GradientBackground: React.FC = () => {
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,1) 100%)'
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Additional mobile gradient */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] sm:hidden"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,1) 90%)'
         }}
         aria-hidden="true"
       />

@@ -14,7 +14,7 @@ const GradientBackground: React.FC = () => {
     <>
       {/* Background Images */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="grid grid-cols-5 h-full sm:grid-cols-3 max-sm:grid-cols-2">
+        <div className="grid grid-cols-5 h-full">
           {backgroundImages.map((column, index) => (
             <motion.div
               key={index}

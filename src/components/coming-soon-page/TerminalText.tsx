@@ -11,12 +11,12 @@ const TerminalContainer = styled.div`
   z-index: 20;
 
   @media (max-width: 768px) {
-    bottom: 160px;
+    bottom: 200px;
     left: 20px;
   }
 
   @media (max-width: 480px) {
-    bottom: 180px;
+    bottom: 220px;
     left: 15px;
   }
 `;
@@ -73,7 +73,7 @@ const CTAContainer = styled.div`
   
   @media (max-width: 768px) {
     right: 20px;
-    bottom: 60px;
+    bottom: 100px;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
@@ -81,7 +81,7 @@ const CTAContainer = styled.div`
 
   @media (max-width: 480px) {
     right: 15px;
-    bottom: 40px;
+    bottom: 120px;
   }
   
   &.visible {

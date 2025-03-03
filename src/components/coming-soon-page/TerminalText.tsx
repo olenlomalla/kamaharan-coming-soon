@@ -2,23 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 
 const TerminalContainer = styled.div`
-  position: fixed;
-  bottom: 140px;
-  left: 40px;
-  width: auto;
+  width: 100%;
   margin: 0;
   padding: 0;
   z-index: 20;
-
-  @media (max-width: 768px) {
-    bottom: 200px;
-    left: 20px;
-  }
-
-  @media (max-width: 480px) {
-    bottom: 220px;
-    left: 15px;
-  }
 `;
 
 const Term = styled.div`
@@ -36,18 +23,19 @@ const Term = styled.div`
   animation: glitch 3s infinite alternate-reverse;
   filter: hue-rotate(-10deg) saturate(1.2);
   font-weight: bold;
-  line-height: 2.1;
+  line-height: 1.5;
   text-align: left;
-  max-width: 90vw;
+  max-width: 100%;
 
   @media (max-width: 768px) {
     font-size: 32px;
-    line-height: 1.8;
+    line-height: 1.4;
+    text-align: left;
   }
 
   @media (max-width: 480px) {
     font-size: 24px;
-    line-height: 1.6;
+    line-height: 1.3;
     letter-spacing: 1px;
   }
 `;
@@ -60,33 +48,17 @@ const Cursor = styled.span`
 
 const CTAContainer = styled.div`
   position: fixed;
+  left: 50%;
   bottom: 80px;
-  right: 40px;
+  transform: translateX(-50%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   z-index: 20;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  margin-left: 40px;
   
-  @media (max-width: 768px) {
-    right: 20px;
-    bottom: 100px;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-  }
-
-  @media (max-width: 480px) {
-    right: 15px;
-    bottom: 120px;
-  }
-  
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
+  @media (min-width: 768px) {
+    display: none;
   }
 `;
 
@@ -121,10 +93,13 @@ const CTAButton = styled.button`
   }
 `;
 
-const TerminalText: React.FC = () => {
+interface TerminalTextProps {
+  setModalOpen?: (isOpen: boolean) => void;
+}
+
+const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const typeText = async (element: HTMLSpanElement, text: string) => {
@@ -138,20 +113,15 @@ const TerminalText: React.FC = () => {
     };
 
     const startSequence = async () => {
-      if (line1Ref.current && line2Ref.current && ctaRef.current) {
+      if (line1Ref.current && line2Ref.current) {
         await typeText(line1Ref.current, "THIS CHANGES EVERYTHING...");
         await new Promise(resolve => setTimeout(resolve, 500));
         await typeText(line2Ref.current, "COMING SOON");
-        ctaRef.current.classList.add('visible');
       }
     };
 
     startSequence();
   }, []);
-
-  const openCtaForm = () => {
-    window.open('https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu', '_blank');
-  };
 
   return (
     <>
@@ -165,12 +135,14 @@ const TerminalText: React.FC = () => {
         </Term>
       </TerminalContainer>
       
-      <CTAContainer ref={ctaRef}>
-        <div className="text-white font-mono text-lg">TO FIND OUT MORE</div>
-        <CTAButton onClick={openCtaForm}>
-          Request Invite
-        </CTAButton>
-      </CTAContainer>
+      {setModalOpen && (
+        <CTAContainer>
+          <div className="text-white font-mono text-lg">TO FIND OUT MORE</div>
+          <CTAButton onClick={() => setModalOpen(true)}>
+            REQUEST INVITE
+          </CTAButton>
+        </CTAContainer>
+      )}
     </>
   );
 };

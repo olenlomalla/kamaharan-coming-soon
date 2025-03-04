@@ -9,7 +9,7 @@ const AccountCards: FC<AccountCardsProps> = ({ onClose }) => {
   return (
     <div className="flex flex-col gap-[35px] mx-[20px] md:mx-[48px] mt-[16px] sm:mt-[12px]">
       <AccountCard
-        to="/onboarding"
+        to="https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu"
         onClick={onClose}
         icon="/profile.svg"
         title="Personal Account"
@@ -17,7 +17,7 @@ const AccountCards: FC<AccountCardsProps> = ({ onClose }) => {
         iconAlt="Create profile account image"
       />
       <AccountCard
-        to="/onboarding"
+        to="https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu"
         onClick={onClose}
         icon="/business.svg"
         title="Business Account"

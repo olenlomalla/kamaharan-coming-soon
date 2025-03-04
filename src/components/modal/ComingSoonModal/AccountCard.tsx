@@ -18,12 +18,11 @@ const AccountCard: FC<AccountCardProps> = ({
   description,
   iconAlt,
 }) => {
-  return (
-    <Link
-      to={to}
-      onClick={onClick}
-      className="flex border-[#F8F7F466] bg-white bg-opacity-20 backdrop-blur-[40px] p-4 sm:p-8 border rounded-[24px] max-w-[522px] max-h-[200px]"
-    >
+  const isExternalUrl = to.startsWith('http');
+  const commonClassNames = "flex border-[#F8F7F466] bg-white bg-opacity-20 backdrop-blur-[40px] p-4 sm:p-8 border rounded-[24px] max-w-[522px] max-h-[200px]";
+
+  const CardContent = () => (
+    <>
       <div className="flex flex-col justify-start w-[48px]">
         <button className="flex justify-center items-center bg-[#F8F7F44D] border border-transparent rounded-[8px] w-[36px] sm:w-[48px] h-[36px] sm:h-[48px]">
           <img
@@ -41,6 +40,26 @@ const AccountCard: FC<AccountCardProps> = ({
           {description}
         </p>
       </div>
+    </>
+  );
+
+  return isExternalUrl ? (
+    <a
+      href={to}
+      onClick={onClick}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={commonClassNames}
+    >
+      <CardContent />
+    </a>
+  ) : (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={commonClassNames}
+    >
+      <CardContent />
     </Link>
   );
 };

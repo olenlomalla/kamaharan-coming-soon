@@ -37,8 +37,9 @@ const ComingSoonPageLayout: React.FC = () => {
       <div className="md:hidden flex flex-col items-center">
         {/* Portrait */}
         <div className="landscape:hidden min-h-[100svh] w-full flex flex-col items-center justify-between py-8 px-4">
-          <div className="w-full flex-grow flex items-center justify-center">
-            <div className="w-[120%] scale-[0.6] origin-center">
+          <div className="flex-1"></div>
+          <div className="w-full flex items-end mb-16">
+            <div className="w-[120%] scale-[0.6] origin-bottom-left">
               <TerminalText />
             </div>
           </div>

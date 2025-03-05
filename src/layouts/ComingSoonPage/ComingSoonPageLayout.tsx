@@ -1,11 +1,7 @@
 import React from "react";
 import TerminalText from "@/components/coming-soon-page/TerminalText";
 
-interface ComingSoonPageLayoutProps {
-  setModalOpen: (isOpen: boolean) => void;
-}
-
-const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({ setModalOpen }) => {
+const ComingSoonPageLayout: React.FC = () => {
   const formUrl = 'https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu';
 
   return (

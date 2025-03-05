@@ -11,17 +11,19 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({ setModalOpe
   return (
     <div className="z-10 relative flex flex-col justify-end min-h-[100svh]">
       {/* Desktop Layout */}
-      <div className="hidden sm:grid grid-cols-3 gap-6 w-full pb-8 px-10">
-        <div className="w-full flex items-end">
-          <TerminalText />
+      <div className="hidden md:grid grid-cols-3 h-[72px] gap-6 w-full px-6 md:px-10 max-w-[1440px] mx-auto mb-8">
+        <div className="w-full h-[72px] flex items-end overflow-hidden">
+          <div className="w-[150%] scale-[0.65] origin-bottom-left -mb-1">
+            <TerminalText />
+          </div>
         </div>
-        <div className="flex flex-col items-center justify-end gap-3">
-          <div className="text-white font-mono text-xl">TO FIND OUT MORE</div>
+        <div className="flex flex-col items-center justify-end gap-2">
+          <div className="text-white text-sm">TO FIND OUT MORE</div>
           <a
             href={formUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded text-base font-medium transition-colors no-underline inline-block"
+            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors no-underline inline-block"
           >
             REQUEST INVITE
           </a>
@@ -30,32 +32,64 @@ const ComingSoonPageLayout: React.FC<ComingSoonPageLayoutProps> = ({ setModalOpe
           <img
             src="/icons/logo-white.svg"
             alt="Kamaharan Logo"
-            className="h-12 w-auto object-contain"
+            className="h-8 w-auto object-contain"
           />
         </div>
       </div>
 
       {/* Mobile Layout */}
-      <div className="sm:hidden flex flex-col items-center pb-8 px-4">
-        <div className="w-full pt-20">
-          <TerminalText />
+      <div className="md:hidden flex flex-col items-center">
+        {/* Portrait */}
+        <div className="landscape:hidden min-h-[100svh] w-full flex flex-col items-center justify-between py-8 px-4">
+          <div className="w-full flex-grow flex items-center justify-center">
+            <div className="w-[120%] scale-[0.6] origin-center">
+              <TerminalText />
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <div className="text-white text-sm">TO FIND OUT MORE</div>
+            <a
+              href={formUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors no-underline inline-block"
+            >
+              REQUEST INVITE
+            </a>
+          </div>
+          <img
+            src="/icons/logo-white.svg"
+            alt="Kamaharan Logo"
+            className="h-8 w-auto object-contain"
+          />
         </div>
-        <div className="flex flex-col items-center gap-8 mt-24 mb-16">
-          <div className="text-white font-mono text-lg mb-2">TO FIND OUT MORE</div>
-          <a
-            href={formUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded text-base font-medium transition-colors no-underline inline-block"
-          >
-            REQUEST INVITE
-          </a>
+
+        {/* Landscape */}
+        <div className="portrait:hidden h-[72px] w-full flex flex-row items-center justify-between px-6 py-4">
+          <div className="w-1/3 h-[72px] overflow-hidden">
+            <div className="w-[140%] scale-[0.5] origin-bottom-left -mb-1">
+              <TerminalText />
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-2 w-1/3">
+            <div className="text-white text-sm">TO FIND OUT MORE</div>
+            <a
+              href={formUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors no-underline inline-block"
+            >
+              REQUEST INVITE
+            </a>
+          </div>
+          <div className="flex justify-end w-1/3">
+            <img
+              src="/icons/logo-white.svg"
+              alt="Kamaharan Logo"
+              className="h-6 w-auto object-contain"
+            />
+          </div>
         </div>
-        <img
-          src="/icons/logo-white.svg"
-          alt="Kamaharan Logo"
-          className="h-10 w-auto object-contain mb-4"
-        />
       </div>
     </div>
   );

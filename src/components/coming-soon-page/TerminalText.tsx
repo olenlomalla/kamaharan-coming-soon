@@ -10,11 +10,11 @@ const TerminalContainer = styled.div`
 
 const Term = styled.div`
   font-family: 'Courier New', Courier, monospace;
-  font-size: 42px;
+  font-size: 28px;
   white-space: pre-wrap;
   color: rgba(220,255,220,.95);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-shadow: 0 0 1px rgba(180,255,220,.9),
                0 0 2px rgba(140,255,140,.8),
                0 0 4px rgba(0,255,68,.7),
@@ -23,20 +23,20 @@ const Term = styled.div`
   animation: glitch 3s infinite alternate-reverse;
   filter: hue-rotate(-10deg) saturate(1.2);
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1.2;
   text-align: left;
   max-width: 100%;
 
   @media (max-width: 768px) {
-    font-size: 32px;
-    line-height: 1.4;
+    font-size: 24px;
+    line-height: 1.2;
     text-align: left;
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
-    line-height: 1.3;
-    letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
   }
 `;
 

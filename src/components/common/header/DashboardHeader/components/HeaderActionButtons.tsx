@@ -28,7 +28,7 @@ const ActionButtons = () => {
 
       <div className="relative">
         <select
-          className="flex justify-between items-center bg-[#D8E9FA] pr-[24px] pl-[8px] rounded-[8px] w-[58px] h-[30px] text-[#5B5A5E] text-[16px] appearance-none"
+          className="flex justify-between items-center bg-[#FFF1F0] pr-[24px] pl-[8px] rounded-[8px] w-[58px] h-[30px] text-[#5B5A5E] text-[16px] appearance-none"
           aria-label="Select Language"
         >
           <option value="en" className="text-[#5B5A5E]">

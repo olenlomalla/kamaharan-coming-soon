@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 interface IHeaderButton {
   children: ReactNode;
-  iconUrl: string;
+  icon: string;
   to: string;
 }
 
-const HeaderLink: FC<IHeaderButton> = ({ children, iconUrl, to }) => {
+const HeaderLink: FC<IHeaderButton> = ({ children, icon, to }) => {
   return (
     <Link to={to}>
       <button className="first:first-of-type:ml-[0]">
-        <img src={iconUrl} alt={children as string} className="m-auto" />
-        <p className="font-body text-[#424144] text-[11px]"> {children}</p>
+        <img src={icon} alt={children as string} className="m-auto" />
+        <p className="font-body text-[#424144] text-[11px]">{children}</p>
       </button>
     </Link>
   );

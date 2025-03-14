@@ -12,7 +12,9 @@ const CustomSearchControl: React.FC = () => {
     if (!query) return;
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+          query
+        )}`
       );
       const data = await response.json();
       if (data && data.length > 0) {

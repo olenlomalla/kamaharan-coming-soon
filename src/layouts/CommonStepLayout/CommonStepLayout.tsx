@@ -27,8 +27,7 @@ const CommonStepLayout = ({
         setCurrentRoundedColor(roundedShapeColor);
       }
     };
-
-    // Викликаємо при першому рендерингу
+    
     handleResize();
 
     window.addEventListener("resize", handleResize);

@@ -1,38 +1,29 @@
-import React from "react";
-import CustomSearchControl from "./CustomSearchControl";
-import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-// import ReactLeafletGoogleLayer from "react-leaflet-google-layer"; (For Google Map)
+import { useLocation } from "@/context/LocationContext";
+import Map, { NavigationControl } from "react-map-gl/maplibre";
+
+import "maplibre-gl/dist/maplibre-gl.css";
+
+const apiKey = import.meta.env.VITE_AWS_API_KEY;
+const region = import.meta.env.VITE_AWS_REGION;
 
 const MapWithCustomSearch: React.FC = () => {
+  const { userLocation } = useLocation();
+
+  const defaultCenter: [number, number] = [33.6461, -117.8417];
+
   return (
-    <MapContainer
-      center={[33.6461, -117.8417]} // Coordinates Irvine, California
-      zoom={13}
-      zoomControl={false}
-      style={{ width: "100vw", height: "100vh" }}
+    <Map
+      initialViewState={{
+        latitude: userLocation ? userLocation.latitude : defaultCenter[0],
+        longitude: userLocation ? userLocation.longitude : defaultCenter[1],
+        zoom: 14,
+      }}
+      style={{ height: "100vh", width: "100vw" }}
+      mapStyle={`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?key=${apiKey}&color-scheme=Light`}
     >
-      <TileLayer
-        attribution="&copy; OpenStreetMap contributors, &copy; CARTO"
-        url="https://cartodb-basemaps-a.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-      />
-      <CustomSearchControl />
-    </MapContainer>
-
-    // Google Maps Show Directions. (Need API for use)
-
-    // <MapContainer
-    //   center={[51.505, -0.09]}
-    //   zoom={13}
-    //   zoomControl={false}
-    //   style={{ width: "100vw", height: "100vh" }}
-    // >
-    //   <ReactLeafletGoogleLayer
-    //     apiKey="YOUR_GOOGLE_MAPS_API_KEY"
-    //     type="roadmap"
-    //   />
-    //   <CustomSearchControl />
-    // </MapContainer>
+      <NavigationControl position="bottom-right" showZoom showCompass={false} />
+    </Map>
   );
 };
 

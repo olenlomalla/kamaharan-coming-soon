@@ -20,7 +20,7 @@ const DashboardHeader: React.FC<IDashboardHeaderProps> = ({
 }) => {
   return (
     <header
-      className="flex justify-center items-center px-[32px] pt-[16px] w-[100%] h-[89px]"
+      className="flex justify-center items-center px-[32px] pt-[16px] w-full h-[89px]"
       style={{
         backgroundColor: bgColor,
       }}

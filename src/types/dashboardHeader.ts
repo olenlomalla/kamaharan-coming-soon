@@ -1,8 +1,8 @@
 export interface DashboardHeaderIcons {
-  imageUrl: string;
-  imageLabel: string;
-  imageId: number;
-  url: string;
+  id: number;
+  icon: string;
+  label: string;
+  url: string
 }
 
 export interface DashboardFormIcons {

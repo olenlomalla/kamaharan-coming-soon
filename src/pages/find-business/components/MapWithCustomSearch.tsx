@@ -21,7 +21,6 @@ const MapWithCustomSearch: React.FC = () => {
       }}
       style={{ height: "100vh", width: "100vw" }}
       mapStyle={`https://maps.geo.${region}.amazonaws.com/v2/styles/Standard/descriptor?key=${apiKey}&color-scheme=Light`}
-      validateStyle={false}
     >
       <NavigationControl position="bottom-right" showZoom showCompass={false} />
     </Map>

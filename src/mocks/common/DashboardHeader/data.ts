@@ -14,28 +14,34 @@ export const headerLogo: DashboardHeaderLogo = {
 
 export const dashboardHeaderIcons: DashboardHeaderIcons[] = [
   {
-    imageUrl: "/icons/dashboard/header/navigation/explore.svg",
-    imageLabel: "Explore",
+    id: 1,
+    icon: "/icons/dashboard/header/navigation/explore.svg",
+    label: "Explore",
     url: "/explore",
-    imageId: 1,
   },
   {
-    imageUrl: "/icons/dashboard/header/navigation/deals.svg",
-    imageLabel: "Deals",
+    id: 2,
+    icon: "/icons/dashboard/header/navigation/deals.svg",
+    label: "Deals",
     url: "/deals",
-    imageId: 2,
   },
   {
-    imageUrl: "/icons/dashboard/header/navigation/services.svg",
-    imageLabel: "Services",
+    id: 3,
+    icon: "/icons/dashboard/header/navigation/services.svg",
+    label: "Services",
     url: "/services",
-    imageId: 3,
   },
   {
-    imageUrl: "/icons/dashboard/header/navigation/blog.svg",
-    imageLabel: "Blog",
+    id: 4,
+    icon: "/icons/dashboard/header/navigation/blog.svg",
+    label: "Blog",
     url: "/blog",
-    imageId: 4,
+  },
+  {
+    id: 5,
+    icon: "/icons/dashboard/header/navigation/around-me.svg",
+    label: "Around Me",
+    url: "/find-business",
   },
 ];
 

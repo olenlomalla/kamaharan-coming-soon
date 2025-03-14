@@ -1,17 +1,21 @@
 import { FC } from "react";
-import HeaderButton from "./HeaderButton"; // Імпортуємо HeaderButton
+import { Link } from "react-router-dom";
 
 interface IHeaderButtonContainer {
-  buttons: { text: string; path: string }[]; // Тип для масиву кнопок
+  buttons: { text: string; path: string }[];
 }
 
 const HeaderButtonContainer: FC<IHeaderButtonContainer> = ({ buttons }) => {
   return (
     <div className="flex justify-center items-center gap-[24px]">
       {buttons.map((button, index) => (
-        <HeaderButton key={index} path={button.path}>
+        <Link
+          to={button.path}
+          key={index}
+          className="font-body text-sm text-[#F54D33]"
+        >
           {button.text}
-        </HeaderButton>
+        </Link>
       ))}
     </div>
   );

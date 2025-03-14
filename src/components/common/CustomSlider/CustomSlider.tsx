@@ -2,8 +2,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { FC, useState } from "react";
-import "./index.css";
 import TitleDescription from "./components/TitleDescription";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+
+import "./index.css";
 
 interface ICustomSlider {
   images: string[];
@@ -42,7 +44,7 @@ const CustomSlider: FC<ICustomSlider> = ({
         <div className="flex justify-between items-center gap-[10px]">
           <button
             type="button"
-            className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
             onClick={() => slider?.current?.slickPrev()}
           >
             <img
@@ -54,7 +56,7 @@ const CustomSlider: FC<ICustomSlider> = ({
           </button>
           <button
             type="button"
-            className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
             onClick={() => slider?.current?.slickNext()}
           >
             <img
@@ -78,15 +80,15 @@ const CustomSlider: FC<ICustomSlider> = ({
                 className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
                   likedSlides.includes(index)
                     ? "bg-white opacity-100"
-                    : "bg-[#385C80] opacity-50"
+                    : "bg-[#F54D33] opacity-50"
                 }`}
                 onClick={() => handleLikeClick(index)}
               >
-                <img
-                  src="/icons/slider-like.svg"
-                  alt="Add to saved"
-                  className={likedSlides.includes(index) ? "filter invert" : ""}
-                />
+                {likedSlides.includes(index) ? (
+                  <FaHeart color="#000" />
+                ) : (
+                  <FaRegHeart color="#FCFCFC" />
+                )}
               </button>
               {showTitleArray && description && (
                 <TitleDescription description={description} />

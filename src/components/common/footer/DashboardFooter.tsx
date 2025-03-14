@@ -3,11 +3,11 @@ import FooterDisclaimer from "./components/FooterDisclaimer";
 import FooterDownload from "./components/FooterDownload";
 import FooterLogo from "./components/FooterLogo";
 import { SocialMedia } from "./components/SocialMedia";
-import { footerItems } from "../../../mocks/common/DashboardFooter/data";
+import { footerItems } from "@/mocks/common/DashboardFooter/data";
 
 const DashboardFooter = () => {
   return (
-    <div className="flex justify-center items-center bg-[#D8E9FA] w-[1440px]">
+    <div className="flex justify-center items-center bg-[#FFF1F0] w-full">
       <div className="w-[830px]">
         <FooterLogo />
 

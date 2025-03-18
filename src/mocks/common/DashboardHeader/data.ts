@@ -78,3 +78,8 @@ export const userButton: DashboardUserIcon = {
   imageLabel: "User Button",
   label: "You",
 };
+
+export const buttonsData = [
+  { text: "K. for business", path: "/kamaharan-for-business" },
+  { text: "Start a Project", path: "/start-a-project" },
+];

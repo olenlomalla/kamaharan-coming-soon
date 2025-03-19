@@ -11,11 +11,10 @@ const ComingSoonPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative bg-black max-h-[100svh] overflow-hidden text-white">
+    <div className="relative bg-black min-h-[100svh] overflow-hidden flex flex-col text-white">
       <GradientBackground />
       <UserLogin />
       <ComingSoonPageLayout />
-      {/* <BottomIcons isModalOpen={isModalOpen} /> */}
     </div>
   );
 };

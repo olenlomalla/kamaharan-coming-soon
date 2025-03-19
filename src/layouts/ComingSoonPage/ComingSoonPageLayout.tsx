@@ -2,10 +2,10 @@ import React from "react";
 import TerminalText from "@/components/coming-soon-page/TerminalText";
 
 const ComingSoonPageLayout: React.FC = () => {
-  const formUrl = 'https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu';
+  const formUrl = "https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu";
 
   return (
-    <div className="z-10 relative flex flex-col justify-end min-h-[100svh]">
+    <div className="z-10 relative flex flex-col justify-end min-h-[70svh]">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-3 h-[72px] gap-6 w-full px-6 md:px-10 max-w-[1440px] mx-auto mb-8">
         <div className="w-full h-[72px] flex items-end overflow-hidden">
@@ -36,7 +36,7 @@ const ComingSoonPageLayout: React.FC = () => {
       {/* Mobile Layout */}
       <div className="md:hidden flex flex-col items-center">
         {/* Portrait */}
-        <div className="landscape:hidden min-h-[100svh] w-full flex flex-col items-center justify-between py-8 px-4">
+        <div className="landscape:hidden min-h-[70svh] w-full flex flex-col items-center justify-between py-8 px-4">
           <div className="flex-1"></div>
           <div className="w-full flex items-end mb-16">
             <div className="w-[120%] scale-[0.6] origin-bottom-left">

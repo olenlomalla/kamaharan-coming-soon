@@ -85,7 +85,7 @@ const ImageSlider: FC = () => {
                   currentIndex === index ? "filter blur-0" : "filter blur-[2px]"
                 }`}
               >
-                <h3 className="font-heading font-bold text-[#363537] text-sm leading-[16.8px] tracking-wide">
+                <h3 className="font-body font-bold text-[#363537] text-sm leading-[16.8px] tracking-wide">
                   {image.text}
                 </h3>
                 <p className="font-body font-medium text-[#363537] text-[11px] leading-[13.2px] tracking-[0.25px]">

@@ -1,7 +1,7 @@
 export interface DashboardHeaderIcons {
-  imageUrl: string;
-  imageLabel: string;
-  imageId: number;
+  id: number;
+  icon: string;
+  label: string;
   url: string;
 }
 
@@ -32,4 +32,8 @@ export interface DashboardUserIcon {
 export interface DashboardHeaderLogo {
   imageUrl: string;
   imageLabel: string;
+}
+
+export interface DashboardHeaderProps {
+  bgColor?: string;
 }

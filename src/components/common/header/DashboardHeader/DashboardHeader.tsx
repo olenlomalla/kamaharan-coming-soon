@@ -5,26 +5,12 @@ import HeaderLeft from "./components/HeaderLeft";
 import HeaderNavigation from "./components/HeaderNavigation";
 import UserAccount from "./components/UserAccount";
 import HeaderButtonContainer from "./components/HeaderButtonContainer";
+import { buttonsData } from "@/mocks/common/DashboardHeader/data";
+import { DashboardHeaderProps } from "@/types/dashboardHeader";
 
-const buttonsData = [
-  { text: "K. for business", path: "/kamaharan-for-business" },
-  { text: "Start a Project", path: "/start-a-project" },
-];
-
-interface IDashboardHeaderProps {
-  bgColor?: string;
-}
-
-const DashboardHeader: React.FC<IDashboardHeaderProps> = ({
-  bgColor = "#FFFFFF",
-}) => {
+const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
   return (
-    <header
-      className="flex justify-center items-center px-[32px] pt-[16px] w-[100%] h-[89px]"
-      style={{
-        backgroundColor: bgColor,
-      }}
-    >
+    <header className="flex justify-center items-center bg-white px-[32px] pb-[16px] w-full h-[89px]">
       <HeaderLeft>
         <HeaderLogo />
         <HeaderNavigation />

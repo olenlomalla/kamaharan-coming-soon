@@ -7,6 +7,14 @@ const LoadingScreen = () => (
   </div>
 );
 
+const wrapWithProviders = (Component: React.ComponentType) => {
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <Component />
+    </Suspense>
+  );
+};
+
 const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
@@ -24,90 +32,46 @@ const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <ComingSoonPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(ComingSoonPage),
   },
   {
     path: "/home",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <HomePage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(HomePage),
   },
   {
     path: "/onboarding",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <OnboardingPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(OnboardingPage),
   },
   {
     path: "/explore",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <ExplorePage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(ExplorePage),
   },
   {
     path: "/deals",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <DealsPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(DealsPage),
   },
   {
     path: "/services",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <ServicesPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(ServicesPage),
   },
   {
     path: "/blog",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <BlogPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(BlogPage),
   },
   {
     path: "/find-business",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <FindBusiness />
-      </Suspense>
-    ),
+    element: wrapWithProviders(FindBusiness),
   },
   {
     path: "/start-a-project",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <StartAProject />
-      </Suspense>
-    ),
+    element: wrapWithProviders(StartAProject),
   },
   {
     path: "/kamaharan-for-business",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <KForBusiness />
-      </Suspense>
-    ),
+    element: wrapWithProviders(KForBusiness),
   },
   {
     path: "*",
-    element: (
-      <Suspense fallback={<LoadingScreen />}>
-        <ErrorPage />
-      </Suspense>
-    ),
+    element: wrapWithProviders(ErrorPage),
   },
 ]);

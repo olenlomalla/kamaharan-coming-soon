@@ -1,28 +1,23 @@
 interface StartProjectIconsProps {
   urlIcon: string;
   labelIcon: string;
-  linkIcon: string;
 }
 
 export const startProjectIcons: StartProjectIconsProps[] = [
   {
-    urlIcon: "",
-    labelIcon: "",
-    linkIcon: "/",
+    urlIcon: "/icons/start-project/bowl.svg",
+    labelIcon: "Bowl",
   },
   {
-    urlIcon: "",
-    labelIcon: "",
-    linkIcon: "/",
+    urlIcon: "/icons/start-project/dumbbell.svg",
+    labelIcon: "Dumbbell",
   },
   {
-    urlIcon: "",
-    labelIcon: "",
-    linkIcon: "/",
+    urlIcon: "/icons/start-project/tool.svg",
+    labelIcon: "Tool",
   },
   {
-    urlIcon: "",
-    labelIcon: "",
-    linkIcon: "/",
+    urlIcon: "/icons/start-project/city.svg",
+    labelIcon: "City",
   },
 ];

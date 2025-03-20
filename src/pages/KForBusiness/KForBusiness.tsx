@@ -6,7 +6,7 @@ const KForBusiness = () => {
   return (
     <PagesContentLayout>
       <div className="flex flex-col justify-center items-center gap-[24px] my-[48px]">
-        <h1 className="font-syne font-bold text-3xl leading-10 tracking-normal">
+        <h1 className="font-syne font-bold text-4xl leading-10 tracking-normal">
           Kamaharan for Business
         </h1>
         <div className="max-w-[632px]">

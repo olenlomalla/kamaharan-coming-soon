@@ -1,10 +1,11 @@
-import { useEffect } from "react";
 import { OnboardingStepProps } from "@/types/onboarding";
 import OnboardingHeader from "@/components/common/header/OnboardingHeader";
 import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
 import CommonStepLayout from "@/layouts/CommonStepLayout/CommonStepLayout";
+import { LocationData, useLocation } from "@/context/LocationContext";
+import { useEffect } from "react";
 
-const WelcomeStep: React.FC<OnboardingStepProps> = ({
+const LocationStep: React.FC<OnboardingStepProps> = ({
   title,
   description,
   onNext,
@@ -15,19 +16,34 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   mobileBackgroundImage,
   roundedShapeColor,
 }) => {
-  useEffect(() => {
-    if ("geolocation" in navigator) {
+  const { userLocation, setUserLocation } = useLocation();
+
+  const handleLocationAndNext = async () => {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log("Latitude: ", position.coords.latitude);
-          console.log("Longitude: ", position.coords.longitude);
+          const { latitude, longitude } = position.coords;
+          const newLocation: LocationData = {
+            latitude: Number(latitude),
+            longitude: Number(longitude),
+          };
+
+          setUserLocation(newLocation);
         },
-        (err) => {
-          console.error("Error: ", err);
+        (error) => {
+          console.error("Error getting user location:", error);
         }
       );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
     }
-  }, []);
+  };
+
+  useEffect(() => {
+    if (userLocation) {
+      onNext();
+    }
+  }, [userLocation, onNext]);
 
   return (
     <section className="relative min-h-[100svh]">
@@ -40,7 +56,7 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
       <CommonStepLayout
         title={title}
         description={description}
-        onNext={onNext}
+        onNext={handleLocationAndNext}
         onBack={onBack}
         currentStep={currentStep}
         totalSteps={totalSteps}
@@ -52,4 +68,4 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   );
 };
 
-export default WelcomeStep;
+export default LocationStep;

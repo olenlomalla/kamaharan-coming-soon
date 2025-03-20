@@ -1,10 +1,12 @@
-import Title from "@/components/ui/Title";
+import CategoryCarousel from "@/components/blog/CategoryCarousel";
+import PostLayout from "@/components/blog/PostLayout";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 
 const BlogPage = () => {
   return (
     <PagesContentLayout>
-      <Title>Blog page</Title>
+      <CategoryCarousel />
+      <PostLayout />
     </PagesContentLayout>
   );
 };

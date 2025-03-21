@@ -4,7 +4,6 @@ import {
   DashboardFormIcons,
   DashboardHeaderIcons,
   DashboardHeaderLogo,
-  DashboardUserIcon,
 } from "@/types/dashboardHeader";
 
 export const headerLogo: DashboardHeaderLogo = {
@@ -71,12 +70,6 @@ export const dashboardActionButtons: DashboardActionButtons[] = [
 export const dropdownButton: DashboardDropdownIcon = {
   imageUrl: "/icons/dashboard/header/dropdown-arrow.svg",
   imageLabel: "Dropdown Button",
-};
-
-export const userButton: DashboardUserIcon = {
-  imageUrl: "/icons/dashboard/header/user.svg",
-  imageLabel: "User Button",
-  label: "You",
 };
 
 export const buttonsData = [

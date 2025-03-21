@@ -8,7 +8,7 @@ interface IPagesContentLayout {
 
 const PagesContentLayout: FC<IPagesContentLayout> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen max-w-[1440px] mx-auto">
+    <div className="flex flex-col min-h-screen max-w-[1440px] mx-auto bg-[#f8f7f5]">
       <DashboardHeader />
       <main className="flex-grow">{children}</main>
       <DashboardFooter />

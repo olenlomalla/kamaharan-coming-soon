@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 import {
   dashboardActionButtons,
   dropdownButton,
-} from "../../../../../mocks/common/DashboardHeader/data";
+} from "@/mocks/common/DashboardHeader/data";
 const ActionButtons = () => {
   return (
     <div className="flex justify-between items-center gap-[24px]">
-      {/* Action buttons */}
-
       {dashboardActionButtons.map((icon, index) => {
         return (
           <Link

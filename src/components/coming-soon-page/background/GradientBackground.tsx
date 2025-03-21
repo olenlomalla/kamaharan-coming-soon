@@ -33,7 +33,7 @@ const GradientBackground: React.FC = () => {
               180deg,
               transparent 0%,
               rgba(0,0,0,0.4) 30%,
-              rgba(0,0,0,0.8) 60%,
+              rgba(0,0,0,0.8) 40%,
               rgba(0,0,0,1) 80%
             )
           `,

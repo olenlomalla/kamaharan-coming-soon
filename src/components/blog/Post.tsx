@@ -4,7 +4,15 @@ import CalendarIcon from "/icons/blog/calendar.svg";
 import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-const Post = ({ cover, title, subtitle, date, time, index }: PostProps) => {
+const Post = ({
+  cover,
+  title,
+  subtitle,
+  date,
+  time,
+  index,
+  onClick,
+}: PostProps) => {
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
 
   const handleLikeClick = (index: number) => {
@@ -16,7 +24,7 @@ const Post = ({ cover, title, subtitle, date, time, index }: PostProps) => {
   return (
     <div className="max-w-[632px] w-full mb-[32px] relative">
       <div>
-        <img src={cover} alt="" />
+        <img src={cover} alt="" onClick={onClick} className="cursor-pointer" />
         <button
           type="button"
           className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
@@ -33,8 +41,15 @@ const Post = ({ cover, title, subtitle, date, time, index }: PostProps) => {
           )}
         </button>
       </div>
-      <h2 className="font-body mb-2">{title}</h2>
-      <h3 className="text-[11px] font-body mb-2">{subtitle}</h3>
+      <h2 className="font-body mb-2 cursor-pointer" onClick={onClick}>
+        {title}
+      </h2>
+      <h3
+        className="text-[11px] font-body mb-2 cursor-pointer"
+        onClick={onClick}
+      >
+        {subtitle}
+      </h3>
       <div className="flex gap-2 font-body">
         <img src={CalendarIcon} alt="Calendar Icon" />
         <p>{`${date} . ${time}`}</p>

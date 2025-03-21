@@ -2,9 +2,18 @@ import { category } from "@/mocks/pages/blog/category";
 import ActionButtonUI from "../ui/ActionButton";
 import Title from "../ui/Title";
 import { useRef } from "react";
+import { posts } from "@/mocks/pages/blog/posts";
 
-const CategoryCarousel = () => {
+interface CategoryCarouselProps {
+  setSelectedCategory: (category: string) => void;
+}
+
+const CategoryCarousel = ({ setSelectedCategory }: CategoryCarouselProps) => {
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  const getCategoryCount = (categoryName: string) => {
+    return posts.filter((post) => post.category === categoryName).length;
+  };
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -19,13 +28,16 @@ const CategoryCarousel = () => {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-[32px] flex items-center justify-between mb-[38px]">
+    <div className="max-w-[1440px] mx-auto px-[32px] flex items-center justify-between mb-[38px] mt-[48px]">
       <Title>Blog</Title>
       <div className="flex items-center gap-[10px]">
         {category.map((category) => (
-          <ActionButtonUI key={category.id} path={category.path}>
-            {category.text}
-          </ActionButtonUI>
+          <ActionButtonUI
+            key={category.id}
+            onClick={() => setSelectedCategory}
+          >{`${category.text} (${getCategoryCount(
+            category.text
+          )})`}</ActionButtonUI>
         ))}
         <div className="flex justify-between items-center gap-[10px]">
           <button

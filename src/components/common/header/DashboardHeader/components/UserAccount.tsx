@@ -1,18 +1,48 @@
-import { Link } from "react-router-dom";
-import { userButton } from "../../../../../mocks/common/DashboardHeader/data";
+import { useEffect, useRef, useState } from "react";
+import UserAccountPopup from "./UserAccountPopup";
 
 const UserAccount = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node) &&
+        !buttonRef.current?.contains(event.target as Node)
+      ) {
+        setIsPopupOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <Link to={"/"} className="flex flex-col justify-center ml-[10px]">
-      <img
-        src={userButton.imageUrl}
-        alt={userButton.imageLabel}
-        className="w-[24px] h-[24px]"
-      />
-      <p className="font-body text-[#424144] text-[11px] text-center">
-        {userButton.label}
-      </p>
-    </Link>
+    <div className="relative">
+      <button
+        ref={buttonRef}
+        className="flex flex-col justify-center ml-[10px]"
+        onClick={() => setIsPopupOpen(!isPopupOpen)}
+      >
+        <img
+          src="/icons/dashboard/header/user.svg"
+          alt="User Button"
+          className="w-[24px] h-[24px]"
+        />
+        <p className="font-body text-[#424144] text-[11px] text-center">You</p>
+      </button>
+
+      <div ref={popupRef}>
+        <UserAccountPopup
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+        />
+      </div>
+    </div>
   );
 };
 

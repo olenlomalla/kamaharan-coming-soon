@@ -3,7 +3,7 @@ import { StepButtonProps } from "@/types/onboarding";
 const StepButton = ({ onNext, text }: StepButtonProps) => {
   return (
     <button
-      className="w-[200px] bg-[#385C80] rounded-[40px] text-lg text-[#F8F7F4] h-[64px] flex justify-center items-center"
+      className="flex h-[64px] w-[200px] items-center justify-center rounded-[40px] bg-[#385C80] text-lg text-[#F8F7F4]"
       onClick={onNext}
     >
       {text}

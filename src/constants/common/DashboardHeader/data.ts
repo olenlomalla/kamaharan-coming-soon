@@ -76,3 +76,24 @@ export const buttonsData = [
   { text: "K. for business", path: "/kamaharan-for-business" },
   { text: "Start a Project", path: "/start-a-project" },
 ];
+
+export const accountPopupSections = [
+  {
+    id: 0,
+    name: "Profile",
+    image: "/icons/dashboard/header/user.svg",
+    route: "/profile",
+  },
+  {
+    id: 1,
+    name: "My Activities",
+    image: "/icons/dashboard/header/activity.svg",
+    route: "/activities",
+  },
+  {
+    id: 2,
+    name: "Settings",
+    image: "/icons/dashboard/header/settings.svg",
+    route: "/settings",
+  },
+];

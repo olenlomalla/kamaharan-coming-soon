@@ -1,16 +1,17 @@
+import { buttonsData } from "@/constants/common/DashboardHeader/data";
+import { DashboardHeaderProps } from "@/types/dashboardHeader";
+
 import ActionButtons from "./components/HeaderActionButtons";
+import HeaderButtonContainer from "./components/HeaderButtonContainer";
 import HeaderFormSearch from "./components/HeaderFormSearch";
-import { HeaderLogo } from "./components/HeaderLogo";
 import HeaderLeft from "./components/HeaderLeft";
+import { HeaderLogo } from "./components/HeaderLogo";
 import HeaderNavigation from "./components/HeaderNavigation";
 import UserAccount from "./components/UserAccount";
-import HeaderButtonContainer from "./components/HeaderButtonContainer";
-import { buttonsData } from "@/mocks/common/DashboardHeader/data";
-import { DashboardHeaderProps } from "@/types/dashboardHeader";
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
   return (
-    <header className="flex justify-center items-center bg-white px-[32px] pb-[16px] w-full h-[89px]">
+    <header className="flex h-[89px] w-full items-center justify-center bg-white px-[32px] pb-[16px]">
       <HeaderLeft>
         <HeaderLogo />
         <HeaderNavigation />

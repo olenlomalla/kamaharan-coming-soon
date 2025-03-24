@@ -1,8 +1,9 @@
 import type { FC } from "react";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
+
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const ImageSlider: FC = () => {
   const images = [
@@ -38,21 +39,21 @@ const ImageSlider: FC = () => {
 
   return (
     <div className="mb-12">
-      <h2 className="mt-12 mb-8 ml-8 font-heading font-bold text-2xl leading-9 tracking-wide">
+      <h2 className="mb-8 ml-8 mt-12 font-heading text-2xl font-bold leading-9 tracking-wide">
         Discover services for every occasion
       </h2>
-      <div className="relative px-[20px] w-full overflow-visible">
+      <div className="relative w-full overflow-visible px-[20px]">
         <Slider ref={sliderRef} {...settings}>
           {images.map((image, index) => (
             <div
               key={index}
-              className="flex flex-col flex-shrink-0 justify-start items-start px-[10px]"
+              className="flex flex-shrink-0 flex-col items-start justify-start px-[10px]"
               style={{
                 width: "calc(100% - 20px)",
                 marginRight: index === images.length - 1 ? "0" : "20px",
               }}
             >
-              <div className="relative w-full h-[305px]">
+              <div className="relative h-[305px] w-full">
                 <img
                   src={image.src}
                   alt={`Slide ${index + 1}`}
@@ -60,20 +61,20 @@ const ImageSlider: FC = () => {
                   onClick={() =>
                     sliderRef.current && sliderRef.current.slickGoTo(index)
                   }
-                  className={`rounded-[8px] w-full object-cover transition duration-300 ${
+                  className={`w-full rounded-[8px] object-cover transition duration-300 ${
                     currentIndex === index
-                      ? "filter blur-0"
-                      : "filter blur-[3px]"
+                      ? "blur-0 filter"
+                      : "blur-[3px] filter"
                   }`}
                 />
-                <div className="bottom-2 left-2 absolute flex space-x-2">
+                <div className="absolute bottom-2 left-2 flex space-x-2">
                   {images.map((_, i) => (
                     <button
                       key={i}
                       onClick={() =>
                         sliderRef.current && sliderRef.current.slickGoTo(i)
                       }
-                      className={`w-3 h-3 rounded-full ${
+                      className={`h-3 w-3 rounded-full ${
                         currentIndex === i ? "bg-white" : "bg-gray-400"
                       }`}
                     ></button>
@@ -82,13 +83,13 @@ const ImageSlider: FC = () => {
               </div>
               <div
                 className={`mt-4 w-full text-left transition duration-300 ${
-                  currentIndex === index ? "filter blur-0" : "filter blur-[2px]"
+                  currentIndex === index ? "blur-0 filter" : "blur-[2px] filter"
                 }`}
               >
-                <h3 className="font-body font-bold text-[#363537] text-sm leading-[16.8px] tracking-wide">
+                <h3 className="font-body text-sm font-bold leading-[16.8px] tracking-wide text-[#363537]">
                   {image.text}
                 </h3>
-                <p className="font-body font-medium text-[#363537] text-[11px] leading-[13.2px] tracking-[0.25px]">
+                <p className="font-body text-[11px] font-medium leading-[13.2px] tracking-[0.25px] text-[#363537]">
                   {image.description}
                 </p>
               </div>

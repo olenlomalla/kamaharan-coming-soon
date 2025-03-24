@@ -1,7 +1,7 @@
-import "leaflet/dist/leaflet.css";
-import { useLocation } from "@/context/LocationContext";
 import Map, { NavigationControl } from "react-map-gl/maplibre";
 
+import { useLocation } from "@/context/LocationContext";
+import "leaflet/dist/leaflet.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const apiKey = import.meta.env.VITE_AWS_API_KEY;

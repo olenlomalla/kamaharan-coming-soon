@@ -17,12 +17,12 @@ export class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-            <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
+        <div className="flex min-h-screen items-center justify-center bg-gray-100">
+          <div className="rounded-lg bg-white p-8 text-center shadow-lg">
+            <h2 className="mb-4 text-2xl font-bold">Something went wrong!</h2>
             <button
               onClick={() => this.setState({ hasError: false })}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="rounded bg-blue-500 px-4 py-2 text-white"
             >
               Try again
             </button>

@@ -1,8 +1,9 @@
-import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 import CustomSliderModified from "@/components/common/CustomSliderModified/CustomSliderModified";
-import { images } from "../../mocks/pages/deals/imagesDataSet";
-import { buttonTitles } from "../../mocks/pages/deals/titlesDataSet";
-import { textElements } from "../../mocks/pages/deals/textElements";
+import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
+
+import { images } from "../../constants/pages/deals/imagesDataSet";
+import { textElements } from "../../constants/pages/deals/textElements";
+import { buttonTitles } from "../../constants/pages/deals/titlesDataSet";
 
 const DealsPage = () => {
   return (

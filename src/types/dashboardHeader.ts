@@ -37,3 +37,13 @@ export interface DashboardHeaderLogo {
 export interface DashboardHeaderProps {
   bgColor?: string;
 }
+
+export interface SectionItemProps {
+  image: string;
+  name: string;
+}
+
+export interface UserAccountPopupProps {
+  isOpen: boolean;
+  onClose: () => void;
+}

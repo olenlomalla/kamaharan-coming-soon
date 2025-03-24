@@ -1,8 +1,9 @@
 // components/ProtectedRoute.tsx
+import { Navigate, createBrowserRouter } from "react-router-dom";
+
 import ComingSoonPage from "@/pages/ComingSoonPage";
 import HomePage from "@/pages/home/HomePage";
 import OnboardingPage from "@/pages/onboarding/OnboardingPage";
-import { createBrowserRouter, Navigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

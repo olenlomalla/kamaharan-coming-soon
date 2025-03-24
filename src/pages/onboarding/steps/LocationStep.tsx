@@ -1,9 +1,10 @@
-import { OnboardingStepProps } from "@/types/onboarding";
-import OnboardingHeader from "@/components/common/header/OnboardingHeader";
-import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
-import CommonStepLayout from "@/layouts/CommonStepLayout/CommonStepLayout";
-import { LocationData, useLocation } from "@/context/LocationContext";
 import { useEffect } from "react";
+
+import OnboardingHeader from "@/components/common/header/OnboardingHeader";
+import { LocationData, useLocation } from "@/context/LocationContext";
+import CommonStepLayout from "@/layouts/CommonStepLayout/CommonStepLayout";
+import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
+import { OnboardingStepProps } from "@/types/onboarding";
 
 const LocationStep: React.FC<OnboardingStepProps> = ({
   title,
@@ -32,7 +33,7 @@ const LocationStep: React.FC<OnboardingStepProps> = ({
         },
         (error) => {
           console.error("Error getting user location:", error);
-        }
+        },
       );
     } else {
       console.error("Geolocation is not supported by this browser.");

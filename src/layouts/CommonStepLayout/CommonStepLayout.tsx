@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import StepButton from "@/components/common/onboarding/StepButton";
 import StepIndicator from "@/components/common/onboarding/StepIndicator";
 import { OnboardingStep } from "@/types/onboarding";
@@ -27,7 +28,7 @@ const CommonStepLayout = ({
         setCurrentRoundedColor(roundedShapeColor);
       }
     };
-    
+
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -35,9 +36,9 @@ const CommonStepLayout = ({
   }, [roundedShapeColor]);
 
   return (
-    <div className="relative z-10 flex flex-col justify-end items-center px-4 sm:px-6 lg:px-8 min-h-[100vh] max-h-[100vh]">
+    <div className="relative z-10 flex max-h-[100vh] min-h-[100vh] flex-col items-center justify-end px-4 sm:px-6 lg:px-8">
       <div
-        className="right-0 bottom-0 left-0 -z-10 absolute h-[40vh]"
+        className="absolute bottom-0 left-0 right-0 -z-10 h-[40vh]"
         style={{
           background: currentRoundedColor,
           borderTopLeftRadius: "50% 25%",
@@ -45,15 +46,15 @@ const CommonStepLayout = ({
         }}
       />
 
-      <div className="space-y-3 sm:space-y-8 mb-[10px] w-full text-center">
-        <h1 className="font-bold font-syne text-[#385C80] text-3xl sm:text-4xl">
+      <div className="mb-[10px] w-full space-y-3 text-center sm:space-y-8">
+        <h1 className="font-syne text-3xl font-bold text-[#385C80] sm:text-4xl">
           {title}
         </h1>
         <p className="mx-auto max-w-[30ch] text-base text-black sm:text-lg">
           {description}
         </p>
         <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
-        <div className="flex flex-col items-center gap-4 mb-[10px]">
+        <div className="mb-[10px] flex flex-col items-center gap-4">
           <StepButton onNext={onNext} text={buttonText} />
         </div>
       </div>

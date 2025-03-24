@@ -1,7 +1,6 @@
 import LocationStep from "@/pages/onboarding/steps/LocationStep";
 import NotificationsStep from "@/pages/onboarding/steps/NotificationsStep";
 import SuccessStep from "@/pages/onboarding/steps/SuccessStep";
-
 import WelcomeStep from "@/pages/onboarding/steps/WelcomeStep";
 
 export const stepConfigs = [

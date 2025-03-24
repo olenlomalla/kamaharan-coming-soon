@@ -1,13 +1,18 @@
 "use client";
 
-import { Link } from "react-router-dom"; // Change this line
-import { Eye, Map, Heart, User } from "lucide-react";
-import { Logo } from "./ui/Logo.tsx"; // Add .tsx extension
+import { Link } from "react-router-dom";
+
+// Change this line
+import { Eye, Heart, Map, User } from "lucide-react";
+
+import { Logo } from "./ui/Logo.tsx";
+
+// Add .tsx extension
 // import { Button } from "@/components/ui/button";
 
 export function NavigationBar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between gap-4">
           <div className="flex items-center gap-8">

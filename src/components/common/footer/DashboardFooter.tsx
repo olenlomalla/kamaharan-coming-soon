@@ -1,13 +1,14 @@
+import { footerItems } from "@/constants/common/DashboardFooter/data";
+
 import FooterArticle from "./components/FooterArticle";
 import FooterDisclaimer from "./components/FooterDisclaimer";
 import FooterDownload from "./components/FooterDownload";
 import FooterLogo from "./components/FooterLogo";
 import { SocialMedia } from "./components/SocialMedia";
-import { footerItems } from "@/mocks/common/DashboardFooter/data";
 
 const DashboardFooter = () => {
   return (
-    <div className="flex justify-center items-center bg-[#FFF1F0] w-full">
+    <div className="flex w-full items-center justify-center bg-[#FFF1F0]">
       <div className="w-[830px]">
         <FooterLogo />
 

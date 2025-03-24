@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 import CategoryCarousel from "@/components/blog/CategoryCarousel";
 import PostLayout from "@/components/blog/PostLayout";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import { useState } from "react";
 
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");

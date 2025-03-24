@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import FooterItem from "./FooterItem";
 
 interface IFooterListProps {

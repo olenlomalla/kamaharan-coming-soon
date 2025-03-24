@@ -2,13 +2,13 @@ import { PostDescriptionProps } from "@/types/blog";
 
 const PostDescription = ({ currentPost }: PostDescriptionProps) => {
   return (
-    <div className="max-w-[632px] w-full mx-auto">
+    <div className="mx-auto w-full max-w-[632px]">
       <img
-        className="rounded-lg max-w-[632px] mb-[22px]"
+        className="mb-[22px] max-w-[632px] rounded-lg"
         src={currentPost.cover}
         alt="Post Cover"
       />
-      <p className="font-syne mb-[22px]">{currentPost.description}</p>
+      <p className="mb-[22px] font-syne">{currentPost.description}</p>
     </div>
   );
 };

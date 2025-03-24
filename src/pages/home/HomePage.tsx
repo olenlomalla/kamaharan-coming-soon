@@ -1,7 +1,8 @@
-import CustomSlider from "../../components/common/CustomSlider/CustomSlider";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
+
+import CustomSlider from "../../components/common/CustomSlider/CustomSlider";
+import { titleSlidesHome } from "../../constants/pages/home/titleSlides";
 import ImageSlider from "./components/ImageSlider";
-import { titleSlidesHome } from "../../mocks/pages/home/titleSlides";
 
 const HomePage = () => {
   const images = [

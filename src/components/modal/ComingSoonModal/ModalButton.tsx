@@ -9,7 +9,7 @@ const ModalButton: FC<IButton> = ({ children, onClose }) => {
   return (
     <button
       onClick={onClose}
-      className="flex justify-center items-center border-[#385C80] border-2 bg-transparent hover:bg-[#385C80] rounded-full w-[80px] h-[24px] text-sm hover:text-white transition-all"
+      className="flex h-[24px] w-[80px] items-center justify-center rounded-full border-2 border-[#385C80] bg-transparent text-sm transition-all hover:bg-[#385C80] hover:text-white"
     >
       {children}
     </button>

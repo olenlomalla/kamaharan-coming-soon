@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserData } from "@/types/onboarding";
+
 import { stepConfigs } from "@/constants/onboarding";
+import { UserData } from "@/types/onboarding";
 
 const OnboardingPage: React.FC = () => {
   const navigate = useNavigate();

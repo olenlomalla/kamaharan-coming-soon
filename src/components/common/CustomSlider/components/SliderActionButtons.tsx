@@ -1,40 +1,25 @@
 import React from "react";
 
-interface SliderActionButtonsProps {
-  nextSlide: () => void;
-  prevSlide: () => void;
-}
+import { SliderActionButtonsProps } from "@/types/slider";
+
+import SliderActionButton from "./SliderActionButton";
 
 const SliderActionButtons: React.FC<SliderActionButtonsProps> = ({
   nextSlide,
   prevSlide,
 }) => {
   return (
-    <div className="flex justify-between items-center gap-[10px]">
-      <button
-        type="button"
-        className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+    <div className="flex items-center justify-between gap-[10px]">
+      <SliderActionButton
+        image="/icons/back-arrow.svg"
+        imageAlt="Previous slide"
         onClick={prevSlide}
-      >
-        <img
-          src="/icons/back-arrow.svg"
-          alt="Previous slide"
-          width={18}
-          height={18}
-        />
-      </button>
-      <button
-        type="button"
-        className="flex justify-center items-center border-[#385C80] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+      />
+      <SliderActionButton
+        image="/icons/forward-arrow.svg"
+        imageAlt="Next slide"
         onClick={nextSlide}
-      >
-        <img
-          src="/icons/forward-arrow.svg"
-          alt="Next slide"
-          width={18}
-          height={18}
-        />
-      </button>
+      />
     </div>
   );
 };

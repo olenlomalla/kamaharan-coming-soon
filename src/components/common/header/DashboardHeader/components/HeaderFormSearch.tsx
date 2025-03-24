@@ -1,14 +1,15 @@
-import { inputSearchIcon } from "@/mocks/common/DashboardHeader/data";
+import { inputSearchIcon } from "@/constants/common/DashboardHeader/data";
+
 const HeaderFormSearch = () => {
   return (
     <form
       action=""
-      className="flex justify-between items-center bg-[#FFF1F0] px-[22px] rounded-[24px] w-[377px] h-[40px]"
+      className="flex h-[40px] w-[377px] items-center justify-between rounded-[24px] bg-[#FFF1F0] px-[22px]"
     >
       <input
         type="text"
         placeholder="Look up whatever you want!"
-        className="bg-transparent outline-none w-full font-body text-[#5B5A5E] text-[11px]"
+        className="w-full bg-transparent font-body text-[11px] text-[#5B5A5E] outline-none"
       />
       <button type="submit">
         {inputSearchIcon.map((icon) => {
@@ -17,7 +18,7 @@ const HeaderFormSearch = () => {
               key={icon.imageId}
               src={icon.imageUrl}
               alt={icon.imageLabel}
-              className="ml-[24px] w-[16px] h-[16px]"
+              className="ml-[24px] h-[16px] w-[16px]"
             />
           );
         })}

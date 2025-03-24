@@ -1,5 +1,7 @@
-import { posts } from "@/mocks/pages/blog/posts";
 import { useNavigate, useParams } from "react-router-dom";
+
+import { posts } from "@/constants/pages/blog/posts";
+
 import RelatedArticle from "./RelatedArticle";
 
 const RelatedArticleLayout = () => {
@@ -16,8 +18,8 @@ const RelatedArticleLayout = () => {
   };
 
   return (
-    <div className="max-w-[632px] mx-auto w-full mb-[106px]">
-      <h2 className="text-2xl font-syne font-bold mb-6">Related Articles</h2>
+    <div className="mx-auto mb-[106px] w-full max-w-[632px]">
+      <h2 className="mb-6 font-syne text-2xl font-bold">Related Articles</h2>
       <div className="flex flex-col gap-[32px]">
         {randomPosts.map((post) => (
           <div

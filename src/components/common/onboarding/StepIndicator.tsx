@@ -1,4 +1,5 @@
 import React from "react";
+
 import { StepIndicatorProps } from "@/types/onboarding";
 
 const StepIndicator: React.FC<StepIndicatorProps> = ({
@@ -6,7 +7,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   totalSteps,
 }) => {
   return (
-    <div className="flex gap-2 justify-center mt-4">
+    <div className="mt-4 flex justify-center gap-2">
       {[...Array(totalSteps)].map((_, index) => (
         <div
           key={index}

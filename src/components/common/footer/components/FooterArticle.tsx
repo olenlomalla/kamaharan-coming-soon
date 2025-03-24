@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import FooterList from "./FooterList";
 import FooterTitle from "./FooterTitle";
 

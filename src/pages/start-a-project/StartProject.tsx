@@ -1,6 +1,6 @@
 import Button from "@/components/common/Button";
+import { startProjectIcons } from "@/constants/pages/start-project/imagesDataSet";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import { startProjectIcons } from "@/mocks/pages/start-project/imagesDataSet";
 
 const data = [
   {
@@ -27,28 +27,28 @@ const StartProject = () => {
   return (
     <PagesContentLayout>
       <div
-        className={`flex flex-col justify-center items-center gap-[24px] py-[48px] max-w-[1440px] bg-[url('/images/start-project-bg.png')]`}
+        className={`flex max-w-[1440px] flex-col items-center justify-center gap-[24px] bg-[url('/images/start-project-bg.png')] py-[48px]`}
       >
-        <h1 className="max-w-[632px] font-syne font-bold text-[#FCFCFC] text-4xl text-center leading-10 tracking-normal">
+        <h1 className="max-w-[632px] text-center font-syne text-4xl font-bold leading-10 tracking-normal text-[#FCFCFC]">
           Everything you need to start a project
         </h1>
 
-        <div className="flex justify-center items-center gap-[48px]">
+        <div className="flex items-center justify-center gap-[48px]">
           {startProjectIcons.map((icon) => (
             <img key={icon.urlIcon} src={icon.urlIcon} alt={icon.labelIcon} />
           ))}
         </div>
 
-        <h2 className="text-[#FCFCFC] text-2xl font-[570] font-body text-center max-w-[632px]">
+        <h2 className="max-w-[632px] text-center font-body text-2xl font-[570] text-[#FCFCFC]">
           Every big achievement starts with a small, intentional step. Your
           project is the foundation for something greater. Imagine the
           possibilities
         </h2>
 
-        <div className="grid grid-cols-3 max-w-[632px] gap-[32px]">
+        <div className="grid max-w-[632px] grid-cols-3 gap-[32px]">
           {data.map((item) => (
             <div className="text-[#FCFCFC]" key={item.id}>
-              <h3 className="text-lg mb-2 text-center">{item.title}</h3>
+              <h3 className="mb-2 text-center text-lg">{item.title}</h3>
               <p className="font-body">{item.description}</p>
             </div>
           ))}

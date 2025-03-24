@@ -1,5 +1,6 @@
-import { TextElement } from "@/types/customSliderModified";
 import { FC } from "react";
+
+import { TextElement } from "@/types/customSliderModified";
 
 interface SliderDescriptionProps {
   description: TextElement;
@@ -8,11 +9,11 @@ interface SliderDescriptionProps {
 const SliderDescription: FC<SliderDescriptionProps> = ({ description }) => {
   return (
     <div className="mt-[8px]">
-      <h3 className="font-heading font-normal text-[16px] text-left decoration-skip-ink-none leading-[18px] tracking-[0.75px]">
+      <h3 className="decoration-skip-ink-none text-left font-heading text-[16px] font-normal leading-[18px] tracking-[0.75px]">
         {description.head}
       </h3>
 
-      <p className="font-body font-normal text-[12px] text-left leading-6 tracking-[0.75px]">
+      <p className="text-left font-body text-[12px] font-normal leading-6 tracking-[0.75px]">
         {description.price}
       </p>
 
@@ -23,8 +24,8 @@ const SliderDescription: FC<SliderDescriptionProps> = ({ description }) => {
           width={22}
           height={22}
         />
-        <p className="font-body font-normal text-[10px] text-left decoration-skip-ink-none leading-[18px] tracking-[0.75px]">
-          <span className="mr-[4px] font-[700] font-body text-[16px] text-left decoration-skip-ink-none leading-[18px] tracking-[0.75px]">
+        <p className="decoration-skip-ink-none text-left font-body text-[10px] font-normal leading-[18px] tracking-[0.75px]">
+          <span className="decoration-skip-ink-none mr-[4px] text-left font-body text-[16px] font-[700] leading-[18px] tracking-[0.75px]">
             {description.rate}
           </span>
           ({description.reviews} reviews)

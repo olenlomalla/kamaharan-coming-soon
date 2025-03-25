@@ -1,30 +1,42 @@
-export const dataSetImage_1 = [
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
-  "/images/home-page/slides/slideThree.png",
-  "/images/home-page/slides/slideFour.png",
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
-  "/images/home-page/slides/slideThree.png",
-  "/images/home-page/slides/slideFour.png",
-];
-
-export const dataSetImage_2 = [
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
-  "/images/home-page/slides/slideThree.png",
-  "/images/home-page/slides/slideFour.png",
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
-  "/images/home-page/slides/slideThree.png",
-  "/images/home-page/slides/slideFour.png",
-];
-
-export const discoverServicesImages = [
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
-  "/images/home-page/slides/slideThree.png",
-  "/images/home-page/slides/slideFour.png",
-  "/images/home-page/slides/slideOne.png",
-  "/images/home-page/slides/slideTwo.png",
+export const images = [
+  {
+    id: 0,
+    image: "/images/home-page/slides/slideOne.png",
+    business: "green-plate",
+  },
+  {
+    id: 1,
+    image: "/images/home-page/slides/slideTwo.png",
+    business: "blue-plate",
+  },
+  {
+    id: 2,
+    image: "/images/home-page/slides/slideThree.png",
+    business: "red-plate",
+  },
+  {
+    id: 3,
+    image: "/images/home-page/slides/slideFour.png",
+    business: "yellow-plate",
+  },
+  {
+    id: 4,
+    image: "/images/home-page/slides/slideOne.png",
+    business: "orange-plate",
+  },
+  {
+    id: 5,
+    image: "/images/home-page/slides/slideTwo.png",
+    business: "purple-plate",
+  },
+  {
+    id: 6,
+    image: "/images/home-page/slides/slideThree.png",
+    business: "purple-plate",
+  },
+  {
+    id: 7,
+    image: "/images/home-page/slides/slideFour.png",
+    business: "purple-plate",
+  },
 ];

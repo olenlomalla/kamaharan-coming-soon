@@ -18,6 +18,7 @@ const CustomSliderModified: FC<CustomSliderModifiedProps> = ({
   showSliderDescription = false,
   buttonTitlesArray = [],
   descriptionArray = [],
+  onClick,
 }) => {
   const sliderRef = useRef<Slider | null>(null);
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
@@ -56,25 +57,35 @@ const CustomSliderModified: FC<CustomSliderModifiedProps> = ({
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {images.map((image, index) => {
-          const description = descriptionArray[index];
+        {images.map((image) => {
+          const description = descriptionArray[image.id];
 
           return (
-            <div className="relative" key={index}>
-              <img src={image} alt={`Slide ${index + 1}`} className="w-full" />
+            <div
+              onClick={() => onClick?.(image.id)}
+              className={`relative ${onClick && "cursor-pointer"}`}
+              key={image.id}
+            >
+              <img
+                src={image.image}
+                alt={`Slide ${image.id}`}
+                className="w-full"
+              />
               <button
                 type="button"
                 className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
-                  likedSlides.includes(index)
+                  likedSlides.includes(image.id)
                     ? "bg-white opacity-100"
                     : "bg-[#F54D33] opacity-50"
                 }`}
-                onClick={() => handleLikeClick(index)}
+                onClick={() => handleLikeClick(image.id)}
               >
                 <img
                   src="/icons/slider-like.svg"
                   alt="Add to saved"
-                  className={likedSlides.includes(index) ? "invert filter" : ""}
+                  className={
+                    likedSlides.includes(image.id) ? "invert filter" : ""
+                  }
                 />
               </button>
               {showSliderDescription && description && (

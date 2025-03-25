@@ -6,11 +6,18 @@ export interface TextElement {
   reviews: string;
 }
 
+export interface Images {
+  id: number;
+  image: string;
+  business: string;
+}
+
 export interface CustomSliderModifiedProps {
-  images: string[];
+  images: Images[];
   title: string;
   showActionButtons?: boolean;
   showSliderDescription?: boolean;
   buttonTitlesArray?: string[];
   descriptionArray?: TextElement[];
+  onClick?: (id: number) => void;
 }

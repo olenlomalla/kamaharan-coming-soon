@@ -1,29 +1,25 @@
 import CustomSliderModified from "@/components/common/CustomSliderModified/CustomSliderModified";
+import { images } from "@/constants/pages/services/dataSetImages";
+import { textElements } from "@/constants/pages/services/descriptionSlides";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
 
-import {
-  dataSetImage_1,
-  dataSetImage_2,
-  discoverServicesImages,
-} from "../../constants/pages/services/dataSetImages";
-import { textElements } from "../../constants/pages/services/descriptionSlides";
 import DiscoverServices from "./components/DiscoverServices";
 
 const ServicesPage = () => {
   return (
     <PagesContentLayout>
       <DiscoverServices
-        images={discoverServicesImages}
+        images={images}
         title="Discover services for every occasion"
       />
       <CustomSliderModified
-        images={dataSetImage_1}
+        images={images}
         title="Featured Services & Products"
         showSliderDescription
         descriptionArray={textElements}
       />
       <CustomSliderModified
-        images={dataSetImage_2}
+        images={images}
         title="Popular Items"
         showSliderDescription
         descriptionArray={textElements}

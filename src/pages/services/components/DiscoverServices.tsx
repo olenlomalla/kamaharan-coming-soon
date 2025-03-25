@@ -1,9 +1,10 @@
 import React from "react";
 
 import Title from "@/components/ui/Title";
+import { Images } from "@/types/customSliderModified";
 
 interface DiscoverServicesProps {
-  images: string[];
+  images: Images[];
   title: string;
 }
 const DiscoverServices: React.FC<DiscoverServicesProps> = ({
@@ -14,10 +15,10 @@ const DiscoverServices: React.FC<DiscoverServicesProps> = ({
     <div className="mt-[48px] flex flex-col items-center justify-center gap-[32px]">
       <Title>{title}</Title>
       <div className="flex items-center gap-[32px]">
-        {images.map((image, index) => (
+        {images.map((image) => (
           <img
-            key={index}
-            src={image}
+            key={image.id}
+            src={image.image}
             alt="Discover services"
             className="h-[144px] w-[144px] rounded-[100px]"
           />

@@ -9,9 +9,11 @@ import { HeaderLogo } from "./components/HeaderLogo";
 import HeaderNavigation from "./components/HeaderNavigation";
 import UserAccount from "./components/UserAccount";
 
-const DashboardHeader: React.FC<DashboardHeaderProps> = () => {
+const DashboardHeader: React.FC<DashboardHeaderProps> = ({ className }) => {
   return (
-    <header className="flex h-[89px] w-full items-center justify-center bg-white px-[32px] pb-[16px]">
+    <header
+      className={`flex h-[89px] w-full items-center justify-center bg-white px-[32px] pb-[16px] ${className}`}
+    >
       <HeaderLeft>
         <HeaderLogo />
         <HeaderNavigation />

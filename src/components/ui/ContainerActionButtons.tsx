@@ -1,4 +1,5 @@
 import React from "react";
+
 import ActionButtonUI from "./ActionButton";
 
 interface ContainerActionButtonsProps {
@@ -9,7 +10,7 @@ const ContainerActionButtons: React.FC<ContainerActionButtonsProps> = ({
   arrayOfTitles,
 }) => {
   return (
-    <div className="flex justify-center items-center gap-[10px] text-body">
+    <div className="text-body flex items-center justify-center gap-[10px]">
       {arrayOfTitles.map((title, index) => (
         <ActionButtonUI key={index}>{title}</ActionButtonUI>
       ))}

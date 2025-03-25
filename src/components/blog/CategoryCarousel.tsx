@@ -1,8 +1,10 @@
-import { category } from "@/mocks/pages/blog/category";
+import { useRef } from "react";
+
+import { category } from "@/constants/pages/blog/category";
+import { posts } from "@/constants/pages/blog/posts";
+
 import ActionButtonUI from "../ui/ActionButton";
 import Title from "../ui/Title";
-import { useRef } from "react";
-import { posts } from "@/mocks/pages/blog/posts";
 
 interface CategoryCarouselProps {
   setSelectedCategory: (category: string) => void;
@@ -28,7 +30,7 @@ const CategoryCarousel = ({ setSelectedCategory }: CategoryCarouselProps) => {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-[32px] flex items-center justify-between mb-[38px] mt-[48px]">
+    <div className="mx-auto mb-[38px] mt-[48px] flex max-w-[1440px] items-center justify-between px-[32px]">
       <Title>Blog</Title>
       <div className="flex items-center gap-[10px]">
         {category.map((category) => (
@@ -36,13 +38,13 @@ const CategoryCarousel = ({ setSelectedCategory }: CategoryCarouselProps) => {
             key={category.id}
             onClick={() => setSelectedCategory}
           >{`${category.text} (${getCategoryCount(
-            category.text
+            category.text,
           )})`}</ActionButtonUI>
         ))}
-        <div className="flex justify-between items-center gap-[10px]">
+        <div className="flex items-center justify-between gap-[10px]">
           <button
             type="button"
-            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+            className="flex h-[40px] w-[40px] items-center justify-center rounded-[40px] border-[2px] border-[#F54D33]"
             onClick={scrollLeft}
           >
             <img
@@ -54,7 +56,7 @@ const CategoryCarousel = ({ setSelectedCategory }: CategoryCarouselProps) => {
           </button>
           <button
             type="button"
-            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+            className="flex h-[40px] w-[40px] items-center justify-center rounded-[40px] border-[2px] border-[#F54D33]"
             onClick={scrollRight}
           >
             <img

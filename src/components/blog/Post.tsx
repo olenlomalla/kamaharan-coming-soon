@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+
 import { PostProps } from "@/types/blog";
 
 import CalendarIcon from "/icons/blog/calendar.svg";
-import { useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const Post = ({
   cover,
@@ -17,17 +18,17 @@ const Post = ({
 
   const handleLikeClick = (index: number) => {
     setLikedSlides((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
   return (
-    <div className="max-w-[632px] w-full mb-[32px] relative">
+    <div className="relative mb-[32px] w-full max-w-[632px]">
       <div>
         <img src={cover} alt="" onClick={onClick} className="cursor-pointer" />
         <button
           type="button"
-          className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
+          className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
             likedSlides.includes(index)
               ? "bg-white opacity-100"
               : "bg-[#F54D33] opacity-50"
@@ -41,11 +42,11 @@ const Post = ({
           )}
         </button>
       </div>
-      <h2 className="font-body mb-2 cursor-pointer" onClick={onClick}>
+      <h2 className="mb-2 cursor-pointer font-body" onClick={onClick}>
         {title}
       </h2>
       <h3
-        className="text-[11px] font-body mb-2 cursor-pointer"
+        className="mb-2 cursor-pointer font-body text-[11px]"
         onClick={onClick}
       >
         {subtitle}

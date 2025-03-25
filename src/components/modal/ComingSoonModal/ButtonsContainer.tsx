@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import ModalButton from "./ModalButton";
 
 interface IButtonsContainer {
@@ -7,7 +8,7 @@ interface IButtonsContainer {
 
 const ButtonsContainer: FC<IButtonsContainer> = ({ onClose }) => {
   return (
-    <div className="flex justify-between px-4 md:px-[45px] pt-4 md:pt-[32px] w-full">
+    <div className="flex w-full justify-between px-4 pt-4 md:px-[45px] md:pt-[32px]">
       <ModalButton onClose={onClose}>Back</ModalButton>
       <ModalButton onClose={onClose}>Skip</ModalButton>
     </div>

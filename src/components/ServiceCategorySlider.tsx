@@ -42,27 +42,27 @@ const categories: ServiceCategory[] = [
 export const ServiceCategorySlider = () => {
   return (
     <div className="w-full overflow-hidden py-6">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4 px-4">
+      <h2 className="mb-4 px-4 text-lg font-semibold text-gray-800">
         Discover services for every occasion
       </h2>
-      <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory hide-scrollbar">
+      <div className="hide-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4">
         {categories.map((category) => (
-          <div key={category.id} className="flex-none w-24 snap-start">
-            <div className="relative group">
-              <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200">
+          <div key={category.id} className="w-24 flex-none snap-start">
+            <div className="group relative">
+              <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-200">
                 {/* Placeholder for category image */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                <div className="flex h-full w-full items-center justify-center text-gray-400">
                   IMG
                 </div>
               </div>
               <button
-                className="absolute top-1 right-1 p-1.5 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute right-1 top-1 rounded-full bg-white/80 p-1.5 opacity-0 transition-opacity group-hover:opacity-100"
                 aria-label={`Save ${category.name}`}
               >
-                <Heart className="w-4 h-4 text-gray-600" />
+                <Heart className="h-4 w-4 text-gray-600" />
               </button>
             </div>
-            <p className="mt-2 text-sm text-center text-gray-700">
+            <p className="mt-2 text-center text-sm text-gray-700">
               {category.name}
             </p>
           </div>

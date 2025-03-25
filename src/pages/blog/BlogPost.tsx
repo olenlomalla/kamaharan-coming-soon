@@ -1,13 +1,14 @@
-import RelatedArticleLayout from "@/components/blog/post/RelatedArticleLayout";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import PostDescription from "@/components/blog/PostDescription";
 import PostDetailHeader from "@/components/blog/PostDetailHeader";
 import PostDetailUserDescription from "@/components/blog/PostDetailUserDescription";
 import PostTags from "@/components/blog/PostTags";
+import RelatedArticleLayout from "@/components/blog/post/RelatedArticleLayout";
+import { posts } from "@/constants/pages/blog/posts";
+import { users } from "@/constants/pages/blog/user";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import { posts } from "@/mocks/pages/blog/posts";
-import { users } from "@/mocks/pages/blog/user";
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -31,10 +32,10 @@ const BlogPost = () => {
   return (
     <section>
       <PagesContentLayout>
-        <div className="mt-[96px] mx-[72px]">
+        <div className="mx-[72px] mt-[96px]">
           <button
             onClick={handleBackClick}
-            className="flex gap-2 font-syne mb-[21px]"
+            className="mb-[21px] flex gap-2 font-syne"
           >
             <img
               src="/icons/back-arrow.svg"

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { footerLogo } from "../../../../mocks/common/DashboardFooter/data";
+import { footerLogo } from "../../../../constants/common/DashboardFooter/data";
 
 const FooterLogo = () => {
   return (
@@ -8,7 +8,7 @@ const FooterLogo = () => {
       <img
         src={footerLogo.imageUrl}
         alt={footerLogo.imageLabel}
-        className="mt-[48px] mb-[32px] w-[215px] h-[46px]"
+        className="mb-[32px] mt-[48px] h-[46px] w-[215px]"
       />
     </Link>
   );

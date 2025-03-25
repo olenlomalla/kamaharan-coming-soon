@@ -1,10 +1,12 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import React, { FC, useState } from "react";
-import TitleDescription from "./components/TitleDescription";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import Slider from "react-slick";
 
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+
+import SliderActionButton from "./components/SliderActionButton";
+import TitleDescription from "./components/TitleDescription";
 import "./index.css";
 
 interface ICustomSlider {
@@ -31,45 +33,31 @@ const CustomSlider: FC<ICustomSlider> = ({
 
   const handleLikeClick = (index: number) => {
     setLikedSlides((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
   return (
     <div className="mx-[32px] mb-[48px]">
-      <div className="flex justify-between items-center mb-[32px]">
-        <h1 className="font-heading font-bold text-2xl text-left decoration-skip-ink leading-8 tracking-wide">
+      <div className="mb-[32px] flex items-center justify-between">
+        <h1 className="decoration-skip-ink text-left font-heading text-2xl font-bold leading-8 tracking-wide">
           {title}
         </h1>
-        <div className="flex justify-between items-center gap-[10px]">
-          <button
-            type="button"
-            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+        <div className="flex items-center justify-between gap-[10px]">
+          <SliderActionButton
+            image="/icons/back-arrow.svg"
+            imageAlt="Previous slide"
             onClick={() => slider?.current?.slickPrev()}
-          >
-            <img
-              src="/icons/back-arrow.svg"
-              alt="Previous slide"
-              width={18}
-              height={18}
-            />
-          </button>
-          <button
-            type="button"
-            className="flex justify-center items-center border-[#F54D33] border-[2px] rounded-[40px] w-[40px] h-[40px]"
+          />
+          <SliderActionButton
+            image="/icons/forward-arrow.svg"
+            imageAlt="Next slide"
             onClick={() => slider?.current?.slickNext()}
-          >
-            <img
-              src="/icons/forward-arrow.svg"
-              alt="Next slide"
-              width={18}
-              height={18}
-            />
-          </button>
+          />
         </div>
       </div>
 
-      <Slider ref={slider} {...settings}>
+      <Slider ref={slider} {...settings} className="flex gap-2">
         {images.map((image, index) => {
           const description = titleArray[index % titleArray.length];
           return (
@@ -77,7 +65,7 @@ const CustomSlider: FC<ICustomSlider> = ({
               <img src={image} alt={`Slide ${index + 1}`} />
               <button
                 type="button"
-                className={`absolute top-2 right-2 flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
+                className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
                   likedSlides.includes(index)
                     ? "bg-white opacity-100"
                     : "bg-[#F54D33] opacity-50"

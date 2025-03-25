@@ -1,4 +1,5 @@
 import React from "react";
+
 import Title from "@/components/ui/Title";
 
 interface DiscoverServicesProps {
@@ -10,7 +11,7 @@ const DiscoverServices: React.FC<DiscoverServicesProps> = ({
   title,
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-[32px] mt-[48px]">
+    <div className="mt-[48px] flex flex-col items-center justify-center gap-[32px]">
       <Title>{title}</Title>
       <div className="flex items-center gap-[32px]">
         {images.map((image, index) => (
@@ -18,7 +19,7 @@ const DiscoverServices: React.FC<DiscoverServicesProps> = ({
             key={index}
             src={image}
             alt="Discover services"
-            className="rounded-[100px] w-[144px] h-[144px]"
+            className="h-[144px] w-[144px] rounded-[100px]"
           />
         ))}
       </div>

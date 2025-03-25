@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import UserAccountPopup from "./UserAccountPopup";
+
+import UserAccountPopup from "./UserAccountPopup/UserAccountPopup";
 
 const UserAccount = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -25,15 +26,15 @@ const UserAccount = () => {
     <div className="relative">
       <button
         ref={buttonRef}
-        className="flex flex-col justify-center ml-[10px]"
+        className="ml-[10px] flex flex-col justify-center"
         onClick={() => setIsPopupOpen(!isPopupOpen)}
       >
         <img
           src="/icons/dashboard/header/user.svg"
           alt="User Button"
-          className="w-[24px] h-[24px]"
+          className="h-[24px] w-[24px]"
         />
-        <p className="font-body text-[#424144] text-[11px] text-center">You</p>
+        <p className="text-center font-body text-[11px] text-[#424144]">You</p>
       </button>
 
       <div ref={popupRef}>

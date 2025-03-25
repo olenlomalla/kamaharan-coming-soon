@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { OnboardingStepProps } from "@/types/onboarding";
+
 import OnboardingHeader from "@/components/common/header/OnboardingHeader";
-import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
 import CommonStepLayout from "@/layouts/CommonStepLayout/CommonStepLayout";
+import OnboardingBgImage from "@/layouts/OnboardingBgImage/onBoardingBgImage";
+import { OnboardingStepProps } from "@/types/onboarding";
 
 const WelcomeStep: React.FC<OnboardingStepProps> = ({
   title,
@@ -16,7 +17,7 @@ const WelcomeStep: React.FC<OnboardingStepProps> = ({
   roundedShapeColor,
 }) => {
   const [permission, setPermission] = useState(
-    typeof Notification !== "undefined" ? Notification.permission : "denied"
+    typeof Notification !== "undefined" ? Notification.permission : "denied",
   );
 
   useEffect(() => {

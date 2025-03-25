@@ -1,12 +1,13 @@
 import React from "react";
+
+import { backgroundImages } from "@/constants/common/ComingSoonPage/data";
 import { motion } from "framer-motion";
-import { backgroundImages } from "@/mocks/common/ComingSoonPage/data";
 
 const GradientBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 w-full">
       {/* Images Grid */}
-      <div className="grid grid-cols-5 h-[40svh] sm:h-[100svh]">
+      <div className="grid h-[40svh] grid-cols-5 sm:h-[100svh]">
         {backgroundImages.map((column, index) => (
           <motion.div
             key={index}
@@ -16,7 +17,7 @@ const GradientBackground: React.FC = () => {
             transition={{ duration: 0.8, delay: index * 0.3 }}
           >
             <img
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
               src={column.image}
               alt={column.alt}
             />
@@ -25,20 +26,7 @@ const GradientBackground: React.FC = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `
-            linear-gradient(
-              180deg,
-              transparent 0%,
-              rgba(0,0,0,0.4) 30%,
-              rgba(0,0,0,0.8) 40%,
-              rgba(0,0,0,1) 80%
-            )
-          `,
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[60%] sm:via-black/40 sm:via-black/80 sm:to-black sm:to-[80%]" />
     </div>
   );
 };

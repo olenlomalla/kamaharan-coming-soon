@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useMap, Marker, Popup } from "react-leaflet";
+import { Marker, Popup, useMap } from "react-leaflet";
 
 const CustomSearchControl: React.FC = () => {
   const map = useMap();
   const [query, setQuery] = useState("");
   const [markerPosition, setMarkerPosition] = useState<[number, number] | null>(
-    null
+    null,
   );
 
   const doSearch = async () => {
@@ -13,8 +13,8 @@ const CustomSearchControl: React.FC = () => {
     try {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-          query
-        )}`
+          query,
+        )}`,
       );
       const data = await response.json();
       if (data && data.length > 0) {
@@ -37,23 +37,23 @@ const CustomSearchControl: React.FC = () => {
 
   return (
     <>
-      <div className="top-[125px] left-1/2 z-[1000] absolute flex justify-center items-center bg-[#EFEFEF] shadow-[0_2px_6px_rgba(0,0,0,0.3)] rounded-[24px] w-[320px] h-[57px] -translate-x-1/2">
+      <div className="absolute left-1/2 top-[125px] z-[1000] flex h-[57px] w-[320px] -translate-x-1/2 items-center justify-center rounded-[24px] bg-[#EFEFEF] shadow-[0_2px_6px_rgba(0,0,0,0.3)]">
         <form
           onSubmit={handleSubmit}
-          className="flex items-center gap-[38px] px-[10px] w-full"
+          className="flex w-full items-center gap-[38px] px-[10px]"
         >
           <img
             src="/icons/dashboard/header/input-search.svg"
             alt="Search"
             onClick={doSearch}
-            className="w-[15px] h-[15px] cursor-pointer"
+            className="h-[15px] w-[15px] cursor-pointer"
           />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search"
-            className="flex-1 bg-transparent px-2 py-2 border-0 outline-none font-syne placeholder:font-syne font-medium placeholder:font-medium text-[#5B5A5E] text-[11px] placeholder:text-[#5B5A5E] placeholder:text-[11px] leading-[13.2px] placeholder:leading-[13.2px] tracking-[0.25px] placeholder:tracking-[0.25px]"
+            className="flex-1 border-0 bg-transparent px-2 py-2 font-syne text-[11px] font-medium leading-[13.2px] tracking-[0.25px] text-[#5B5A5E] outline-none placeholder:font-syne placeholder:text-[11px] placeholder:font-medium placeholder:leading-[13.2px] placeholder:tracking-[0.25px] placeholder:text-[#5B5A5E]"
           />
         </form>
       </div>

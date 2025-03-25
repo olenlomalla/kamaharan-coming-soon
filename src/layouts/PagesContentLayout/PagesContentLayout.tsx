@@ -1,6 +1,7 @@
+import { FC, ReactNode } from "react";
+
 import DashboardFooter from "@/components/common/footer/DashboardFooter";
 import DashboardHeader from "@/components/common/header/DashboardHeader/DashboardHeader";
-import { FC, ReactNode } from "react";
 
 interface IPagesContentLayout {
   children: ReactNode;
@@ -8,7 +9,7 @@ interface IPagesContentLayout {
 
 const PagesContentLayout: FC<IPagesContentLayout> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen max-w-[1440px] mx-auto bg-[#f8f7f5]">
+    <div className="mx-auto flex min-h-screen max-w-[1440px] flex-col bg-[#f8f7f5]">
       <DashboardHeader />
       <main className="flex-grow">{children}</main>
       <DashboardFooter />

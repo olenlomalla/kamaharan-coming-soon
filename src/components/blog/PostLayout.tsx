@@ -1,6 +1,8 @@
-import { posts } from "@/mocks/pages/blog/posts";
-import Post from "./Post";
 import { useNavigate } from "react-router-dom";
+
+import { posts } from "@/constants/pages/blog/posts";
+
+import Post from "./Post";
 
 interface PostLayoutProps {
   selectedCategory: string;
@@ -19,7 +21,7 @@ const PostLayout = ({ selectedCategory }: PostLayoutProps) => {
       : posts.filter((post) => post.category === selectedCategory);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center">
       {filteredPosts.map((post) => (
         <Post
           key={post.id}

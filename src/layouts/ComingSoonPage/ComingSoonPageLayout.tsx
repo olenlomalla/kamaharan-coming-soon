@@ -1,35 +1,36 @@
 import React from "react";
+
 import TerminalText from "@/components/coming-soon-page/TerminalText";
 
 const ComingSoonPageLayout: React.FC = () => {
   const formUrl = "https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu";
 
   return (
-    <div className="relative z-10 flex flex-col justify-end w-full min-h-[100svh]">
+    <div className="relative z-10 flex min-h-[100svh] w-full flex-col justify-end">
       {/* Desktop Layout */}
-      <div className="hidden md:grid grid-cols-3 gap-6 w-full px-6 md:px-10 max-w-[1440px] mx-auto mb-8">
+      <div className="mx-auto mb-8 hidden w-full max-w-[1440px] grid-cols-3 gap-6 px-6 md:grid md:px-10">
         {/* Terminal Text */}
         <div className="flex items-end overflow-hidden">
-          <div className="w-[150%] scale-[0.65] origin-bottom-left">
+          <div className="w-[150%] origin-bottom-left scale-[0.65]">
             <TerminalText />
           </div>
         </div>
 
         {/* Call to Action */}
         <div className="flex flex-col items-center justify-end gap-2">
-          <span className="text-white text-sm">TO FIND OUT MORE</span>
+          <span className="text-sm text-white">TO FIND OUT MORE</span>
           <a
             href={formUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors"
+            className="rounded bg-red-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
           >
             REQUEST INVITE
           </a>
         </div>
 
         {/* Logo */}
-        <div className="flex justify-end items-end">
+        <div className="flex items-end justify-end">
           <img
             src="/icons/logo-white.svg"
             alt="Kamaharan Logo"
@@ -39,23 +40,23 @@ const ComingSoonPageLayout: React.FC = () => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden flex flex-col items-center w-full">
+      <div className="flex w-full flex-col items-center md:hidden">
         {/* Portrait */}
-        <div className="landscape:hidden flex flex-col items-center justify-between w-full h-[60vh] px-4 py-8">
+        <div className="flex h-[60vh] w-full flex-col items-center justify-between px-4 py-8 landscape:hidden">
           <div className="flex-1" />
-          <div className="w-full flex items-end mb-8">
-            <div className="w-[120%] scale-[0.6] origin-bottom-left">
+          <div className="mb-8 flex w-full items-end">
+            <div className="w-[120%] origin-bottom-left scale-[0.6]">
               <TerminalText />
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-4 mb-8">
-            <span className="text-white text-sm">TO FIND OUT MORE</span>
+          <div className="mb-8 flex flex-col items-center gap-4">
+            <span className="text-sm text-white">TO FIND OUT MORE</span>
             <a
               href={formUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors"
+              className="rounded bg-red-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
             >
               REQUEST INVITE
             </a>
@@ -69,26 +70,26 @@ const ComingSoonPageLayout: React.FC = () => {
         </div>
 
         {/* Landscape */}
-        <div className="portrait:hidden flex items-center justify-between w-full px-6 py-4">
+        <div className="flex w-full items-center justify-between px-6 py-4 portrait:hidden">
           <div className="w-1/3 overflow-hidden">
-            <div className="w-[140%] scale-[0.5] origin-bottom-left">
+            <div className="w-[140%] origin-bottom-left scale-[0.5]">
               <TerminalText />
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-2 w-1/3">
-            <span className="text-white text-sm">TO FIND OUT MORE</span>
+          <div className="flex w-1/3 flex-col items-center gap-2">
+            <span className="text-sm text-white">TO FIND OUT MORE</span>
             <a
               href={formUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded text-sm font-medium transition-colors"
+              className="rounded bg-red-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
             >
               REQUEST INVITE
             </a>
           </div>
 
-          <div className="flex justify-end w-1/3">
+          <div className="flex w-1/3 justify-end">
             <img
               src="/icons/logo-white.svg"
               alt="Kamaharan Logo"

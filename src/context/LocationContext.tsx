@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 export type LocationData = {
   latitude: number;
@@ -11,7 +11,7 @@ type LocationContextType = {
 };
 
 const LocationContext = createContext<LocationContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const LocationProvider = ({ children }: { children: ReactNode }) => {

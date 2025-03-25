@@ -1,6 +1,8 @@
 import React from "react";
+
 import DashboardHeader from "@/components/common/header/DashboardHeader/DashboardHeader";
 import "leaflet/dist/leaflet.css";
+
 import MapWithCustomSearch from "./components/MapWithCustomSearch";
 
 const FindBusiness: React.FC = () => {

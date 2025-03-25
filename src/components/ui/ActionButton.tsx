@@ -18,10 +18,10 @@ const ActionButtonUI: React.FC<ActionButtonUIProps> = ({
   return (
     <Link to={path} onClick={onClick}>
       <button
-        className={`sm:block font-body flex px-[10px] justify-center items-center bg-transparent border-[#F54D33] border-2 rounded-full w-auto h-[24px] text-[12px] text-[#F54D33] transition-all ${
+        className={`flex h-[24px] w-auto items-center justify-center rounded-full border-2 border-[#F54D33] bg-transparent px-[10px] font-body text-[12px] text-[#F54D33] transition-all sm:block ${
           active
-            ? "bg-[#F54D33] text-white border-[#F54D33]"
-            : "bg-white text-[#030712] border-[#F54D33] hover:bg-[#F54D33] hover:text-white"
+            ? "border-[#F54D33] bg-[#F54D33] text-white"
+            : "border-[#F54D33] bg-white text-[#030712] hover:bg-[#F54D33] hover:text-white"
         }`}
       >
         {children}

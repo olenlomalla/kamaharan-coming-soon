@@ -1,9 +1,9 @@
-import { lazy, Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 const LoadingScreen = () => (
-  <div className="flex justify-center items-center bg-black min-h-screen">
-    <div className="border-white border-b-2 rounded-full w-12 h-12 animate-spin"></div>
+  <div className="flex min-h-screen items-center justify-center bg-black">
+    <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-white"></div>
   </div>
 );
 
@@ -25,7 +25,7 @@ const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
 const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
 const FindBusiness = lazy(() => import("./pages/find-business/FindBusiness"));
 const StartAProject = lazy(
-  () => import("./pages/start-a-project/StartProject")
+  () => import("./pages/start-a-project/StartProject"),
 );
 const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));

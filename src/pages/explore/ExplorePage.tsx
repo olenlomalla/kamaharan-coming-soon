@@ -1,17 +1,19 @@
 import { createRef, useMemo, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
-import SliderRow from "../../components/common/CustomSlider/components/SliderRow";
-import { sliderConfigs } from "../../mocks/pages/explore/sliderConfig";
-import SliderActionButtons from "../../components/common/CustomSlider/components/SliderActionButtons";
+
 import Title from "@/components/ui/Title";
+import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+
+import SliderActionButtons from "../../components/common/CustomSlider/components/SliderActionButtons";
+import SliderRow from "../../components/common/CustomSlider/components/SliderRow";
+import { sliderConfigs } from "../../constants/pages/explore/sliderConfig";
 
 const ExplorePage = () => {
   const sliderRefs = useMemo(
     () => sliderConfigs.map(() => createRef<Slider>()),
-    []
+    [],
   );
 
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
@@ -20,7 +22,7 @@ const ExplorePage = () => {
     setLikedSlides((prev) =>
       prev.includes(absoluteIndex)
         ? prev.filter((i) => i !== absoluteIndex)
-        : [...prev, absoluteIndex]
+        : [...prev, absoluteIndex],
     );
   };
 
@@ -35,7 +37,7 @@ const ExplorePage = () => {
   return (
     <PagesContentLayout>
       <div className="mx-[32px] my-[48px]">
-        <div className="flex justify-between items-center mb-[16px]">
+        <div className="mb-[16px] flex items-center justify-between">
           <Title>Explore</Title>
           <SliderActionButtons nextSlide={nextSlide} prevSlide={prevSlide} />
         </div>

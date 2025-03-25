@@ -39,14 +39,14 @@ const OnboardingBgImage = ({
   return (
     <div className="bg-image-onboarding-container">
       <div
-        className="-z-10 absolute inset-0 bg-cover bg-no-repeat bg-center w-full h-[300px] sm:h-[500px]"
+        className="absolute inset-0 -z-10 h-[300px] w-full bg-cover bg-center bg-no-repeat sm:h-[500px]"
         style={{
           backgroundImage: `url(${currentBackgroundImage})`,
         }}
       ></div>
 
       <div
-        className="-z-20 absolute inset-0 w-full h-full"
+        className="absolute inset-0 -z-20 h-full w-full"
         style={{ backgroundColor: currentBackgroundColor }}
       ></div>
     </div>

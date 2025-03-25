@@ -8,7 +8,7 @@ interface IFooterItemProps {
 
 const FooterItem: FC<IFooterItemProps> = ({ url, name }) => {
   return (
-    <li className="mb-[24px] font-body text-[#F54D33] text-md">
+    <li className="text-md mb-[24px] font-body text-[#F54D33]">
       <Link to={url}>{name}</Link>
     </li>
   );

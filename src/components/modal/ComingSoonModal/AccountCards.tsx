@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import AccountCard from "./AccountCard";
 
 interface AccountCardsProps {
@@ -7,7 +8,7 @@ interface AccountCardsProps {
 
 const AccountCards: FC<AccountCardsProps> = ({ onClose }) => {
   return (
-    <div className="flex flex-col gap-[35px] mx-[20px] md:mx-[48px] mt-[16px] sm:mt-[12px]">
+    <div className="mx-[20px] mt-[16px] flex flex-col gap-[35px] sm:mt-[12px] md:mx-[48px]">
       <AccountCard
         to="https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu"
         onClick={onClose}

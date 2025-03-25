@@ -14,7 +14,7 @@ const ModalLogo: FC<IModalLogo> = ({ onClose }) => {
       <img
         src="/logo-modal.svg"
         alt="Kamaharan logo image"
-        className="max-w-[215px] max-h-[46px]"
+        className="max-h-[46px] max-w-[215px]"
       />
     </button>
   );

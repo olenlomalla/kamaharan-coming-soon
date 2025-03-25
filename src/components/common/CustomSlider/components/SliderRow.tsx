@@ -1,20 +1,10 @@
 // components/SliderRow.tsx
 import React from "react";
 import Slider from "react-slick";
-import SlideItem from "./SliderItem";
 
-interface SliderRowProps {
-  images: {
-    src: string;
-    text: string;
-    description: string;
-  }[];
-  offset: number;
-  sliderRef: React.RefObject<Slider>;
-  settings: any;
-  likedSlides: number[];
-  handleLikeClick: (index: number) => void;
-}
+import { SliderRowProps } from "@/types/slider";
+
+import SlideItem from "./SliderItem";
 
 const SliderRow: React.FC<SliderRowProps> = ({
   images,

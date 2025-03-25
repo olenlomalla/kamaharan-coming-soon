@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { stepConfigs } from "@/constants/onboarding";
 import {
   OnboardingProps,
@@ -32,12 +33,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     .component as React.FC<OnboardingStepProps>;
 
   return (
-    <div className="z-50 fixed inset-0 bg-white">
-      <div className="flex flex-col h-full">
+    <div className="fixed inset-0 z-50 bg-white">
+      <div className="flex h-full flex-col">
         {/* Progress bar */}
-        <div className="bg-gray-100 h-1">
+        <div className="h-1 bg-gray-100">
           <div
-            className="bg-primary-default h-full transition-all duration-300"
+            className="h-full bg-primary-default transition-all duration-300"
             style={{
               width: `${((currentStep + 1) / stepConfigs.length) * 100}%`,
             }}

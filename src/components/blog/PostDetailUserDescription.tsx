@@ -4,7 +4,7 @@ const PostDetailUserDescription = ({
   currentUser,
 }: PostDetailUserDescriptionProps) => {
   return (
-    <div className="max-w-[632px] w-full mx-auto flex justify-between mb-[22px]">
+    <div className="mx-auto mb-[22px] flex w-full max-w-[632px] justify-between">
       <div className="flex gap-2">
         <img
           className="rounded-full"
@@ -16,7 +16,7 @@ const PostDetailUserDescription = ({
           alt="User Avatar"
         />
         <div>
-          <h2 className="text-[#030712] font-syne">{`${currentUser.firstName} ${currentUser.lastName}`}</h2>
+          <h2 className="font-syne text-[#030712]">{`${currentUser.firstName} ${currentUser.lastName}`}</h2>
           <h3 className="text-sm text-[#6B7280]">{currentUser.role}</h3>
         </div>
       </div>

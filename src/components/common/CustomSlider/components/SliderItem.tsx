@@ -1,15 +1,6 @@
 import React from "react";
 
-interface SlideItemProps {
-  image: {
-    src: string;
-    text: string;
-    description: string;
-  };
-  absoluteIndex: number;
-  liked: boolean;
-  onLike: (index: number) => void;
-}
+import { SlideItemProps } from "@/types/slider";
 
 const SlideItem: React.FC<SlideItemProps> = ({
   image,
@@ -31,15 +22,15 @@ const SlideItem: React.FC<SlideItemProps> = ({
       />
       <button
         type="button"
-        className={`top-2 right-2 absolute flex justify-center items-center rounded-[40px] w-[32px] h-[32px] ${
-          liked ? "bg-white" : "bg-[#385C80]"
+        className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
+          liked ? "bg-white" : "bg-[#F54D33] opacity-50"
         }`}
         onClick={() => onLike(absoluteIndex)}
       >
         <img
           src="/icons/slider-like.svg"
           alt="Add to saved"
-          className={`${liked ? "filter invert" : ""}`}
+          className={`${liked ? "invert filter" : ""}`}
         />
       </button>
     </div>

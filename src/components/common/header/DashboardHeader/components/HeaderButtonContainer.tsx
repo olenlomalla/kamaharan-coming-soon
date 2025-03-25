@@ -7,7 +7,7 @@ interface IHeaderButtonContainer {
 
 const HeaderButtonContainer: FC<IHeaderButtonContainer> = ({ buttons }) => {
   return (
-    <div className="flex justify-center items-center gap-[24px]">
+    <div className="flex items-center justify-center gap-[24px]">
       {buttons.map((button, index) => (
         <Link
           to={button.path}

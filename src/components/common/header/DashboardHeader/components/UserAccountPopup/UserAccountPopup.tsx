@@ -1,3 +1,4 @@
+import BackButton from "@/components/common/BackButton";
 import { accountPopupSections } from "@/constants/common/DashboardHeader/data";
 import { UserAccountPopupProps } from "@/types/dashboardHeader";
 
@@ -9,9 +10,9 @@ const UserAccountPopup = ({ isOpen, onClose }: UserAccountPopupProps) => {
   return (
     <div className="absolute right-0 top-[80px] z-10 w-[280px] bg-white py-6 shadow-lg">
       <div className="mb-6 flex flex-col items-center">
-        <button onClick={onClose} className="self-start px-6">
-          <img src="/icons/dashboard/header/back-icon.svg" alt="" />
-        </button>
+        <div className="self-start px-6">
+          <BackButton onClick={onClose} />
+        </div>
         <div className="mb-4 h-[60px] w-[60px] overflow-hidden rounded-full">
           <img
             src="/icons/dashboard/header/user-avatar.svg"

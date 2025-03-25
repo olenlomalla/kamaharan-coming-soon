@@ -35,7 +35,7 @@ export interface DashboardHeaderLogo {
 }
 
 export interface DashboardHeaderProps {
-  bgColor?: string;
+  className?: string;
 }
 
 export interface SectionItemProps {

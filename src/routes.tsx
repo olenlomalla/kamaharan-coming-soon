@@ -23,6 +23,7 @@ const DealsPage = lazy(() => import("./pages/deals/DealsPage"));
 const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
 const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
 const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
+const ViewPage = lazy(() => import("./pages/view/ViewPage"));
 const FindBusiness = lazy(() => import("./pages/find-business/FindBusiness"));
 const StartAProject = lazy(
   () => import("./pages/start-a-project/StartProject"),
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
   {
     path: "/blog/post/:id",
     element: wrapWithProviders(BlogPost),
+  },
+  {
+    path: "/business/:id",
+    element: wrapWithProviders(ViewPage),
   },
   {
     path: "/find-business",

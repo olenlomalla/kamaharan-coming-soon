@@ -11,7 +11,7 @@ const FindBusiness: React.FC = () => {
       <div
         style={{ position: "absolute", top: 0, width: "100%", zIndex: 2000 }}
       >
-        <DashboardHeader bgColor="transparent" />
+        <DashboardHeader />
       </div>
       <MapWithCustomSearch />
     </div>

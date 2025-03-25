@@ -26,7 +26,7 @@ const GradientBackground: React.FC = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[60%] sm:via-black/40 sm:via-black/80 sm:to-black sm:to-[80%]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[40%] sm:via-black/40 sm:via-black/80 sm:to-black sm:to-[80%]" />
     </div>
   );
 };

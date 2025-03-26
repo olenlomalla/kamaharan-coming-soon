@@ -4,7 +4,7 @@ import { FaHeart } from "react-icons/fa";
 
 import { BusinessCardProps } from "@/types/common";
 
-const BusinessCard = ({ image }: BusinessCardProps) => {
+const BusinessCard = ({ image, className }: BusinessCardProps) => {
   const [liked, setLiked] = useState(false);
 
   const handleLike = () => {
@@ -12,8 +12,8 @@ const BusinessCard = ({ image }: BusinessCardProps) => {
   };
 
   return (
-    <div className="relative">
-      <img src={image} />
+    <div className="relative min-w-[250px] max-w-[400px] flex-1">
+      <img src={image} className={"w-full " + className} />
       <button
         type="button"
         className={`absolute right-2 top-2 flex size-[32px] items-center justify-center rounded-[40px] ${

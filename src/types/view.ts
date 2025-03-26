@@ -9,6 +9,9 @@ export interface FeaturedSectionProps {
 export interface AboutSectionProps {
   currentBusiness: Business;
 }
+export interface ContentSectionProps {
+  currentBusiness: Business;
+}
 
 export interface SocialNetworkItemProps {
   image: ReactNode;

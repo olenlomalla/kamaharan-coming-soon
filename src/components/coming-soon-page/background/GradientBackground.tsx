@@ -1,4 +1,5 @@
 import React from "react";
+
 import { backgroundImages } from "@/constants/common/ComingSoonPage/data";
 import { motion } from "framer-motion";
 
@@ -23,10 +24,8 @@ const GradientBackground: React.FC = () => {
           </motion.div>
         ))}
       </div>
-
       {/* Mobile Gradient Overlay - Unchanged from original */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[40%] sm:hidden" />
-     
       {/* Desktop Gradient Overlay - Completely revised for a seamless blend */}
       <div className="pointer-events-none absolute inset-0 hidden sm:block">
         {/* Multiple overlapping gradients for smoother transition */}
@@ -38,5 +37,5 @@ const GradientBackground: React.FC = () => {
     </div>
   );
 };
-
 export default GradientBackground;
+

@@ -12,4 +12,14 @@ export interface BackButtonProps {
 
 export interface BusinessCardProps {
   image: string;
+  className?: string;
+}
+
+export interface ServiceCardProps {
+  title: string;
+  time: string;
+  value: string;
+  rating: number;
+  review: string;
+  className?: string;
 }

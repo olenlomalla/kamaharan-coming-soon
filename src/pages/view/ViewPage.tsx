@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import BackButton from "@/components/common/BackButton";
 import AboutSection from "@/components/view/AboutSection";
+import ContentSection from "@/components/view/ContentSection";
 import FeaturedSection from "@/components/view/FeaturedSection";
 import { businesses } from "@/constants/pages/view/businesses";
 import PagesContentLayout from "@/layouts/PagesContentLayout/PagesContentLayout";
@@ -31,6 +32,7 @@ const ViewPage = () => {
         <BackButton size="32" onClick={handleBackClick} className="absolute" />
         <FeaturedSection currentBusiness={currentBusiness} />
         <AboutSection currentBusiness={currentBusiness} />
+        <ContentSection currentBusiness={currentBusiness} />
       </div>
     </PagesContentLayout>
   );

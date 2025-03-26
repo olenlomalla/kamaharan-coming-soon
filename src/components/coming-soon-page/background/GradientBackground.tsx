@@ -24,11 +24,17 @@ const GradientBackground: React.FC = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Gradient Overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[40%] sm:via-black/40 sm:via-black/80 sm:to-black sm:to-[80%]" />
+      {/* Mobile Gradient Overlay - Unchanged from original */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/80 to-black to-[40%] sm:hidden" />
+      {/* Desktop Gradient Overlay - Completely revised for a seamless blend */}
+      <div className="pointer-events-none absolute inset-0 hidden sm:block">
+        {/* Multiple overlapping gradients for smoother transition */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black from-0% to-transparent to-50%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 from-10% to-transparent to-60%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 from-20% to-transparent to-70%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 from-30% to-transparent to-80%" />
+      </div>
     </div>
   );
 };
-
 export default GradientBackground;

@@ -38,3 +38,4 @@ const GradientBackground: React.FC = () => {
   );
 };
 export default GradientBackground;
+

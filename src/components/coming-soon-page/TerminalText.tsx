@@ -199,3 +199,4 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
 };
 
 export default TerminalText;
+

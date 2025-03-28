@@ -1,12 +1,12 @@
 import { OnboardingHeaderProps } from "@/types/onboarding";
 
-const OnboardingHeader = ({ onNext, className }: OnboardingHeaderProps) => {
+const RegistrationHeader = ({ onNext, className }: OnboardingHeaderProps) => {
   return (
-    <div className="relative z-20 w-full bg-transparent">
+    <div className="relative z-20 mb-[147px] w-full bg-transparent">
       <div
-        className={`absolute left-0 right-0 top-[8px] z-20 flex w-full items-center justify-between bg-transparent px-4 ${className}`}
+        className={`left-0 z-20 flex w-full items-center justify-between bg-transparent pl-11 pr-8 pt-11 ${className}`}
       >
-        <div className="flex-1" />
+        <div className="" />
         <img src="/images/logo/logo.png" alt="logo" width={215} height={46} />
         <div className="flex flex-1 justify-end">
           <button
@@ -21,4 +21,4 @@ const OnboardingHeader = ({ onNext, className }: OnboardingHeaderProps) => {
   );
 };
 
-export default OnboardingHeader;
+export default RegistrationHeader;

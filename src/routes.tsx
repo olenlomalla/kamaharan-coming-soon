@@ -18,6 +18,9 @@ const wrapWithProviders = (Component: React.ComponentType) => {
 const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
+const RegistrationPage = lazy(
+  () => import("./pages/registration/RegistrationPage"),
+);
 const ExplorePage = lazy(() => import("./pages/explore/ExplorePage"));
 const DealsPage = lazy(() => import("./pages/deals/DealsPage"));
 const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
@@ -43,6 +46,10 @@ export const router = createBrowserRouter([
   {
     path: "/onboarding",
     element: wrapWithProviders(OnboardingPage),
+  },
+  {
+    path: "/register",
+    element: wrapWithProviders(RegistrationPage),
   },
   {
     path: "/explore",

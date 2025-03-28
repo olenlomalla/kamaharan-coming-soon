@@ -82,16 +82,6 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
     }));
   };
 
-  const handleToggleChange = (
-    field: "hasOnlinePresence" | "wantsToImprovePresence",
-    value: boolean,
-  ) => {
-    setContactInfo((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
   const handleNext = () => {
     updateRegistrationData({ contactInfo });
     onNext();

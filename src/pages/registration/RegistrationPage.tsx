@@ -6,11 +6,7 @@ import {
   businessStepConfigs,
   personalStepConfigs,
 } from "@/constants/registration";
-import {
-  RegistrationData,
-  RegistrationStepConfig,
-  RegistrationType,
-} from "@/types/registration";
+import { RegistrationData, RegistrationType } from "@/types/registration";
 
 const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();

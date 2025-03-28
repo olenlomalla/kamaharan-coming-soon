@@ -42,8 +42,6 @@ const PasswordStep: React.FC<RegistrationStepProps> = ({
     onNext();
   };
 
-  const isPasswordValid = Object.values(passwordRequirements).every(Boolean);
-
   return (
     <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-2 p-6">
       <h1 className="mb-[38px] text-center font-heading text-[32px] font-semibold leading-[34px] tracking-[1px] text-[#363537]">

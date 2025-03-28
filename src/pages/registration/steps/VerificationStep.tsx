@@ -5,7 +5,6 @@ import { RegistrationStepProps } from "@/types/registration";
 
 const VerificationStep: React.FC<RegistrationStepProps> = ({
   title,
-  description,
   onNext,
   registrationData,
   updateRegistrationData,
@@ -43,10 +42,6 @@ const VerificationStep: React.FC<RegistrationStepProps> = ({
     e.preventDefault();
     onNext();
   };
-
-  const isVerificationComplete = verificationCode.every(
-    (digit) => digit !== "",
-  );
 
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-2 p-6">

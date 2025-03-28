@@ -7,7 +7,6 @@ const LocationNotificationStep: React.FC<RegistrationStepProps> = ({
   title,
   description,
   onNext,
-  registrationData,
   updateRegistrationData,
 }) => {
   const handleLocationAccess = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import SearchInput from "@/components/registration/SearchInput";
@@ -6,7 +6,6 @@ import { RegistrationStepProps } from "@/types/registration";
 
 const IndustrySearchStep: React.FC<RegistrationStepProps> = ({
   title,
-  onNext,
   registrationData,
   updateRegistrationData,
 }) => {

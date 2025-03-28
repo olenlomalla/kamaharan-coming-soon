@@ -9,6 +9,14 @@ export default {
         body: ["Obviously", "sans-serif"],
         queens: ["Queens Bold", "serif"],
       },
+      fontWeight: {
+        560: "560",
+        570: "570",
+        540: "540",
+      },
+      lineHeight: {
+        120: "1.2",
+      },
       colors: {
         primary: {
           default: "#1A2B3C",
@@ -16,6 +24,10 @@ export default {
           darkmode: "#466D93",
           light: "#B7D6F5",
           bg: "#D8E9FA",
+          "Grayscale-Title-Active": "#363537",
+          "Grayscale-Body": "#4E4B66",
+          "Success-Default": "#8B9B8B",
+          "Grayscale-Label": "#424144",
         },
         gray: {
           title: "#1A2B3C",

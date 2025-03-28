@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "@emotion/styled";
 
@@ -113,8 +113,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
   const [firstLineText, setFirstLineText] = useState<string>("");
   const [secondLineText, setSecondLineText] = useState<string>("");
   const [blinkCount, setBlinkCount] = useState<number>(0);
-  const [animationStage, setAnimationStage] = useState<number>(0);
-  const [showCursor, setShowCursor] = useState<boolean>(true); // Control cursor visibility
+  const [animationStage, setAnimationStage] = useState<number>(0); // Control cursor visibility
   useEffect(() => {
     let timer: NodeJS.Timeout;
     const runAnimation = () => {
@@ -177,7 +176,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
         <Term>
           <TextLine>
             {firstLineText}
-            {cursorPosition === 1 && showCursor && <Cursor>_</Cursor>}
+            {cursorPosition === 1 && <Cursor>_</Cursor>}
           </TextLine>
           <TextLine>
             {secondLineText}
@@ -199,4 +198,3 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
 };
 
 export default TerminalText;
-

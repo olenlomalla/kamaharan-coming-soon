@@ -45,7 +45,6 @@ const CommonStepLayout = ({
           borderTopRightRadius: "50% 25%",
         }}
       />
-
       <div className="mb-[10px] w-full space-y-3 text-center sm:space-y-8">
         <h1 className="font-syne text-3xl font-bold text-[#385C80] sm:text-4xl">
           {title}

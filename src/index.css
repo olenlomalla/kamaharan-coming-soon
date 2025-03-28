@@ -48,3 +48,12 @@
     opacity: 0;
   }
 }
+
+@layer components {
+  .grayscale-Label {
+    @apply font-body text-sm font-570 leading-120 tracking-[0.75px] text-primary-Grayscale-Label;
+  }
+  .grayscale-Body {
+    @apply text-[11px] font-normal leading-120 tracking-[0.25px] text-primary-Grayscale-Body;
+  }
+}

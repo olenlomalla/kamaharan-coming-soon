@@ -1,33 +1,50 @@
-import React from "react";
+import { FaRegStar } from "react-icons/fa";
 
 import { ServiceCardProps } from "@/types/common";
 
-const a = {
-  id: 0,
-  title: "Deep Tissue massage",
-  time: "60 min",
-  value: "£65",
-  rating: 4.8,
-  review: "124 reviews",
-};
 const ServiceCard = ({
   title,
   time,
   value,
   rating,
   review,
-  className,
 }: ServiceCardProps) => {
   return (
-    <div className="flex min-w-[190px] flex-col gap-2 bg-[#FCFCFC] p-4">
-      <h4 className="font-body font-semibold">{title}</h4>
-      <div className="flex justify-between">
-        <div>{time}</div>
-        <div>{value}</div>
+    <div className="flex flex-col gap-2 rounded-lg bg-[#FCFCFC] p-4">
+      <h3 className="font-body text-sm font-570 leading-120 tracking-[0.75px] text-primary-Grayscale-Title-Active">
+        {title}
+      </h3>
+      <div className="flex items-center justify-between">
+        <p className="font-body text-[11px] font-normal leading-120 tracking-[0.25px] text-primary-Grayscale-Body">
+          {time}
+        </p>
+        <p
+          className={
+            "font-body text-sm font-570 leading-120 tracking-[0.75px] text-primary-Success-Default"
+          }
+        >
+          {value}
+        </p>
       </div>
-      <div className="flex items-center gap-2">
-        <div>{rating}</div>
-        <div>{review}</div>
+      <div className="mt-[7px] flex items-center gap-2.5">
+        <span className={"mr-[3px] flex items-center gap-2.5"}>
+          <FaRegStar color="#B8A888" width={24} height={24} />
+
+          <p
+            className={
+              "text-md font-570 leading-120 tracking-[0.75px] text-primary-Grayscale-Title-Active"
+            }
+          >
+            {rating}
+          </p>
+        </span>
+        <p
+          className={
+            "text-[11px] font-normal leading-120 tracking-[0.25px] text-primary-Grayscale-Body"
+          }
+        >
+          ({review})
+        </p>
       </div>
     </div>
   );

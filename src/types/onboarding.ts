@@ -48,6 +48,7 @@ export interface OnboardingStep {
 
 export interface OnboardingHeaderProps {
   onNext: () => void;
+  className?: string;
 }
 
 export interface StepButtonProps {

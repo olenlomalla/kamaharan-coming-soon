@@ -1,17 +1,36 @@
 import AccountTypeStep from "@/pages/registration/steps/AccountTypeStep";
 import EmailStep from "@/pages/registration/steps/EmailStep";
+import FinishPage from "@/pages/registration/steps/FinishPage";
 import PasswordStep from "@/pages/registration/steps/PasswordStep";
 import VerificationStep from "@/pages/registration/steps/VerificationStep";
 import BusinessContactStep from "@/pages/registration/steps/business/BusinessContactStep";
+import BusinessHoursStep from "@/pages/registration/steps/business/BusinessHoursStep";
 import BusinessInfoStep from "@/pages/registration/steps/business/BusinessInfoStep";
 import BusinessOnlinePresenceStep from "@/pages/registration/steps/business/BusinessOnlinePresenceStep";
 import BusinessTypeStep from "@/pages/registration/steps/business/BusinessTypeStep";
+import CommunityEngagement from "@/pages/registration/steps/business/CommunityEngagement";
+import CommunityEngagementStep from "@/pages/registration/steps/business/CommunityEngagementStep";
+import CulturalPreferencesStep from "@/pages/registration/steps/business/CulturalPreferencesStep";
+import CustomerInteractionStep from "@/pages/registration/steps/business/CustomerInteractionStep";
 import CustomerPreferenceStep from "@/pages/registration/steps/business/CustomerPrefernce";
+import DealsPromotionsStep from "@/pages/registration/steps/business/DealsPromotionsStep";
 import FullIndustrySearchStep from "@/pages/registration/steps/business/FullIndustrySearchStep";
 import IndustrySearchStep from "@/pages/registration/steps/business/IndustrySearchStep";
+import InfluencerMarketingStep from "@/pages/registration/steps/business/InfluencerMarketingStep";
+import LanguagesServedStep from "@/pages/registration/steps/business/LanguagesServedStep";
 import LocationNotificationStep from "@/pages/registration/steps/business/LocationNotificationStep";
 import MultipleLocationsStep from "@/pages/registration/steps/business/MultipleLocationsStep";
-import PersonalDetailsStep from "@/pages/registration/steps/personal/PersonalDetailsStep";
+import PaymentBookingStep from "@/pages/registration/steps/business/PaymentBookingStep";
+import PremiumFeaturesStep from "@/pages/registration/steps/business/PremiumFeaturesStep";
+import ProductsServicesStep from "@/pages/registration/steps/business/ProductsServicesStep";
+import TargetAudienceStep from "@/pages/registration/steps/business/TargetAudienceStep";
+import BasicInfoStep from "@/pages/registration/steps/personal/BasicInfoStep";
+import ContactInfoStep from "@/pages/registration/steps/personal/ContactInfoStep";
+import InterestsPageOne from "@/pages/registration/steps/personal/InterestsPageOne";
+import InterestsPageTwo from "@/pages/registration/steps/personal/InterestsPageTwo";
+import PersonalInterestsDetailsStep from "@/pages/registration/steps/personal/PersonalInterestsDetailsStep";
+import PersonalInterestsStep from "@/pages/registration/steps/personal/PersonalInterestsStep";
+import PreferencesStep from "@/pages/registration/steps/personal/PreferencesStep";
 import { RegistrationData, RegistrationStepConfig } from "@/types/registration";
 
 const commonSteps: RegistrationStepConfig[] = [
@@ -39,9 +58,56 @@ const commonSteps: RegistrationStepConfig[] = [
 export const personalStepConfigs: RegistrationStepConfig[] = [
   ...commonSteps,
   {
-    component: PersonalDetailsStep,
-    title: "Personal Details",
-    description: "Tell us more about yourself",
+    component: BasicInfoStep,
+    title: "Tell us about yourself",
+    description: "Let's get to know you better",
+    id: "basic_info",
+  },
+  {
+    component: ContactInfoStep,
+    title: "Tell us about yourself",
+    description: "Let's get to know you better",
+    id: "contact_info",
+  },
+  {
+    component: PreferencesStep,
+    title: "Tell us about yourself",
+    description: "Let's get to know you better",
+    id: "preferences",
+  },
+  {
+    component: LocationNotificationStep,
+    title: "Location & Notifications",
+    description: "Help us personalize your experience",
+    id: "location_notification",
+  },
+  {
+    component: PersonalInterestsStep,
+    title: "Personal Interests & Preference",
+    description: "What are you most interested in? (Select all that apply)",
+    id: "personal_interests",
+  },
+  {
+    component: PersonalInterestsDetailsStep,
+    title: "Personal Interests & Preference",
+    id: "preferences",
+  },
+  {
+    component: InterestsPageOne,
+    title: "Personal Interests & Preferences",
+    description: "What type of content do you enjoy from influencers?",
+    id: "preferences",
+  },
+  {
+    component: InterestsPageTwo,
+    title: "Dining & Shopping Preferences",
+    description: "What type of food do you enjoy?",
+    id: "preferences",
+  },
+  {
+    component: FinishPage,
+    title: "Congrats",
+    id: "finish",
   },
 ];
 
@@ -120,5 +186,82 @@ export const businessStepConfigs: RegistrationStepConfig[] = [
     title: "Target Audience & Customer Preferences",
     description: "Your answer will help us to give you the best start.",
     id: "customer_preference",
+  },
+  {
+    component: TargetAudienceStep,
+    title: "Target Audience & Customer Preferences",
+    description: "Your answer will help us to give you the best start.",
+    id: "target_audience",
+  },
+  {
+    component: CulturalPreferencesStep,
+    title: "Cultural/Religious Preferences",
+    description: "Do you cater to specific cultural or religious preferences?",
+    id: "culture_preference",
+  },
+  {
+    component: LanguagesServedStep,
+    title: "Languages Served",
+    description: "What languages do you serve customers in?",
+    id: "languages_served",
+  },
+  {
+    component: ProductsServicesStep,
+    title: "Products & Services",
+    description: "Your answer will help us to give you the best start.",
+    id: "products_services",
+  },
+  {
+    component: CommunityEngagement,
+    title: "Community Engagement & Cultural Preferences",
+    description: "Do you cater to specific cultural or ethnic needs?",
+    id: "community_engagement",
+  },
+  {
+    component: CommunityEngagement,
+    title: "Community Engagement & Cultural Preferences",
+    description: "Do you cater to specific cultural or ethnic needs?",
+    id: "community_engagement",
+  },
+  {
+    component: CommunityEngagementStep,
+    title: "Community Engagement & Cultural Preferences",
+    id: "culture_preference",
+  },
+  {
+    component: DealsPromotionsStep,
+    title: "Deals, Promotions & Customer Engagement",
+    id: "deals_promotions",
+  },
+  {
+    component: InfluencerMarketingStep,
+    title: "Influencer & Marketing Integration",
+    id: "influencer",
+  },
+  {
+    component: BusinessHoursStep,
+    title: "Operating Hours & Business Availability",
+    description: "What are your business hours?",
+    id: "business_hours",
+  },
+  {
+    component: PaymentBookingStep,
+    title: "Payment & Booking Preferences",
+    id: "payment_booking",
+  },
+  {
+    component: CustomerInteractionStep,
+    title: "Customer Interaction & Communication",
+    id: "customer_interaction",
+  },
+  {
+    component: PremiumFeaturesStep,
+    title: "Additional Premium Features",
+    id: "premium_features",
+  },
+  {
+    component: FinishPage,
+    title: "Congrats",
+    id: "finish",
   },
 ];

@@ -97,7 +97,6 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
           {description}
         </p>
       </div>
-
       <div className="w-full space-y-6">
         {contactFields.map((field) => (
           <ContactInput

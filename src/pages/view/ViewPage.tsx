@@ -29,7 +29,11 @@ const ViewPage = () => {
   return (
     <PagesContentLayout>
       <div className="mx-auto w-full max-w-[1440px]">
-        <BackButton size="32" onClick={handleBackClick} className="absolute" />
+        <BackButton
+          size="32"
+          onClick={handleBackClick}
+          className="absolute z-20"
+        />
         <FeaturedSection currentBusiness={currentBusiness} />
         <AboutSection currentBusiness={currentBusiness} />
         <ContentSection currentBusiness={currentBusiness} />

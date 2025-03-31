@@ -7,7 +7,7 @@ export const HeaderLogo = () => {
     <Link to="/home">
       <img
         src={headerLogo.imageUrl}
-        className="h-[40px] w-[40px]"
+        className="min-h-[40px] min-w-[40px]"
         alt={headerLogo.imageLabel}
       />
     </Link>

@@ -26,7 +26,6 @@ const CustomSlider: FC<ICustomSlider> = ({
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
   const [slidesToShow, setSlidesToShow] = useState(5);
 
-  // Update slides to show based on window width
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -42,13 +41,10 @@ const CustomSlider: FC<ICustomSlider> = ({
       }
     };
 
-    // Set initial value
     handleResize();
 
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -57,6 +53,7 @@ const CustomSlider: FC<ICustomSlider> = ({
     slidesToShow,
     slidesToScroll: 1,
     infinite: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1280,
@@ -123,7 +120,7 @@ const CustomSlider: FC<ICustomSlider> = ({
               />
               <button
                 type="button"
-                className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
+                className={`absolute right-2 top-2 flex size-[32px] items-center justify-center rounded-[40px] ${
                   likedSlides.includes(index)
                     ? "bg-white opacity-100"
                     : "bg-[#F54D33] opacity-50"

@@ -1,5 +1,5 @@
 .slick-slide {
-  padding-right: 16px;
+  padding: 0 8px;
 }
 
 .slick-slide:first-child {
@@ -8,4 +8,31 @@
 
 .slick-slide:last-child {
   padding-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slick-slide {
+    padding: 0 4px;
+  }
+}
+
+/* Make sure arrows are visible on small screens */
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
+
+/* Ensure images are responsive */
+.slick-slide img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Adjust spacing for mobile */
+@media (max-width: 640px) {
+  .slick-slide {
+    padding: 0 2px;
+  }
 }

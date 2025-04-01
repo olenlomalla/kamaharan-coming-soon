@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import { authAPI } from "@/services/api";
 import { RegistrationStepProps } from "@/types/registration";
+
+// Імпортуємо authAPI
 
 const VerificationStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -9,7 +12,7 @@ const VerificationStep: React.FC<RegistrationStepProps> = ({
   registrationData,
   updateRegistrationData,
 }) => {
-  const [verificationCode, setVerificationCode] = useState([
+  const [verificationCode, setVerificationCode] = useState<string[]>([
     "",
     "",
     "",
@@ -17,30 +20,53 @@ const VerificationStep: React.FC<RegistrationStepProps> = ({
     "",
     "",
   ]);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (index: number, value: string) => {
-    // Ensure only numbers
     if (value !== "" && !/^\d+$/.test(value)) return;
 
     const newCode = [...verificationCode];
     newCode[index] = value;
     setVerificationCode(newCode);
 
-    // Move to next input if current input is filled
     if (value !== "" && index < 5) {
       const nextInput = document.getElementById(`code-${index + 1}`);
       if (nextInput) nextInput.focus();
     }
 
-    // Update the registration data when all inputs are filled
     if (newCode.every((digit) => digit !== "")) {
       updateRegistrationData({ verificationCode: newCode.join("") });
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onNext();
+    setError(null);
+    setIsLoading(true);
+
+    const token = localStorage.getItem("verification_token");
+    const code = verificationCode.join("");
+    console.log(token);
+    if (!token) {
+      setError("Verification token is missing.");
+      setIsLoading(false);
+      return;
+    }
+    try {
+      const response = await authAPI.verifyEmail(token, code);
+      console.log(response);
+      if (response.status === 200) {
+        onNext();
+      }
+    } catch (err: any) {
+      setError(
+        err.response?.data?.message ||
+          "Failed to verify code. Please try again.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -64,14 +90,19 @@ const VerificationStep: React.FC<RegistrationStepProps> = ({
               id={`code-${index}`}
               type="text"
               maxLength={1}
-              className="h-[94px] w-[54px] rounded-[8px] bg-[#EFEFEF] text-center text-xl"
+              className="h-[60px] w-[40px] rounded-[8px] bg-[#EFEFEF] text-center text-xl lg:h-[94px] lg:w-[54px]"
               value={digit}
               onChange={(e) => handleInputChange(index, e.target.value)}
             />
           ))}
         </div>
-
-        <ButtonCustom type="submit" title="Next" className="mt-[46px] w-full" />
+        {error && <span className="text-sm text-red-500">{error}</span>}
+        <ButtonCustom
+          type="submit"
+          title={isLoading ? "Verifying..." : "Next"}
+          className="mt-[46px] w-full"
+          disabled={isLoading}
+        />
       </form>
     </div>
   );

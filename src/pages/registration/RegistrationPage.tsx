@@ -48,17 +48,11 @@ const RegistrationPage: React.FC = () => {
     if (currentStep >= filteredStepConfigs.length) {
       setCurrentStep(filteredStepConfigs.length - 1);
     }
-    console.log(
-      "Filtered steps updated:",
-      filteredStepConfigs.map((s) => s.title),
-    );
   }, [filteredStepConfigs]);
 
   const updateRegistrationData = (newData: Partial<RegistrationData>) => {
-    console.log("Updating registration data:", newData);
     setRegistrationData((prevData) => {
       const updatedData = { ...prevData, ...newData };
-      console.log("Updated registration data:", updatedData);
       return updatedData;
     });
   };
@@ -73,8 +67,6 @@ const RegistrationPage: React.FC = () => {
   };
 
   const prevStep = () => {
-    console.log("prevStep called, current step:", currentStep);
-
     if (currentStep > 0) {
       setCurrentStep((prevStep) => prevStep - 1);
     }
@@ -82,8 +74,6 @@ const RegistrationPage: React.FC = () => {
 
   const handleRegistrationComplete = async () => {
     try {
-      // Here you would typically make an API call to register the user
-      console.log("Registration completed:", registrationData);
       navigate("/home");
     } catch (error) {
       console.error("Registration failed:", error);

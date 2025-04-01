@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import SocialButton from "@/components/registration/SocialButton";
+import StepHeader from "@/components/registration/StepHeader";
+import { authAPI } from "@/services/api";
 import { RegistrationStepProps } from "@/types/registration";
 
 const EmailStep: React.FC<RegistrationStepProps> = ({
@@ -11,9 +13,31 @@ const EmailStep: React.FC<RegistrationStepProps> = ({
   registrationData,
   updateRegistrationData,
 }) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onNext();
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const response = await authAPI.sendVerificationCode(
+        registrationData.email,
+      );
+      if (response.data?.token) {
+        console.log(response.data.token);
+        localStorage.setItem("verification_token", response.data.token);
+        onNext();
+      }
+    } catch (err: any) {
+      setError(
+        err.response?.data?.message ||
+          "Failed to send verification code. Please try again.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSocialSignup = (provider: string) => {
@@ -25,19 +49,11 @@ const EmailStep: React.FC<RegistrationStepProps> = ({
     { provider: "Google", icon: "/icons/register/google-icon.svg" },
     { provider: "Twitter", icon: "/icons/register/twitter-icon.svg" },
   ];
+
   return (
-    <div className="flex w-full flex-col justify-between lg:flex-row">
+    <div className="flex w-full flex-col justify-between px-6 pb-10 lg:flex-row lg:p-0">
       <div className="flex flex-col gap-2 lg:mx-[78px] lg:w-1/3">
-        <div className="flex flex-col items-center gap-4 md:text-left">
-          <h1 className="text-center font-heading text-[32px] font-semibold leading-[34px] tracking-[1px] text-[#363537]">
-            {title}
-          </h1>
-          {description && (
-            <p className="text-body text-[18px] font-normal leading-[24px] tracking-[0.75px] text-[#363537]">
-              {description}
-            </p>
-          )}
-        </div>
+        <StepHeader title={title} description={description} />
         <div className="flex w-full flex-col gap-4">
           {socialProviders.map((item) => (
             <SocialButton
@@ -69,20 +85,30 @@ const EmailStep: React.FC<RegistrationStepProps> = ({
           onSubmit={handleSubmit}
           className="flex w-full flex-col gap-[54px]"
         >
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full rounded-[16px] border bg-[#EFEFEF] p-3 px-[24px] py-[17px]"
-            value={registrationData.email}
-            onChange={(e) => updateRegistrationData({ email: e.target.value })}
-            required
+          <div className="flex flex-col gap-2">
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full rounded-[16px] border bg-[#EFEFEF] p-3 px-[24px] py-[17px]"
+              value={registrationData.email}
+              onChange={(e) =>
+                updateRegistrationData({ email: e.target.value })
+              }
+              required
+            />
+            {error && (
+              <span className="px-2 text-sm text-red-500">{error}</span>
+            )}
+          </div>
+          <ButtonCustom
+            type="submit"
+            title={isLoading ? "Sending..." : "Verify Email"}
+            disabled={isLoading}
           />
-
-          <ButtonCustom type="submit" title="Verify Email" />
         </form>
       </div>
 
-      <div className="flex items-center pb-24 pl-[150px] lg:w-2/3">
+      <div className="hidden items-center pb-24 pl-[150px] lg:flex lg:w-2/3">
         <img src="/images/logo/logo.png" alt="Logo" className="h-[78px]" />
       </div>
     </div>

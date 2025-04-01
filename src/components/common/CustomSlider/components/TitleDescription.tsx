@@ -5,7 +5,11 @@ interface TitleDescriptionProps {
 }
 
 const TitleDescription: React.FC<TitleDescriptionProps> = ({ description }) => {
-  return <h2 className="font-body">{description.title}</h2>;
+  return (
+    <h2 className="truncate font-body text-sm md:text-base">
+      {description.title}
+    </h2>
+  );
 };
 
 export default TitleDescription;

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Slider from "react-slick";
 
@@ -24,11 +24,62 @@ const CustomSlider: FC<ICustomSlider> = ({
 }) => {
   const slider = React.useRef<Slider | null>(null);
   const [likedSlides, setLikedSlides] = useState<number[]>([]);
+  const [slidesToShow, setSlidesToShow] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 768) {
+        setSlidesToShow(2);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(3);
+      } else if (window.innerWidth < 1280) {
+        setSlidesToShow(4);
+      } else {
+        setSlidesToShow(5);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const settings = {
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow,
     slidesToScroll: 1,
+    infinite: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   const handleLikeClick = (index: number) => {
@@ -38,9 +89,9 @@ const CustomSlider: FC<ICustomSlider> = ({
   };
 
   return (
-    <div className="mx-[32px] mb-[48px]">
-      <div className="mb-[32px] flex items-center justify-between">
-        <h1 className="decoration-skip-ink text-left font-heading text-2xl font-bold leading-8 tracking-wide">
+    <div className="mx-[16px] mb-[24px] md:mx-[32px] md:mb-[48px]">
+      <div className="mb-[16px] flex items-center justify-between md:mb-[32px]">
+        <h1 className="decoration-skip-ink text-left font-heading text-xl font-bold leading-8 tracking-wide md:text-2xl">
           {title}
         </h1>
         <div className="flex items-center justify-between gap-[10px]">
@@ -62,10 +113,14 @@ const CustomSlider: FC<ICustomSlider> = ({
           const description = titleArray[index % titleArray.length];
           return (
             <div className="relative" key={index}>
-              <img src={image} alt={`Slide ${index + 1}`} />
+              <img
+                src={image}
+                alt={`Slide ${index + 1}`}
+                className="h-auto w-full"
+              />
               <button
                 type="button"
-                className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
+                className={`absolute right-2 top-2 flex size-[32px] items-center justify-center rounded-[40px] ${
                   likedSlides.includes(index)
                     ? "bg-white opacity-100"
                     : "bg-[#F54D33] opacity-50"

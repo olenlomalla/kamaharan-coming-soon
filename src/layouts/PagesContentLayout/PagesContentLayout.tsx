@@ -15,11 +15,9 @@ const PagesContentLayout: FC<PagesContentLayout> = ({
   className,
 }) => {
   return (
-    <div
-      className={`mx-auto flex min-h-screen max-w-[1440px] flex-col bg-white ${className}`}
-    >
+    <div className={`mx-auto flex min-h-screen flex-col bg-white ${className}`}>
       <DashboardHeader className={headerClassName} />
-      <main className="flex-grow">{children}</main>
+      <main className="mx-auto w-full max-w-[1440px] grow">{children}</main>
       <DashboardFooter />
     </div>
   );

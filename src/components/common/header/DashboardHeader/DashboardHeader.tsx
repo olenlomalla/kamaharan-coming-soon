@@ -1,6 +1,9 @@
+import React from "react";
+
 import { buttonsData } from "@/constants/common/DashboardHeader/data";
 import { DashboardHeaderProps } from "@/types/dashboardHeader";
 
+import BurgerMenu from "./components/BurgerMenu";
 import ActionButtons from "./components/HeaderActionButtons";
 import HeaderButtonContainer from "./components/HeaderButtonContainer";
 import HeaderFormSearch from "./components/HeaderFormSearch";
@@ -12,16 +15,21 @@ import UserAccount from "./components/UserAccount";
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({ className }) => {
   return (
     <header
-      className={`flex h-[89px] w-full items-center justify-center bg-white px-[32px] pb-[16px] ${className}`}
+      className={`m-auto flex h-[89px] w-full max-w-[1440px] items-center justify-between gap-1 bg-white px-[32px] pb-[16px] sm:gap-1.5 md:gap-2.5 lg:gap-6 ${className}`}
     >
+      <HeaderLogo />
       <HeaderLeft>
-        <HeaderLogo />
         <HeaderNavigation />
         <HeaderFormSearch />
         <HeaderButtonContainer buttons={buttonsData} />
         <ActionButtons />
       </HeaderLeft>
-      <UserAccount />
+      <div className="flex">
+        <div className="md:hidden">
+          <BurgerMenu />
+        </div>
+        <UserAccount />
+      </div>
     </header>
   );
 };

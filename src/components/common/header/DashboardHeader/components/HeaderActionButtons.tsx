@@ -7,7 +7,7 @@ import {
 
 const ActionButtons = () => {
   return (
-    <div className="flex items-center justify-between gap-1 sm:gap-1.5 md:gap-2.5 lg:gap-6">
+    <div className="flex items-center justify-between gap-3 sm:gap-1.5 md:gap-2.5 lg:gap-6">
       {dashboardActionButtons.map((icon, index) => {
         return (
           <Link

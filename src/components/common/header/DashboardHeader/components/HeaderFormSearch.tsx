@@ -4,7 +4,7 @@ const HeaderFormSearch = () => {
   return (
     <form
       action=""
-      className="flex h-[40px] min-w-[100px] max-w-[377px] items-center justify-between rounded-[24px] bg-[#FFF1F0] px-[22px]"
+      className="flex h-[40px] w-full min-w-[100px] max-w-[377px] items-center justify-between rounded-[24px] bg-[#FFF1F0] px-[22px]"
     >
       <input
         type="text"

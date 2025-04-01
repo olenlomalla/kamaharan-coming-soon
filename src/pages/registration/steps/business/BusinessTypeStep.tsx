@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
@@ -39,8 +40,7 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
     updateRegistrationData({ businessType: type });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (selectedType) {
       onNext();
     }
@@ -56,17 +56,10 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
   };
 
   return (
-    <div className="mx-auto flex w-full flex-col items-center justify-center p-6">
-      <div className="flex w-full flex-col gap-8 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title || "Business Type/Industry"}
-        </h1>
-        <p className="text-body mb-8 text-[18px] leading-[24px]">
-          {description || "What type of business do you run?"}
-        </p>
-      </div>
+    <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 p-6">
+      <StepHeader title={title} description={description} className="gap-8" />
 
-      <form onSubmit={handleSubmit} className="relative">
+      <div className="relative">
         <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-3">
           {businessTypes.map((type) => (
             <BusinessTypeCard
@@ -74,7 +67,7 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
               title={type}
               isSelected={selectedType === type}
               onClick={handleTypeSelect}
-              className="lg:w-[280px]"
+              className="w-full lg:w-[280px]"
             />
           ))}
         </div>
@@ -89,8 +82,13 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
           </button>
         </div>
 
-        <ButtonCustom type="submit" title="Next" className={`w-full`} />
-      </form>
+        <ButtonCustom
+          type="submit"
+          title="Next"
+          onClick={handleSubmit}
+          className={`w-full`}
+        />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 const FullIndustrySearchStep: React.FC<RegistrationStepProps> = ({
@@ -80,9 +81,7 @@ const FullIndustrySearchStep: React.FC<RegistrationStepProps> = ({
 
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center p-6">
-      <h1 className="mb-[44px] font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-        {title}
-      </h1>
+      <StepHeader title={title} className="mb-[44px]" />
 
       <form onSubmit={handleSubmit} className="flex w-full flex-col gap-5">
         <div className="grid grid-cols-1 gap-4 overflow-y-auto">

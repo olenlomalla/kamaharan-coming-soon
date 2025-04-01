@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 const PasswordStep: React.FC<RegistrationStepProps> = ({
@@ -43,16 +44,14 @@ const PasswordStep: React.FC<RegistrationStepProps> = ({
   };
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-2 p-6">
-      <h1 className="mb-[38px] text-center font-heading text-[32px] font-semibold leading-[34px] tracking-[1px] text-[#363537]">
-        {title}
-      </h1>
+    <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-[46px] p-6">
+      <StepHeader title={title} />
 
       <form onSubmit={handleSubmit} className="w-full">
         <div className="relative flex items-center">
           <button
             type="button"
-            className="absolute left-6 -translate-y-3/4 transform"
+            className="absolute left-6 -translate-y-2/4 transform"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? (
@@ -72,7 +71,7 @@ const PasswordStep: React.FC<RegistrationStepProps> = ({
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="mb-[34px] h-[64px] w-full rounded-lg border bg-[#EFEFEF] p-3 pl-16 pr-3"
+            className="mb-[34px] h-[64px] w-full rounded-lg border bg-[#EFEFEF] p-3 pl-16 pr-3 font-body text-[16px] leading-[18px]"
             value={registrationData.password}
             onChange={handlePasswordChange}
             required
@@ -83,14 +82,14 @@ const PasswordStep: React.FC<RegistrationStepProps> = ({
           {Object.entries(passwordRequirements).map(([key, isFulfilled]) => (
             <div
               key={key}
-              className={`flex items-center gap-3 ${isFulfilled ? "text-green-500" : "text-black"}`}
+              className={`flex items-center gap-3 ${isFulfilled ? "text-green-500" : "text-[#363537]"}`}
             >
               <img
                 src="/icons/register/password-icon.svg"
                 alt="password-icon"
                 className="h-4 w-4"
               />
-              <span className="font-body text-[16px] font-normal leading-[18px] text-[#33475B]">
+              <span className="font-body text-[16px] font-normal leading-[18px] text-[#363537]">
                 {
                   passwordRequirementLabels[
                     key as keyof typeof passwordRequirementLabels

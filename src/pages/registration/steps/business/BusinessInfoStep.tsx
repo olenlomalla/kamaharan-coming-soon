@@ -1,6 +1,7 @@
 import React from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 const BusinessInfoStep: React.FC<RegistrationStepProps> = ({
@@ -17,14 +18,7 @@ const BusinessInfoStep: React.FC<RegistrationStepProps> = ({
 
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-[101.5px] p-6">
-      <div className="fle w-full -flex-col gap-3 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[34px] tracking-[1px] text-[#363537]">
-          {title}
-        </h1>
-        <p className="text-[16px] leading-[24px] tracking-[0.75px] text-[#363537]">
-          {description}
-        </p>
-      </div>
+      <StepHeader title={title} description={description} />
 
       <form onSubmit={handleSubmit} className="w-full">
         <div className="flex w-full flex-col gap-4">

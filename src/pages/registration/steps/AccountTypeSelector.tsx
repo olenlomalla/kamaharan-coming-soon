@@ -81,11 +81,11 @@ const AccountTypeSelector: React.FC<RegistrationStepProps> = ({
   return (
     <div className="mx-auto flex w-full max-w-md flex-col items-center justify-center p-6">
       <div className="mb-10 text-center">
-        <h1 className="mb-2 text-[32px] font-semibold">
+        <h1 className="mb-2 text-[32px] font-semibold text-[#363537]">
           {title || "Choose Account Type"}
         </h1>
         {description && (
-          <p className="text-body">
+          <p className="text-body text-[#363537]">
             {description || "Select how you want to use Kamaharan"}
           </p>
         )}

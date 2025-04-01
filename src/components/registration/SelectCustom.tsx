@@ -6,6 +6,7 @@ interface SelectCustomProps {
   onChange: (value: string) => void;
   title?: string;
   className?: string;
+  position?: "left" | "right";
 }
 
 const SelectCustom: React.FC<SelectCustomProps> = ({
@@ -14,17 +15,24 @@ const SelectCustom: React.FC<SelectCustomProps> = ({
   onChange,
   title,
   className,
+  position = "right",
 }) => {
   return (
-    <div className="flex w-full flex-row items-center justify-between gap-6">
-      <label className="font-body text-[16px] font-normal leading-[18px] tracking-[0.75px]">
-        {title}
-      </label>
-      <div className={`relative h-[58px] w-[228px] ${className}`}>
+    <div
+      className={`flex w-full flex-row items-center ${position === "right" ? "justify-between" : "flex-row-reverse justify-between"} gap-6`}
+    >
+      {title && (
+        <label className="font-body text-[16px] font-normal leading-[18px] tracking-[0.75px] text-[#363537]">
+          {title}
+        </label>
+      )}
+      <div
+        className={`relative h-[58px] ${position === "right" ? "w-[228px]" : "w-[448px]"} ${className}`}
+      >
         <select
           value={selectedValue}
           onChange={(e) => onChange(e.target.value)}
-          className="block h-full w-full appearance-none rounded-[16px] bg-[#EFEFEF] px-6 pr-8 font-body text-[16px] leading-tight text-[#5B5A5E] focus:border-red-500 focus:outline-none"
+          className={`block h-full w-full appearance-none rounded-[16px] bg-[#EFEFEF] px-6 pr-8 font-body text-[16px] leading-tight text-[#363537] text-[#5B5A5E] focus:border-[#FF5D3A] focus:outline-none focus:ring-1 focus:ring-[#FF5D3A] ${className}`}
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -32,7 +40,7 @@ const SelectCustom: React.FC<SelectCustomProps> = ({
             </option>
           ))}
         </select>
-        <div className="pointer-events-none absolute bottom-0 right-0 top-0 flex items-center px-4">
+        <div className="pointer-events-none absolute bottom-0 right-1 top-1 flex items-center px-4">
           <svg
             width="12"
             height="12"
@@ -43,9 +51,9 @@ const SelectCustom: React.FC<SelectCustomProps> = ({
             <path
               d="M2.75928 4.24023L6.24086 7.72182L9.72245 4.24023"
               stroke="#14142B"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

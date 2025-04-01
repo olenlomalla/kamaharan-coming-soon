@@ -30,10 +30,13 @@ const ContentSection = ({ currentBusiness }: ContentSectionProps) => {
   };
 
   return (
-    <div className="grid grid-cols-4 grid-rows-1 gap-[2vw] font-body">
+    <div className="flex flex-col gap-[2vw] font-body md:grid md:grid-cols-4 md:grid-rows-1">
       {/* <div className="absolute m-auto mt-0 min-w-0 md:col-span-1" /> */}
-      <div className="sticky top-4 col-span-1 mt-0 h-screen min-w-0 justify-end bg-white px-4">
-        <nav className="sticky ml-auto flex w-full flex-col items-center gap-1.5 text-right text-lg font-normal leading-120 tracking-[0.75px]">
+      <div className="top-4 order-1 col-span-1 mt-0 min-w-0 justify-end bg-white px-1 max-md:px-4 md:sticky md:h-screen lg:px-4">
+        <nav
+          id={"nav"}
+          className="sticky ml-auto flex w-full flex-col items-center gap-1.5 text-right text-lg font-normal leading-120 tracking-[0.75px]"
+        >
           {sections.map((section) => (
             <p
               key={section.id}
@@ -47,7 +50,10 @@ const ContentSection = ({ currentBusiness }: ContentSectionProps) => {
           ))}
         </nav>
 
-        <div className="flex w-full flex-col items-start gap-4 p-4 text-sm">
+        <div
+          id={"contactOrganizer"}
+          className="md:d-none flex w-full flex-col items-start gap-4 p-4 text-sm"
+        >
           <h3 className="mt-2 text-sm font-570 leading-120 tracking-[0.75px] text-black">
             Contact Organizer
           </h3>
@@ -61,7 +67,10 @@ const ContentSection = ({ currentBusiness }: ContentSectionProps) => {
           ))}
         </div>
       </div>
-      <div className="col-span-3 flex flex-col items-start gap-14">
+      <div
+        id={"content"}
+        className="order-2 col-span-3 flex flex-col items-center gap-14 md:items-start"
+      >
         <div
           id={"our-items"}
           className="flex w-[97%] flex-col items-start justify-start gap-4"

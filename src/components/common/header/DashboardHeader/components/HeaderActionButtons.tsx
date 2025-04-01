@@ -7,7 +7,7 @@ import {
 
 const ActionButtons = () => {
   return (
-    <div className="flex items-center justify-between gap-[24px]">
+    <div className="flex items-center justify-between gap-3 sm:gap-1.5 md:gap-2.5 lg:gap-6">
       {dashboardActionButtons.map((icon, index) => {
         return (
           <Link
@@ -44,7 +44,7 @@ const ActionButtons = () => {
         <img
           src={dropdownButton.imageUrl}
           alt={dropdownButton.imageLabel}
-          className="absolute right-[8px] top-[50%] h-[16px] w-[16px] -translate-y-[50%] transform"
+          className="absolute right-[8px] top-[50%] size-[16px] -translate-y-[50%]"
         />
       </div>
     </div>

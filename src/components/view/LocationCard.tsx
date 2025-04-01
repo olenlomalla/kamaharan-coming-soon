@@ -16,12 +16,12 @@ const LocationCard = ({ title, renderPropCaption }: LocationCardProps) => {
   const { userLocation } = useLocation();
 
   return (
-    <div className="flex items-start gap-8">
-      <div className="col-span-2 flex w-1/3 flex-col items-start gap-2">
+    <div className="items-start gap-8 md:flex">
+      <div className="col-span-2 flex w-1/3 flex-col items-start gap-2 max-md:mb-8">
         {title && <h3 className="grayscale-Label"> {title}</h3>}
         {renderPropCaption()}
       </div>
-      <div className="w-2/3 overflow-hidden rounded-lg outline-none">
+      <div className="overflow-hidden rounded-lg outline-none md:w-2/3">
         <Map
           initialViewState={{
             latitude: userLocation ? userLocation.latitude : defaultCenter[0],

@@ -32,7 +32,7 @@ const SelectCustom: React.FC<SelectCustomProps> = ({
         <select
           value={selectedValue}
           onChange={(e) => onChange(e.target.value)}
-          className={`block h-full w-full appearance-none rounded-[16px] bg-[#EFEFEF] px-4 pr-8 font-body text-[16px] leading-tight text-[#363537] focus:border-[#FF5D3A] focus:outline-none focus:ring-1 focus:ring-[#FF5D3A] ${className}`}
+          className={`block h-full w-full appearance-none rounded-[16px] bg-[#EFEFEF] px-6 pr-8 font-body text-[16px] leading-tight text-[#363537] text-[#5B5A5E] focus:border-[#FF5D3A] focus:outline-none focus:ring-1 focus:ring-[#FF5D3A] ${className}`}
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>

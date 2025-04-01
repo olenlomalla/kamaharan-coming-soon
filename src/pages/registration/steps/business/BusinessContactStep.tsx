@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import ContactInput from "@/components/registration/ContactInput";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 interface ContactInfo {
@@ -88,15 +89,8 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center p-6">
-      <div className="mb-12 flex flex-col gap-3 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title}
-        </h1>
-        <p className="text-[16px] leading-[18px] tracking-[0.75px] text-[#363537]">
-          {description}
-        </p>
-      </div>
+    <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-12 p-6">
+      <StepHeader title={title} description={description} />
       <div className="w-full space-y-6">
         {contactFields.map((field) => (
           <ContactInput
@@ -110,11 +104,7 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
         ))}
       </div>
 
-      <ButtonCustom
-        title="Next"
-        onClick={handleNext}
-        className="mt-12 w-full"
-      />
+      <ButtonCustom title="Next" onClick={handleNext} className="w-full" />
     </div>
   );
 };

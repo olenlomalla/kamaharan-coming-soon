@@ -110,10 +110,53 @@ export interface PersonalContactInfo {
   cityAndCountry: string;
 }
 
+export interface CommunityPreferences {
+  localEvents: boolean;
+  networkingEvents: boolean;
+  volunteerOpportunities: boolean;
+  skillSharing: boolean;
+  connectWithOthers: boolean;
+}
+
+export interface YouthPrograms {
+  hasYoungMembers: boolean;
+  wantsUpdates: boolean;
+  wantsTrainingUpdates: boolean;
+  wantsScholarships: boolean;
+}
+export interface ExclusiveDeals {
+  receiveDiscounts: boolean;
+  typeofDeals: string;
+  beNotified: boolean;
+}
+export interface AccessibilityPreferences {
+  offerAccessibilityFeratures: boolean;
+  womanOnly: boolean;
+}
+export interface AdditionalUserPreference {
+  accessToNewFeature: boolean;
+  participateInUserSurveys: boolean;
+  testBetaFeature: boolean;
+}
+export interface InfluencerPreferences {
+  followsInfluencers: boolean;
+  wantsRecommendations: boolean;
+  interestedInBusinessContent: boolean;
+}
 export interface PersonalPreferences {
   preferredLanguage: string;
   dateOfBirth: string;
   gender: "male" | "female" | "";
+  preferredDining?: string;
+  dietaryRestrictions?: string[];
+  shoppingPreference?: string;
+  communityPreferences?: CommunityPreferences;
+  youthPrograms?: YouthPrograms;
+  exclusiveDeals?: ExclusiveDeals;
+  accessibilityPreferences?: AccessibilityPreferences;
+  additionalUserPreference?: AdditionalUserPreference;
+  influencerPreferences?: InfluencerPreferences;
+  influencersNames?: string;
 }
 
 export interface PersonalInterests {

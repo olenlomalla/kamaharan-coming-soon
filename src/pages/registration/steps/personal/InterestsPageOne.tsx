@@ -48,10 +48,8 @@ const InterestsPageOne: React.FC<RegistrationStepProps> = ({
 
   return (
     <InterestSelectionStep
-      title={title || "Personal Interests & Preferences"}
-      description={
-        description || "What type of content do you enjoy from influencers?"
-      }
+      title={title}
+      description={description}
       interests={interests}
       selectedInterest={selectedInterest}
       onSelectInterest={handleSelectInterest}

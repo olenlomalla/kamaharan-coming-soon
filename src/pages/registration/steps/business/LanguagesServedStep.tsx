@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import SelectCustom from "@/components/registration/SelectCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { RegistrationStepProps } from "@/types/registration";
 
 const LanguagesServedStep: React.FC<RegistrationStepProps> = ({
@@ -40,24 +41,13 @@ const LanguagesServedStep: React.FC<RegistrationStepProps> = ({
 
   return (
     <div className="mx-auto flex w-full max-w-[450px] flex-col items-center justify-center gap-12 p-6">
-      {/* Header */}
-      <div className="flex w-[400px] flex-col gap-4 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title || "Languages Served"}
-        </h1>
-        <p className="font-body text-[16px] leading-[18px] tracking-[0.75px] text-[#424144]">
-          {description || "What languages do you serve customers in?"}
-        </p>
-      </div>
-
-      {/* Content */}
-      <div className="w-[450px]">
+      <StepHeader title={title} description={description} />
+      <div className="w-full lg:w-[450px]">
         <SelectCustom
           options={languageOptions}
           selectedValue={selectedLanguage}
           onChange={handleLanguageChange}
-          title=""
-          className="w-[450px]"
+          className="w-full lg:w-[450px]"
         />
       </div>
 

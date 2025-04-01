@@ -50,8 +50,8 @@ const InterestsPageTwo: React.FC<RegistrationStepProps> = ({
 
   return (
     <InterestSelectionStep
-      title={title || "Dining & Shopping Preferences"}
-      description={description || "What type of food do you enjoy?"}
+      title={title}
+      description={description}
       interests={interests}
       selectedInterest={selectedInterest}
       onSelectInterest={handleSelectInterest}

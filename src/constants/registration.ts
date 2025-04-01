@@ -10,6 +10,8 @@ import BusinessOnlinePresenceStep from "@/pages/registration/steps/business/Busi
 import BusinessTypeStep from "@/pages/registration/steps/business/BusinessTypeStep";
 import CommunityEngagement from "@/pages/registration/steps/business/CommunityEngagement";
 import CommunityEngagementStep from "@/pages/registration/steps/business/CommunityEngagementStep";
+import CompanyNameStep from "@/pages/registration/steps/business/CompanyNameStep";
+import CompanyWebsiteStep from "@/pages/registration/steps/business/CompanyWebsiteStep";
 import CulturalPreferencesStep from "@/pages/registration/steps/business/CulturalPreferencesStep";
 import CustomerInteractionStep from "@/pages/registration/steps/business/CustomerInteractionStep";
 import CustomerPreferenceStep from "@/pages/registration/steps/business/CustomerPrefernce";
@@ -24,13 +26,21 @@ import PaymentBookingStep from "@/pages/registration/steps/business/PaymentBooki
 import PremiumFeaturesStep from "@/pages/registration/steps/business/PremiumFeaturesStep";
 import ProductsServicesStep from "@/pages/registration/steps/business/ProductsServicesStep";
 import TargetAudienceStep from "@/pages/registration/steps/business/TargetAudienceStep";
+import AccessibilityPreference from "@/pages/registration/steps/personal/AccessibilityPreference";
+import AdditionalUserPreferences from "@/pages/registration/steps/personal/AdditionalUserFeatures";
 import BasicInfoStep from "@/pages/registration/steps/personal/BasicInfoStep";
+import CommunityEngagementPersonalStep from "@/pages/registration/steps/personal/CommunityEngagementStep";
 import ContactInfoStep from "@/pages/registration/steps/personal/ContactInfoStep";
+import DietaryRestrictionsStep from "@/pages/registration/steps/personal/DietaryRestrictionsStep";
+import DiningPreferencesStep from "@/pages/registration/steps/personal/DiningPreferencesStep";
+import ExclusiveDealsStep from "@/pages/registration/steps/personal/ExclusiveDealsStep";
+import InfluencerPreferencesStep from "@/pages/registration/steps/personal/InfluencerPreferencesStep";
 import InterestsPageOne from "@/pages/registration/steps/personal/InterestsPageOne";
 import InterestsPageTwo from "@/pages/registration/steps/personal/InterestsPageTwo";
 import PersonalInterestsDetailsStep from "@/pages/registration/steps/personal/PersonalInterestsDetailsStep";
 import PersonalInterestsStep from "@/pages/registration/steps/personal/PersonalInterestsStep";
 import PreferencesStep from "@/pages/registration/steps/personal/PreferencesStep";
+import YouthFamilyProgramsStep from "@/pages/registration/steps/personal/YouthFamilyProgramsStep";
 import { RegistrationData, RegistrationStepConfig } from "@/types/registration";
 
 const commonSteps: RegistrationStepConfig[] = [
@@ -103,6 +113,48 @@ export const personalStepConfigs: RegistrationStepConfig[] = [
     title: "Dining & Shopping Preferences",
     description: "What type of food do you enjoy?",
     id: "preferences",
+  },
+  {
+    component: DiningPreferencesStep,
+    title: "Dining & Shopping Preferences",
+    description: "Do you prefer dining in, takeaways, or delivery?",
+    id: "dining",
+  },
+  {
+    component: DietaryRestrictionsStep,
+    title: "Dining & Shopping Preferences",
+    description: "Do you have any dietary restrictions or preferences?",
+    id: "dietary",
+  },
+  {
+    component: CommunityEngagementPersonalStep,
+    title: "Community Engagement",
+    id: "community",
+  },
+  {
+    component: YouthFamilyProgramsStep,
+    title: "Youth & Family Programmes",
+    id: "family",
+  },
+  {
+    component: ExclusiveDealsStep,
+    title: "Exclusive Deals & Personalised Offers",
+    id: "exclusive_deals",
+  },
+  {
+    component: AccessibilityPreference,
+    title: "Safety and Accessibility Preferences",
+    id: "accesbility_preference",
+  },
+  {
+    component: InfluencerPreferencesStep,
+    title: "Influencer & Content Preferences",
+    id: "influencer_preferences",
+  },
+  {
+    component: AdditionalUserPreferences,
+    title: "Additional User Features",
+    id: "additional_user_feature",
   },
   {
     component: FinishPage,
@@ -188,11 +240,22 @@ export const businessStepConfigs: RegistrationStepConfig[] = [
     id: "customer_preference",
   },
   {
+    component: CompanyNameStep,
+    title: "What is your company's name?",
+    id: "company_name",
+  },
+  {
+    component: CompanyWebsiteStep,
+    title: "What is your company's website?",
+    id: "company's_website",
+  },
+  {
     component: TargetAudienceStep,
     title: "Target Audience & Customer Preferences",
     description: "Your answer will help us to give you the best start.",
     id: "target_audience",
   },
+
   {
     component: CulturalPreferencesStep,
     title: "Cultural/Religious Preferences",
@@ -210,12 +273,6 @@ export const businessStepConfigs: RegistrationStepConfig[] = [
     title: "Products & Services",
     description: "Your answer will help us to give you the best start.",
     id: "products_services",
-  },
-  {
-    component: CommunityEngagement,
-    title: "Community Engagement & Cultural Preferences",
-    description: "Do you cater to specific cultural or ethnic needs?",
-    id: "community_engagement",
   },
   {
     component: CommunityEngagement,

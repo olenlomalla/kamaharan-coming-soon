@@ -5,7 +5,6 @@ import { RegistrationStepProps } from "@/types/registration";
 
 const PremiumFeaturesStep: React.FC<RegistrationStepProps> = ({
   title,
-  description,
   onNext,
   updateRegistrationData,
   registrationData,
@@ -67,7 +66,6 @@ const PremiumFeaturesStep: React.FC<RegistrationStepProps> = ({
   return (
     <ToggleQuestionStep
       title={title}
-      description={description}
       questions={questions}
       onToggleChange={handleToggleChange}
       onSubmit={handleSubmit}

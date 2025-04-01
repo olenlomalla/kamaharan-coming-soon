@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import CheckBoxCustom from "@/components/registration/CheckBoxCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import TimeInput from "@/components/registration/TimeInput";
 import { BusinessHours, RegistrationStepProps } from "@/types/registration";
 
@@ -73,14 +74,11 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
 
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-8 p-6">
-      <div className="flex w-full flex-col gap-12 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title || "Operating Hours & Business Availability"}
-        </h1>
-        <p className="text-start font-body text-[16px] leading-[18px] tracking-[0.75px] text-[#424144]">
-          {description}
-        </p>
-      </div>
+      <StepHeader
+        title={title}
+        description={description}
+        className="w-[600px] gap-[48px]"
+      />
 
       <div className="w-full space-y-8">
         {DAYS.map(({ day, label }) => (
@@ -100,7 +98,7 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
           </div>
         ))}
 
-        <div className="sspace-y-6">
+        <div className="space-y-6">
           <div className="flex items-center justify-between gap-6">
             <span className="flex-1 font-body text-[16px] font-normal leading-[18px] tracking-[0.75px] text-[#363537]">
               Are your hours flexible for special events or private bookings?

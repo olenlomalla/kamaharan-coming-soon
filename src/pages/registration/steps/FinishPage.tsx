@@ -10,7 +10,7 @@ const FinishPage: React.FC<RegistrationStepProps> = ({
 }) => {
   console.log(registrationData);
   return (
-    <section className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-8">
+    <section className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-8 p-6 lg:p-0">
       <h1 className="tracking-1 text-center font-heading text-[32px] font-semibold leading-[34px] text-[#363537]">
         {title}
       </h1>

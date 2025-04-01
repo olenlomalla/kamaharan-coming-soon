@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import CheckBoxCustom from "@/components/registration/CheckBoxCustom";
 import SelectCustom from "@/components/registration/SelectCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { ProductsServices, RegistrationStepProps } from "@/types/registration";
 
 const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
@@ -56,15 +57,7 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-12 p-6">
       {/* Header */}
-      <div className="flex flex-col gap-4 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title || "Products & Services"}
-        </h1>
-        <p className="font-body text-[16px] leading-[18px] tracking-[0.75px] text-[#424144]">
-          {description ||
-            "Your answer will help us to give you the best start."}
-        </p>
-      </div>
+      <StepHeader title={title} description={description} className="gap-4" />
 
       {/* Content */}
       <div className="w-full space-y-8">

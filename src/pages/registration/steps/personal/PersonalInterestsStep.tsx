@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import StepHeader from "@/components/registration/StepHeader";
 import { PersonalInterests, RegistrationStepProps } from "@/types/registration";
 
 interface InterestOption {
@@ -41,8 +42,7 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     const currentInterests: PersonalInterests = {
       interests: selectedInterests,
       explorationFrequency:
@@ -59,19 +59,11 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
   };
 
   return (
-    <form
+    <div
       onSubmit={handleSubmit}
-      className="mx-auto flex w-full max-w-[760px] flex-col items-center justify-center gap-8"
+      className="mx-auto flex w-full max-w-[760px] flex-col items-center justify-center gap-8 p-6"
     >
-      <div className="flex w-full flex-col items-center gap-4 text-center">
-        <h1 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[1px] text-[#363537]">
-          {title || "Personal Interests & Preferences"}
-        </h1>
-        <p className="font-body text-[16px] leading-[18px] tracking-[0.75px] text-[#424144]">
-          {description ||
-            "What are you most interested in? (Select all that apply)"}
-        </p>
-      </div>
+      <StepHeader title={title} description={description} />
 
       <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-3">
         {INTEREST_OPTIONS.map((option) => (
@@ -85,8 +77,13 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
         ))}
       </div>
 
-      <ButtonCustom title="Next" type="submit" className="w-[448px]" />
-    </form>
+      <ButtonCustom
+        title="Next"
+        type="submit"
+        onClick={handleSubmit}
+        className="w-full lg:w-[448px]"
+      />
+    </div>
   );
 };
 

@@ -14,11 +14,11 @@ const InfluencerMarketingStep: React.FC<RegistrationStepProps> = ({
 }) => {
   const [formData, setFormData] = useState<InfluencerMarketing>({
     openToInfluencers: false,
-    influencerType: "Food",
+    preferredInfluencerType: "Food",
     wantsSponsoredContent: false,
-    wantsAiContent: false,
-    hasProContent: false,
-    wantsPromoContent: false,
+    wantsAIMarketingHelp: false,
+    hasProfessionalMedia: false,
+    wantsPromotionalContentHelp: false,
   });
 
   const influencerOptions = [
@@ -35,7 +35,7 @@ const InfluencerMarketingStep: React.FC<RegistrationStepProps> = ({
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, influencerType: value }));
+    setFormData((prev) => ({ ...prev, preferredInfluencerType: value }));
   };
 
   const handleSubmit = () => {
@@ -57,25 +57,25 @@ const InfluencerMarketingStep: React.FC<RegistrationStepProps> = ({
     },
     {
       question: "Would you like AI to help generate marketing content for you?",
-      field: "wantsAiContent",
-      value: formData.wantsAiContent,
+      field: "wantsAIMarketingHelp",
+      value: formData.wantsAIMarketingHelp,
     },
     {
       question: "Do you have professional photos and videos of your business?",
-      field: "hasProContent",
-      value: formData.hasProContent,
+      field: "hasProfessionalMedia",
+      value: formData.hasProfessionalMedia,
     },
     {
       question: "Would you like help creating promotional content?",
-      field: "wantsPromoContent",
-      value: formData.wantsPromoContent,
+      field: "wantsPromotionalContentHelp",
+      value: formData.wantsPromotionalContentHelp,
     },
   ];
 
   const selectQuestion = {
     question: "What type of influencers would you like to work with?",
-    field: "influencerType",
-    value: formData.influencerType,
+    field: "preferredInfluencerType",
+    value: formData.preferredInfluencerType,
     options: influencerOptions,
     position: "right" as const,
     order: 1,
@@ -83,7 +83,7 @@ const InfluencerMarketingStep: React.FC<RegistrationStepProps> = ({
 
   return (
     <ToggleQuestionStep
-      title={title || "Influencer & Marketing Integration"}
+      title={title}
       description={description}
       questions={questions}
       selectQuestion={selectQuestion}

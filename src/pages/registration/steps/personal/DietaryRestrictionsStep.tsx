@@ -14,7 +14,7 @@ const DietaryRestrictionsStep: React.FC<RegistrationStepProps> = ({
   updateRegistrationData,
 }) => {
   const [selectedDiets, setSelectedDiets] = useState<string[]>(
-    registrationData.personalPreferences?.dietaryRestrictions || [],
+    registrationData.diningPreferences?.dietaryRestrictions || [],
   );
 
   const dietaryOptions = [
@@ -25,6 +25,7 @@ const DietaryRestrictionsStep: React.FC<RegistrationStepProps> = ({
     "No Seafood",
     "No Lactose",
   ];
+
   const handleDietSelect = (diet: string) => {
     const updatedDiets = selectedDiets.includes(diet)
       ? selectedDiets.filter((d) => d !== diet)
@@ -32,12 +33,9 @@ const DietaryRestrictionsStep: React.FC<RegistrationStepProps> = ({
 
     setSelectedDiets(updatedDiets);
     updateRegistrationData({
-      personalPreferences: {
-        preferredLanguage:
-          registrationData.personalPreferences?.preferredLanguage || "",
-        dateOfBirth: registrationData.personalPreferences?.dateOfBirth || "",
-        gender: registrationData.personalPreferences?.gender || "",
-        ...registrationData.personalPreferences,
+      diningPreferences: {
+        foodTypes: [],
+        diningStyle: [],
         dietaryRestrictions: updatedDiets,
       },
     });
@@ -52,7 +50,7 @@ const DietaryRestrictionsStep: React.FC<RegistrationStepProps> = ({
             key={diet}
             title={diet}
             isSelected={selectedDiets.includes(diet)}
-            onClick={handleDietSelect}
+            onClick={() => handleDietSelect(diet)}
           />
         ))}
       </div>

@@ -11,7 +11,7 @@ const InterestsPageOne: React.FC<RegistrationStepProps> = ({
   registrationData,
 }) => {
   const [selectedInterest, setSelectedInterest] = useState<string>(
-    registrationData.personalInterests?.interests?.[0] || "",
+    registrationData.interests?.categories?.[0] || "",
   );
 
   const interests = [
@@ -33,13 +33,15 @@ const InterestsPageOne: React.FC<RegistrationStepProps> = ({
   const handleNext = () => {
     if (selectedInterest) {
       updateRegistrationData({
-        personalInterests: {
-          interests: [selectedInterest],
+        interests: {
+          categories: [selectedInterest],
           explorationFrequency:
-            registrationData.personalInterests?.explorationFrequency || "daily",
+            registrationData.interests?.explorationFrequency || "daily",
           followsInfluencers:
-            registrationData.personalInterests?.followsInfluencers || false,
-          socialPlatform: registrationData.personalInterests?.socialPlatform,
+            registrationData.interests?.followsInfluencers || false,
+          preferredPlatforms:
+            registrationData.interests?.preferredPlatforms || "",
+          preferredContent: registrationData.interests?.preferredContent || [],
         },
       });
       onNext();

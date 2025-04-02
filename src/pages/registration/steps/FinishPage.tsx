@@ -1,6 +1,7 @@
 import React from "react";
 
 import ButtonCustom from "@/components/registration/ButtonCustom";
+import { authAPI } from "@/services/api";
 import { RegistrationStepProps } from "@/types/registration";
 
 const FinishPage: React.FC<RegistrationStepProps> = ({
@@ -9,6 +10,17 @@ const FinishPage: React.FC<RegistrationStepProps> = ({
   registrationData,
 }) => {
   console.log(registrationData);
+  const handleSubmit = async () => {
+    const token = localStorage.getItem("verification_token");
+    if (!token) return;
+
+    try {
+      await authAPI.updateFields(token, registrationData);
+    } catch (err) {
+      console.error("Failed to update registration data:", err);
+    }
+    onNext();
+  };
   return (
     <section className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-8 p-6 lg:p-0">
       <h1 className="tracking-1 text-center font-heading text-[32px] font-semibold leading-[34px] text-[#363537]">
@@ -23,7 +35,11 @@ const FinishPage: React.FC<RegistrationStepProps> = ({
           We've gathered all the necessary information, and you're all set to
           get started!
         </p>
-        <ButtonCustom title="Next" onClick={onNext} className="mt-5 w-full" />
+        <ButtonCustom
+          title="Next"
+          onClick={handleSubmit}
+          className="mt-5 w-full"
+        />
       </div>
     </section>
   );

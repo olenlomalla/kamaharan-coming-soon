@@ -15,8 +15,8 @@ const PremiumFeaturesStep: React.FC<RegistrationStepProps> = ({
     wantsHomepageFeature:
       registrationData.premiumFeatures?.wantsHomepageFeature || false,
     wantsAnalytics: registrationData.premiumFeatures?.wantsAnalytics || false,
-    wantsTrendNotifications:
-      registrationData.premiumFeatures?.wantsTrendNotifications || false,
+    wantsTrendInsights:
+      registrationData.premiumFeatures?.wantsTrendInsights || false,
   });
 
   const handleToggleChange = (field: string) => (value?: boolean) => {
@@ -57,9 +57,9 @@ const PremiumFeaturesStep: React.FC<RegistrationStepProps> = ({
     {
       question:
         "Would you like to be notified of trends and insights related to your industry?",
-      field: "wantsTrendNotifications",
-      value: formData.wantsTrendNotifications,
-      onChange: handleToggleChange("wantsTrendNotifications"),
+      field: "wantsTrendInsights",
+      value: formData.wantsTrendInsights,
+      onChange: handleToggleChange("wantsTrendInsights"),
     },
   ];
 

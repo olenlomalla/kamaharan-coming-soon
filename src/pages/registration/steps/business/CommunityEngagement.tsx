@@ -34,7 +34,15 @@ const CulturalPreferencesStep: React.FC<RegistrationStepProps> = ({
 
   const handleNext = () => {
     updateRegistrationData({
-      selectedCommunityEngagement,
+      communityEngagement: {
+        culturalNeeds: selectedCommunityEngagement
+          ? [selectedCommunityEngagement]
+          : [],
+        hasStudentDiscounts: false,
+        supportsLocalCharities: false,
+        wantsCommunitySupport: false,
+        interestedInSkillSharing: false,
+      },
     });
     onNext();
   };

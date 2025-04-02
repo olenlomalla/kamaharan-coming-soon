@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import FormStep from "@/components/registration/FormStep";
-import { RegistrationStepProps } from "@/types/registration";
+import { PersonalBasicInfo, RegistrationStepProps } from "@/types/registration";
 
 const ContactInfoStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -15,9 +15,17 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
   currentStep,
   totalSteps,
 }) => {
-  const [formData, setFormData] = useState({
-    phone: registrationData.personalContactInfo?.phone || "",
-    cityAndCountry: registrationData.personalContactInfo?.cityAndCountry || "",
+  const [formData, setFormData] = useState<PersonalBasicInfo>({
+    firstName: registrationData.personalInfo?.firstName || "",
+    lastName: registrationData.personalInfo?.lastName || "",
+    phone: registrationData.personalInfo?.phone || "",
+    location: {
+      city: registrationData.personalInfo?.location?.city || "",
+      address: registrationData.personalInfo?.location?.address || "",
+    },
+    dateOfBirth: registrationData.personalInfo?.dateOfBirth || null,
+    gender: registrationData.personalInfo?.gender || "",
+    language: registrationData.personalInfo?.language || "",
   });
 
   const handleChange =
@@ -30,7 +38,7 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
 
   const handleSubmit = () => {
     updateRegistrationData({
-      personalContactInfo: formData,
+      personalInfo: formData,
     });
     onNext();
   };
@@ -47,7 +55,7 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
       name: "cityAndCountry",
       type: "text",
       placeholder: "City & Country",
-      value: formData.cityAndCountry,
+      value: formData.location.city,
       required: true,
     },
   ];

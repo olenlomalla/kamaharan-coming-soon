@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import ContactInput from "@/components/registration/ContactInput";
 import StepHeader from "@/components/registration/StepHeader";
-import { RegistrationStepProps } from "@/types/registration";
+import {
+  ContactInformation,
+  RegistrationStepProps,
+} from "@/types/registration";
 
 interface ContactInfo {
   phone: string;
@@ -62,7 +65,7 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
   onNext,
   updateRegistrationData,
 }) => {
-  const [contactInfo, setContactInfo] = useState<ContactInfo>({
+  const [contactInfo, setContactInfo] = useState<ContactInformation>({
     phone: "",
     whatsapp: "",
     website: "",
@@ -84,7 +87,7 @@ const BusinessContactStep: React.FC<RegistrationStepProps> = ({
   };
 
   const handleNext = () => {
-    updateRegistrationData({ contactInfo });
+    updateRegistrationData({ contactInformation: contactInfo });
     onNext();
   };
 

@@ -34,8 +34,10 @@ const MultipleLocationsStep: React.FC<RegistrationStepProps> = ({
 
   const handleNext = () => {
     updateRegistrationData({
-      locations,
-      hasMultipleLocations,
+      multipleLocation: {
+        isEnabled: hasMultipleLocations,
+        locations: locations.map((loc) => loc.address),
+      },
     });
     onNext();
   };

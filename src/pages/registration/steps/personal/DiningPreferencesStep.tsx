@@ -17,13 +17,10 @@ const DiningPreferencesStep: React.FC<RegistrationStepProps> = ({
 
   const handlePreferenceSelect = (preference: string) => {
     updateRegistrationData({
-      personalPreferences: {
-        preferredLanguage:
-          registrationData.personalPreferences?.preferredLanguage || "",
-        dateOfBirth: registrationData.personalPreferences?.dateOfBirth || "",
-        gender: registrationData.personalPreferences?.gender || "",
-        ...registrationData.personalPreferences,
-        preferredDining: preference,
+      diningPreferences: {
+        foodTypes: [],
+        diningStyle: [preference],
+        dietaryRestrictions: [],
       },
     });
   };
@@ -36,10 +33,10 @@ const DiningPreferencesStep: React.FC<RegistrationStepProps> = ({
           <BusinessTypeCard
             key={option}
             title={option}
-            isSelected={
-              registrationData.personalPreferences?.preferredDining === option
-            }
-            onClick={handlePreferenceSelect}
+            isSelected={registrationData.diningPreferences?.diningStyle.includes(
+              option,
+            )}
+            onClick={() => handlePreferenceSelect(option)}
           />
         ))}
       </div>

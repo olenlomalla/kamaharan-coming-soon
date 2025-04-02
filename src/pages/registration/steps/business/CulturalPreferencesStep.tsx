@@ -31,7 +31,9 @@ const CulturalPreferencesStep: React.FC<RegistrationStepProps> = ({
 
   const handleNext = () => {
     updateRegistrationData({
-      selectedPreference,
+      culturalPreferences: {
+        certifications: selectedPreference ? [selectedPreference] : [],
+      },
     });
     onNext();
   };

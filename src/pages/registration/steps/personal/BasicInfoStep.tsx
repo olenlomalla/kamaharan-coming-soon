@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import FormStep from "@/components/registration/FormStep";
-import { RegistrationStepProps } from "@/types/registration";
+import { PersonalBasicInfo, RegistrationStepProps } from "@/types/registration";
 
 const BasicInfoStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -15,9 +15,17 @@ const BasicInfoStep: React.FC<RegistrationStepProps> = ({
   currentStep,
   totalSteps,
 }) => {
-  const [formData, setFormData] = useState({
-    firstName: registrationData.personalBasicInfo?.firstName || "",
-    lastName: registrationData.personalBasicInfo?.lastName || "",
+  const [formData, setFormData] = useState<PersonalBasicInfo>({
+    firstName: registrationData.personalInfo?.firstName || "",
+    lastName: registrationData.personalInfo?.lastName || "",
+    phone: registrationData.personalInfo?.phone || "",
+    location: {
+      city: registrationData.personalInfo?.location?.city || "",
+      address: registrationData.personalInfo?.location?.address || "",
+    },
+    dateOfBirth: registrationData.personalInfo?.dateOfBirth || null,
+    gender: registrationData.personalInfo?.gender || "",
+    language: registrationData.personalInfo?.language || "",
   });
 
   const handleChange =
@@ -30,7 +38,7 @@ const BasicInfoStep: React.FC<RegistrationStepProps> = ({
 
   const handleSubmit = () => {
     updateRegistrationData({
-      personalBasicInfo: formData,
+      personalInfo: formData,
     });
     onNext();
   };

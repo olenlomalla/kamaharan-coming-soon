@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
@@ -12,68 +12,58 @@ const FullIndustrySearchStep: React.FC<RegistrationStepProps> = ({
   registrationData,
   updateRegistrationData,
 }) => {
-  const searchQuery = registrationData.searchQuery || "";
   const [selectedIndustry, setSelectedIndustry] = useState<string>(
     registrationData.businessType || "",
   );
-  const [isNavigatingBack, setIsNavigatingBack] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (isNavigatingBack && registrationData.showFullIndustrySearch === false) {
-      onBack();
-      setIsNavigatingBack(false);
-    }
-  }, [registrationData, isNavigatingBack, onBack]);
 
   const allIndustries = [
-    "Retail",
-    "Restaurant",
-    "Café",
-    "Beauty Salon",
-    "Fitness Centre",
-    "Travel Agency",
-    "Professional Services",
-    "Automotive",
-    "Deals",
-    "Healthcare",
-    "Education",
-    "Technology",
-    "Real Estate",
-    "Construction",
-    "Manufacturing",
-    "Transportation",
-    "Entertainment",
-    "Financial Services",
-    "Wholesale",
-    "Agriculture",
-    "Hospitality",
-    "Media",
+    "retail",
+    "restaurant",
+    "cafe",
+    "beautySalon",
+    "fitnessCenter",
+    "travelAgency",
+    "professionalServices",
+    "automotive",
+    "deals",
   ];
 
-  const filteredIndustries = searchQuery
-    ? allIndustries.filter((industry) => {
-        const matches = industry
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-        console.log(
-          `Checking '${industry}' against '${searchQuery}': ${matches}`,
-        );
-        return matches;
-      })
-    : allIndustries;
+  const filteredIndustries = allIndustries.filter((industry) =>
+    industry.toLowerCase().includes(selectedIndustry.toLowerCase()),
+  );
 
   const handleIndustrySelect = (industry: string) => {
     setSelectedIndustry(industry);
-    updateRegistrationData({ businessType: industry });
+    updateRegistrationData({
+      businessType: industry as
+        | "retail"
+        | "restaurant"
+        | "cafe"
+        | "beautySalon"
+        | "fitnessCenter"
+        | "travelAgency"
+        | "professionalServices"
+        | "automotive"
+        | "deals",
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedIndustry) {
       updateRegistrationData({
+        businessType: selectedIndustry as
+          | "retail"
+          | "restaurant"
+          | "cafe"
+          | "beautySalon"
+          | "fitnessCenter"
+          | "travelAgency"
+          | "professionalServices"
+          | "automotive"
+          | "deals",
         showFullIndustrySearch: false,
         showIndustrySearch: false,
-        businessType: selectedIndustry,
       });
       onNext();
     }
@@ -94,26 +84,12 @@ const FullIndustrySearchStep: React.FC<RegistrationStepProps> = ({
               className="w-full"
             />
           ))}
-          {filteredIndustries.length === 0 && (
-            <div className="col-span-3 py-6 text-center text-gray-500">
-              No industries found matching "{searchQuery}"
-            </div>
-          )}
         </div>
-        <p className="text-center font-body text-[16px] leading-[18px]">
-          This was our best guess based on your email address.
-        </p>
         <ButtonCustom
           type="button"
-          onClick={() => {
-            setIsNavigatingBack(true);
-            updateRegistrationData({
-              showFullIndustrySearch: false,
-              searchQuery: searchQuery,
-            });
-          }}
-          title="Not Right? Search All industries"
-          className={`w-full`}
+          onClick={onBack}
+          title="Back"
+          className="w-full"
         />
       </form>
     </div>

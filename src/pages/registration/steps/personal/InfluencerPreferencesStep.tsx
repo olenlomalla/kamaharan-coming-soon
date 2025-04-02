@@ -15,12 +15,11 @@ interface ExtendedInfluencerPreferences extends InfluencerPreferences {
 const InfluencerPreferencesStep: React.FC<RegistrationStepProps> = ({
   title = "Influencer & Content Preferences",
   onNext,
-  registrationData,
   updateRegistrationData,
 }) => {
   const [formData, setFormData] = useState<ExtendedInfluencerPreferences>({
-    followsInfluencers: false,
-    wantsRecommendations: false,
+    followsSpecificInfluencers: false,
+    wantsInfluencerRecommendations: false,
     interestedInBusinessContent: false,
     influencersNames: "",
   });
@@ -40,17 +39,7 @@ const InfluencerPreferencesStep: React.FC<RegistrationStepProps> = ({
     const { influencersNames, ...standardPreferences } = formData;
 
     updateRegistrationData({
-      personalPreferences: {
-        preferredLanguage:
-          registrationData.personalPreferences?.preferredLanguage || "",
-        dateOfBirth: registrationData.personalPreferences?.dateOfBirth || "",
-        gender: registrationData.personalPreferences?.gender || "",
-        ...registrationData.personalPreferences,
-        influencerPreferences: standardPreferences,
-        influencersNames: formData.followsInfluencers
-          ? influencersNames
-          : undefined,
-      },
+      influencerPreferences: standardPreferences,
     });
     onNext();
   };
@@ -65,12 +54,12 @@ const InfluencerPreferencesStep: React.FC<RegistrationStepProps> = ({
               Do you follow any specific influencers or content creators?
             </span>
             <CheckBoxCustom
-              checked={formData.followsInfluencers}
-              onChange={handleToggleChange("followsInfluencers")}
+              checked={formData.followsSpecificInfluencers}
+              onChange={handleToggleChange("followsSpecificInfluencers")}
             />
           </div>
 
-          {formData.followsInfluencers && (
+          {formData.followsSpecificInfluencers && (
             <input
               type="text"
               value={formData.influencersNames}
@@ -86,8 +75,8 @@ const InfluencerPreferencesStep: React.FC<RegistrationStepProps> = ({
             businesses?
           </span>
           <CheckBoxCustom
-            checked={formData.wantsRecommendations}
-            onChange={handleToggleChange("wantsRecommendations")}
+            checked={formData.wantsInfluencerRecommendations}
+            onChange={handleToggleChange("wantsInfluencerRecommendations")}
           />
         </div>
         <div className="flex items-center justify-between gap-6">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
@@ -15,29 +15,33 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
   const [selectedType, setSelectedType] = useState<string>(
     registrationData.businessType || "",
   );
-  const [isNavigatingToSearch, setIsNavigatingToSearch] =
-    useState<boolean>(false);
-  useEffect(() => {
-    if (isNavigatingToSearch && registrationData.showIndustrySearch) {
-      onNext();
-      setIsNavigatingToSearch(false);
-    }
-  }, [registrationData, isNavigatingToSearch, onNext]);
+
   const businessTypes = [
-    "Retail",
-    "Restaurant",
-    "Café",
-    "Beauty Salon",
-    "Fitness Centre",
-    "Travel Agency",
-    "Professional Services",
-    "Automotive",
-    "Deals",
+    "retail",
+    "restaurant",
+    "cafe",
+    "beautySalon",
+    "fitnessCenter",
+    "travelAgency",
+    "professionalServices",
+    "automotive",
+    "deals",
   ];
 
   const handleTypeSelect = (type: string) => {
     setSelectedType(type);
-    updateRegistrationData({ businessType: type });
+    updateRegistrationData({
+      businessType: type as
+        | "retail"
+        | "restaurant"
+        | "cafe"
+        | "beautySalon"
+        | "fitnessCenter"
+        | "travelAgency"
+        | "professionalServices"
+        | "automotive"
+        | "deals",
+    });
   };
 
   const handleSubmit = () => {
@@ -47,11 +51,10 @@ const BusinessTypeStep: React.FC<RegistrationStepProps> = ({
   };
 
   const handleAllIndustries = () => {
-    setIsNavigatingToSearch(true);
     updateRegistrationData({
+      businessType: undefined,
       showIndustrySearch: true,
-      businessType: "",
-      searchQuery: "",
+      showFullIndustrySearch: false,
     });
   };
 

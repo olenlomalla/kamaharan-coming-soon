@@ -32,7 +32,7 @@ const BusinessOnlinePresenceStep: React.FC<RegistrationStepProps> = ({
       initialState={{
         yearsInOperation: "0-3 years",
         hasOnlinePresence: false,
-        wantsToImprovePresence: false,
+        wantsOnlinePresenceHelp: false,
       }}
       selectOptions={[
         { value: "0-3 years", label: "0-3 years" },
@@ -48,13 +48,16 @@ const BusinessOnlinePresenceStep: React.FC<RegistrationStepProps> = ({
             "Do you currently have an online presence (website or social media)?",
         },
         {
-          key: "wantsToImprovePresence",
+          key: "wantsOnlinePresenceHelp",
           question:
             "Would you like Kamaharan to help improve your online presence?",
         },
       ]}
       onUpdateData={(data) =>
-        updateRegistrationData({ onlinePresenceInfo: data })
+        updateRegistrationData({
+          ...data,
+          yearsInOperation: data.yearsInOperation,
+        })
       }
     />
   );

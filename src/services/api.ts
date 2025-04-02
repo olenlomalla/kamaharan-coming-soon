@@ -25,6 +25,13 @@ export const authAPI = {
   verifyEmail: (token: string, code: string) => {
     return apiClient.put(`/v0/user/verify-email/${code}`, { token });
   },
+  updateFields: (token: string, data: any) => {
+    return apiClient.put("/v0/user/update-fields", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
 };
 
 export default {

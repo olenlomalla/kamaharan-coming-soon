@@ -34,23 +34,24 @@ const BlogPost = () => {
       <PagesContentLayout>
         <div className="mx-[72px] mt-[96px]">
           <button
+            className="mb-[21px] flex items-center gap-2 font-syne text-base"
             onClick={handleBackClick}
-            className="mb-[21px] flex gap-2 font-syne"
           >
             <img
               src="/icons/back-arrow.svg"
-              alt="Previous slide"
-              width={16}
-              height={16}
+              alt="arrow-left"
+              className="size-[16px]"
             />
-            Back to Articles
+            Back to Blog
           </button>
         </div>
-        <PostDetailHeader currentPost={currentPost} />
-        <PostDetailUserDescription currentUser={currentUser} />
-        <PostDescription currentPost={currentPost} />
-        <PostTags currentPost={currentPost} />
-        <RelatedArticleLayout />
+        <div className="px-4 md:px-0">
+          <PostDetailHeader currentPost={currentPost} />
+          <PostDetailUserDescription currentUser={currentUser} />
+          <PostDescription currentPost={currentPost} />
+          <PostTags currentPost={currentPost} />
+          <RelatedArticleLayout />
+        </div>
       </PagesContentLayout>
     </section>
   );

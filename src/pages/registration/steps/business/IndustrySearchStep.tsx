@@ -7,26 +7,30 @@ import { RegistrationStepProps } from "@/types/registration";
 
 const IndustrySearchStep: React.FC<RegistrationStepProps> = ({
   title,
-  registrationData,
   updateRegistrationData,
 }) => {
-  const [searchQuery, setSearchQuery] = useState(
-    registrationData.searchQuery || "",
-  );
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
-    updateRegistrationData({ searchQuery: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      console.log("Updating registration data for navigation");
       updateRegistrationData({
-        showFullIndustrySearch: true,
+        businessType: searchQuery.trim() as
+          | "retail"
+          | "restaurant"
+          | "cafe"
+          | "beautySalon"
+          | "fitnessCenter"
+          | "travelAgency"
+          | "professionalServices"
+          | "automotive"
+          | "deals",
         showIndustrySearch: false,
-        searchQuery: searchQuery.trim(),
+        showFullIndustrySearch: true,
       });
     }
   };

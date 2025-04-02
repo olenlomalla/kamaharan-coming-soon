@@ -12,15 +12,15 @@ const DiscoverServices: React.FC<DiscoverServicesProps> = ({
   title,
 }) => {
   return (
-    <div className="mt-[48px] flex flex-col items-center justify-center gap-[32px]">
+    <div className="mt-6 flex flex-col items-center justify-center gap-4 md:mt-[48px] md:gap-[32px]">
       <Title>{title}</Title>
-      <div className="flex items-center gap-[32px]">
+      <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-[32px]">
         {images.map((image) => (
           <img
             key={image.id}
             src={image.image}
             alt="Discover services"
-            className="h-[144px] w-[144px] rounded-[100px]"
+            className="h-[80px] w-[80px] rounded-[100px] object-cover sm:h-[100px] sm:w-[100px] md:h-[120px] md:w-[120px] lg:h-[144px] lg:w-[144px]"
           />
         ))}
       </div>

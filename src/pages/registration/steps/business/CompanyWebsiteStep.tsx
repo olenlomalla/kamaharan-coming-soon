@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ButtonCustom from "../../../../components/registration/ButtonCustom";
 import StepHeader from "../../../../components/registration/StepHeader";
 import {
-  ContactInfo,
+  ContactInformation,
   RegistrationStepProps,
 } from "../../../../types/registration";
 
@@ -14,7 +14,7 @@ const CompanyWebsiteStep: React.FC<RegistrationStepProps> = ({
   updateRegistrationData,
 }) => {
   const [website, setWebsite] = useState(
-    registrationData.contactInfo?.website || "",
+    registrationData.contactInformation?.website || "",
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,18 +23,18 @@ const CompanyWebsiteStep: React.FC<RegistrationStepProps> = ({
 
   const handleSubmit = () => {
     // Create a new ContactInfo object with all required fields
-    const updatedContactInfo: ContactInfo = {
+    const updatedContactInfo: ContactInformation = {
       // Keep existing values or set defaults
-      phone: registrationData.contactInfo?.phone || "",
-      whatsapp: registrationData.contactInfo?.whatsapp || "",
-      twitter: registrationData.contactInfo?.twitter || "",
-      instagram: registrationData.contactInfo?.instagram || "",
+      phone: registrationData.contactInformation?.phone || "",
+      whatsapp: registrationData.contactInformation?.whatsapp || "",
+      twitter: registrationData.contactInformation?.twitter || "",
+      instagram: registrationData.contactInformation?.instagram || "",
       // Update website with new value
       website: website,
     };
 
     updateRegistrationData({
-      contactInfo: updatedContactInfo,
+      contactInformation: updatedContactInfo,
     });
     onNext();
   };

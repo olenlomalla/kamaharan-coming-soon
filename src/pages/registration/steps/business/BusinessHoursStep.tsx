@@ -4,21 +4,28 @@ import ButtonCustom from "@/components/registration/ButtonCustom";
 import CheckBoxCustom from "@/components/registration/CheckBoxCustom";
 import StepHeader from "@/components/registration/StepHeader";
 import TimeInput from "@/components/registration/TimeInput";
-import { BusinessHours, RegistrationStepProps } from "@/types/registration";
+import { RegistrationStepProps } from "@/types/registration";
 
 interface DaySchedule {
-  day: keyof BusinessHours;
+  day:
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday"
+    | "Sunday";
   label: string;
 }
 
 const DAYS: DaySchedule[] = [
-  { day: "monday", label: "Monday" },
-  { day: "tuesday", label: "Tuesday" },
-  { day: "wednesday", label: "Wednesday" },
-  { day: "thursday", label: "Thursday" },
-  { day: "friday", label: "Friday" },
-  { day: "saturday", label: "Saturday" },
-  { day: "sunday", label: "Sunday" },
+  { day: "Monday", label: "Monday" },
+  { day: "Tuesday", label: "Tuesday" },
+  { day: "Wednesday", label: "Wednesday" },
+  { day: "Thursday", label: "Thursday" },
+  { day: "Friday", label: "Friday" },
+  { day: "Saturday", label: "Saturday" },
+  { day: "Sunday", label: "Sunday" },
 ];
 
 const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
@@ -27,14 +34,16 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
   onNext,
   updateRegistrationData,
 }) => {
-  const [formData, setFormData] = useState<BusinessHours>({
-    monday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    tuesday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    wednesday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    thursday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    friday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    saturday: { open: "09:00am", close: "05:00pm", isOpen: true },
-    sunday: { open: "09:00am", close: "05:00pm", isOpen: true },
+  const [formData, setFormData] = useState<{
+    [key: string]: { open: string; close: string };
+  }>({
+    Monday: { open: "09:00am", close: "05:00pm" },
+    Tuesday: { open: "09:00am", close: "05:00pm" },
+    Wednesday: { open: "09:00am", close: "05:00pm" },
+    Thursday: { open: "09:00am", close: "05:00pm" },
+    Friday: { open: "09:00am", close: "05:00pm" },
+    Saturday: { open: "09:00am", close: "05:00pm" },
+    Sunday: { open: "09:00am", close: "05:00pm" },
   });
 
   const [additionalInfo, setAdditionalInfo] = useState({
@@ -44,7 +53,7 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
   });
 
   const handleTimeChange =
-    (day: keyof BusinessHours, type: "open" | "close") => (value: string) => {
+    (day: string, type: "open" | "close") => (value: string) => {
       setFormData((prev) => ({
         ...prev,
         [day]: {
@@ -64,10 +73,23 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
 
   const handleSubmit = () => {
     updateRegistrationData({
-      businessHours: formData,
-      isFlexibleHours: additionalInfo.isFlexible,
-      closesForHolidays: additionalInfo.closesForHolidays,
-      has24HourSupport: additionalInfo.has24HourSupport,
+      operatingHours: {
+        schedule: Object.entries(formData).map(([day]) => ({
+          day: (day.charAt(0).toUpperCase() + day.slice(1)) as
+            | "Monday"
+            | "Tuesday"
+            | "Wednesday"
+            | "Thursday"
+            | "Friday"
+            | "Saturday"
+            | "Sunday",
+          start: "",
+          finish: "",
+        })),
+        hasFlexibleHours: additionalInfo.isFlexible,
+        closesForHolidays: additionalInfo.closesForHolidays,
+        has24_7Support: additionalInfo.has24HourSupport,
+      },
     });
     onNext();
   };

@@ -30,28 +30,30 @@ const CustomerPreferenceStep: React.FC<RegistrationStepProps> = ({
       updateRegistrationData={updateRegistrationData}
       registrationType={registrationType}
       initialState={{
-        businessPrimarilyFor: "Men",
-        requiredAppointments: false,
-        openToWalkIns: false,
+        primaryAudience: "Men",
+        requiresAppointments: false,
+        acceptsWalkIns: false,
+        uniqueSellingPoint: "",
+        hasVipServices: false,
+        hasAccessibilityOptions: false,
+        hasSeasonalTrends: false,
       }}
       selectOptions={[
-        { value: "men", label: "Men" },
-        { value: "woman", label: "Women" },
+        { value: "Men", label: "Men" },
+        { value: "Women", label: "Women" },
       ]}
       selectTitle="Who is your business primarily for?"
       toggleQuestions={[
         {
-          key: "requiredAppointments",
+          key: "requiresAppointments",
           question: "Does your business require appointments or bookings?",
         },
         {
-          key: "openToWalkIns",
+          key: "acceptsWalkIns",
           question: "Are you open to walk-ins?",
         },
       ]}
-      onUpdateData={(data) =>
-        updateRegistrationData({ customerPreference: data })
-      }
+      onUpdateData={(data) => updateRegistrationData({ targetAudience: data })}
     />
   );
 };

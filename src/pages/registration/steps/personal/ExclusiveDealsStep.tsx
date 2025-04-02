@@ -4,39 +4,34 @@ import BusinessTypeCard from "@/components/registration/BusinessTypeCard";
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import CheckBoxCustom from "@/components/registration/CheckBoxCustom";
 import StepHeader from "@/components/registration/StepHeader";
-import { ExclusiveDeals, RegistrationStepProps } from "@/types/registration";
+import { DealPreferences, RegistrationStepProps } from "@/types/registration";
 
 const ExclusiveDealsStep: FC<RegistrationStepProps> = ({
   title,
   onNext,
   updateRegistrationData,
-  registrationData,
 }) => {
-  const [formData, setFormData] = useState<ExclusiveDeals>({
-    receiveDiscounts: false,
-    typeofDeals: "",
-    beNotified: false,
+  const [formData, setFormData] = useState<DealPreferences>({
+    wantsExclusiveDiscounts: false,
+    preferredDealTypes: [],
+    wantsPromotionNotifications: false,
   });
+
   const handleInfoToggle =
     (field: keyof typeof formData) => (value?: boolean | string) => {
-      setFormData((prev) => ({
+      setFormData((prev: DealPreferences) => ({
         ...prev,
         [field]: value || false,
       }));
     };
+
   const onSubmit = () => {
     updateRegistrationData({
-      personalPreferences: {
-        preferredLanguage:
-          registrationData.personalPreferences?.preferredLanguage || "", // Default to empty string
-        dateOfBirth: registrationData.personalPreferences?.dateOfBirth || "", // Default to empty string
-        gender: registrationData.personalPreferences?.gender || "", // Default to empty string
-        ...registrationData.personalPreferences, // Spread existing preferences
-        exclusiveDeals: formData, // Assign the new community preferences
-      },
+      dealPreferences: formData,
     });
     onNext();
   };
+
   const typeOfDealsMostInterest = [
     "Restaurants & Cafés",
     "Beauty & Grooming Services",
@@ -45,6 +40,7 @@ const ExclusiveDealsStep: FC<RegistrationStepProps> = ({
     "Travel & Experiences",
     "Professional Services",
   ];
+
   return (
     <div className="mx-auto flex max-w-[940px] flex-col items-center justify-between gap-12 p-6 lg:p-0">
       <StepHeader title={title} />
@@ -54,20 +50,20 @@ const ExclusiveDealsStep: FC<RegistrationStepProps> = ({
           area?
         </label>
         <CheckBoxCustom
-          checked={formData.receiveDiscounts}
-          onChange={handleInfoToggle("receiveDiscounts")}
+          checked={formData.wantsExclusiveDiscounts}
+          onChange={handleInfoToggle("wantsExclusiveDiscounts")}
         />
       </div>
       <span className="font-body text-[16px] font-normal leading-[18px] text-[#33475B]">
-        What type of deals interest you the most? (Select all that apply)
+        What type of deals interest you the most? (Select all that apply)
       </span>
       <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-3">
         {typeOfDealsMostInterest.map((option) => (
           <BusinessTypeCard
             key={option}
             title={option}
-            isSelected={formData.typeofDeals === option}
-            onClick={handleInfoToggle("typeofDeals")}
+            isSelected={formData.preferredDealTypes.includes(option)}
+            onClick={() => handleInfoToggle("preferredDealTypes")(option)}
           />
         ))}
       </div>
@@ -77,8 +73,8 @@ const ExclusiveDealsStep: FC<RegistrationStepProps> = ({
           promotions?
         </label>
         <CheckBoxCustom
-          checked={formData.beNotified}
-          onChange={handleInfoToggle("beNotified")}
+          checked={formData.wantsPromotionNotifications}
+          onChange={handleInfoToggle("wantsPromotionNotifications")}
         />
       </div>
       <ButtonCustom
@@ -89,4 +85,5 @@ const ExclusiveDealsStep: FC<RegistrationStepProps> = ({
     </div>
   );
 };
+
 export default ExclusiveDealsStep;

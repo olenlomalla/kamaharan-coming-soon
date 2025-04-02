@@ -12,12 +12,12 @@ const LocationNotificationStep: React.FC<RegistrationStepProps> = ({
 }) => {
   const handleLocationAccess = () => {
     console.log("Requesting location access");
-    updateRegistrationData({ locationAccess: true });
+    updateRegistrationData({ allows: { location: true, notification: false } });
   };
 
   const handleNotificationAccess = () => {
     console.log("Requesting notification access");
-    updateRegistrationData({ notificationAccess: true });
+    updateRegistrationData({ allows: { location: false, notification: true } });
   };
 
   const handleSubmit = (e: React.FormEvent) => {

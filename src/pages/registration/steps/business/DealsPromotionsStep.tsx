@@ -13,12 +13,12 @@ const DealsPromotionsStep: React.FC<RegistrationStepProps> = ({
 }) => {
   const [formData, setFormData] = useState<DealsAndPromotions>({
     dealFrequency: "Daily",
-    wantsFeaturedDeals: false,
+    wantsHomepageFeature: false,
     wantsSeasonalOffers: false,
     hasReferralRewards: false,
     hasLoyaltyPoints: false,
-    hasEventDiscounts: false,
-    wantsAiSuggestions: false,
+    hasSpecialEventDiscounts: false,
+    wantsAIDealSuggestions: false,
   });
 
   const frequencyOptions = [
@@ -46,8 +46,8 @@ const DealsPromotionsStep: React.FC<RegistrationStepProps> = ({
     {
       question:
         "Are you interested in featuring your deals on Kamaharan's homepage?",
-      field: "wantsFeaturedDeals",
-      value: formData.wantsFeaturedDeals,
+      field: "wantsHomepageFeature",
+      value: formData.wantsHomepageFeature,
     },
     {
       question:
@@ -68,13 +68,13 @@ const DealsPromotionsStep: React.FC<RegistrationStepProps> = ({
     {
       question:
         "Do you offer Celebration or Special Event discounts for customers?",
-      field: "hasEventDiscounts",
-      value: formData.hasEventDiscounts,
+      field: "hasSpecialEventDiscounts",
+      value: formData.hasSpecialEventDiscounts,
     },
     {
       question: "Would you like AI to suggest deal ideas for your business?",
-      field: "wantsAiSuggestions",
-      value: formData.wantsAiSuggestions,
+      field: "wantsAIDealSuggestions",
+      value: formData.wantsAIDealSuggestions,
     },
   ];
 

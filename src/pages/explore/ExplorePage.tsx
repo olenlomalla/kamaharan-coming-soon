@@ -36,22 +36,24 @@ const ExplorePage = () => {
 
   return (
     <PagesContentLayout>
-      <div className="mx-[32px] my-[48px]">
-        <div className="mb-[16px] flex items-center justify-between">
+      <div className="mx-4 my-8 md:mx-[32px] md:my-[48px]">
+        <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center sm:gap-0 md:mb-[16px]">
           <Title>Explore</Title>
           <SliderActionButtons nextSlide={nextSlide} prevSlide={prevSlide} />
         </div>
-        {sliderConfigs.map((config, index) => (
-          <SliderRow
-            key={index}
-            images={config.images}
-            offset={config.offset}
-            sliderRef={sliderRefs[index]}
-            settings={config.settings}
-            likedSlides={likedSlides}
-            handleLikeClick={handleLikeClick}
-          />
-        ))}
+        <div className="flex flex-col gap-6 md:gap-8">
+          {sliderConfigs.map((config, index) => (
+            <SliderRow
+              key={index}
+              images={config.images}
+              offset={config.offset}
+              sliderRef={sliderRefs[index]}
+              settings={config.settings}
+              likedSlides={likedSlides}
+              handleLikeClick={handleLikeClick}
+            />
+          ))}
+        </div>
       </div>
     </PagesContentLayout>
   );

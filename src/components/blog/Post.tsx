@@ -25,7 +25,12 @@ const Post = ({
   return (
     <div className="relative mb-[32px] w-full max-w-[632px]">
       <div>
-        <img src={cover} alt="" onClick={onClick} className="cursor-pointer" />
+        <img
+          src={cover}
+          alt=""
+          onClick={onClick}
+          className="h-auto w-full cursor-pointer object-cover"
+        />
         <button
           type="button"
           className={`absolute right-2 top-2 flex h-[32px] w-[32px] items-center justify-center rounded-[40px] ${
@@ -33,7 +38,10 @@ const Post = ({
               ? "bg-white opacity-100"
               : "bg-[#F54D33] opacity-50"
           }`}
-          onClick={() => handleLikeClick(index)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleLikeClick(index);
+          }}
         >
           {likedSlides.includes(index) ? (
             <FaHeart color="#000" />

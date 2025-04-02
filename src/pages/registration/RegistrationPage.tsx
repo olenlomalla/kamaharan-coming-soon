@@ -23,6 +23,15 @@ const RegistrationPage: React.FC = () => {
   const [registrationData, setRegistrationData] = useState<RegistrationData>({
     email: "",
     password: "",
+    typeAccount: "personal",
+    language: "English",
+    allows: {
+      location: false,
+      notification: false,
+    },
+    yearsInOperation: "",
+    hasOnlinePresence: false,
+    wantsOnlinePresenceHelp: false,
   });
 
   // При зміні типу реєстрації скидаємо крок на початковий

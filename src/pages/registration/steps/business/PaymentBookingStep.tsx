@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import ToggleQuestionStep from "@/components/registration/ToggleQuestionStep";
-import { RegistrationStepProps } from "@/types/registration";
+import {
+  PaymentPreferences,
+  RegistrationStepProps,
+} from "@/types/registration";
 
 const PAYMENT_OPTIONS = [
   { value: "cash", label: "Cash" },
@@ -16,15 +19,15 @@ const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
   updateRegistrationData,
   registrationData,
 }) => {
-  const [formData, setFormData] = useState({
-    paymentMethods:
-      registrationData.paymentBookingPreferences?.paymentMethods || "cash",
+  const [formData, setFormData] = useState<PaymentPreferences>({
+    acceptedPaymentMethods:
+      registrationData.paymentPreferences?.acceptedPaymentMethods || "cash",
     requiresDeposit:
-      registrationData.paymentBookingPreferences?.requiresDeposit || false,
-    offersMemberships:
-      registrationData.paymentBookingPreferences?.offersMemberships || false,
-    offersPaymentPlans:
-      registrationData.paymentBookingPreferences?.offersPaymentPlans || false,
+      registrationData.paymentPreferences?.requiresDeposit || false,
+    hasMemberships:
+      registrationData.paymentPreferences?.hasMemberships || false,
+    hasPaymentPlans:
+      registrationData.paymentPreferences?.hasPaymentPlans || false,
   });
 
   const handleToggleChange = (field: string) => (value?: boolean) => {
@@ -37,13 +40,13 @@ const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
   const handleSelectChange = (value: string) => {
     setFormData((prev) => ({
       ...prev,
-      paymentMethods: value,
+      acceptedPaymentMethods: value,
     }));
   };
 
   const handleSubmit = () => {
     updateRegistrationData({
-      paymentBookingPreferences: formData,
+      paymentPreferences: formData,
     });
     onNext();
   };
@@ -57,23 +60,23 @@ const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
     },
     {
       question: "Do you offer memberships or subscription services?",
-      field: "offersMemberships",
-      value: formData.offersMemberships,
-      onChange: handleToggleChange("offersMemberships"),
+      field: "hasMemberships",
+      value: formData.hasMemberships,
+      onChange: handleToggleChange("hasMemberships"),
     },
     {
       question:
         "Do you offer payment plans or instalments for high-value services?",
-      field: "offersPaymentPlans",
-      value: formData.offersPaymentPlans,
-      onChange: handleToggleChange("offersPaymentPlans"),
+      field: "hasPaymentPlans",
+      value: formData.hasPaymentPlans,
+      onChange: handleToggleChange("hasPaymentPlans"),
     },
   ];
 
   const selectQuestion = {
     question: "Which payment methods do you accept?",
-    field: "paymentMethods",
-    value: formData.paymentMethods,
+    field: "acceptedPaymentMethods",
+    value: formData.acceptedPaymentMethods,
     onChange: handleSelectChange,
     options: PAYMENT_OPTIONS,
   };

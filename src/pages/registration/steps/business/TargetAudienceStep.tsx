@@ -1,7 +1,10 @@
 import React from "react";
 
 import CustomRegistrationStep from "@/components/registration/CustomerRegistrtationStep";
-import { RegistrationStepProps, TargetAudience } from "@/types/registration";
+import {
+  CustomerPreference,
+  RegistrationStepProps,
+} from "@/types/registration";
 
 const TargetAudienceStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -17,7 +20,7 @@ const TargetAudienceStep: React.FC<RegistrationStepProps> = ({
   registrationType,
 }) => {
   return (
-    <CustomRegistrationStep<TargetAudience>
+    <CustomRegistrationStep<CustomerPreference>
       title={title}
       description={description}
       onNext={onNext}
@@ -30,14 +33,19 @@ const TargetAudienceStep: React.FC<RegistrationStepProps> = ({
       updateRegistrationData={updateRegistrationData}
       registrationType={registrationType}
       initialState={{
-        businessUniqueness: "",
-        vipServices: false,
-        accessibilityOptions: false,
-        seasonalTrends: false,
+        primaryAudience: registrationData.targetAudience?.primaryAudience || "",
+        requiresAppointments:
+          registrationData.targetAudience?.requiresAppointments || false,
+        acceptsWalkIns:
+          registrationData.targetAudience?.acceptsWalkIns || false,
+        uniqueSellingPoint: "",
+        hasVipServices: false,
+        hasAccessibilityOptions: false,
+        hasSeasonalTrends: false,
       }}
       textAreaFields={[
         {
-          key: "businessUniqueness",
+          key: "uniqueSellingPoint",
           label: "What makes your business unique?",
           placeholder:
             "Short description for AI-based SEO & marketing insights.",
@@ -45,16 +53,16 @@ const TargetAudienceStep: React.FC<RegistrationStepProps> = ({
       ]}
       toggleQuestions={[
         {
-          key: "vipServices",
+          key: "hasVipServices",
           question: "Do you offer VIP or exclusive services?",
         },
         {
-          key: "accessibilityOptions",
+          key: "hasAccessibilityOptions",
           question:
             "Do you provide accessibility options for disabled customers?",
         },
         {
-          key: "seasonalTrends",
+          key: "hasSeasonalTrends",
           question:
             "Are there specific seasonal trends that impact your business?",
         },

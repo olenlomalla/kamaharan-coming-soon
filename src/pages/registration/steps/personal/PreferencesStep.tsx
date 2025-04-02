@@ -3,10 +3,7 @@ import React, { useState } from "react";
 import ButtonCustom from "@/components/registration/ButtonCustom";
 import SelectCustom from "@/components/registration/SelectCustom";
 import StepHeader from "@/components/registration/StepHeader";
-import {
-  PersonalPreferences,
-  RegistrationStepProps,
-} from "@/types/registration";
+import { PersonalBasicInfo, RegistrationStepProps } from "@/types/registration";
 
 const PreferencesStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -15,23 +12,30 @@ const PreferencesStep: React.FC<RegistrationStepProps> = ({
   updateRegistrationData,
   registrationData,
 }) => {
-  const [formData, setFormData] = useState<PersonalPreferences>({
-    preferredLanguage:
-      registrationData.personalPreferences?.preferredLanguage || "",
-    dateOfBirth: registrationData.personalPreferences?.dateOfBirth || "",
-    gender: registrationData.personalPreferences?.gender || "",
+  const [formData, setFormData] = useState<PersonalBasicInfo>({
+    firstName: registrationData.personalInfo?.firstName || "",
+    lastName: registrationData.personalInfo?.lastName || "",
+    phone: registrationData.personalInfo?.phone || "",
+    location: {
+      city: registrationData.personalInfo?.location?.city || "",
+      address: registrationData.personalInfo?.location?.address || "",
+    },
+    dateOfBirth: registrationData.personalInfo?.dateOfBirth || null,
+    gender: registrationData.personalInfo?.gender || "",
+    language: registrationData.personalInfo?.language || "",
   });
+
   const handleLanguageChange = (value: string) => {
-    setFormData((prev) => ({
+    setFormData((prev: PersonalBasicInfo) => ({
       ...prev,
-      preferredLanguage: value,
+      language: value,
     }));
   };
 
   const handleInputChange =
     (field: "dateOfBirth" | "gender") =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setFormData((prev) => ({
+      setFormData((prev: PersonalBasicInfo) => ({
         ...prev,
         [field]:
           field === "gender"
@@ -43,7 +47,7 @@ const PreferencesStep: React.FC<RegistrationStepProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     updateRegistrationData({
-      personalPreferences: formData,
+      personalInfo: formData,
     });
     onNext();
   };
@@ -70,14 +74,14 @@ const PreferencesStep: React.FC<RegistrationStepProps> = ({
       <div className="flex w-full flex-col gap-4">
         <SelectCustom
           options={languageOptions}
-          selectedValue={formData.preferredLanguage}
+          selectedValue={formData.language}
           onChange={handleLanguageChange}
           className="w-full"
         />
         <input
           type="text"
           placeholder="Date of Birth: (DD/MM/YYYY)"
-          value={formData.dateOfBirth}
+          value={formData.dateOfBirth ? formData.dateOfBirth.toString() : ""}
           onChange={handleInputChange("dateOfBirth")}
           className={inputClass}
           required

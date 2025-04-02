@@ -34,7 +34,7 @@ const LanguagesServedStep: React.FC<RegistrationStepProps> = ({
 
   const handleNext = () => {
     updateRegistrationData({
-      selectedLanguage,
+      language: selectedLanguage,
     });
     onNext();
   };
@@ -55,5 +55,4 @@ const LanguagesServedStep: React.FC<RegistrationStepProps> = ({
     </div>
   );
 };
-
 export default LanguagesServedStep;

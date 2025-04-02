@@ -26,10 +26,9 @@ const PersonalInterestsDetailsStep: React.FC<RegistrationStepProps> = ({
 }) => {
   const [formData, setFormData] = useState({
     explorationFrequency:
-      registrationData.personalInterests?.explorationFrequency || "daily",
-    followsInfluencers:
-      registrationData.personalInterests?.followsInfluencers || false,
-    socialPlatform: registrationData.personalInterests?.socialPlatform || "",
+      registrationData.interests?.explorationFrequency || "daily",
+    followsInfluencers: registrationData.interests?.followsInfluencers || false,
+    preferredPlatforms: registrationData.interests?.preferredPlatforms || "",
   });
 
   const handleToggleChange = (field: string) => (value?: boolean) => {
@@ -37,7 +36,7 @@ const PersonalInterestsDetailsStep: React.FC<RegistrationStepProps> = ({
       ...prev,
       [field]: value || false,
       ...(field === "followsInfluencers" && !value
-        ? { socialPlatform: "" }
+        ? { preferredPlatforms: "" }
         : {}),
     }));
   };
@@ -52,20 +51,21 @@ const PersonalInterestsDetailsStep: React.FC<RegistrationStepProps> = ({
   const handlePlatformChange = (value: string) => {
     setFormData((prev) => ({
       ...prev,
-      socialPlatform: value,
+      preferredPlatforms: value,
     }));
   };
 
   const handleSubmit = () => {
     const currentInterests: PersonalInterests = {
-      interests: registrationData.personalInterests?.interests || [],
+      categories: registrationData.interests?.categories || [],
       explorationFrequency: formData.explorationFrequency,
       followsInfluencers: formData.followsInfluencers,
-      socialPlatform: formData.socialPlatform,
+      preferredPlatforms: formData.preferredPlatforms,
+      preferredContent: registrationData.interests?.preferredContent || [],
     };
 
     updateRegistrationData({
-      personalInterests: currentInterests,
+      interests: currentInterests,
     });
     onNext();
   };
@@ -90,8 +90,8 @@ const PersonalInterestsDetailsStep: React.FC<RegistrationStepProps> = ({
   const platformQuestion = formData.followsInfluencers
     ? {
         question: "Which platform do you use most?",
-        field: "socialPlatform",
-        value: formData.socialPlatform,
+        field: "preferredPlatforms",
+        value: formData.preferredPlatforms,
         options: PLATFORM_OPTIONS,
         position: "right" as const,
         order: 2,

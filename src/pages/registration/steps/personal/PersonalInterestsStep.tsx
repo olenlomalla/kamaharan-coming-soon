@@ -30,7 +30,7 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
   registrationData,
 }) => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>(
-    registrationData.personalInterests?.interests || [],
+    registrationData.interests?.categories || [],
   );
 
   const handleInterestToggle = (id: string) => {
@@ -44,16 +44,17 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
 
   const handleSubmit = () => {
     const currentInterests: PersonalInterests = {
-      interests: selectedInterests,
-      explorationFrequency:
-        registrationData.personalInterests?.explorationFrequency || "daily",
+      categories: selectedInterests,
       followsInfluencers:
-        registrationData.personalInterests?.followsInfluencers || false,
-      socialPlatform: registrationData.personalInterests?.socialPlatform,
+        registrationData.interests?.followsInfluencers || false,
+      explorationFrequency:
+        registrationData.interests?.explorationFrequency || "daily",
+      preferredPlatforms: registrationData.interests?.preferredPlatforms || "",
+      preferredContent: registrationData.interests?.preferredContent || [],
     };
 
     updateRegistrationData({
-      personalInterests: currentInterests,
+      interests: currentInterests,
     });
     onNext();
   };

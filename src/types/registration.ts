@@ -1,22 +1,23 @@
 export type RegistrationType = "personal" | "business";
-export interface ContactInfo {
+export interface ContactInformation {
   phone: string;
   whatsapp: string;
   website: string;
   twitter: string;
   instagram: string;
 }
-
-export interface OnlinePresenceInfo {
-  yearsInOperation: string;
-  hasOnlinePresence: boolean;
-  wantsToImprovePresence: boolean;
+export interface CustomerPreference {
+  primaryAudience: string;
+  requiresAppointments: boolean;
+  acceptsWalkIns: boolean;
+  uniqueSellingPoint: string;
+  hasVipServices: boolean;
+  hasAccessibilityOptions: boolean;
+  hasSeasonalTrends: boolean;
 }
 
-export interface CustomerPreference {
-  businessPrimarilyFor: string;
-  requiredAppointments: boolean;
-  openToWalkIns: boolean;
+export interface CulturalPreferences {
+  certifications: string[];
 }
 
 export interface TargetAudience {
@@ -27,183 +28,202 @@ export interface TargetAudience {
 }
 
 export interface BusinessHours {
-  monday: { open: string; close: string; isOpen: boolean };
-  tuesday: { open: string; close: string; isOpen: boolean };
-  wednesday: { open: string; close: string; isOpen: boolean };
-  thursday: { open: string; close: string; isOpen: boolean };
-  friday: { open: string; close: string; isOpen: boolean };
-  saturday: { open: string; close: string; isOpen: boolean };
-  sunday: { open: string; close: string; isOpen: boolean };
+  schedule: {
+    day:
+      | "Monday"
+      | "Tuesday"
+      | "Wednesday"
+      | "Thursday"
+      | "Friday"
+      | "Saturday"
+      | "Sunday";
+    start: string;
+    finish: string;
+  }[];
+  hasFlexibleHours: boolean;
+  closesForHolidays: boolean;
+  has24_7Support: boolean;
 }
 
-export interface ProductsServices {
-  serviceType: string;
+export interface ProductsAndServices {
+  services: string;
   hasSpecialPackages: boolean;
-  hasDeliveryService: boolean;
-  productType: string;
-  isEcoFriendly: boolean;
+  hasDeliveryTakeaway: boolean;
+  hasEcoFriendlyOptions: boolean;
   hasWholesaleDiscounts: boolean;
+  productType: "physical" | "digital" | "both";
 }
 
 export interface CommunityEngagement {
-  hasDiscountsForSpecialGroups: boolean;
+  culturalNeeds: string[];
+  hasStudentDiscounts: boolean;
   supportsLocalCharities: boolean;
-  productType: string;
-  wantsFeatureInCommunity: boolean;
+  wantsCommunitySupport: boolean;
   interestedInSkillSharing: boolean;
 }
 
 export interface DealsAndPromotions {
-  dealFrequency: string;
-  wantsFeaturedDeals: boolean;
+  wantsHomepageFeature: boolean;
   wantsSeasonalOffers: boolean;
   hasReferralRewards: boolean;
   hasLoyaltyPoints: boolean;
-  hasEventDiscounts: boolean;
-  wantsAiSuggestions: boolean;
+  hasSpecialEventDiscounts: boolean;
+  wantsAIDealSuggestions: boolean;
+  dealFrequency: string;
 }
 
 export interface InfluencerMarketing {
   openToInfluencers: boolean;
-  influencerType: string;
   wantsSponsoredContent: boolean;
-  wantsAiContent: boolean;
-  hasProContent: boolean;
-  wantsPromoContent: boolean;
+  wantsAIMarketingHelp: boolean;
+  hasProfessionalMedia: boolean;
+  wantsPromotionalContentHelp: boolean;
+  preferredInfluencerType: string;
 }
 
-export interface BusinessHoursAdditionalInfo {
-  isFlexibleHours: boolean;
-  closesForHolidays: boolean;
-  has24HourSupport: boolean;
-}
-
-export interface PaymentBookingPreferences {
-  paymentMethods: string;
+export interface PaymentPreferences {
   requiresDeposit: boolean;
-  offersMemberships: boolean;
-  offersPaymentPlans: boolean;
+  hasMemberships: boolean;
+  hasPaymentPlans: boolean;
+  acceptedPaymentMethods: string;
 }
 
 export interface CustomerInteraction {
-  allowsDirectMessages: boolean;
-  wantsAiAutoRespond: boolean;
+  acceptsDirectMessages: boolean;
+  wantsAIFAQResponses: boolean;
   allowsPublicReviews: boolean;
-  collectsEmails: boolean;
-  enablesFeedbackSurveys: boolean;
+  collectsCustomerEmails: boolean;
+  hasFeedbackSurveys: boolean;
 }
 
 export interface PremiumFeatures {
   wantsPriorityListing: boolean;
   wantsHomepageFeature: boolean;
   wantsAnalytics: boolean;
-  wantsTrendNotifications: boolean;
+  wantsTrendInsights: boolean;
 }
 
 export interface PersonalBasicInfo {
   firstName: string;
   lastName: string;
-}
-
-export interface PersonalContactInfo {
   phone: string;
-  cityAndCountry: string;
-}
-
-export interface CommunityPreferences {
-  localEvents: boolean;
-  networkingEvents: boolean;
-  volunteerOpportunities: boolean;
-  skillSharing: boolean;
-  connectWithOthers: boolean;
-}
-
-export interface YouthPrograms {
-  hasYoungMembers: boolean;
-  wantsUpdates: boolean;
-  wantsTrainingUpdates: boolean;
-  wantsScholarships: boolean;
-}
-export interface ExclusiveDeals {
-  receiveDiscounts: boolean;
-  typeofDeals: string;
-  beNotified: boolean;
-}
-export interface AccessibilityPreferences {
-  offerAccessibilityFeratures: boolean;
-  womanOnly: boolean;
-}
-export interface AdditionalUserPreference {
-  accessToNewFeature: boolean;
-  participateInUserSurveys: boolean;
-  testBetaFeature: boolean;
-}
-export interface InfluencerPreferences {
-  followsInfluencers: boolean;
-  wantsRecommendations: boolean;
-  interestedInBusinessContent: boolean;
-}
-export interface PersonalPreferences {
-  preferredLanguage: string;
-  dateOfBirth: string;
+  location: {
+    city: string;
+    address: string;
+  };
+  dateOfBirth: Date | null;
   gender: "male" | "female" | "";
-  preferredDining?: string;
-  dietaryRestrictions?: string[];
-  shoppingPreference?: string;
-  communityPreferences?: CommunityPreferences;
-  youthPrograms?: YouthPrograms;
-  exclusiveDeals?: ExclusiveDeals;
-  accessibilityPreferences?: AccessibilityPreferences;
-  additionalUserPreference?: AdditionalUserPreference;
-  influencerPreferences?: InfluencerPreferences;
-  influencersNames?: string;
+  language: string;
 }
 
 export interface PersonalInterests {
-  interests: string[];
-  explorationFrequency: string;
+  categories: string[];
   followsInfluencers: boolean;
-  socialPlatform?: string;
+  explorationFrequency: string;
+  preferredPlatforms: string;
+  preferredContent: string[];
 }
 
-export interface RegistrationData {
+export interface DiningPreferences {
+  foodTypes: string[];
+  diningStyle: string[];
+  dietaryRestrictions: string[];
+}
+
+export interface CommunityPreferences {
+  interestedInLocalEvents: boolean;
+  interestedInNetworking: boolean;
+  interestedInVolunteering: boolean;
+  interestedInSkillSharing: boolean;
+  wantsToConnectWithOthers: boolean;
+}
+
+export interface YouthPrograms {
+  hasChildren: boolean;
+  interestedInNetworking: boolean;
+  interestedInYouthPrograms: boolean;
+  interestedInScholarships: boolean;
+}
+
+export interface DealPreferences {
+  wantsExclusiveDiscounts: boolean;
+  preferredDealTypes: string[];
+  wantsPromotionNotifications: boolean;
+}
+
+export interface AccessibilityPreferences {
+  requiresAccessibilityFeatures: boolean;
+  interestedInWomenOnlySpaces: boolean;
+}
+
+export interface InfluencerPreferences {
+  followsSpecificInfluencers: boolean;
+  wantsInfluencerRecommendations: boolean;
+  interestedInBusinessContent: boolean;
+}
+
+export interface AdditionalFeatures {
+  wantsEarlyAccess: boolean;
+  wantsToParticipateInSurveys: boolean;
+  wantsToTestBetaFeatures: boolean;
+}
+
+export interface NavigationState {
+  showIndustrySearch?: boolean;
+  showFullIndustrySearch?: boolean;
+}
+
+export interface RegistrationData extends NavigationState {
   email: string;
   password: string;
   verificationCode?: string;
-  firstName?: string;
-  lastName?: string;
+  typeAccount: RegistrationType;
+  language: string;
+  allows: {
+    location: boolean;
+    notification: boolean;
+  };
+  // Business specific fields
   businessName?: string;
   businessLocation?: string;
-  locationAccess?: boolean;
-  notificationAccess?: boolean;
-  businessType?: string;
-  showIndustrySearch?: boolean;
-  showFullIndustrySearch?: boolean;
-  searchQuery?: string;
-  locations?: { address: string }[];
-  hasMultipleLocations?: boolean;
-  contactInfo?: ContactInfo;
-  onlinePresenceInfo?: OnlinePresenceInfo;
-  customerPreference?: CustomerPreference;
-  targetAudience?: TargetAudience;
-  selectedPreference?: string;
-  selectedLanguage?: string;
-  businessHours?: BusinessHours;
-  isFlexibleHours?: boolean;
-  closesForHolidays?: boolean;
-  has24HourSupport?: boolean;
-  productsServices?: ProductsServices;
-  selectedCommunityEngagement?: string;
+  businessType?:
+    | "retail"
+    | "restaurant"
+    | "cafe"
+    | "beautySalon"
+    | "fitnessCenter"
+    | "travelAgency"
+    | "professionalServices"
+    | "automotive"
+    | "deals";
+  multipleLocation?: {
+    isEnabled: boolean;
+    locations: string[];
+  };
+  contactInformation?: ContactInformation;
+  yearsInOperation: string;
+  hasOnlinePresence: boolean;
+  wantsOnlinePresenceHelp: boolean;
+  targetAudience?: CustomerPreference;
+  culturalPreferences?: CulturalPreferences;
+  productsAndServices?: ProductsAndServices;
   communityEngagement?: CommunityEngagement;
   dealsAndPromotions?: DealsAndPromotions;
   influencerMarketing?: InfluencerMarketing;
-  paymentBookingPreferences?: PaymentBookingPreferences;
+  operatingHours?: BusinessHours;
+  paymentPreferences?: PaymentPreferences;
   customerInteraction?: CustomerInteraction;
   premiumFeatures?: PremiumFeatures;
-  personalBasicInfo?: PersonalBasicInfo;
-  personalContactInfo?: PersonalContactInfo;
-  personalPreferences?: PersonalPreferences;
-  personalInterests?: PersonalInterests;
+  personalInfo?: PersonalBasicInfo;
+  interests?: PersonalInterests;
+  diningPreferences?: DiningPreferences;
+  communityPreferences?: CommunityPreferences;
+  youthPrograms?: YouthPrograms;
+  dealPreferences?: DealPreferences;
+  accessibilityPreferences?: AccessibilityPreferences;
+  influencerPreferences?: InfluencerPreferences;
+  additionalFeatures?: AdditionalFeatures;
+  createdAt?: Date;
 }
 
 export interface RegistrationStepProps {

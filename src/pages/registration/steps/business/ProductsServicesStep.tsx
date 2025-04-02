@@ -4,7 +4,10 @@ import ButtonCustom from "@/components/registration/ButtonCustom";
 import CheckBoxCustom from "@/components/registration/CheckBoxCustom";
 import SelectCustom from "@/components/registration/SelectCustom";
 import StepHeader from "@/components/registration/StepHeader";
-import { ProductsServices, RegistrationStepProps } from "@/types/registration";
+import {
+  ProductsAndServices,
+  RegistrationStepProps,
+} from "@/types/registration";
 
 const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
   title,
@@ -12,13 +15,13 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
   onNext,
   updateRegistrationData,
 }) => {
-  const [formData, setFormData] = useState<ProductsServices>({
-    serviceType: "Cleaning",
+  const [formData, setFormData] = useState<ProductsAndServices>({
+    services: "",
     hasSpecialPackages: false,
-    hasDeliveryService: false,
-    productType: "Physical",
-    isEcoFriendly: false,
+    hasDeliveryTakeaway: false,
+    hasEcoFriendlyOptions: false,
     hasWholesaleDiscounts: false,
+    productType: "physical",
   });
 
   const serviceOptions = [
@@ -31,26 +34,28 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
   ];
 
   const productOptions = [
-    { value: "Physical", label: "Physical" },
-    { value: "Digital", label: "Digital" },
-    { value: "Both", label: "Both" },
+    { value: "physical", label: "Physical" },
+    { value: "digital", label: "Digital" },
+    { value: "both", label: "Both" },
   ];
 
   const handleServiceTypeChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, serviceType: value }));
+    setFormData((prev) => ({ ...prev, services: value }));
   };
 
   const handleProductTypeChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, productType: value }));
+    if (value === "physical" || value === "digital" || value === "both") {
+      setFormData((prev) => ({ ...prev, productType: value }));
+    }
   };
 
   const handleToggleChange =
-    (field: keyof ProductsServices) => (value?: boolean) => {
+    (field: keyof ProductsAndServices) => (value?: boolean) => {
       setFormData((prev) => ({ ...prev, [field]: value || false }));
     };
 
   const handleNext = () => {
-    updateRegistrationData({ productsServices: formData });
+    updateRegistrationData({ productsAndServices: formData });
     onNext();
   };
 
@@ -67,7 +72,7 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
           </label>
           <SelectCustom
             options={serviceOptions}
-            selectedValue={formData.serviceType}
+            selectedValue={formData.services}
             onChange={handleServiceTypeChange}
             className="w-full"
           />
@@ -88,8 +93,8 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
             Do you offer delivery or takeaway services?
           </span>
           <CheckBoxCustom
-            checked={formData.hasDeliveryService}
-            onChange={handleToggleChange("hasDeliveryService")}
+            checked={formData.hasDeliveryTakeaway}
+            onChange={handleToggleChange("hasDeliveryTakeaway")}
           />
         </div>
         <SelectCustom
@@ -104,8 +109,8 @@ const ProductsServicesStep: React.FC<RegistrationStepProps> = ({
             Are any of your products or services eco-friendly or sustainable?
           </span>
           <CheckBoxCustom
-            checked={formData.isEcoFriendly}
-            onChange={handleToggleChange("isEcoFriendly")}
+            checked={formData.hasEcoFriendlyOptions}
+            onChange={handleToggleChange("hasEcoFriendlyOptions")}
           />
         </div>
 

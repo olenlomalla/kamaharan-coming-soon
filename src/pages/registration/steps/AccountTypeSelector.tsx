@@ -8,9 +8,14 @@ const AccountTypeSelector: React.FC<RegistrationStepProps> = ({
   description,
   onNext,
   registrationType,
+  updateRegistrationData,
   setRegistrationType,
 }) => {
   const handleTypeChange = (type: RegistrationType) => {
+    updateRegistrationData({
+      typeAccount: type,
+    });
+
     if (setRegistrationType) {
       setRegistrationType(type);
     }

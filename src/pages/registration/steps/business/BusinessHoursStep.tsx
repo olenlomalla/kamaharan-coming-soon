@@ -37,13 +37,13 @@ const BusinessHoursStep: React.FC<RegistrationStepProps> = ({
   const [formData, setFormData] = useState<{
     [key: string]: { open: string; close: string };
   }>({
-    Monday: { open: "09:00am", close: "05:00pm" },
-    Tuesday: { open: "09:00am", close: "05:00pm" },
-    Wednesday: { open: "09:00am", close: "05:00pm" },
-    Thursday: { open: "09:00am", close: "05:00pm" },
-    Friday: { open: "09:00am", close: "05:00pm" },
-    Saturday: { open: "09:00am", close: "05:00pm" },
-    Sunday: { open: "09:00am", close: "05:00pm" },
+    Monday: { open: "09:00 am", close: "05:00 pm" },
+    Tuesday: { open: "09:00 am", close: "05:00 pm" },
+    Wednesday: { open: "09:00 am", close: "05:00 pm" },
+    Thursday: { open: "09:00 am", close: "05:00 pm" },
+    Friday: { open: "09:00 am", close: "05:00 pm" },
+    Saturday: { open: "09:00 am", close: "05:00 pm" },
+    Sunday: { open: "09:00 am", close: "05:00 pm" },
   });
 
   const [additionalInfo, setAdditionalInfo] = useState({

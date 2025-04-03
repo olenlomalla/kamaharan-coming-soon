@@ -46,13 +46,13 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
   const fields = [
     {
       name: "phone",
-      type: "tel",
+      type: "text",
       placeholder: "Phone",
       value: formData.phone,
       required: true,
     },
     {
-      name: "cityAndCountry",
+      name: "location",
       type: "text",
       placeholder: "City & Country",
       value: formData.location.city,

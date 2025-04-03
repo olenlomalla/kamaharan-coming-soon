@@ -7,10 +7,10 @@ import {
 } from "@/types/registration";
 
 const PAYMENT_OPTIONS = [
-  { value: "cash", label: "Cash" },
-  { value: "card", label: "Card" },
-  { value: "bank_transfer", label: "Bank Transfer" },
-  { value: "digital_wallet", label: "Digital Wallet" },
+  { value: "Cash", label: "Cash" },
+  { value: "Card", label: "Card" },
+  { value: "Bank_transfer", label: "Bank Transfer" },
+  { value: "Digital_wallet", label: "Digital Wallet" },
 ];
 
 const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
@@ -21,7 +21,7 @@ const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
 }) => {
   const [formData, setFormData] = useState<PaymentPreferences>({
     acceptedPaymentMethods:
-      registrationData.paymentPreferences?.acceptedPaymentMethods || "cash",
+      registrationData.paymentPreferences?.acceptedPaymentMethods || "Cash",
     requiresDeposit:
       registrationData.paymentPreferences?.requiresDeposit || false,
     hasMemberships:
@@ -87,6 +87,7 @@ const PaymentBookingStep: React.FC<RegistrationStepProps> = ({
       questions={questions}
       selectQuestion={selectQuestion}
       onToggleChange={handleToggleChange}
+      onSelectChange={handleSelectChange}
       onSubmit={handleSubmit}
     />
   );

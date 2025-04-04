@@ -10,9 +10,10 @@ const CommunityEngagementStep: React.FC<RegistrationStepProps> = ({
   title,
   onNext,
   updateRegistrationData,
+  registrationData,
 }) => {
   const [formData, setFormData] = useState<CommunityEngagement>({
-    culturalNeeds: [],
+    culturalNeeds: registrationData.communityEngagement?.culturalNeeds || [],
     hasStudentDiscounts: false,
     supportsLocalCharities: false,
     wantsCommunitySupport: false,

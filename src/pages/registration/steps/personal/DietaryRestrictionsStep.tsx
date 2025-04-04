@@ -34,8 +34,8 @@ const DietaryRestrictionsStep: React.FC<RegistrationStepProps> = ({
     setSelectedDiets(updatedDiets);
     updateRegistrationData({
       diningPreferences: {
-        foodTypes: [],
-        diningStyle: [],
+        foodTypes: registrationData.diningPreferences?.foodTypes || [],
+        diningStyle: registrationData.diningPreferences?.diningStyle || [],
         dietaryRestrictions: updatedDiets,
       },
     });

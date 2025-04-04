@@ -52,13 +52,11 @@ const PersonalInterestsStep: React.FC<RegistrationStepProps> = ({
       preferredPlatforms: registrationData.interests?.preferredPlatforms || "",
       preferredContent: registrationData.interests?.preferredContent || [],
     };
-
     updateRegistrationData({
       interests: currentInterests,
     });
     onNext();
   };
-
   return (
     <div
       onSubmit={handleSubmit}

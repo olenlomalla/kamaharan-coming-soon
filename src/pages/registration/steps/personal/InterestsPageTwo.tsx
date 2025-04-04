@@ -32,17 +32,12 @@ const InterestsPageTwo: React.FC<RegistrationStepProps> = ({
 
   const handleNext = () => {
     if (selectedInterest) {
-      const currentInterests = registrationData.interests?.categories || [];
       updateRegistrationData({
-        interests: {
-          categories: [...currentInterests.slice(0, 1), selectedInterest],
-          explorationFrequency:
-            registrationData.interests?.explorationFrequency || "daily",
-          followsInfluencers:
-            registrationData.interests?.followsInfluencers || false,
-          preferredPlatforms:
-            registrationData.interests?.preferredPlatforms || "",
-          preferredContent: registrationData.interests?.preferredContent || [],
+        diningPreferences: {
+          foodTypes: [selectedInterest],
+          diningStyle: registrationData.diningPreferences?.diningStyle || [],
+          dietaryRestrictions:
+            registrationData.diningPreferences?.dietaryRestrictions || [],
         },
       });
       onNext();

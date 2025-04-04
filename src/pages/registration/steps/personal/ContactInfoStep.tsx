@@ -30,10 +30,20 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
 
   const handleChange =
     (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      setFormData((prev) => ({
-        ...prev,
-        [field]: e.target.value,
-      }));
+      if (field === "location") {
+        setFormData((prev) => ({
+          ...prev,
+          location: {
+            ...prev.location,
+            city: e.target.value,
+          },
+        }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          [field]: e.target.value,
+        }));
+      }
     };
 
   const handleSubmit = () => {
@@ -46,9 +56,9 @@ const ContactInfoStep: React.FC<RegistrationStepProps> = ({
   const fields = [
     {
       name: "phone",
-      type: "text",
+      type: "tel",
       placeholder: "Phone",
-      value: formData.phone,
+      value: formData.phone || "",
       required: true,
     },
     {

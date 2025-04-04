@@ -248,3 +248,4 @@ export interface RegistrationStepConfig {
   conditionDisplay?: (registrationData: RegistrationData) => boolean;
   id?: string;
 }
+('User validation failed: personalInfo.dateOfBirth: Cast to date failed for value "22.02.2004" (type string) at path "personalInfo.dateOfBirth", personalInfo.gender: `Male` is not a valid enum value for path `personalInfo.gender`., interests.categories.1: `Halal` is not a valid enum value for path `interests.categories.1`.');

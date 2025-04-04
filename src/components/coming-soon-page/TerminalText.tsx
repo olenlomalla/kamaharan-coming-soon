@@ -14,33 +14,33 @@ const TerminalContainer = styled.div`
   }
 `;
 const Term = styled.div`
- font-family: "Courier New”, Courier, monospace;
- font-size: 38px; /* Increased from 28px to 38px for desktop */
- color: rgba(220, 255, 220, 0.95);
- text-transform: uppercase;
- letter-spacing: 1px;
- text-shadow:
-  0 0 1px rgba(180, 255, 220, 0.9),
-  0 0 2px rgba(140, 255, 140, 0.8),
-  0 0 4px rgba(0, 255, 68, 0.7),
-  0 0 8px rgba(0, 255, 68, 0.5),
-  0 0 12px rgba(0, 255, 68, 0.4);
- animation: glitch 3s infinite alternate-reverse;
- filter: hue-rotate(-10deg) saturate(1.2);
- font-weight: bold;
- line-height: 1.5; /* Increased for better readability */
- text-align: left;
- max-width: 100%;
- @media (max-width: 768px) {
-  font-size: 40px; /* Maintained at 40px for mobile */
-  line-height: 1.5;
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 38px; /* Increased from 28px to 38px for desktop */
+  color: rgba(220, 255, 220, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 1px rgba(180, 255, 220, 0.9),
+    0 0 2px rgba(140, 255, 140, 0.8),
+    0 0 4px rgba(0, 255, 68, 0.7),
+    0 0 8px rgba(0, 255, 68, 0.5),
+    0 0 12px rgba(0, 255, 68, 0.4);
+  animation: glitch 3s infinite alternate-reverse;
+  filter: hue-rotate(-10deg) saturate(1.2);
+  font-weight: bold;
+  line-height: 1.5; /* Increased for better readability */
   text-align: left;
- }
- @media (max-width: 480px) {
-  font-size: 40px; /* Maintained at 40px for smaller mobile */
-  line-height: 1.5;
-  letter-spacing: 0.5px;
- }
+  max-width: 100%;
+  @media (max-width: 768px) {
+    font-size: 40px; /* Maintained at 40px for mobile */
+    line-height: 1.5;
+    text-align: left;
+  }
+  @media (max-width: 480px) {
+    font-size: 40px; /* Maintained at 40px for smaller mobile */
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
 `;
 const TextLine = styled.div`
   white-space: nowrap;

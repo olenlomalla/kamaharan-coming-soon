@@ -131,7 +131,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       }
       // Stage 1: Type first line
       else if (animationStage === 1) {
-        const text = "THIS CHANGES EVERYTHING";
+        const text = "THIS CHANGES EVERYTHING!";
         if (firstLineText.length < text.length) {
           timer = setTimeout(() => {
             setFirstLineText(text.substring(0, firstLineText.length + 1));

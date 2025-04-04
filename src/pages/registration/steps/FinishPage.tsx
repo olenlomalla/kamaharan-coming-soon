@@ -16,6 +16,7 @@ const FinishPage: React.FC<RegistrationStepProps> = ({
 
     try {
       await authAPI.updateFields(token, registrationData);
+      onNext();
     } catch (err) {
       console.error("Failed to update registration data:", err);
     }

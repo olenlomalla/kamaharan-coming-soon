@@ -10,14 +10,30 @@ const LocationNotificationStep: React.FC<RegistrationStepProps> = ({
   onNext,
   updateRegistrationData,
 }) => {
+  const [locationAccess, setLocationAccess] = React.useState(false);
+  const [notificationAccess, setNotificationAccess] = React.useState(false);
+
   const handleLocationAccess = () => {
-    console.log("Requesting location access");
-    updateRegistrationData({ allows: { location: true, notification: false } });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLocationAccess(true);
+        updateRegistrationData({
+          allows: {
+            location: locationAccess,
+            notification: notificationAccess,
+          },
+        });
+      });
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
   };
 
   const handleNotificationAccess = () => {
-    console.log("Requesting notification access");
-    updateRegistrationData({ allows: { location: false, notification: true } });
+    setNotificationAccess(true);
+    updateRegistrationData({
+      allows: { location: locationAccess, notification: notificationAccess },
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {

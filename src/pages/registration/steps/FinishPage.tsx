@@ -16,10 +16,10 @@ const FinishPage: React.FC<RegistrationStepProps> = ({
 
     try {
       await authAPI.updateFields(token, registrationData);
+      onNext();
     } catch (err) {
       console.error("Failed to update registration data:", err);
     }
-    onNext();
   };
   return (
     <section className="mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-8 p-6 lg:p-0">

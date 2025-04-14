@@ -18,9 +18,10 @@ const DiningPreferencesStep: React.FC<RegistrationStepProps> = ({
   const handlePreferenceSelect = (preference: string) => {
     updateRegistrationData({
       diningPreferences: {
-        foodTypes: [],
+        foodTypes: registrationData.diningPreferences?.foodTypes || [],
         diningStyle: [preference],
-        dietaryRestrictions: [],
+        dietaryRestrictions:
+          registrationData.diningPreferences?.dietaryRestrictions || [],
       },
     });
   };

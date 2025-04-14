@@ -15,7 +15,7 @@ const LocationNotificationStep: React.FC<RegistrationStepProps> = ({
 
   const handleLocationAccess = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(() => {
         setLocationAccess(true);
         updateRegistrationData({
           allows: {

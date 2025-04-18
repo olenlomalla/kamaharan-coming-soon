@@ -1,8 +1,5 @@
 import { FC } from "react";
 
-import Footer from "../components/brothersumrah/Footer";
-import Header from "../components/brothersumrah/Header";
-
 const BrothersUmrah: FC = () => {
   return (
     <div className="bg-umrah-cream min-h-screen">

@@ -89,10 +89,6 @@ export const router = createBrowserRouter([
     element: wrapWithProviders(KForBusiness),
   },
   {
-    path: "/brothersumrah",
-    element: wrapWithProviders(BrothersUmrah),
-  },
-  {
     path: "*",
     element: wrapWithProviders(ErrorPage),
   },

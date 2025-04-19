@@ -5,6 +5,7 @@ import ContactForm from "../components/brothersumrah/ContactForm";
 import DrivingBonus from "../components/brothersumrah/DrivingBonus";
 import Experience from "../components/brothersumrah/Experience";
 import FAQ from "../components/brothersumrah/FAQ";
+import Footer from "../components/brothersumrah/Footer";
 import Header from "../components/brothersumrah/Header";
 import Hero from "../components/brothersumrah/Hero";
 import Pricing from "../components/brothersumrah/Pricing";
@@ -41,6 +42,9 @@ const BrothersUmrah: FC = () => {
         {/* Contact section */}
         <ContactForm />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

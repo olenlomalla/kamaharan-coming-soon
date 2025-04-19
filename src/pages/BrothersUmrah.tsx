@@ -7,6 +7,7 @@ import FAQ from "../components/brothersumrah/FAQ";
 import Header from "../components/brothersumrah/Header";
 import Hero from "../components/brothersumrah/Hero";
 import Pricing from "../components/brothersumrah/Pricing";
+import VideoShowcase from "../components/brothersumrah/VideoShowcase";
 
 const BrothersUmrah: FC = () => {
   return (
@@ -23,6 +24,9 @@ const BrothersUmrah: FC = () => {
 
         {/* Benefits section */}
         <Benefits />
+
+        {/* Video Showcase section */}
+        <VideoShowcase />
 
         {/* Pricing section */}
         <Pricing />

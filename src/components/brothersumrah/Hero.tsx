@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <section className="relative overflow-hidden pt-20">
       {/* Hero Background - Prophet's Mosque with umbrellas */}

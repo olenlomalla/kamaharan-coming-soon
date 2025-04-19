@@ -39,11 +39,11 @@
 
   body {
     @apply bg-white text-gray-body;
-    font-family: "Avenir", sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   * {
-    @apply border-gray-line; /* Fixed: changed from border-border to an existing class */
+    @apply border-border;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -110,6 +110,28 @@
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer components {
   .grayscale-Label {
     @apply font-body text-sm font-570 leading-120 tracking-[0.75px] text-primary-Grayscale-Label;
@@ -159,4 +181,42 @@
   }
 }
 
-/* Removed duplicate @layer base section */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-modalIn {
+  animation: modalIn 0.5s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

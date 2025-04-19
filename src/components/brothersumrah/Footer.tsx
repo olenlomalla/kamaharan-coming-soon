@@ -1,14 +1,12 @@
 import { FC } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Mail, MessageSquare, Phone } from "lucide-react";
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
-  const location = useLocation();
 
-  // Function to navigate to the home page
   const handleLogoClick = (): void => {
     navigate("/");
   };
@@ -23,7 +21,7 @@ const Footer: FC = () => {
               <img
                 src="/icons/logo-white.svg"
                 alt="Kamaharan Logo"
-                className="mb-4 h-10 w-auto cursor-pointer" // Make sure it's a pointer
+                className="mb-4 h-10 w-auto cursor-pointer"
               />
             </Link>
             <p className="text-gray-300">
@@ -95,7 +93,7 @@ const Footer: FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Brothers Umrah 2025/26 above Contact Us */}
+          {/* Column 3 */}
           <div>
             <div className="mb-4">
               <h3 className="font-display text-xl font-bold">
@@ -116,7 +114,6 @@ const Footer: FC = () => {
                 <MessageSquare className="mr-3 text-umrah-gold" size={18} />
                 <span>WhatsApp:</span>
               </li>
-              {/* Replace the old QR code with the new one */}
               <li className="mt-2">
                 <img
                   src="/images/Whatsapp Qrcode.png"

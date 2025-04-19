@@ -1,9 +1,8 @@
 import { FC } from "react";
 
+import Experience from "../components/brothersumrah/Experience";
 import Header from "../components/brothersumrah/Header";
 import Hero from "../components/brothersumrah/Hero";
-
-// Import the Hero component
 
 const BrothersUmrah: FC = () => {
   return (
@@ -15,28 +14,11 @@ const BrothersUmrah: FC = () => {
         {/* Hero section */}
         <Hero />
 
+        {/* Experience section (includes Journey Itinerary) */}
+        <Experience />
+
         {/* Content sections with container styles */}
         <div className="container mx-auto p-4">
-          {/* Experience section */}
-          <section id="experience" className="section-padding">
-            <h2 className="heading-md mb-4 text-umrah-darkPurple">
-              The Experience
-            </h2>
-            <p className="text-lg">
-              This is where you can describe the spiritual experience of Umrah.
-            </p>
-          </section>
-
-          {/* Journey Itinerary section */}
-          <section id="journey-itinerary" className="section-padding">
-            <h2 className="heading-md mb-4 text-umrah-darkPurple">
-              Journey Itinerary
-            </h2>
-            <p className="text-lg">
-              Details about the trip schedule, destinations, and activities.
-            </p>
-          </section>
-
           {/* Benefits section */}
           <section id="benefits" className="section-padding">
             <h2 className="heading-md mb-4 text-umrah-darkPurple">

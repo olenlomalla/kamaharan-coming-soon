@@ -32,7 +32,7 @@ const StartAProject = lazy(
   () => import("./pages/start-a-project/StartProject"),
 );
 const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
-const BrothersUmrah = lazy(() => import("./pages/brothersumrah"));
+const BrothersUmrah = lazy(() => import("./pages/BrothersUmrah"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 export const router = createBrowserRouter([

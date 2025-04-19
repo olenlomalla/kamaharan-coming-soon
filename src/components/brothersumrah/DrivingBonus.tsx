@@ -1,12 +1,6 @@
 import { FC } from "react";
 
-import {
-  Brain,
-  GraduationCap,
-  LucideIcon,
-  Network,
-  Rocket,
-} from "lucide-react";
+import { Brain, LucideIcon, Network, Rocket } from "lucide-react";
 
 interface FeatureBoxProps {
   icon: LucideIcon;

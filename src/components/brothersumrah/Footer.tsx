@@ -6,7 +6,7 @@ import { Mail, MessageSquare, Phone } from "lucide-react";
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   // Function to navigate to the home page
   const handleLogoClick = (): void => {

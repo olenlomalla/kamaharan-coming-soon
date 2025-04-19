@@ -1,11 +1,9 @@
 import { FC } from "react";
 
 import Benefits from "../components/brothersumrah/Benefits";
-import DrivingBonus from "../components/brothersumrah/DrivingBonus";
 import Experience from "../components/brothersumrah/Experience";
 import Header from "../components/brothersumrah/Header";
 import Hero from "../components/brothersumrah/Hero";
-import Pricing from "../components/brothersumrah/Pricing";
 
 const BrothersUmrah: FC = () => {
   return (
@@ -23,14 +21,19 @@ const BrothersUmrah: FC = () => {
         {/* Benefits section */}
         <Benefits />
 
-        {/* DrivingBonus section */}
-        <DrivingBonus />
-
-        {/* Pricing section */}
-        <Pricing />
-
-        {/* Contact section */}
+        {/* Content sections with container styles */}
         <div className="container mx-auto p-4">
+          {/* Pricing section */}
+          <section id="pricing" className="section-padding">
+            <h2 className="heading-md mb-4 text-umrah-darkPurple">
+              Pricing & Packages
+            </h2>
+            <p className="text-lg">
+              Information about different packages and their costs.
+            </p>
+          </section>
+
+          {/* Contact section */}
           <section id="contact-section" className="section-padding">
             <h2 className="heading-md mb-4 text-umrah-darkPurple">
               Contact Us

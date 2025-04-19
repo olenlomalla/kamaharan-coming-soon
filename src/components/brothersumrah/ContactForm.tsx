@@ -95,7 +95,7 @@ const ContactForm: FC = () => {
       {/* Unified approach with responsive styling */}
       <div className="relative w-full bg-white">
         {/* Image container - changes position based on screen size */}
-        <div className="absolute inset-0 z-0 md:inset-auto md:left-0 md:top-0 md:h-full md:w-auto md:-translate-x-1/4 md:transform">
+        <div className="absolute inset-0 z-0 md:inset-auto md:left-0 md:top-0 md:h-full md:w-auto md:-translate-x-1/3 md:transform">
           <img
             src="/images/Brothers Side Profile.png"
             alt="Brothers Side Profile"
@@ -106,7 +106,7 @@ const ContactForm: FC = () => {
         </div>
 
         {/* Content container */}
-        <div className="container relative z-10 mx-auto px-4 py-10 md:py-16 md:pl-32">
+        <div className="container relative z-10 mx-auto px-4 py-10 md:py-16 md:pl-48">
           {/* On mobile: White background container for better readability */}
           <div className="rounded-xl bg-white/90 p-6 shadow-2xl md:rounded-none md:bg-transparent md:bg-opacity-100 md:p-0 md:shadow-none">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">

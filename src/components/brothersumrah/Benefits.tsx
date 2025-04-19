@@ -1,8 +1,16 @@
-import React from "react";
+import { FC } from "react";
 
 import { BookOpen, Compass, Heart, Users } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
-const BenefitCard = ({
+interface BenefitCardProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color?: string;
+}
+
+const BenefitCard: FC<BenefitCardProps> = ({
   icon: Icon,
   title,
   description,
@@ -23,7 +31,7 @@ const BenefitCard = ({
   </div>
 );
 
-const Benefits = () => {
+const Benefits: FC = () => {
   return (
     <section id="benefits" className="py-16">
       <div className="container mx-auto px-4">

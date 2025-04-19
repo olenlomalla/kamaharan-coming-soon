@@ -3,19 +3,16 @@ import { FC } from "react";
 const Hero: FC = () => {
   return (
     <section className="relative overflow-hidden pt-20">
-      {/* Hero Background - Prophet's Mosque with umbrellas */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage: "url(/images/prophet-2249759.jpg)",
-          filter: "brightness(0.75)", // 50% lighter than the previous filter (was 0.5)
+          filter: "brightness(0.75)",
         }}
-      />
-
-      {/* Purple/Gold Overlay - 50% lighter */}
-      <div className="absolute inset-0 z-0 bg-umrah-darkPurple/40" />
-      {/* Changed from 80% to 40% opacity */}
-
+      ></div>
+      
+      <div className="absolute inset-0 z-0 bg-umrah-darkPurple/40"></div>
+      
       <div className="container-custom relative z-10 flex min-h-[90vh] flex-col items-center justify-center py-20 text-center">
         <h1 className="heading-xl mb-6 max-w-4xl animate-fade-in text-white">
           A journey to faith, Adventure and a Bright Future
@@ -31,7 +28,7 @@ const Hero: FC = () => {
         </p>
 
         <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <a
+          
             href="https://book.stripe.com/fZe14H13f4j54bmdQQ"
             target="_blank"
             rel="noopener noreferrer"
@@ -55,8 +52,8 @@ const Hero: FC = () => {
               strokeLinejoin="round"
               className="text-white"
             >
-              <path d="M12 5v14" />
-              <path d="m19 12-7 7-7-7" />
+              <path d="M12 5v14"></path>
+              <path d="m19 12-7 7-7-7"></path>
             </svg>
           </a>
         </div>

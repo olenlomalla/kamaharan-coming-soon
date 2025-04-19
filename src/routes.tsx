@@ -15,30 +15,25 @@ const wrapWithProviders = (Component: React.ComponentType) => {
   );
 };
 
-// Core page imports
-const ComingSoonPage = lazy(() => import("@/pages/ComingSoonPage"));
-const HomePage = lazy(() => import("@/pages/home/HomePage"));
-const OnboardingPage = lazy(() => import("@/pages/onboarding/OnboardingPage"));
+const ComingSoonPage = lazy(() => import("./pages/ComingSoonPage"));
+const HomePage = lazy(() => import("./pages/home/HomePage"));
+const OnboardingPage = lazy(() => import("./pages/onboarding/OnboardingPage"));
 const RegistrationPage = lazy(
-  () => import("@/pages/registration/RegistrationPage"),
+  () => import("./pages/registration/RegistrationPage"),
 );
-const ExplorePage = lazy(() => import("@/pages/explore/ExplorePage"));
-const DealsPage = lazy(() => import("@/pages/deals/DealsPage"));
-const ServicesPage = lazy(() => import("@/pages/services/ServicesPage"));
-const BlogPage = lazy(() => import("@/pages/blog/BlogPage"));
-const BlogPost = lazy(() => import("@/pages/blog/BlogPost"));
-const ViewPage = lazy(() => import("@/pages/view/ViewPage"));
-const FindBusiness = lazy(() => import("@/pages/find-business/FindBusiness"));
+const ExplorePage = lazy(() => import("./pages/explore/ExplorePage"));
+const DealsPage = lazy(() => import("./pages/deals/DealsPage"));
+const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
+const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
+const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
+const ViewPage = lazy(() => import("./pages/view/ViewPage"));
+const FindBusiness = lazy(() => import("./pages/find-business/FindBusiness"));
 const StartAProject = lazy(
-  () => import("@/pages/start-a-project/StartProject"),
+  () => import("./pages/start-a-project/StartProject"),
 );
-const KForBusiness = lazy(() => import("@/pages/KForBusiness/KForBusiness"));
+const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
 const BrothersUmrah = lazy(() => import("./pages/BrothersUmrah"));
-const ErrorPage = lazy(() => import("@/pages/ErrorPage"));
-
-// Terms and Privacy imports
-const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
-const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 export const router = createBrowserRouter([
   {
@@ -96,14 +91,6 @@ export const router = createBrowserRouter([
   {
     path: "/brothersumrah",
     element: wrapWithProviders(BrothersUmrah),
-  },
-  {
-    path: "/terms",
-    element: wrapWithProviders(TermsAndConditions),
-  },
-  {
-    path: "/privacy",
-    element: wrapWithProviders(PrivacyPolicy),
   },
   {
     path: "*",

@@ -8,6 +8,7 @@ export default {
         heading: ["IvyPresto Display", "serif"],
         body: ["Obviously", "sans-serif"],
         queens: ["Queens Bold", "serif"],
+        display: ["Montserrat", "sans-serif"], // Added for Umrah component
       },
       fontWeight: {
         560: "560",
@@ -38,6 +39,10 @@ export default {
             bg: "#EFEFEF",
           },
         },
+        // Added Umrah-specific colors
+        "umrah-darkPurple": "#3c1053",
+        "umrah-purple": "#5d2082",
+        "umrah-gold": "#d4af37",
       },
       keyframes: {
         fadeIn: {

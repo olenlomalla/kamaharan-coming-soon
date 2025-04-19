@@ -2,10 +2,12 @@ import { FC } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
-  title?: string;
+  // You can remove the title prop if you're not using it
+  // If you want to keep it for future use, leave it commented
+  // title?: string;
 }
 
-const Header: FC<HeaderProps> = ({ title = "Brothers Umrah" }) => {
+const Header: FC<HeaderProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
 

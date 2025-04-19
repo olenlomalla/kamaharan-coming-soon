@@ -33,6 +33,8 @@ const StartAProject = lazy(
 );
 const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
 const BrothersUmrah = lazy(() => import("./pages/BrothersUmrah"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 export const router = createBrowserRouter([
@@ -91,6 +93,14 @@ export const router = createBrowserRouter([
   {
     path: "/brothersumrah",
     element: wrapWithProviders(BrothersUmrah),
+  },
+  {
+    path: "/terms",
+    element: wrapWithProviders(TermsAndConditions),
+  },
+  {
+    path: "/privacy",
+    element: wrapWithProviders(PrivacyPolicy),
   },
   {
     path: "*",

@@ -41,7 +41,9 @@ const Benefits: FC = () => {
           </h2>
           <p className="text-gray-600">
             Designed specifically for Young Muslim Men, this journey offers
-            unique benefits that go beyond a typical Umrah trip.
+            unique benefits that go beyond a typical Umrah trip while opening
+            the door to joining Kamaharan’s mission for global Tech and digital
+            solutions
           </p>
         </div>
 

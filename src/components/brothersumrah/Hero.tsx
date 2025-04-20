@@ -1,6 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Hero: FC = () => {
+  const [navOpen, setNavOpen] = useState(false);
+
   // Add this function to handle the scroll with offset
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -19,6 +28,7 @@ const Hero: FC = () => {
         });
       }
     }
+    setNavOpen(false); // Close menu after click
   };
 
   return (
@@ -35,6 +45,44 @@ const Hero: FC = () => {
       {/* Purple/Gold Overlay - 50% lighter */}
       <div className="absolute inset-0 z-0 bg-umrah-darkPurple/40" />
       {/* Changed from 80% to 40% opacity */}
+
+      {/* Burger Menu */}
+      <button
+        className="fixed right-4 top-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-umrah-purple/80 p-2 shadow-lg md:right-8 md:top-8"
+        aria-label="Open navigation menu"
+        onClick={() => setNavOpen((open) => !open)}
+      >
+        <svg
+          width="32"
+          height="32"
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          viewBox="0 0 24 24"
+        >
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+
+      {/* Navbar Links - show on burger click (all screen sizes) */}
+      {navOpen && (
+        <nav className="fixed inset-0 z-20 flex flex-col items-center justify-center space-y-8 bg-umrah-darkPurple/95">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={handleSmoothScroll}
+              className="text-2xl font-bold text-white transition hover:text-umrah-gold"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
 
       <div className="container-custom relative z-10 flex min-h-[90vh] flex-col items-center justify-center py-20 text-center">
         <h1 className="heading-xl mb-6 max-w-4xl animate-fade-in text-white">

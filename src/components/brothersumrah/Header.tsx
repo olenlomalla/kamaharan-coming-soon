@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
@@ -10,6 +10,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Helper to scroll to the top of the page
   const scrollToTop = () => {
@@ -53,6 +54,8 @@ const Header: FC<HeaderProps> = () => {
     } else {
       scrollToSection(id);
     }
+    // Close mobile menu after clicking
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -60,12 +63,13 @@ const Header: FC<HeaderProps> = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link
           to="/brothersumrah"
-          className="font-display text-5xl font-bold text-umrah-darkPurple"
+          className="-ml-4 font-display text-xl font-bold text-umrah-darkPurple sm:-ml-8 sm:text-2xl md:-ml-12 md:text-3xl lg:-ml-20"
           onClick={handleTitleClick} // Added onClick handler
         >
           Brothers <span className="text-umrah-gold">Umrah</span> 2025/26
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           <span
             onClick={() => handleNavClick("top")}
@@ -106,7 +110,10 @@ const Header: FC<HeaderProps> = () => {
           >
             Contact Us
           </button>
-          <button className="text-umrah-darkPurple md:hidden">
+          <button
+            className="text-umrah-darkPurple md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -124,6 +131,50 @@ const Header: FC<HeaderProps> = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="bg-white px-4 py-4 shadow-md md:hidden">
+          <nav className="flex flex-col space-y-4">
+            <span
+              onClick={() => handleNavClick("top")}
+              className="cursor-pointer text-umrah-darkPurple transition-colors hover:text-umrah-purple"
+            >
+              Home
+            </span>
+            <span
+              onClick={() => handleNavClick("experience")}
+              className="cursor-pointer text-umrah-darkPurple transition-colors hover:text-umrah-purple"
+            >
+              The Experience
+            </span>
+            <span
+              onClick={() => handleNavClick("journey-itinerary")}
+              className="cursor-pointer text-umrah-darkPurple transition-colors hover:text-umrah-purple"
+            >
+              Journey Itinerary
+            </span>
+            <span
+              onClick={() => handleNavClick("benefits")}
+              className="cursor-pointer text-umrah-darkPurple transition-colors hover:text-umrah-purple"
+            >
+              Why This Trip?
+            </span>
+            <span
+              onClick={() => handleNavClick("pricing")}
+              className="cursor-pointer text-umrah-darkPurple transition-colors hover:text-umrah-purple"
+            >
+              Pricing & Packages
+            </span>
+            <span
+              onClick={() => handleNavClick("contact-section")}
+              className="cursor-pointer font-semibold text-umrah-purple transition-colors hover:text-umrah-darkPurple"
+            >
+              Contact Us
+            </span>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

@@ -86,7 +86,7 @@ const Hero: FC = () => {
 
       <div className="container-custom relative z-10 flex min-h-[90vh] flex-col items-center justify-center py-20 text-center">
         <h1 className="heading-xl mb-6 max-w-4xl animate-fade-in text-white">
-          A journey to faith, Adventure and a Bright Future
+          A journey to faith, Adventure and a Prosperous Future
         </h1>
 
         <p

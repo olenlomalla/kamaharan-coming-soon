@@ -1,6 +1,14 @@
 import { FC } from "react";
 
 const VideoShowcase: FC = () => {
+  // Set this to true to enable the component, false to disable it
+  const isEnabled = false;
+
+  // If disabled, return null (component won't render at all)
+  if (!isEnabled) {
+    return null;
+  }
+
   return (
     <section className="bg-umrah-cream py-20">
       <div className="container-custom">

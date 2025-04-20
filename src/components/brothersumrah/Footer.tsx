@@ -1,11 +1,40 @@
-import { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { FC, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { Mail, MessageSquare, Phone } from "lucide-react";
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handle smooth scrolling with offset for anchor links
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.replace("#", "");
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        // Calculate position with offset (120px offset to account for headers)
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset - 120;
+
+        // Smooth scroll to that position
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  // Effect to scroll to top when navigating to Terms or Privacy pages
+  useEffect(() => {
+    // Check if we're on terms or privacy page and scroll to top
+    if (location.pathname === "/terms" || location.pathname === "/privacy") {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
   const handleLogoClick = (): void => {
     navigate("/");
@@ -26,7 +55,7 @@ const Footer: FC = () => {
             </Link>
             <p className="text-gray-300">
               A transformative first of its kind journey combining faith,
-              adventure, and lifelong brotherhood for Young Muslims in the UK.
+              adventure, lifelong brotherhood and development for Young Muslims.
             </p>
           </div>
 
@@ -38,6 +67,7 @@ const Footer: FC = () => {
                 <a
                   href="#experience"
                   className="text-gray-300 transition-colors hover:text-white"
+                  onClick={handleSmoothScroll}
                 >
                   The Experience
                 </a>
@@ -46,6 +76,7 @@ const Footer: FC = () => {
                 <a
                   href="#journey-itinerary"
                   className="text-gray-300 transition-colors hover:text-white"
+                  onClick={handleSmoothScroll}
                 >
                   Journey Itinerary
                 </a>
@@ -54,6 +85,7 @@ const Footer: FC = () => {
                 <a
                   href="#benefits"
                   className="text-gray-300 transition-colors hover:text-white"
+                  onClick={handleSmoothScroll}
                 >
                   Why This Trip?
                 </a>
@@ -62,6 +94,7 @@ const Footer: FC = () => {
                 <a
                   href="#pricing"
                   className="text-gray-300 transition-colors hover:text-white"
+                  onClick={handleSmoothScroll}
                 >
                   Pricing
                 </a>
@@ -70,6 +103,7 @@ const Footer: FC = () => {
                 <a
                   href="#faq"
                   className="text-gray-300 transition-colors hover:text-white"
+                  onClick={handleSmoothScroll}
                 >
                   FAQ
                 </a>
@@ -132,8 +166,7 @@ const Footer: FC = () => {
 
         <div className="flex flex-col items-center justify-between border-t border-gray-700 pt-8 md:flex-row">
           <p className="mb-4 text-sm text-gray-400 md:mb-0">
-            &copy; {currentYear} Kamaharan in partnership with Dune Tours (a
-            trading name of MP Global). All rights reserved.
+            &copy; {currentYear} Kamaharan all rights reserved.
           </p>
         </div>
       </div>

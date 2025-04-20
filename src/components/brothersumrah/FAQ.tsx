@@ -45,7 +45,7 @@ const FAQ: FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600">
-            Find answers to common questions about our Brothers' Umrah journey
+            Find answers to common questions about our Brothers Umrah journey
             and the Kamaharan Development programme.
           </p>
         </div>

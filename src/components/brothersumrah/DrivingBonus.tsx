@@ -37,7 +37,8 @@ const DrivingBonus: FC = () => {
           filter: "brightness(0.7)",
         }}
       />
-
+      {/* Subtle dark overlay for better text visibility */}
+      <div className="absolute inset-0 z-0 bg-black/30" />
       <div className="absolute inset-0 z-0 bg-umrah-darkPurple/50" />
 
       <div className="container relative z-10 mx-auto px-4">

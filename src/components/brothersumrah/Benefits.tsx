@@ -40,8 +40,8 @@ const Benefits: FC = () => {
             Why This Trip?
           </h2>
           <p className="text-gray-600">
-            Designed specifically for Young Muslim Men from the UK, this journey
-            offers unique benefits that go beyond a typical Umrah trip.
+            Designed specifically for Young Muslim Men, this journey offers
+            unique benefits that go beyond a typical Umrah trip.
           </p>
         </div>
 

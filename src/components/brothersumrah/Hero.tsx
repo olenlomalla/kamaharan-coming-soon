@@ -1,6 +1,26 @@
 import { FC } from "react";
 
 const Hero: FC = () => {
+  // Add this function to handle the scroll with offset
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.replace("#", "");
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        // Calculate position with offset (120px should work well for most headers)
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset - 120;
+
+        // Smooth scroll to that position
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   return (
     <section className="relative overflow-hidden pt-20">
       {/* Hero Background - Prophet's Mosque with umbrellas */}
@@ -42,7 +62,11 @@ const Hero: FC = () => {
         </div>
 
         <div className="absolute bottom-12 left-0 right-0 flex animate-bounce justify-center">
-          <a href="#experience" aria-label="Scroll down to learn more">
+          <a
+            href="#experience"
+            aria-label="Scroll down to learn more"
+            onClick={handleSmoothScroll}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="44"

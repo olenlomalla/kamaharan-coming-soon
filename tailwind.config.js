@@ -86,9 +86,9 @@ module.exports = {
           sand: "#EADECA",
           cream: "#FEF8EC",
         },
-        "umrah-darkPurple": "#3c1053",
-        "umrah-purple": "#5d2082",
-        "umrah-gold": "#d4af37",
+        "umrah-darkPurple": "#4A3F6A",
+        "umrah-purple": "#7E69AB",
+        "umrah-gold": "#D4AF37",
         "umrah-cream": "#f9f5e7",
         chart: {
           1: "hsl(var(--chart-1))",

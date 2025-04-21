@@ -18,7 +18,9 @@ const TerminalContainer = styled.div`
   @media (max-width: 900px) and (orientation: landscape) {
     width: 40%; /* Take up left third of screen in landscape */
     margin-top: 0;
-    margin-left: 5%; /* Add some margin from the left edge */
+    margin-left: calc(
+      5% + env(safe-area-inset-left)
+    ); /* Account for iOS safe area */
     position: relative;
   }
 `;
@@ -85,7 +87,9 @@ const Cursor = styled.span`
 const CTAContainer = styled.div`
   position: fixed;
   left: 50%;
-  bottom: 80px;
+  bottom: calc(
+    80px + env(safe-area-inset-bottom, 0px)
+  ); /* Account for iOS bottom safe area */
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -100,7 +104,9 @@ const CTAContainer = styled.div`
   /* Show in landscape mode and position properly */
   @media (max-width: 900px) and (orientation: landscape) {
     display: flex;
-    bottom: 20px;
+    bottom: calc(
+      20px + env(safe-area-inset-bottom, 0px)
+    ); /* Account for iOS bottom safe area */
     width: auto;
   }
 `;

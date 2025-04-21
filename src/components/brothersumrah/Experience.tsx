@@ -51,9 +51,9 @@ const Experience: React.FC = () => {
       {/* Background Image with similar positioning to ContactForm and Pricing */}
       <div className="relative w-full bg-white">
         {/* Image container - aligned with timeline itinerary box */}
-        <div className="absolute bottom-auto top-auto z-0 md:left-0 md:top-[40%] md:h-auto md:w-auto md:-translate-x-1/3 md:transform">
+        <div className="md:-translate-x-0.5/4 absolute bottom-auto top-auto z-0 md:left-0 md:top-[40%] md:h-auto md:w-auto md:transform">
           <img
-            src="/images/Professionalbrothers.png"
+            src="/images/Horses.png"
             alt="Professional Brothers"
             className="h-auto max-h-[800px] w-full object-contain md:h-auto md:w-auto"
           />

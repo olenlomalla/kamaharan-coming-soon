@@ -74,7 +74,8 @@ const PricingTier: FC<PricingTierProps> = ({
 );
 
 const Pricing: FC = () => {
-  const stripeLink = "https://book.stripe.com/fZe14H13f4j54bmdQQ";
+  const standardPackageLink = "https://book.stripe.com/cN214HaDP9Dp37i147";
+  const mentorshipPackageLink = "https://book.stripe.com/eVadRteU516TazK3ce";
 
   return (
     <section id="pricing" className="relative overflow-hidden">
@@ -83,7 +84,7 @@ const Pricing: FC = () => {
         {/* Image container - changes position based on screen size */}
         <div className="absolute inset-0 z-0 md:inset-auto md:left-0 md:top-0 md:h-full md:w-auto md:-translate-x-1/3 md:transform">
           <img
-            src="/images/Brothersfront.png"
+            src="/images/Brothersfront1.png"
             alt="Brothers Front Profile"
             className="h-full w-full object-cover md:h-full md:w-auto"
           />
@@ -120,7 +121,7 @@ const Pricing: FC = () => {
                   "Transportation within Saudi Arabia",
                   "Professional networking",
                 ]}
-                stripeLink={stripeLink}
+                stripeLink={standardPackageLink}
               />
 
               <PricingTier
@@ -137,13 +138,13 @@ const Pricing: FC = () => {
                   "Post-Trip Dedicated Development Support",
                 ]}
                 recommended={true}
-                stripeLink={stripeLink}
+                stripeLink={mentorshipPackageLink}
               />
             </div>
 
             <div className="mx-auto mt-12 max-w-2xl text-center">
               <a
-                href={stripeLink}
+                href="https://book.stripe.com/fZe14H13f4j54bmdQQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block rounded-md bg-umrah-purple px-8 py-6 text-lg font-bold uppercase text-white shadow-md transition-all hover:bg-umrah-darkPurple hover:shadow-lg"

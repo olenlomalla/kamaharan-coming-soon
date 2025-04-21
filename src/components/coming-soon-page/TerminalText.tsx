@@ -8,11 +8,21 @@ const TerminalContainer = styled.div`
   padding: 0;
   z-index: 20;
   margin-top: -10%; /* Move text up by 10% on desktop */
+
   @media (max-width: 768px) {
     margin-top: 0; /* Reset for mobile views */
     width: 80%; /* Increase width on mobile for better text visibility */
   }
+
+  /* Add landscape mode media query */
+  @media (max-width: 900px) and (orientation: landscape) {
+    width: 40%; /* Take up left third of screen in landscape */
+    margin-top: 0;
+    margin-left: 5%; /* Add some margin from the left edge */
+    position: relative;
+  }
 `;
+
 const Term = styled.div`
   font-family: "Courier New", Courier, monospace !important;
   font-size: 38px; /* Increased from 28px to 38px for desktop */
@@ -31,22 +41,33 @@ const Term = styled.div`
   line-height: 1.5; /* Increased for better readability */
   text-align: left;
   max-width: 100%;
+
   @media (max-width: 768px) {
     font-size: 40px; /* Maintained at 40px for mobile */
     line-height: 1.5;
     text-align: left;
   }
+
   @media (max-width: 480px) {
     font-size: 40px; /* Maintained at 40px for smaller mobile */
     line-height: 1.5;
     letter-spacing: 0.5px;
   }
+
+  /* Add landscape mode styling */
+  @media (max-width: 900px) and (orientation: landscape) {
+    font-size: 24px; /* Reduced font size for landscape */
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
 `;
+
 const TextLine = styled.div`
   white-space: nowrap;
-  overflow: visible; /* Changed from hidden to visible to ensure text isn’t cut off */
+  overflow: visible; /* Changed from hidden to visible to ensure text isn't cut off */
   margin-bottom: 10px; /* Add space between lines */
 `;
+
 const Cursor = styled.span`
   display: inline-block;
   color: #a0ffa0;
@@ -60,6 +81,7 @@ const Cursor = styled.span`
     }
   }
 `;
+
 const CTAContainer = styled.div`
   position: fixed;
   left: 50%;
@@ -74,34 +96,50 @@ const CTAContainer = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
+
+  /* Show in landscape mode and position properly */
+  @media (max-width: 900px) and (orientation: landscape) {
+    display: flex;
+    bottom: 20px;
+    width: auto;
+  }
 `;
 
 const CTAButton = styled.button`
- font-family: "Inter”, sans-serif;
- padding: 18px 45px;
- font-size: 16px;
- font-weight: 800;
- cursor: pointer;
- color: #fff;
- text-transform: uppercase;
- letter-spacing: 1.5px;
- background: #FF4D4D;
- border: none;
- border-radius: 4px;
- box-shadow: 0 4px 0 #CC3D3D;
- transition: all 0.15s ease;
- @media (max-width: 768px) {
-  padding: 15px 35px;
-  font-size: 14px;
- }
- @media (max-width: 480px) {
-  padding: 12px 25px;
-  font-size: 12px;
- }
- &:hover {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #CC3D3D;
- }
+  font-family: "Inter", sans-serif;
+  padding: 18px 45px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #cc3d3d;
+  transition: all 0.15s ease;
+
+  @media (max-width: 768px) {
+    padding: 15px 35px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 25px;
+    font-size: 12px;
+  }
+
+  /* Adjust size in landscape mode */
+  @media (max-width: 900px) and (orientation: landscape) {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #cc3d3d;
+  }
 `;
 
 interface TerminalTextProps {
@@ -114,6 +152,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
   const [secondLineText, setSecondLineText] = useState<string>("");
   const [blinkCount, setBlinkCount] = useState<number>(0);
   const [animationStage, setAnimationStage] = useState<number>(0); // Control cursor visibility
+
   useEffect(() => {
     let timer: NodeJS.Timeout;
     const runAnimation = () => {
@@ -165,11 +204,14 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
         }
       }
     };
+
     runAnimation();
+
     return () => {
       clearTimeout(timer);
     };
   }, [animationStage, blinkCount, firstLineText, secondLineText]);
+
   return (
     <>
       <TerminalContainer>

@@ -68,7 +68,7 @@ const FAQ: FC = () => {
 
           <FAQItem
             question="Is there a payment plan available?"
-            answer="Yes! After the initial deposit of £600, we offer flexible payment plans allowing you to pay the remaining balance in monthly instalments leading up to the trip. Please contact us for personalised payment arrangements."
+            answer="Yes! After the initial deposit of £600, we offer flexible payment plans so you can pay the remaining balance in monthly instalments leading up to the trip. Please note that flight prices may increase over time, so securing your place early or completing full payment can help avoid potential price changes. Contact us to discuss personalised payment arrangements that work for you."
           />
 
           <FAQItem

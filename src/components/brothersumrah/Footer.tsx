@@ -166,7 +166,8 @@ const Footer: FC = () => {
 
         <div className="flex flex-col items-center justify-between border-t border-gray-700 pt-8 md:flex-row">
           <p className="mb-4 text-sm text-gray-400 md:mb-0">
-            &copy; {currentYear} Kamaharan all rights reserved.
+            &copy; {currentYear} Kamaharan all rights reserved. Operated by MA
+            Global
           </p>
         </div>
       </div>

@@ -50,8 +50,8 @@ const Experience: React.FC = () => {
     <section id="experience" className="relative overflow-hidden">
       {/* Background Image with similar positioning to ContactForm and Pricing */}
       <div className="relative w-full bg-white">
-        {/* Image container - aligned with timeline itinerary box */}
-        <div className="md:-translate-x-0.5/4 absolute bottom-auto top-auto z-0 md:left-0 md:top-[40%] md:h-auto md:w-auto md:transform">
+        {/* Image container - MODIFIED to align with "The Experience" title */}
+        <div className="md:-translate-x-0.5/4 absolute bottom-auto top-auto z-0 md:left-0 md:top-[0%] md:h-auto md:w-auto md:transform">
           <img
             src="/images/Horses.png"
             alt="Professional Brothers"
@@ -85,9 +85,8 @@ const Experience: React.FC = () => {
                 paths forward for both your Deen and personal goals.
                 <br />
                 <br />
-                This is also an opportunity to explore Saudi Arabia like never
-                before, through days filled with discovery, adventure, and
-                late-night conversations about growth and the new future.
+                <br />
+                <br />
               </p>
             </div>
 
@@ -95,12 +94,13 @@ const Experience: React.FC = () => {
               <ExperienceCard
                 icon={Calendar}
                 title="Sacred Moments"
-                description="Experience the profound tranquillity of Madinah and the Prophet's Masjid and completing Umrah in Makkah."
+                description="Experience the profound tranquillity of Madinah and the Prophet's Masjid and completing Umrah in Makkah"
               />
               <ExperienceCard
                 icon={Compass}
                 title="Adventures"
-                description="From horse riding to scuba diving in the Red Sea, and from camel rides to stargazing in the desert."
+                description=" Through days filled with discovery, activities, and
+                late-night conversations about growth and the new future"
               />
               <ExperienceCard
                 icon={MapPin}

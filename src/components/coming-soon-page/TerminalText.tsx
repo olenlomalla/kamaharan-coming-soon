@@ -14,29 +14,24 @@ const TerminalContainer = styled.div`
     width: 80%; /* Increase width on mobile for better text visibility */
   }
 
-  /* Add landscape mode media query with iOS-specific fixes */
+  /* Add landscape mode media query - keep original Android behavior */
   @media (max-width: 900px) and (orientation: landscape) {
-    width: 45%; /* Slightly increased width for better text visibility */
-    margin-top: 5vh; /* Use viewport height for consistent positioning */
+    width: 40%; /* Take up left third of screen in landscape */
+    margin-top: 0;
     margin-left: calc(
-      3% + env(safe-area-inset-left)
-    ); /* Reduced margin for more space */
-    position: fixed; /* Changed to fixed for better iOS handling */
-    top: 0;
-    padding-top: calc(
-      10px + env(safe-area-inset-top)
-    ); /* Account for notch/status bar */
-    max-height: calc(
-      100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
-    );
-    overflow: visible;
+      5% + env(safe-area-inset-left)
+    ); /* Account for iOS safe area */
+    position: relative;
   }
 
-  /* Specific fixes for iOS landscape */
+  /* iOS-specific fixes only */
   @supports (-webkit-touch-callout: none) {
     @media (max-width: 900px) and (orientation: landscape) {
-      margin-top: 8vh; /* Slightly more margin for iOS */
-      width: 50%; /* Even wider for iOS to ensure text fits */
+      width: 55%; /* Wider for iOS to prevent text cutoff */
+      margin-top: 2vh; /* Small top margin for iOS */
+      margin-left: calc(
+        3% + env(safe-area-inset-left)
+      ); /* Slightly less left margin for iOS */
     }
   }
 `;
@@ -72,19 +67,18 @@ const Term = styled.div`
     letter-spacing: 0.5px;
   }
 
-  /* Add landscape mode styling with better sizing */
+  /* Add landscape mode styling - keep original */
   @media (max-width: 900px) and (orientation: landscape) {
-    font-size: 22px; /* Slightly reduced font size for landscape */
-    line-height: 1.3; /* Adjusted line height */
+    font-size: 24px; /* Reduced font size for landscape */
+    line-height: 1.2;
     letter-spacing: 0.5px;
-    word-break: break-word; /* Allow text to wrap if needed */
   }
 
-  /* iOS-specific adjustments */
+  /* iOS-specific font size reduction only */
   @supports (-webkit-touch-callout: none) {
     @media (max-width: 900px) and (orientation: landscape) {
-      font-size: 20px; /* Even smaller for iOS to ensure it fits */
-      line-height: 1.2;
+      font-size: 18px; /* Smaller font for iOS landscape */
+      line-height: 1.1;
       letter-spacing: 0.3px;
     }
   }
@@ -94,13 +88,6 @@ const TextLine = styled.div`
   white-space: nowrap;
   overflow: visible; /* Changed from hidden to visible to ensure text isn't cut off */
   margin-bottom: 10px; /* Add space between lines */
-
-  /* Allow wrapping in landscape if absolutely necessary */
-  @media (max-width: 900px) and (orientation: landscape) {
-    white-space: normal; /* Allow wrapping in landscape */
-    word-break: keep-all; /* Try to keep words together */
-    hyphens: none; /* Disable hyphenation */
-  }
 `;
 
 const Cursor = styled.span`
@@ -134,17 +121,13 @@ const CTAContainer = styled.div`
     display: none;
   }
 
-  /* Show in landscape mode and position properly */
+  /* Show in landscape mode and position properly - keep original */
   @media (max-width: 900px) and (orientation: landscape) {
     display: flex;
     bottom: calc(
-      15px + env(safe-area-inset-bottom, 0px)
-    ); /* Reduced bottom spacing */
-    left: auto; /* Reset left positioning */
-    right: 5%; /* Position from right side */
-    transform: none; /* Remove centering transform */
+      20px + env(safe-area-inset-bottom, 0px)
+    ); /* Account for iOS bottom safe area */
     width: auto;
-    align-items: flex-end; /* Align to right side */
   }
 `;
 
@@ -173,11 +156,10 @@ const CTAButton = styled.button`
     font-size: 12px;
   }
 
-  /* Adjust size in landscape mode */
+  /* Adjust size in landscape mode - keep original */
   @media (max-width: 900px) and (orientation: landscape) {
-    padding: 8px 16px; /* Smaller padding */
-    font-size: 11px; /* Smaller font */
-    letter-spacing: 1px; /* Reduced letter spacing */
+    padding: 10px 20px;
+    font-size: 12px;
   }
 
   &:hover {

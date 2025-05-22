@@ -27,11 +27,11 @@ const TerminalContainer = styled.div`
   /* iOS-specific fixes only */
   @supports (-webkit-touch-callout: none) {
     @media (max-width: 900px) and (orientation: landscape) {
-      width: 55%; /* Wider for iOS to prevent text cutoff */
-      margin-top: 2vh; /* Small top margin for iOS */
+      width: 60%; /* Even wider for iOS to prevent text cutoff */
+      margin-top: 1vh; /* Small top margin for iOS */
       margin-left: calc(
-        3% + env(safe-area-inset-left)
-      ); /* Slightly less left margin for iOS */
+        2% + env(safe-area-inset-left)
+      ); /* Less left margin for iOS to give more space */
     }
   }
 `;
@@ -74,13 +74,20 @@ const Term = styled.div`
     letter-spacing: 0.5px;
   }
 
-  /* iOS-specific font size reduction only */
+  /* iOS-specific font size - match Android exactly */
   @supports (-webkit-touch-callout: none) {
     @media (max-width: 900px) and (orientation: landscape) {
-      font-size: 18px; /* Smaller font for iOS landscape */
-      line-height: 1.1;
-      letter-spacing: 0.3px;
+      font-size: 24px !important; /* Force same size as Android */
+      line-height: 1.2 !important;
+      letter-spacing: 0.5px !important;
     }
+  }
+
+  /* Additional iOS Safari specific targeting */
+  @media (max-width: 900px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.5px !important;
   }
 `;
 

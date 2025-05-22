@@ -69,27 +69,15 @@ const ComingSoonPageLayout: React.FC = () => {
           />
         </div>
 
-        {/* Landscape */}
+        {/* Landscape - CTA removed */}
         <div className="flex w-full items-center justify-between px-6 py-4 portrait:hidden">
-          <div className="w-1/3 overflow-hidden">
+          <div className="w-1/2 overflow-hidden">
             <div className="w-[140%] origin-bottom-left scale-[0.5]">
               <TerminalText />
             </div>
           </div>
 
-          <div className="flex w-1/3 flex-col items-center gap-2">
-            <span className="text-sm text-white">TO FIND OUT MORE</span>
-            <a
-              href={formUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded bg-red-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
-            >
-              REQUEST INVITE
-            </a>
-          </div>
-
-          <div className="flex w-1/3 justify-end">
+          <div className="flex w-1/2 justify-end">
             <img
               src="/icons/logo-white.svg"
               alt="Kamaharan Logo"

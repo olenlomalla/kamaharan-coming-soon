@@ -227,7 +227,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       }
       // Stage 3: Type second line
       else if (animationStage === 3) {
-        const text = "COMING SOON...";
+        const text = "COMING SOON....";
         if (secondLineText.length < text.length) {
           timer = setTimeout(() => {
             setSecondLineText(text.substring(0, secondLineText.length + 1));

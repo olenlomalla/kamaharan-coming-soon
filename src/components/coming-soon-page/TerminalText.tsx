@@ -124,17 +124,14 @@ const CTAContainer = styled.div`
   gap: 20px;
   z-index: 20;
 
-  @media (min-width: 768px) {
+  /* Hide on all mobile devices - both portrait and landscape */
+  @media (max-width: 900px) {
     display: none;
   }
 
-  /* Show in landscape mode and position properly - keep original */
-  @media (max-width: 900px) and (orientation: landscape) {
+  /* Show only on desktop */
+  @media (min-width: 901px) {
     display: flex;
-    bottom: calc(
-      20px + env(safe-area-inset-bottom, 0px)
-    ); /* Account for iOS bottom safe area */
-    width: auto;
   }
 `;
 
@@ -227,7 +224,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       }
       // Stage 3: Type second line
       else if (animationStage === 3) {
-        const text = "COMING SOON....";
+        const text = "COMING SOON...";
         if (secondLineText.length < text.length) {
           timer = setTimeout(() => {
             setSecondLineText(text.substring(0, secondLineText.length + 1));
@@ -263,9 +260,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       {setModalOpen && (
         <CTAContainer>
           <div className="font-mono text-lg text-white">TO FIND OUT MORE</div>
-          <CTAButton onClick={() => setModalOpen(true)}>
-            REQUEST INVITE
-          </CTAButton>
+          <CTAButton onClick={() => setModalOpen(true)}>REQUEST</CTAButton>
         </CTAContainer>
       )}
     </>

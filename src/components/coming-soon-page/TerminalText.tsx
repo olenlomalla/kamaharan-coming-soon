@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import styled from "@emotion/styled";
 
-// --- iOS Landscape Detection Hook ---
+// --- iOS Landscape Detection Hook (inline for convenience) ---
 const useIOSLandscapeClass = () => {
   useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined")
+      return;
     const isIOS =
       /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const updateClass = () => {
@@ -163,14 +165,11 @@ const CTAButton = styled.button`
   }
 `;
 
-// --- Main Component ---
-
 interface TerminalTextProps {
   setModalOpen?: (isOpen: boolean) => void;
 }
 
 const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
-  // Add iOS landscape class to <body> when needed
   useIOSLandscapeClass();
 
   const [cursorPosition, setCursorPosition] = useState<number>(1);

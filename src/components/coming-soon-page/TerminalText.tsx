@@ -25,13 +25,9 @@ const TerminalContainer = styled.div`
   }
 
   /* iOS-specific fixes - wider container */
-  @supports (-webkit-touch-callout: none) {
-    @media (max-width: 900px) and (orientation: landscape) {
-      width: 60%; /* Wider for iOS to prevent text cutoff */
-      margin-left: calc(
-        2% + env(safe-area-inset-left)
-      ); /* Less left margin for iOS */
-    }
+  body.ios-landscape & {
+    width: 55% !important;
+    margin-left: calc(3% + env(safe-area-inset-left)) !important;
   }
 `;
 
@@ -66,50 +62,25 @@ const Term = styled.div`
     letter-spacing: 0.5px;
   }
 
-  /* Add landscape mode styling */
+  /* Landscape mode styling for Android */
   @media (max-width: 900px) and (orientation: landscape) {
     font-size: 24px; /* Reduced font size for landscape */
     line-height: 1.2;
     letter-spacing: 0.5px;
   }
 
-  /* Force smaller font on ALL landscape mobile devices */
-  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-    font-size: 18px !important; /* Even smaller for very short screens (typical iOS landscape) */
-    line-height: 1 !important;
-    letter-spacing: 0.2px !important;
+  /* Alternative landscape targeting that works better on iOS */
+  @media (orientation: landscape) and (max-width: 900px) {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.5px !important;
   }
 
-  /* Multiple iOS detection methods for reliable font size reduction */
-  @supports (-webkit-touch-callout: none) {
-    @media (max-width: 900px) and (orientation: landscape) {
-      font-size: 20px !important; /* Smaller font for iOS landscape */
-      line-height: 1.1 !important;
-      letter-spacing: 0.3px !important;
-    }
-  }
-
-  /* Additional iOS-specific targeting */
-  @media (max-width: 900px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-    font-size: 20px !important;
-    line-height: 1.1 !important;
-    letter-spacing: 0.3px !important;
-  }
-
-  /* Safari-specific targeting */
-  @media (max-width: 900px) and (orientation: landscape) {
-    @supports (font: -apple-system-body) {
-      font-size: 20px !important;
-      line-height: 1.1 !important;
-      letter-spacing: 0.3px !important;
-    }
-  }
-
-  /* Webkit-specific targeting for iOS devices */
-  @media (max-width: 900px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    font-size: 20px !important;
-    line-height: 1.1 !important;
-    letter-spacing: 0.3px !important;
+  /* iOS-specific font size - SAME as Android to match exactly */
+  body.ios-landscape & {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.5px !important;
   }
 `;
 
@@ -193,11 +164,46 @@ interface TerminalTextProps {
 }
 
 const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
-  const [cursorPosition, setCursorPosition] = useState<number>(1); // 1 = first line, 2 = second line
+  const [cursorPosition, setCursorPosition] = useState<number>(1);
   const [firstLineText, setFirstLineText] = useState<string>("");
   const [secondLineText, setSecondLineText] = useState<string>("");
   const [blinkCount, setBlinkCount] = useState<number>(0);
-  const [animationStage, setAnimationStage] = useState<number>(0); // Control cursor visibility
+  const [animationStage, setAnimationStage] = useState<number>(0);
+
+  // iOS Landscape Detection Hook - SSR Safe
+  useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === "undefined" || typeof document === "undefined")
+      return;
+
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    const handleResize = () => {
+      if (isIOS && window.innerWidth > window.innerHeight) {
+        document.body.classList.add("ios-landscape");
+      } else {
+        document.body.classList.remove("ios-landscape");
+      }
+    };
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+
+    // Run immediately
+    handleResize();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+      // Clean up class on unmount
+      if (typeof document !== "undefined") {
+        document.body.classList.remove("ios-landscape");
+      }
+    };
+  }, []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -205,10 +211,9 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       // Stage 0: Initial blinking (4 times)
       if (animationStage === 0) {
         if (blinkCount < 8) {
-          // 4 full blinks (on-off cycles) = 8 states
           timer = setTimeout(() => {
             setBlinkCount((prevCount) => prevCount + 1);
-          }, 500); // Slower blink rate (500ms per state)
+          }, 500);
         } else {
           setAnimationStage(1);
           setBlinkCount(0);
@@ -229,7 +234,6 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
       // Stage 2: Blinking before second line (4 times)
       else if (animationStage === 2) {
         if (blinkCount < 8) {
-          // 4 full blinks
           timer = setTimeout(() => {
             setBlinkCount((prevCount) => prevCount + 1);
           }, 500);
@@ -246,7 +250,7 @@ const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
             setSecondLineText(text.substring(0, secondLineText.length + 1));
           }, 75);
         } else {
-          setAnimationStage(4); // Final state - just keep blinking
+          setAnimationStage(4);
         }
       }
     };

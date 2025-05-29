@@ -1,10 +1,16 @@
-import { FC } from "react";
+import React from "react";
 
-import Footer from "@/components/brothersumrah/Footer";
-import Header from "@/components/brothersumrah/Header";
-import { Mail, MessageSquare, Phone } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
 
-const PrivacyPolicyForm: FC = () => {
+const PrivacyPolicyForm: React.FC = () => {
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const footer = document.querySelector("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-umrah-cream">
       {/* Custom Header */}
@@ -37,12 +43,7 @@ const PrivacyPolicyForm: FC = () => {
               </a>
               <a
                 href="#footer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document
-                    .querySelector("footer")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={handleContactClick}
                 className="font-medium text-umrah-purple transition-colors hover:text-umrah-darkPurple"
               >
                 Contact Us
@@ -51,6 +52,7 @@ const PrivacyPolicyForm: FC = () => {
           </div>
         </div>
       </header>
+
       <div className="container-custom mt-16 py-20">
         <div className="prose prose-lg mx-auto max-w-4xl rounded-lg bg-white p-8 shadow-md">
           <h1 className="heading-lg mb-8 text-umrah-darkPurple">
@@ -139,7 +141,7 @@ const PrivacyPolicyForm: FC = () => {
                 </li>
                 <li>
                   <strong>Contract:</strong> Where processing is necessary to
-                  deliver the programme services you've applied for
+                  deliver the programme services you have applied for
                 </li>
               </ul>
             </section>

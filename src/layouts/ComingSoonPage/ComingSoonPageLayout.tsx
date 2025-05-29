@@ -7,11 +7,8 @@ const ComingSoonPageLayout: React.FC = () => {
 
   return (
     <div className="relative z-10 flex min-h-[100svh] w-full flex-col justify-end">
-      {/* Desktop Layout - only show on larger screens with enough height */}
-      <div
-        className="mx-auto mb-8 hidden w-full max-w-[1440px] grid-cols-2 gap-6 px-6 md:grid md:px-10"
-        style={{ minHeight: "600px" }}
-      >
+      {/* Desktop Layout */}
+      <div className="mx-auto mb-8 hidden w-full max-w-[1440px] grid-cols-2 gap-6 px-6 md:grid md:px-10">
         {/* Terminal Text */}
         <div className="flex items-end overflow-hidden">
           <div className="w-[150%] origin-bottom-left scale-[0.65]">
@@ -78,7 +75,7 @@ const ComingSoonPageLayout: React.FC = () => {
           />
         </div>
 
-        {/* Landscape - Add CTA for short screens */}
+        {/* Landscape - Add CTA */}
         <div className="flex w-full items-center justify-between px-6 py-4 portrait:hidden">
           <div className="w-1/2 overflow-hidden">
             <div className="w-[140%] origin-bottom-left scale-[0.5]">
@@ -86,8 +83,8 @@ const ComingSoonPageLayout: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex w-1/2 flex-col items-end gap-3">
-            {/* Mobile Landscape CTA - smaller size */}
+          <div className="flex w-1/2 flex-col items-end justify-center gap-3">
+            {/* Mobile Landscape CTA */}
             <div className="flex flex-col items-center gap-2">
               <span className="font-mono text-xs text-white">
                 TO FIND OUT MORE

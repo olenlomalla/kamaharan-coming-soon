@@ -8,26 +8,9 @@ const TerminalContainer = styled.div`
   padding: 0;
   z-index: 20;
   margin-top: -10%; /* Move text up by 10% on desktop */
-
   @media (max-width: 768px) {
     margin-top: 0; /* Reset for mobile views */
     width: 80%; /* Increase width on mobile for better text visibility */
-  }
-
-  /* Add landscape mode media query */
-  @media (max-width: 900px) and (orientation: landscape) {
-    width: 40%; /* Take up left third of screen in landscape */
-    margin-top: 0;
-    margin-left: calc(
-      5% + env(safe-area-inset-left)
-    ); /* Account for iOS safe area */
-    position: relative;
-  }
-
-  /* iOS-specific fixes - wider container */
-  body.ios-landscape & {
-    width: 55% !important;
-    margin-left: calc(3% + env(safe-area-inset-left)) !important;
   }
 `;
 
@@ -49,44 +32,21 @@ const Term = styled.div`
   line-height: 1.5; /* Increased for better readability */
   text-align: left;
   max-width: 100%;
-
   @media (max-width: 768px) {
     font-size: 40px; /* Maintained at 40px for mobile */
     line-height: 1.5;
     text-align: left;
   }
-
   @media (max-width: 480px) {
     font-size: 40px; /* Maintained at 40px for smaller mobile */
     line-height: 1.5;
     letter-spacing: 0.5px;
   }
-
-  /* Landscape mode styling for Android */
-  @media (max-width: 900px) and (orientation: landscape) {
-    font-size: 24px; /* Reduced font size for landscape */
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-  }
-
-  /* Alternative landscape targeting that works better on iOS */
-  @media (orientation: landscape) and (max-width: 900px) {
-    font-size: 24px !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.5px !important;
-  }
-
-  /* iOS-specific font size - SAME as Android to match exactly */
-  body.ios-landscape & {
-    font-size: 24px !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.5px !important;
-  }
 `;
 
 const TextLine = styled.div`
   white-space: nowrap;
-  overflow: visible !important; /* Ensure text isn't cut off */
+  overflow: visible !important; /* Changed from hidden to visible to ensure text isn't cut off */
   margin-bottom: 10px; /* Add space between lines */
 `;
 
@@ -104,49 +64,60 @@ const Cursor = styled.span`
   }
 `;
 
-interface TerminalTextProps {}
+const CTAContainer = styled.div`
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
 
-const TerminalText: React.FC<TerminalTextProps> = () => {
-  const [cursorPosition, setCursorPosition] = useState<number>(1);
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const CTAButton = styled.button`
+  font-family: "Inter", sans-serif;
+  padding: 18px 45px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #cc3d3d;
+  transition: all 0.15s ease;
+  @media (max-width: 768px) {
+    padding: 15px 35px;
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    padding: 12px 25px;
+    font-size: 12px;
+  }
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #cc3d3d;
+  }
+`;
+
+interface TerminalTextProps {
+  setModalOpen?: (isOpen: boolean) => void;
+}
+
+const TerminalText: React.FC<TerminalTextProps> = ({ setModalOpen }) => {
+  const [cursorPosition, setCursorPosition] = useState<number>(1); // 1 = first line, 2 = second line
   const [firstLineText, setFirstLineText] = useState<string>("");
   const [secondLineText, setSecondLineText] = useState<string>("");
   const [blinkCount, setBlinkCount] = useState<number>(0);
-  const [animationStage, setAnimationStage] = useState<number>(0);
-
-  // iOS Landscape Detection Hook - SSR Safe
-  useEffect(() => {
-    // Only run in browser environment
-    if (typeof window === "undefined" || typeof document === "undefined")
-      return;
-
-    const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-    const handleResize = () => {
-      if (isIOS && window.innerWidth > window.innerHeight) {
-        document.body.classList.add("ios-landscape");
-      } else {
-        document.body.classList.remove("ios-landscape");
-      }
-    };
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("orientationchange", handleResize);
-
-    // Run immediately
-    handleResize();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("orientationchange", handleResize);
-      // Clean up class on unmount
-      if (typeof document !== "undefined") {
-        document.body.classList.remove("ios-landscape");
-      }
-    };
-  }, []);
+  const [animationStage, setAnimationStage] = useState<number>(0); // Control cursor visibility
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -154,9 +125,10 @@ const TerminalText: React.FC<TerminalTextProps> = () => {
       // Stage 0: Initial blinking (4 times)
       if (animationStage === 0) {
         if (blinkCount < 8) {
+          // 4 full blinks (on-off cycles) = 8 states
           timer = setTimeout(() => {
             setBlinkCount((prevCount) => prevCount + 1);
-          }, 500);
+          }, 500); // Slower blink rate (500ms per state)
         } else {
           setAnimationStage(1);
           setBlinkCount(0);
@@ -177,6 +149,7 @@ const TerminalText: React.FC<TerminalTextProps> = () => {
       // Stage 2: Blinking before second line (4 times)
       else if (animationStage === 2) {
         if (blinkCount < 8) {
+          // 4 full blinks
           timer = setTimeout(() => {
             setBlinkCount((prevCount) => prevCount + 1);
           }, 500);
@@ -193,31 +166,40 @@ const TerminalText: React.FC<TerminalTextProps> = () => {
             setSecondLineText(text.substring(0, secondLineText.length + 1));
           }, 75);
         } else {
-          setAnimationStage(4);
+          setAnimationStage(4); // Final state - just keep blinking
         }
       }
     };
-
     runAnimation();
-
     return () => {
       clearTimeout(timer);
     };
   }, [animationStage, blinkCount, firstLineText, secondLineText]);
 
   return (
-    <TerminalContainer>
-      <Term>
-        <TextLine>
-          {firstLineText}
-          {cursorPosition === 1 && <Cursor>_</Cursor>}
-        </TextLine>
-        <TextLine>
-          {secondLineText}
-          {cursorPosition === 2 && <Cursor>_</Cursor>}
-        </TextLine>
-      </Term>
-    </TerminalContainer>
+    <>
+      <TerminalContainer>
+        <Term>
+          <TextLine>
+            {firstLineText}
+            {cursorPosition === 1 && <Cursor>_</Cursor>}
+          </TextLine>
+          <TextLine>
+            {secondLineText}
+            {cursorPosition === 2 && <Cursor>_</Cursor>}
+          </TextLine>
+        </Term>
+      </TerminalContainer>
+
+      {setModalOpen && (
+        <CTAContainer>
+          <div className="font-mono text-lg text-white">TO FIND OUT MORE</div>
+          <CTAButton onClick={() => setModalOpen(true)}>
+            REQUEST INVITE
+          </CTAButton>
+        </CTAContainer>
+      )}
+    </>
   );
 };
 

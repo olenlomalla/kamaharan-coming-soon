@@ -17,20 +17,13 @@ const PrivacyPolicyForm: React.FC = () => {
       <header className="border-b border-gray-100 bg-white shadow-sm">
         <div className="container-custom">
           <div className="flex items-center justify-between py-6">
-            {/* Logo Box - Far Left */}
-            <div className="rounded-md bg-purple-900 p-2">
+            {/* Logo - Far Left */}
+            <div>
               <img
-                src="/icons/logo-white.svg"
+                src="/images/Kamaharan Logo.png"
                 alt="Kamaharan Logo"
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
-            </div>
-
-            {/* Title - Center Left */}
-            <div className="ml-4 flex-1">
-              <h1 className="text-xl font-semibold text-umrah-darkPurple">
-                Development Programme
-              </h1>
             </div>
 
             {/* Navigation */}

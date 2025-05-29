@@ -37,7 +37,7 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const PrivacyPolicyForm = lazy(() => import("./pages/PrivacyPolicyForm"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
-const SistersEvent = lazy(() => import("./pages/SistersEvent"));
+const SistersEvent = lazy(() => import("./pages/SistersEvent.tsx"));
 
 export const router = createBrowserRouter([
   {

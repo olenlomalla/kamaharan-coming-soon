@@ -40,25 +40,28 @@ const TerminalContainer = styled.div`
   margin: 0;
   padding: 0;
   z-index: 100;
-  margin-top: 0; /* Remove negative margin - keep static */
-  position: static; /* Static positioning */
+  margin-top: 0;
+  position: static;
   overflow: visible !important;
 
   @media (max-width: 768px) {
-    margin-top: 0; /* Keep at 0 */
+    margin-top: 0;
     width: 80%;
   }
 
   @media (max-width: 900px) and (orientation: landscape) {
     width: 40%;
-    margin-top: 0; /* Keep at 0 */
-    margin-left: calc(5% + env(safe-area-inset-left));
+    margin-top: 0;
+    margin-left: calc(5% + env(safe-area-inset-left, 0px));
     position: static;
   }
 
-  body.ios-landscape & {
-    width: 55% !important;
-    margin-left: calc(3% + env(safe-area-inset-left)) !important;
+  /* Use CSS feature detection instead of JS for iOS */
+  @supports (-webkit-touch-callout: none) {
+    @media (max-width: 900px) and (orientation: landscape) {
+      width: 55% !important;
+      margin-left: calc(3% + env(safe-area-inset-left, 0px)) !important;
+    }
   }
 `;
 
@@ -109,7 +112,17 @@ const Term = styled.div`
     letter-spacing: 0.5px !important;
   }
 
-  body.ios-landscape & {
+  /* Use CSS feature detection for iOS instead of JS body class */
+  @supports (-webkit-touch-callout: none) {
+    @media (max-width: 900px) and (orientation: landscape) {
+      font-size: 24px !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.5px !important;
+    }
+  }
+
+  /* Fallback landscape styles for all devices */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
     font-size: 24px !important;
     line-height: 1.2 !important;
     letter-spacing: 0.5px !important;

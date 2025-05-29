@@ -75,7 +75,13 @@ const CTAContainer = styled.div`
   gap: 20px;
   z-index: 20;
 
-  @media (min-width: 768px) {
+  /* Hide on desktop when there's enough space for layout CTA */
+  @media (min-width: 768px) and (min-height: 600px) {
+    display: none;
+  }
+
+  /* Also hide on mobile landscape - layout handles CTA there */
+  @media (max-width: 767px) and (orientation: landscape) {
     display: none;
   }
 `;

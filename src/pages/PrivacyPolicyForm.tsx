@@ -20,7 +20,7 @@ const PrivacyPolicyForm: React.FC = () => {
             {/* Logo - Far Left */}
             <div>
               <img
-                src="/images/KamaharanLogo.png"
+                src="/KamaharanLogo.png"
                 alt="Kamaharan Logo"
                 className="h-12 w-auto"
               />

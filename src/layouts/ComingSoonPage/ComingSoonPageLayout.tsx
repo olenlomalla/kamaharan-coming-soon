@@ -10,11 +10,8 @@ const ComingSoonPageLayout: React.FC = () => {
       {/* Desktop Layout */}
       <div className="mx-auto mb-8 hidden w-full max-w-[1440px] grid-cols-2 gap-6 px-6 md:grid md:px-10">
         {/* Terminal Text */}
-        <div
-          className="relative flex items-end overflow-visible"
-          style={{ minHeight: "200px" }}
-        >
-          <div className="relative z-50 w-[150%] origin-bottom-left scale-[0.65] overflow-visible">
+        <div className="flex items-end overflow-hidden">
+          <div className="w-[150%] origin-bottom-left scale-[0.65]">
             <TerminalText />
           </div>
         </div>
@@ -48,13 +45,10 @@ const ComingSoonPageLayout: React.FC = () => {
       {/* Mobile Layout */}
       <div className="flex w-full flex-col items-center md:hidden">
         {/* Portrait */}
-        <div className="flex h-[60vh] w-full flex-col items-center justify-between overflow-visible px-4 py-8 landscape:hidden">
+        <div className="flex h-[60vh] w-full flex-col items-center justify-between px-4 py-8 landscape:hidden">
           <div className="flex-1" />
-          <div
-            className="relative mb-8 flex w-full items-end overflow-visible"
-            style={{ minHeight: "120px" }}
-          >
-            <div className="relative z-50 w-[120%] origin-bottom-left scale-[0.6] overflow-visible">
+          <div className="mb-8 flex w-full items-end">
+            <div className="w-[120%] origin-bottom-left scale-[0.6]">
               <TerminalText />
             </div>
           </div>
@@ -82,12 +76,9 @@ const ComingSoonPageLayout: React.FC = () => {
         </div>
 
         {/* Landscape - No CTA */}
-        <div className="flex w-full items-center justify-between overflow-visible px-6 py-4 portrait:hidden">
-          <div
-            className="relative w-1/2 overflow-visible"
-            style={{ minHeight: "100px" }}
-          >
-            <div className="relative z-50 w-[140%] origin-bottom-left scale-[0.5] overflow-visible">
+        <div className="flex w-full items-center justify-between px-6 py-4 portrait:hidden">
+          <div className="w-1/2 overflow-hidden">
+            <div className="w-[140%] origin-bottom-left scale-[0.5]">
               <TerminalText />
             </div>
           </div>

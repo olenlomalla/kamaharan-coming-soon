@@ -35,7 +35,9 @@ const KForBusiness = lazy(() => import("./pages/KForBusiness/KForBusiness"));
 const BrothersUmrah = lazy(() => import("./pages/BrothersUmrah"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const PrivacyPolicyForm = lazy(() => import("./pages/PrivacyPolicyForm"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
+const SistersEvent = lazy(() => import("./pages/SistersEvent"));
 
 export const router = createBrowserRouter([
   {
@@ -95,12 +97,20 @@ export const router = createBrowserRouter([
     element: wrapWithProviders(BrothersUmrah),
   },
   {
+    path: "/sistersevent",
+    element: wrapWithProviders(SistersEvent),
+  },
+  {
     path: "/terms",
     element: wrapWithProviders(TermsAndConditions),
   },
   {
     path: "/privacy",
     element: wrapWithProviders(PrivacyPolicy),
+  },
+  {
+    path: "/privacy-form",
+    element: wrapWithProviders(PrivacyPolicyForm),
   },
   {
     path: "*",

@@ -3,7 +3,7 @@ import React from "react";
 import TerminalText from "@/components/coming-soon-page/TerminalText";
 
 const ComingSoonPageLayout: React.FC = () => {
-  const formUrl = "https://share.hsforms.com/1trrAEFMxSNO-kESKt3ZQYwtchxu";
+  const formUrl = "https://share.hsforms.com/1gMNcBzcuQMSNMQvGmcUAJQtchxu";
 
   return (
     <div className="relative z-10 flex min-h-[100svh] w-full flex-col justify-end">
@@ -29,7 +29,7 @@ const ComingSoonPageLayout: React.FC = () => {
               rel="noopener noreferrer"
               className="rounded bg-red-600 px-6 py-2 text-sm font-medium uppercase tracking-wider text-white transition-colors hover:bg-red-700"
             >
-              REQUEST INVITE
+              GET UPDATED
             </a>
           </div>
 
@@ -64,7 +64,7 @@ const ComingSoonPageLayout: React.FC = () => {
               rel="noopener noreferrer"
               className="rounded bg-red-600 px-6 py-2 text-sm font-medium uppercase tracking-wider text-white transition-colors hover:bg-red-700"
             >
-              REQUEST INVITE
+              GET UPDATED
             </a>
           </div>
 
@@ -95,7 +95,7 @@ const ComingSoonPageLayout: React.FC = () => {
                 rel="noopener noreferrer"
                 className="rounded bg-red-600 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-white transition-colors hover:bg-red-700"
               >
-                REQUEST INVITE
+                GET UPDATED
               </a>
             </div>
 

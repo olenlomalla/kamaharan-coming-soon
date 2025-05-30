@@ -294,7 +294,7 @@ const PrivacyPolicyForm: React.FC = () => {
           {/* Bottom: Copyright */}
           <div className="border-t border-umrah-purple pt-6">
             <p className="text-umrah-lightPurple text-center text-sm">
-              © {new Date().getFullYear()} Kamaharan • Empowering potential
+              Kamaharan © {new Date().getFullYear()} • Empowering potential
             </p>
           </div>
         </div>
